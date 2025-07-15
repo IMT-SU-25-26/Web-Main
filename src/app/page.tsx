@@ -7,7 +7,7 @@ export default function Home() {
     // </div>
     <>
     <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
+      <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
           <div className="relative z-10 w-fit h-full flex items-center justify-center">
             <Image className="z-[8]  top-0" src={"/home/su-imt-home-red-bubble.svg"} draggable="false" width={924} height={560} alt="red-bubble"></Image>
             <Image className="absolute z-[9] top-[6rem] left-[5rem]" src={"/home/su-imt-home-yellow-bubble.svg"} draggable="false" width={628} height={380} alt="mid-bubble"></Image>

@@ -27,7 +27,7 @@ function navbar() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className='fixed top-[10vh] left-0 w-screen bg-white/90 backdrop-blur-sm bg-opacity-50 z-[1000]' onClick={() => setMobileMenuOpen(false)}>
+        <div className='fixed top-[10vh] left-0 w-screen bg-slate-50/90 backdrop-blur-sm shadow-lg bg-opacity-50 z-[1000]' onClick={() => setMobileMenuOpen(false)}>
           <div className='flex flex-col gap-4'>
               <Link 
                 className='text-black text-right mr-14 hover:text-red-500 py-2 text-lg' 
