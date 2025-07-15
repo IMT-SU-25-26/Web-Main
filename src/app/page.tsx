@@ -44,11 +44,11 @@ export default function Home() {
           </div>
 
           {/* Our values section */}
-          <div className="w-screen flex flex-col justify-center items-center mt-20">
+          <div className="relative w-screen min-h-screen flex flex-col justify-center items-center">
             <h1 className="text-4xl text-black font-bold">OUR VALUES</h1>
             <Image className="mt-4" src={"/home/step.svg"} draggable="false" width={277.89} height={113} alt="red-bubble"></Image>
             
-            <div className="mt-20 grid grid-cols-4 gap-10">
+            <div className="mt-20 grid grid-cols-4 gap-20">
                 {/* card 1 */}
                 <div className="relative bg-[#F7A7C2] rounded-2xl w-[292px] h-[250px]">
                   <div className="p-4 absolute w-full h-full bg-[#EB427B] rounded-2xl rotate-[-6deg] left-3 flex flex-col gap-1">
@@ -58,11 +58,44 @@ export default function Home() {
                       <h1 className="text-3xl text-white font-bold">STRIVE</h1>
                       <h1 className="text-xl text-white">Lorem ipsum</h1>
                   </div>
+                  <Image className="absolute -top-[3rem] -right-[1rem] w-[4rem] h-auto" width={500} height={500} src="/home/pin-yellow.png" alt="pin-yellow"></Image>
                 </div>
-                <div className="relative bg-[#ECD682] rounded-2xl w-[292px] h-[250px]"></div>
-                <div className="relative bg-[#AED8AD] rounded-2xl w-[292px] h-[250px]"></div>
-                <div className="relative bg-[#6CAAFF] rounded-2xl w-[292px] h-[250px]"></div>
+                <div className="relative mt-4 bg-[#ECD682] rotate-[2.76deg] rounded-2xl w-[292px] h-[250px]">
+                  <div className="p-4 absolute w-full h-full bg-[#F5C309] -top-[1.5rem] -left-[1rem] rounded-2xl flex flex-col gap-1">
+                      <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
+                        <h1 className="text-[#F5C309] font-bold text-2xl">T</h1>
+                      </div>
+                      <h1 className="text-3xl text-white font-bold">TAKE</h1>
+                      <h1 className="text-3xl text-white font-bold">RESPONSIBILITY</h1>
+                      <h1 className="text-xl text-white">Lorem ipsum</h1>
+                  </div>
+                </div>
+                <div className="relative mt-4 bg-[#AED8AD] rotate-[2.27deg] rounded-2xl w-[292px] h-[250px]">
+                  <div className="p-4 absolute w-full h-full bg-[#37951D] rounded-2xl rotate-[-2.27deg] -left-[0.2rem] -top-[1rem] flex flex-col gap-1">
+                      <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
+                        <h1 className="text-[#37951D] font-bold text-2xl">E</h1>
+                      </div>
+                      <h1 className="text-3xl text-white font-bold">EXPLORE</h1>
+                      <h1 className="text-xl text-white">Lorem ipsum</h1>
+                  </div>
+                  <Image className="absolute top-[-2rem] right-[25%] w-[9.5rem] h-auto" width={500} height={500} src="/home/tape.png" alt="tape"></Image>
+                </div>
+                <div className="mt-4 relative bg-[#6CAAFF] rotate-[-13.06deg] rounded-2xl w-[292px] h-[250px]">
+                  <div className="p-4 absolute w-full h-full bg-[#0E53B2] rounded-2xl rotate-[5.61deg] -left-[0.25rem] -top-[0.25rem] flex flex-col gap-1">
+                      <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
+                        <h1 className="text-[#0E53B2] font-bold text-2xl">P</h1>
+                      </div>
+                      <h1 className="text-3xl text-white font-bold">PIONEER</h1>
+                      <h1 className="text-xl text-white">Lorem ipsum</h1>
+                  </div>
+                  <Image className="absolute -top-[5rem] -right-[4rem] w-[8.5rem] h-auto" width={500} height={500} src="/home/clipper.png" alt="tape"></Image>
+                </div>
             </div>
+            <Image className="absolute w-[20%] bottom-0 left-0" src={"/home/sobekan-bottom-left.png"} draggable="false" width={422} height={376} alt="sobekan-left"></Image>
+            <Image className="absolute bottom-0 left-0" src={"/home/heart.png"} draggable="false" width={200} height={200} alt="heart"></Image>
+            <Image className="absolute w-[20%] bottom-0 right-0" src={"/home/sobekan-bottom-right.png"} draggable="false" width={629} height={400} alt="sobekan-right"></Image>
+            <Image className="absolute bottom-0 right-0" src={"/home/laptop.png"} draggable="false" width={313.12} height={238.42} alt="laptop"></Image>
+            <Image className="absolute bottom-20 right-22" src={"/home/laptop-spark.png"} draggable="false" width={147} height={185} alt="laptop-spark"></Image>
           </div>
       </div>
     </>
