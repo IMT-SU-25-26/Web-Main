@@ -8,10 +8,10 @@ function navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <nav className='z-[1000] fixed flex items-center px-12 justify-between w-screen min-h-[10vh] bg-[#fff] border-b-2 border-[#E93400] text-black'>
-      <Link href="/" className='cursor-pointer'>
-        <Image src={"/logos/su-logo.svg"} width={75} height={75} alt='su-logo'></Image>
+      <Link href="/" className='w-[38px] sm:w-[32px] md:w-[52px] lg:w-[48px] xl:w-[48px] 2xl:w-[75px] h-auto cursor-pointer'>
+        <Image src={"/logos/su-logo.svg"} width={100} height={100} alt='su-logo'></Image>
       </Link>
-      <div className='hidden lg:flex gap-4 items-center'>
+      <div className='hidden lg:text-xl xl:text-xl 2xl:text-2xl lg:flex gap-4 xl:gap-8 items-center'>
         <Link className='cursor-pointer hover:underline hover:text-red-500' href="/events">Events</Link>
         <Link className='cursor-pointer hover:underline hover:text-blue-500' href="/achievements">Achievements</Link>
         <Link className='cursor-pointer hover:underline hover:text-yellow-500' href="/activities">Activities</Link>
