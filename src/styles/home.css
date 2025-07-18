@@ -1724,7 +1724,198 @@
     
 }
 @media(max-width: 1024px) and (max-height: 600px) {
-    
+     /* start welcome part */
+    .red-bubble{
+        width: 40rem;
+        height: auto;
+    }
+    .yellow-bubble{
+        top: 3.5rem;
+        left: 4rem;
+        width: 27.5rem;
+        height: auto;
+    }
+    .front-bubble{
+        top: 4.4rem;
+        left: 6rem;
+        width: 24.5rem;
+        height: auto;
+    }
+    .welcome{
+        top: 5rem;
+        left: 9.5rem;
+        width: 16rem;
+        height: auto;
+    }
+    .to-text{
+        top: 10rem;
+        left: 42%;
+        width: 2.25rem;
+        height: auto;
+    }
+    .su-imt-text{
+        top: 10.75rem;
+        left: 24%;
+        width: 18.5rem;
+        height: auto;
+    }
+    .demon-cat{
+        top: 8rem;
+        left: 6.5rem;
+        width: 4rem;
+        height: auto;
+    }
+    .stars-left{
+        top: 11.5rem;
+        left: 8.5rem;
+        width: 2rem;
+        height: auto;
+    }
+    .stars-right{
+        top: 7rem;
+        right: 12.5rem;
+        width: 2.5rem;
+        height: auto;
+    }
+    .title-background{
+        top: 21rem;
+        left: 3.5rem;
+        width: 32.5rem;
+        height: auto;
+    }
+    .title-text{
+        left: 22.5rem;
+        font-size: 1rem;
+        height: auto;
+    }
+    /* end welcome part */
+
+    /* start about part */
+    .card-left{
+        min-width:  350px;
+        min-height: 160px;
+    }
+    .about-us-title-text{
+        font-size: 1.5rem;
+    }
+    .about-us-description-text{
+        font-size: 0.75rem;
+        max-width: 275px;
+    }
+    .handle-card{
+        top: 4rem;
+        left: -4.5rem;
+        width: 6rem;
+        height: auto;
+    }
+    .star-card{
+        bottom: -1rem;
+        right: -2rem;
+        width: 6rem;
+        height: auto;
+    }
+    .background-card-right{
+        top: 2rem;
+        right: 0rem;
+        width: 308px;
+        min-width: 308px;
+        height: 290px;
+    }
+    .card-right{
+        min-width:  305px;
+        min-height: 290px;
+    }
+    .pin{
+        top: -3.5rem;
+        right: -3.25rem;
+        width: 10rem;
+        height: auto;
+    }
+    .triangle{
+        top: -0.1rem;
+        right: -0.2rem;
+        width: 2rem;
+        height: auto;
+    }
+    .about-us-image-container{
+        width: 280px;
+        height: 220px;
+    }
+    .photo-title{
+        margin-left: -2rem;
+        font-size: 1.25rem;
+    }
+    /* end about part */
+
+    /* start our values part */
+    .our-values-text{
+        margin-top: 6rem;
+        font-size: 2.5rem;
+    }
+    .step{
+        width: 8rem;
+        height: auto;
+    }
+    .strive-card{
+        width: 210px;
+        height: 170px;
+    }
+    .strive-inner{
+        top: 0.5rem;
+    }
+    .take-responsibility-card{
+        width: 210px;
+        height: 170px;
+    }
+    .explore-card{
+        width: 210px;
+        height: 170px;
+    }
+    .pioneer-card{
+        width: 210px;
+        height: 170px;
+    }
+    .circle-card{
+        width: 30px;
+        height: 30px;
+    }
+    .circle-card h1{
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .card-title{
+        font-size: 1rem;
+    }
+    .card-description{
+        font-size: 0.75rem;
+    }
+    .inner-card{
+        padding: 1rem;
+    }
+    .yellow-pin{
+        top: -2rem;
+        right: -1rem;
+        width: 3rem;
+        height: auto;
+    }
+    .clipper{
+        top: -4rem;
+        right: -3rem;
+        width: 8rem;
+        height: auto;
+    }
+    .tape{
+        width: 8rem;
+        height: auto;
+    }
+    .about-us-container{
+        gap: 8rem;
+    }
+    /* end our values part */
+    .cards-container{
+        gap: 2.5rem;
+        padding-bottom: 14rem;
+    }
 }
 @media(max-width: 956px) and (max-height: 440px) and (orientation: landscape) {
     
