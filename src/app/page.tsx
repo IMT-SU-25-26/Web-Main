@@ -52,7 +52,7 @@ export default function Home() {
             <div className="cards-container mt-20 grid grid-cols-4 gap-20">
                 {/* card 1 */}
                 <div className="strive-card relative bg-[#F7A7C2] rounded-2xl w-[292px] h-[250px]">
-                  <div className="inner-card p-4 absolute w-full h-full bg-[#EB427B] rounded-2xl rotate-[-6deg] top-5 left-3 flex flex-col gap-1">
+                  <div className="strive-inner inner-card p-4 absolute w-full h-full bg-[#EB427B] rounded-2xl rotate-[-6deg] top-5 left-3 flex flex-col gap-1">
                       <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
                         <h1 className="text-[#EB427B] font-bold text-2xl">S</h1>
                       </div>
