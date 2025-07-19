@@ -11,6 +11,8 @@ export default function Home() {
       <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
           <div className="relative z-10 w-fit h-full flex items-center justify-center">
             <Image className="red-bubble z-[8] top-0" src={"/home/su-imt-home-red-bubble.svg"} draggable="false" width={924} height={560} alt="red-bubble"></Image>
+            <Image className="dragon absolute z-[9] w-[12rem] h-auto bottom-[4rem] -left-[12rem]" src={"/home/dragon.svg"} draggable="false" width={628} height={380} alt="mid-bubble"></Image>
+            <Image className="among-us absolute z-[9] w-[8rem] h-auto bottom-[4rem] -right-[12rem]" src={"/home/among-us.svg"} draggable="false" width={628} height={380} alt="mid-bubble"></Image>
             <Image className="yellow-bubble absolute z-[9] top-[6rem] left-[5rem]" src={"/home/su-imt-home-yellow-bubble.svg"} draggable="false" width={628} height={380} alt="mid-bubble"></Image>
             <Image className="front-bubble absolute z-[10] top-[7.5rem] left-[8rem]" src={"/home/su-imt-home-front-buble.svg"} draggable="false" width={547} height={334} alt="front-bubble"></Image>
             <Image className="welcome absolute z-[10] top-[8.5rem] left-[14rem]" src={"/home/welcome.svg"} draggable="false" width={324.6} height={193.7} alt="su-welcome"></Image>
