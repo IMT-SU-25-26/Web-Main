@@ -8,7 +8,7 @@ export default function Home() {
       <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] pb-20">
         {/* Main Title */}
         <div className="relative flex justify-center items-center mt-8 w-full px-4 sm:w-[27.5rem] h-[8.75rem]">
-          <h1 className="text-black font-extrabold text-3xl sm:text-4xl z-10 -rotate-3 -top-[1rem] relative -tracking-[0.08rem] text-center">
+          <h1 className="text-black font-extrabold text-2xl sm:text-4xl z-10 -rotate-3 -top-[1.3rem] sm:-top-[1rem] relative -tracking-[0.08rem] text-center">
             COMMITTEE MEMBERS
           </h1>
           <Image
@@ -16,21 +16,21 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="absolute left-1/2 -translate-x-1/2 w-full h-auto z-0"
+            className="absolute left-1/2 -translate-x-1/2 w-[18.5rem] sm:w-full lg:w-full h-auto z-0"
           />
           <Image
             src="/comittee/rectanglecomitteememberfront.svg"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="absolute left-1/2 -translate-x-1/2 w-full h-auto z-0 -top-[0.05rem]"
+            className="absolute left-1/2 -translate-x-1/2 w-[18.5rem] sm:w-full lg:w-full h-auto z-0 top-[0.8rem] sm:-top-[0.05rem]"
           />
           <Image
             src="/comittee/paperclip.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="absolute w-[3.5rem] sm:w-[4.5rem] h-auto z-0 -top-[0.05rem] -left-[0.5rem] sm:-left-[1rem]"
+            className="absolute w-[3.5rem] sm:w-[4.5rem] h-auto z-0 top-[0.8rem] -translate-x-34 sm:left-[7.5rem] sm:top-[0.05rem]"
           />
         </div>
 
@@ -44,7 +44,7 @@ export default function Home() {
             alt="Committee decoration"
             width={600}
             height={120}
-            className="absolute left-1/2 -translate-x-1/2 w-[19rem] sm:w-[22rem] lg:w-[20rem] h-auto z-0"
+            className="absolute left-1/2 -translate-x-1/2 w-[17rem] sm:w-[22rem] lg:w-[23rem] h-auto z-0"
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
@@ -138,7 +138,7 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="absolute left-[3.6rem] sm:-left-[1.3rem] top-[2.4rem] sm:top-[2rem] w-[2rem] sm:w-[3rem] h-auto z-0"
+            className="absolute -translate-x-34  sm:left-[7rem] top-[2.4rem] sm:top-[2rem] w-[2rem] sm:w-[3rem] h-auto z-0"
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
