@@ -1,9 +1,9 @@
 import Image from "next/image"; 
-import "@/styles/achievements.css";
 // import AchievementCard from '@/components/AchievementCard';
 import AchievementFeatured from '@/components/AchievementFeatured';
 import mockFeaturedAchievements from '@/mockData/mockFeaturedAchievements';
-
+import { AchievementCard } from '@/components/AchievementCard';
+import { mockAchievements } from '@/mockData/mockAchievements';
 
 export default async function AchievementsPage() {
     return (
@@ -15,7 +15,7 @@ export default async function AchievementsPage() {
             <>
                 
                 <Image
-                className="absolute top-[1.8rem] left-[50%] translate-x-[-50%] w-[20rem]"
+                className="z-10 absolute top-[1.8rem] left-[50%] translate-x-[-50%] w-[20rem]"
                 src="/achievements/page-title.png"
                 alt="page title"
                 width={480}
@@ -81,13 +81,15 @@ export default async function AchievementsPage() {
 
             {/* Main Content */}
             <div className="flex flex-col items-center justify-center w-full h-full">
-                <div className="p-6">
+                <div className="pt-[10rem]">
                     {mockFeaturedAchievements.map((item, index) => (
                         <AchievementFeatured key={index} {...item} />
                     ))}
                 </div>
-                <section>
-                    
+                <section className="flex flex-wrap justify-center gap-4 px-4">
+                {mockAchievements.map((achievement) => (
+                    <AchievementCard key={achievement.id} {...achievement} />
+                ))}
                 </section>
             </div>
         </div>
