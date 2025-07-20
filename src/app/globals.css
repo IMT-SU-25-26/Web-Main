@@ -3,6 +3,9 @@
 :root {
   --background: #F1EEE6;
   --foreground: #171717;
+   /* Custom font families */
+  --font-gill-sans: 'Gill Sans MT', sans-serif;
+  --font-impact: 'Impact Custom', Impact, sans-serif;
 }
 
 /* @theme inline {
@@ -37,4 +40,10 @@ body {
     src: url('/fonts/Impact.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+/* Register fonts with Tailwind */
+@theme {
+  --font-gill: var(--font-gill-sans);
+  --font-impact: var(--font-impact);
 }

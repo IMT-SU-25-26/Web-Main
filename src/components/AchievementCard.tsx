@@ -39,7 +39,7 @@ export const AchievementCard: FC<AchievementCardProps> = ({
             <h3 className="text-black text-xl font-extrabold">{title}</h3>
 
             <span
-            className={`uppercase font-[Impact] ${colorMap[borderColor]} text-white text-[12px] px-2 py-1 inline-block mt-1 tracking-wide`}
+            className={`uppercase font-impact ${colorMap[borderColor]} text-white text-[12px] px-2 py-1 inline-block mt-1 tracking-wide`}
             style={{ transform: 'rotate(-0.8deg)' }}
             >
             {type}
