@@ -40,7 +40,7 @@ const AchievementFeatured: FC<AchievementFeaturedProps> = ({
             <div className="flex flex-col justify-start gap-2 text-sm max-w-xl">
                 <div className="flex items-center flex-wrap gap-2">
                     <span 
-                        className="uppercase bg-[#ED4E45] text-white px-2 py-1"
+                        className="font-impact uppercase bg-[#ED4E45] text-white px-2 py-1"
                         style={{ transform: "rotate(-0.8deg)" }}    
                     >
                         {title}
