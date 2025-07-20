@@ -1,4 +1,12 @@
-export const mockAchievements = [
+type mockAchiProps = {
+    id:number;
+    title: string;
+    type: string;
+    description: string;
+    borderColor: "blue" | "green" | "pink" | "red" | "yellow" | "gray";
+}
+
+export const mockAchievements:mockAchiProps[] = [
     {
         id: 1,
         title: "Title",

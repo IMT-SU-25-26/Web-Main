@@ -6,6 +6,8 @@ import { AchievementCard } from '@/components/AchievementCard';
 import { mockAchievements } from '@/mockData/mockAchievements';
 
 export default async function AchievementsPage() {
+
+
     return (
         <>
         <div className="h-[10vh] bg-[#F1EEE6]"></div>
