@@ -46,19 +46,19 @@ const AchievementFeatured: FC<AchievementFeaturedProps> = ({
                         {title}
                     </span>
                     <span
-                        className="bg-[#F7C235] text-black px-1 py-0.5"
+                        className="font-impact bg-[#F7C235] text-black px-1 py-0.5"
                         style={{
                             transform: "rotate(0.8deg)",
                             fontSize: "12px",
-                            fontWeight: 500, // optional: same as font-semibold
+                            fontWeight: 100, // optional: same as font-semibold
                             lineHeight: "1rem", // optional: controls text height
                         }}
                         >
                         {date}
                     </span>
                 </div>
-                <div className="max-w-md">
-                <p className="text-gray-800 leading-relaxed">
+                <div className="max-w-md font-bold">
+                <p className="font-gill text-gray-800 leading-relaxed font-bold">
                     {description}
                 </p>
                 </div>

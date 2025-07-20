@@ -45,7 +45,7 @@ export const AchievementCard: FC<AchievementCardProps> = ({
             {type}
             </span>
 
-            <p className="mt-1 text-sm text-black leading-snug">{description}</p>
+            <p className="font-gill mt-1 text-sm text-black leading-snug">{description}</p>
         </div>
         </div>
     );
