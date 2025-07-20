@@ -1,0 +1,110 @@
+@media(max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
+    .comittee-card {
+        width: 8rem;
+        height: 13rem;
+    }
+    .comittee-pp {
+        width: 6rem;
+        height: 6rem;
+    }
+    .comittee-role {
+        width: 6rem;
+        height: 2rem;
+        font-size: 0.75rem;
+    }
+    .crown-blue {
+        width: 5rem;
+        height: 5rem;
+        left: -0.5rem;
+        top: -1.5rem;
+    }
+    .mic {
+        width: 5rem;
+        height: 5rem;
+        bottom: 4.5rem;
+        right: -0.3rem;
+    }
+    .viking {
+        width: 5rem;
+        height: 5rem;
+        top: -2rem;
+        right: 1.5rem;
+    }
+    .book {
+        width: 5rem;
+        height: 5rem;
+        bottom: 4.5rem;
+        right: -0.3rem;
+    }
+    .money {
+        width: 5rem;
+        height: 5rem;
+        bottom: 4.8rem;
+    }
+    .house-blue {
+        width: 4rem;
+        height: 4rem;
+        bottom: 4.8rem;
+        right: 0.5rem;
+    }
+    .house-pink {
+        width: 3.8rem;
+        height: auto;
+        bottom: 5rem;
+        right: 0.5rem;
+    }
+    .leaf {
+        width: 3.1rem;
+        height: auto;
+        bottom: 5rem;
+        right: 0.5rem;
+    }
+    .paint-pink {
+        width: 5rem;
+        height: auto;
+        bottom: 4.8rem;
+        right: -0.2rem;
+    }
+    .paint-blue {
+        width: 4.5rem;
+        height: auto;
+        bottom: 4.8rem;
+        right: -0.2rem;
+    }
+    .camera {
+        width: 5rem;
+        height: auto;
+        bottom: 4.8rem;
+        right: -0.2rem;
+    }
+    .crown-pink {
+        width: 6rem;
+        height: 6rem;
+        left: -1.2rem;
+        top: -2rem;
+    }
+    .statue-pink {
+        width: 5rem;
+        height: 5rem;
+        bottom: 4.8rem;
+        right: -0.2rem;
+    }
+    .statue-blue {
+        width: 4.5rem;
+        height: auto;
+        bottom: 5rem;
+        right: 0.6rem;
+    }
+    .megaphone {
+        width: 5rem;
+        height: auto;
+        bottom: 4.8rem;
+        right: -0.2rem;
+    }
+    .laptop {
+        width: 5rem;
+        height: auto;
+        bottom: 4.5rem;
+        right: -0.2rem;
+    }
+}

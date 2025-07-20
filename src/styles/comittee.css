@@ -1,0 +1,17 @@
+@media (min-width: 1250px) {
+    .hod-container, .external-container, .pdddesign-container, .technology-container {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+    .internal-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
+    .hod-container, .external-container, .pdddesign-container, .technology-container, .pdddocumentation-container, .publicrelation-container, .socialactivity-container {
+        gap: 1rem;
+    }
+    .internal-container {
+        gap: 1rem;
+    }
+}

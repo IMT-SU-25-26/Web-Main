@@ -1,6 +1,6 @@
 import Card from "@/components/ComitteeCard";
 import Image from "next/image";
-import styles from "./comittee.module.css";
+import "@/styles/comittee.css";
 
 export default function Home() {
   return (
@@ -48,7 +48,7 @@ export default function Home() {
             className="absolute w-[17rem] sm:w-[23rem] lg:w-[23rem] h-auto z-0"
           />
         </div>
-        <div className={`grid grid-cols-1 sm:grid-cols-3 ${styles.lg2} gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 hod-container gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4`}>
           <Card name="Nama Lengkap" role="PRESIDENT" division="HOD" gender="BOY" />
           <Card name="Nama Lengkap" role="VICE PRES" division="HOD" gender="BOY" />
           <Card name="Nama Lengkap" role="SECRETARY" division="HOD" gender="GIRL" />
@@ -70,7 +70,7 @@ export default function Home() {
             className="absolute top-[3rem] sm:top-[5rem] w-[15rem] sm:w-[19rem] lg:w-[19rem] h-auto z-0"
           />
         </div>
-        <div className={`grid grid-cols-1 sm:grid-cols-3 ${styles.lg21} gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4`}>
+        <div className={`internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4`}>
           <Card name="Nama Lengkap" role="PRESIDENT" division="INTERNAL" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="INTERNAL" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="INTERNAL" gender="BOY" />
@@ -91,7 +91,7 @@ export default function Home() {
             className="absolute top-[4rem] sm:top-[5rem] w-[15rem] sm:w-[19rem] h-auto z-0"
           />
         </div>
-        <div className={`grid grid-cols-1 sm:grid-cols-3 ${styles.lg2} gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 external-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
           <Card name="Nama Lengkap" role="PRESIDENT" division="EXTERNAL" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="EXTERNAL" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="EXTERNAL" gender="BOY" />
@@ -113,7 +113,7 @@ export default function Home() {
             className="absolute top-[4rem] sm:top-[5rem] w-[10rem] sm:w-[12rem] h-auto z-0"
           />
         </div>
-        <div className={`grid grid-cols-1 sm:grid-cols-3 ${styles.lg2} gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 pdddesign-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
           <Card name="Nama Lengkap" role="PRESIDENT" division="PDD DESIGN" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DESIGN" gender="GIRL" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DESIGN" gender="GIRL" />
@@ -142,13 +142,13 @@ export default function Home() {
             className="absolute -translate-x-34  sm:left-[7rem] top-[2.4rem] sm:top-[2rem] w-[2rem] sm:w-[3rem] h-auto z-0"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+        <div className="pdddocumentation-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card name="Nama Lengkap" role="PRESIDENT" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+        <div className="pdddocumentation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-5 justify-center items-center px-4">
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
@@ -167,7 +167,7 @@ export default function Home() {
             className="absolute top-[4rem] sm:top-[5rem] w-[14rem] sm:w-[18rem] h-auto z-0"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+        <div className="publicrelation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card name="Nama Lengkap" role="PRESIDENT" division="PUBLIC RELATION" gender="GIRL" />
           <Card name="Nama Lengkap" role="MEMBER" division="PUBLIC RELATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PUBLIC RELATION" gender="BOY" />
@@ -186,7 +186,7 @@ export default function Home() {
             className="absolute top-[4rem] sm:top-[5rem] w-[13rem] sm:w-[17rem] h-auto z-0"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+        <div className="socialactivity-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card name="Nama Lengkap" role="PRESIDENT" division="SOCIAL ACTIVITY" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="SOCIAL ACTIVITY" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="SOCIAL ACTIVITY" gender="BOY" />
@@ -206,7 +206,7 @@ export default function Home() {
             className="absolute top-[4rem] sm:top-[5rem] w-[12rem] sm:w-[15.5rem] h-auto z-0"
           />
         </div>
-        <div className={`grid grid-cols-1 sm:grid-cols-3 ${styles.lg2} gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 technology-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
           <Card name="Nama Lengkap" role="PRESIDENT" division="TECHNOLOGY" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="TECHNOLOGY" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="TECHNOLOGY" gender="BOY" />
