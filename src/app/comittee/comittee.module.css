@@ -1,0 +1,8 @@
+@media (min-width: 1250px) {
+    .lg2 {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+    .lg21 {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
