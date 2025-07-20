@@ -24,7 +24,6 @@ function navbar() {
         <Link className='cursor-pointer hover:underline hover:text-yellow-500' href="/activities">Activities</Link>
         <Link className='cursor-pointer hover:underline hover:text-purple-500' href="/comittee">Comittee</Link>
         
-        {/* Profile Picture with Dropdown */}
         <div className="relative">
           {isLoading ? (
             <div className="animate-pulse bg-gray-300 w-10 h-10 rounded-full"></div>
@@ -33,7 +32,6 @@ function navbar() {
               className='flex items-center gap-2 cursor-pointer hover:bg-gray-50 rounded-lg px-2 py-1 transition-all'
               onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
             >
-              {/* Avatar */}
               <div className='profile-image rounded-full w-10 h-10 flex items-center justify-center hover:ring-2 hover:ring-blue-300 transition-all'>
                 {isLoggedIn ? (
                   <div className="w-full h-full bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
@@ -48,7 +46,6 @@ function navbar() {
             </div>
           )}
 
-          {/* Profile Dropdown */}
           {profileDropdownOpen && (
             <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-[1002]">
               {isLoggedIn ? (
@@ -125,14 +122,12 @@ function navbar() {
         </div>
       </div>
       
-      {/* Hamburger Menu Button */}
       <div className='flex lg:hidden flex-col gap-1 items-center cursor-pointer z-[1001]' onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
         <div className={`w-7 h-1 bg-black transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
         <div className={`w-7 h-1 bg-black transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
         <div className={`w-7 h-1 bg-black transition-transform duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className='fixed top-[10vh] left-0 w-screen bg-slate-50/90 backdrop-blur-sm shadow-lg bg-opacity-50 z-[1000]' onClick={() => setMobileMenuOpen(false)}>
           <div className='flex flex-col gap-4 p-6'>
@@ -196,7 +191,6 @@ function navbar() {
         </div>
       )}
 
-      {/* Click outside to close dropdown */}
       {profileDropdownOpen && (
         <div 
           className="fixed inset-0 z-[1001]" 
