@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
-function navbar() {
+function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const { data: session, status } = useSession();
@@ -201,4 +201,4 @@ function navbar() {
   )
 }
 
-export default navbar
+export default Navbar
