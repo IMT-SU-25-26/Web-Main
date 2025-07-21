@@ -22,7 +22,7 @@ function navbar() {
         <Link className='cursor-pointer hover:underline hover:text-red-500' href="/events">Events</Link>
         <Link className='cursor-pointer hover:underline hover:text-blue-500' href="/achievements">Achievements</Link>
         <Link className='cursor-pointer hover:underline hover:text-yellow-500' href="/activities">Activities</Link>
-        <Link className='cursor-pointer hover:underline hover:text-purple-500' href="/comittee">Comittee</Link>
+        <Link className='cursor-pointer hover:underline hover:text-purple-500' href="/committee">Comittee</Link>
         
         <div className="relative">
           {isLoading ? (

@@ -1,6 +1,6 @@
 import Card from "@/components/CommitteeCard";
 import Image from "next/image";
-import "@/styles/comittee.css";
+import "@/styles/committee.css";
 
 export default function Home() {
   return (
