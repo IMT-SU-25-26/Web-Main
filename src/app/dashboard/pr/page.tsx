@@ -1,5 +1,5 @@
 import Link from "next/link";
-import AchievementList from "@/components/AchievementList";
+import AchievementList from "@/components/achievement/AchievementList";
 import SkeletonLoader from "@/components/SkeletonLoader";
 import { Suspense } from "react";
 

@@ -1,4 +1,4 @@
-import ActivityForm from "../../../../../components/ActivityForm";
+import ActivityForm from "../../../../../components/activity/ActivityForm";
 import { getActivityById } from "@/lib/activity";
 import { notFound } from "next/navigation";
 

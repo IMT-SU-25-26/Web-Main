@@ -1,30 +1,16 @@
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@theme {
+  --font-family-gill: 'Gill Sans MT', sans-serif;
+  --font-family-impact: 'Impact Custom', Impact, sans-serif;
+  --color-background: #F1EEE6;
+  --color-foreground: #171717;
+}
 
 :root {
   --background: #F1EEE6;
   --foreground: #171717;
-   /* Custom font families */
-  --font-gill-sans: 'Gill Sans MT', sans-serif;
-  --font-impact: 'Impact Custom', Impact, sans-serif;
 }
-
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: var(--background);
@@ -44,10 +30,4 @@ body {
     src: url('/fonts/Impact.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-
-/* Register fonts with Tailwind */
-@theme {
-  --font-gill: var(--font-gill-sans);
-  --font-impact: var(--font-impact);
 }

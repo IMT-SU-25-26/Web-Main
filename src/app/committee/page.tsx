@@ -1,4 +1,4 @@
-import Card from "@/components/ComitteeCard";
+import Card from "@/components/CommitteeCard";
 import Image from "next/image";
 import "@/styles/comittee.css";
 

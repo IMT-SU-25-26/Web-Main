@@ -1,8 +1,8 @@
 import Image from "next/image"; 
 // import AchievementCard from '@/components/AchievementCard';
-import AchievementFeatured from '@/components/AchievementFeatured';
+import AchievementFeatured from '@/components/achievement/AchievementFeatured';
 import mockFeaturedAchievements from '@/mockData/mockFeaturedAchievements';
-import { AchievementCard } from '@/components/AchievementCard';
+import { AchievementCard } from '@/components/achievement/AchievementCard';
 import { mockAchievements } from '@/mockData/mockAchievements';
 
 export default async function AchievementsPage() {
