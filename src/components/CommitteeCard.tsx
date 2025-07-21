@@ -85,15 +85,15 @@ const DIVISION_CONFIG: Record<string, Record<string, (gender: string) => RoleCon
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.MIC],
       color: gender === "GIRL" ? "#F64A78" : "#0555AB"
     }),
-    "VICE PRES": (gender) => ({
+    "VICE PRES": () => ({
       decorations: [DECORATIONS.VIKING],
       color: "#0555AB"
     }),
-    SECRETARY: (gender) => ({
+    SECRETARY: () => ({
       decorations: [DECORATIONS.BOOK],
       color: "#F64A78"
     }),
-    TREASURER: (gender) => ({
+    TREASURER: () => ({
       decorations: [DECORATIONS.MONEY],
       color: "#F64A78"
     })
@@ -113,7 +113,7 @@ const DIVISION_CONFIG: Record<string, Record<string, (gender: string) => RoleCon
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.LEAF],
       color: "#0555AB"
     }),
-    MEMBER: (gender) => ({
+    MEMBER: () => ({
       decorations: [DECORATIONS.LEAF],
       color: "#0555AB"
     })
@@ -133,7 +133,7 @@ const DIVISION_CONFIG: Record<string, Record<string, (gender: string) => RoleCon
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.CAMERA],
       color: "#0555AB"
     }),
-    MEMBER: (gender) => ({
+    MEMBER: () => ({
       decorations: [DECORATIONS.CAMERA],
       color: "#0555AB"
     })
@@ -153,7 +153,7 @@ const DIVISION_CONFIG: Record<string, Record<string, (gender: string) => RoleCon
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.MEGAPHONE],
       color: "#0555AB"
     }),
-    MEMBER: (gender) => ({
+    MEMBER: () => ({
       decorations: [DECORATIONS.MEGAPHONE],
       color: "#0555AB"
     })
