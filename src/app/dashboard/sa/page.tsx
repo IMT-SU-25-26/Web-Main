@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getActivities } from "@/lib/activity";
+import { getActivities } from "@/lib/service/activity";
 
 export default async function ActivitiesPage() {
   const activities = await getActivities();

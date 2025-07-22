@@ -1,12 +1,13 @@
 'use client';
 
-import { FC } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
-interface AchievementCardProps {
+type AchievementCardProps =  {
     title: string;
     type: string;
     description: string;
     borderColor: 'blue' | 'green' | 'pink' | 'red' | 'yellow' | 'gray';
+    id:number;
 }
 
 const colorMap = {
@@ -18,14 +19,18 @@ const colorMap = {
     gray: 'bg-[#CCBCAF]',
 };
 
-export const AchievementCard: FC<AchievementCardProps> = ({
+export const AchievementCard = ({
     title,
     type,
     description,
     borderColor,
-}) => {
+    id,
+} : AchievementCardProps) => {
+    const router = useRouter();
+    const pathname = usePathname();
     return (
         <div
+        onClick={()=>{router.push(`${pathname.replace( /\/$/ ,'')}/${id}`)}}
         className="relative bg-no-repeat bg-cover bg-center w-[320px] h-[400px]"
         style={{ backgroundImage: "url('/achievements/AchievementCardBG.svg')" }}
         >

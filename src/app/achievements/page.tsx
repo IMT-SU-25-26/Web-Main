@@ -4,9 +4,12 @@ import AchievementFeatured from '@/components/achievement/AchievementFeatured';
 import mockFeaturedAchievements from '@/mockData/mockFeaturedAchievements';
 import { AchievementCard } from '@/components/achievement/AchievementCard';
 import { mockAchievements } from '@/mockData/mockAchievements';
+import { getAchievements } from "@/lib/service/achievement";
+import { CldOgImage } from "next-cloudinary";
 
 export default async function AchievementsPage() {
-
+    const achieveData = await getAchievements();
+    console.log(achieveData);
 
     return (
         <>
