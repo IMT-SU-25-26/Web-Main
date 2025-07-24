@@ -3,6 +3,7 @@
 @theme {
   --font-family-gill: 'Gill Sans MT', sans-serif;
   --font-family-impact: 'Impact Custom', Impact, sans-serif;
+  --font-family-haetten: 'Haettenschweiler', sans-serif;
   --color-background: #F1EEE6;
   --color-foreground: #171717;
 }
@@ -30,4 +31,11 @@ body {
     src: url('/fonts/Impact.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+  font-family: 'Haettenschweiler';
+  src: url('/fonts/Hatten.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
