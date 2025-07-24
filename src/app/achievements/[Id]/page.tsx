@@ -19,7 +19,7 @@ const page = ({params} : achievementDetailsProps) => {
                 {/* Decorative Image */}
                 <>
                     <Image 
-                        className='absolute -right-3 -top-7 md:-top-15 w-[100px] md:w-[180px] xl:w-[300px] lg:w-[250px]'
+                        className='absolute -right-3 -top-7 md:-top-15 w-[100px] md:w-[180px] xl:w-[300px] lg:w-[230px]'
                         src="/achievements/achievementDetails/top-right.png" 
                         alt='' 
                         width={300} 
@@ -60,9 +60,9 @@ const page = ({params} : achievementDetailsProps) => {
                         <h1 className='font-impact font-bold text-3xl'>HACKATON WINNERS {id}</h1>
                         <h3 className='font-bold text-xl mb-5'>Team: 3-4 members</h3>
                     </div>
-                    <div className='md:w-[28%] w-[75%] h-[300px] mt-5 md:mt-35 md:h-[260px] lg:h-[472px] relative'>
+                    <div className='w-[340px] md:w-[300px] xl:w-[403px] h-[300px] md:h-[300px] xl:h-[472px] mt-5 md:mt-35 xl:mt-0 relative'>
                         <Image 
-                            className='absolute -left-45 -top-20 w-[600px] md:w-[500px] z-0'
+                            className='absolute -left-45 -top-20 w-[400px] md:w-[500px] z-0'
                             src="/achievements/achievementDetails/decor-bg-circle.png"
                             alt='' 
                             width={720} 
@@ -70,7 +70,7 @@ const page = ({params} : achievementDetailsProps) => {
                         >
                         </Image>
                         <Image 
-                            className='absolute -left-7 md:-left-20 bottom-5 md:-bottom-20 z-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] w-[140px] md:w-[130px] lg:w-[240px]'
+                            className='absolute -left-7 md:-left-10 xl:-left-35 bottom-5 md:-bottom-10 z-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] w-[140px] md:w-[140px] xl:w-[240px]'
                             src="/achievements/achievementDetails/decor-bg-camera.png" 
                             alt='' 
                             width={250} 
@@ -78,8 +78,8 @@ const page = ({params} : achievementDetailsProps) => {
                         >
                         </Image>
                         
-                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[150px] md:w-[150px] -top-10 left-0 md:-left-13 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
-                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[250px] md:w-[200px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[150px] md:w-[150px] xl:w-[250px] -top-10 left-0 md:-left-13 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[250px] md:w-[200px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
 
                     </div>
                     <div className='md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] '>
