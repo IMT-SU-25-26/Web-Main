@@ -1,13 +1,15 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 type AchievementCardProps =  {
     title: string;
     type: string;
     description: string;
     borderColor: 'blue' | 'green' | 'pink' | 'red' | 'yellow' | 'gray';
-    id:number;
+    id:string;
+    imageUrl:string | null,
 }
 
 const colorMap = {
@@ -25,9 +27,12 @@ export const AchievementCard = ({
     description,
     borderColor,
     id,
+    imageUrl,
 } : AchievementCardProps) => {
     const router = useRouter();
     const pathname = usePathname();
+
+    const trimmedDescription = description.length > 75 ? description.slice(0, 75) + "..." : description;
     return (
         <div
         onClick={()=>{router.push(`${pathname.replace( /\/$/ ,'')}/${id}`)}}
@@ -36,6 +41,7 @@ export const AchievementCard = ({
         >
         {/* Image placeholder with bottom color bar */}
         <div className="mt-5 absolute top-[48px] left-[30px] w-[260px] h-[140px] bg-gray-300">
+            <Image src={imageUrl? imageUrl : ""} alt={title} fill className='object-cover'></Image>
             <div className={`absolute bottom-0 left-0 w-full h-[8px] ${colorMap[borderColor]}`} />
         </div>
 
@@ -50,7 +56,7 @@ export const AchievementCard = ({
             {type}
             </span>
 
-            <p className="font-gill mt-1 text-sm text-black leading-snug">{description}</p>
+            <p className="font-gill mt-1 text-sm text-black leading-snug">{trimmedDescription}</p>
         </div>
         </div>
     );

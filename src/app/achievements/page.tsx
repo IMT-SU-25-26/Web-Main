@@ -11,9 +11,11 @@ export const metadata = {
     title: "Achievements",
 }
 
+type colorProps = 'blue' | 'green' | 'pink' | 'red' | 'yellow' | 'gray';
+
 export default async function AchievementsPage() {
-    const achieveData = await getAchievements();
-    console.log(achieveData);
+    const achievements = await getAchievements();
+    const colors : colorProps[] = ['blue', 'red', 'pink', 'green', 'yellow', 'gray'];
 
     return (
         <>
@@ -96,9 +98,17 @@ export default async function AchievementsPage() {
                     ))}
                 </div>
                 <section className="flex flex-wrap justify-center gap-4 px-4">
-                {mockAchievements.map((achievement) => (
-                    <AchievementCard key={achievement.id} {...achievement} />
-                ))}
+                    {achievements.map((achievement) => {
+                        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                        return (
+                            <AchievementCard
+                            key={achievement.id}
+                            {...achievement}
+                            borderColor={randomColor}
+                            type="Achievement"
+                            />
+                        );
+                    })}
                 </section>
             </div>
         </div>

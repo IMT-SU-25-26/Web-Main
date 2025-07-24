@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getAchievements } from "@/lib/achievement";
+import { getAchievements } from "@/lib/service/achievement";
 
 export default async function AchievementList() {
   const achievements = await getAchievements();

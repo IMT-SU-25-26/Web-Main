@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createAchievement, editAchievement } from "@/lib/achievement";
+import { createAchievement, editAchievement } from "@/lib/service/achievement";
 import { AchievementFormProps } from "@/types/achievement";
-import { UploadWidget } from "./UploadWidget";
+import { UploadWidget } from "../UploadWidget";
 
 export default function AchievementForm({ mode, data }: AchievementFormProps) {
   /* States */
@@ -221,3 +221,5 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
     </div>
   );
 }
+
+

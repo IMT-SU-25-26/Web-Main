@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 export default function AchievementsPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 pt-[12vh]">
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Achievements</h1>
