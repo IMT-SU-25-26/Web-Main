@@ -33,6 +33,20 @@ export default function Home() {
             height={150}
             className="absolute w-[3.5rem] sm:w-[4.5rem] h-auto z-0 top-[0.8rem] -translate-x-34 sm:left-[7.5rem] sm:top-[0.05rem]"
           />
+          <Image
+            src="/comittee/quoteasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="quoteasset absolute w-[3.5rem] sm:w-[7rem] h-auto z-0 -translate-x-[42rem]"
+          />
+          <Image
+            src="/comittee/bookasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="bookasset absolute w-[3.5rem] sm:w-[10rem] h-auto z-0 translate-x-[41.5rem]"
+          />
         </div>
 
         {/* HOD Section */}
@@ -69,6 +83,20 @@ export default function Home() {
             height={120}
             className="absolute top-[3rem] sm:top-[5rem] w-[15rem] sm:w-[19rem] lg:w-[19rem] h-auto z-0"
           />
+          <Image
+            src="/comittee/yellowstarasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="yellowstarasset absolute w-[3.5rem] sm:w-[7rem] h-auto z-0 translate-y-[2rem] -translate-x-[44rem]"
+          />
+          <Image
+            src="/comittee/rightcloudasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="rightcloudasset absolute w-[3.5rem] sm:w-[14rem] h-auto z-0 translate-x-[39.5rem] translate-y-[4rem]"
+          />
         </div>
         <div className={`internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4`}>
           <Card name="Nama Lengkap" role="PRESIDENT" division="INTERNAL" gender="BOY" />
@@ -89,6 +117,13 @@ export default function Home() {
             width={150}
             height={150}
             className="absolute top-[4rem] sm:top-[5rem] w-[15rem] sm:w-[19rem] h-auto z-0"
+          />
+          <Image
+            src="/comittee/pitaasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="pitaasset absolute w-[3.5rem] sm:w-[8rem] h-auto z-0 translate-y-[2rem] -translate-x-[43.5rem]"
           />
         </div>
         <div className={`grid grid-cols-2 sm:grid-cols-3 external-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
@@ -111,6 +146,20 @@ export default function Home() {
             width={150}
             height={150}
             className="absolute top-[4rem] sm:top-[5rem] w-[10rem] sm:w-[12rem] h-auto z-0"
+          />
+          <Image
+            src="/comittee/leftcloudasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="leftcloudasset absolute w-[3.5rem] sm:w-[8rem] h-auto z-0 translate-y-[2rem] -translate-x-[43.5rem]"
+          />
+          <Image
+            src="/comittee/redstarasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="redstarasset absolute w-[3.5rem] sm:w-[8rem] h-auto z-0 translate-x-[42.5rem] translate-y-[1rem]"
           />
         </div>
         <div className={`grid grid-cols-2 sm:grid-cols-3 pdddesign-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
@@ -148,10 +197,24 @@ export default function Home() {
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
         </div>
-        <div className="pdddocumentation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-5 justify-center items-center px-4">
+        <div className="pdddocumentation-container relative grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-5 justify-center items-center px-4">
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
           <Card name="Nama Lengkap" role="MEMBER" division="PDD DOCUMENTATION" gender="BOY" />
+          <Image
+            src="/comittee/arrowasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="arrowasset absolute w-[3.5rem] sm:w-[12rem] h-auto z-0 -translate-y-[10rem] -translate-x-[28rem]"
+          />
+          <Image
+            src="/comittee/rightcloudasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="rightcloudasset2 absolute w-[3.5rem] sm:w-[14rem] h-auto z-0 translate-x-[53rem] -translate-y-[1rem]"
+          />
         </div>
 
         {/* Public Relation */}
@@ -165,6 +228,13 @@ export default function Home() {
             width={150}
             height={150}
             className="absolute top-[4rem] sm:top-[5rem] w-[14rem] sm:w-[18rem] h-auto z-0"
+          />
+          <Image
+            src="/comittee/catasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="catasset absolute w-[3.5rem] sm:w-[12rem] h-auto z-0 translate-y-[8rem] -translate-x-[40rem]"
           />
         </div>
         <div className="publicrelation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
@@ -185,6 +255,20 @@ export default function Home() {
             height={150}
             className="absolute top-[4rem] sm:top-[5rem] w-[13rem] sm:w-[17rem] h-auto z-0"
           />
+          <Image
+            src="/comittee/bigleftcloudasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="bigleftcloudasset absolute w-[3.5rem] sm:w-[18rem] h-auto z-0 -translate-y-[2rem] -translate-x-[40rem]"
+          />
+          <Image
+            src="/comittee/starasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="starasset absolute w-[3.5rem] sm:w-[12rem] h-auto z-0 translate-x-[38rem] translate-y-[1rem]"
+          />
         </div>
         <div className="socialactivity-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card name="Nama Lengkap" role="PRESIDENT" division="SOCIAL ACTIVITY" gender="BOY" />
@@ -204,6 +288,13 @@ export default function Home() {
             width={150}
             height={150}
             className="absolute top-[4rem] sm:top-[5rem] w-[12rem] sm:w-[15.5rem] h-auto z-0"
+          />
+          <Image
+            src="/comittee/tapeasset.png"
+            alt="Committee decoration"
+            width={150}
+            height={150}
+            className="tapeasset absolute w-[3.5rem] sm:w-[10rem] h-auto z-0 -translate-y-[4rem] -translate-x-[43rem]"
           />
         </div>
         <div className={`grid grid-cols-2 sm:grid-cols-3 technology-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>

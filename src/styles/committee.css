@@ -35,6 +35,53 @@
 @media (max-width: 1180px) and (max-height: 820px) {
 }
 @media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
+    .quoteasset {
+    transform: translateX(14rem);
+    }
+    .bookasset {
+    transform: translateX(-15rem);
+    }
+    .yellowstarasset {
+    transform: translateX(15rem);
+    }
+    .rightcloudasset {
+    transform: translateX(-13rem);
+    width: 12rem;
+    height: auto;
+    }
+    .pitaasset {
+    transform: translateX(15rem);
+    }
+    .leftcloudasset {
+    transform: translateX(15rem);
+    }
+    .redstarasset {
+    transform: translateX(-15rem);
+    }
+    .arrowasset {
+    transform: translateX(15rem) translateY(6rem);
+    width: 10rem;
+    height: auto;
+    }
+    .rightcloudasset2 {
+    transform: translateX(-11.8rem) translateY(3rem);
+    width: 10rem;
+    }
+    .catasset {
+    transform: translateX(13rem);
+    width: 10rem;
+    }
+    .bigleftcloudasset {
+    transform: translateX(13.8rem);
+    width: 12rem;
+    }
+    .starasset {
+    transform: translateX(-15rem);
+    width: 10rem;
+    }
+    .tapeasset {
+    transform: translateX(15rem);
+    }
 }
 @media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
 }
