@@ -10,6 +10,9 @@ type achievementDetailsProps = {
 
 const page = ({params} : achievementDetailsProps) => {
     const {id} = params;
+    const title = "HACKATON 2025";
+    const subTitle = "Batch 1";
+
     console.log("params = ", params);
     return (
         <>
@@ -37,7 +40,7 @@ const page = ({params} : achievementDetailsProps) => {
                     </Image>
 
                     <Image 
-                        className='absolute -left-5 -top-35 w-[300px] xl:w-[450px] lg:w-[400px]'
+                        className='hidden md:block absolute -left-5 -top-35 w-[300px] xl:w-[450px] lg:w-[400px]'
                         src="/achievements/achievementDetails/top-left.png" 
                         alt='' 
                         width={450} 
@@ -46,7 +49,7 @@ const page = ({params} : achievementDetailsProps) => {
                     </Image>
 
                     <Image 
-                        className='absolute -left-0 -bottom-5 w-[200px] md:w-[300px] xl:w-[450px] lg:w-[350px]'
+                        className='hidden md:block absolute -left-0 -bottom-5 w-[200px] md:w-[300px] xl:w-[450px] lg:w-[350px]'
                         src="/achievements/achievementDetails/bottom-left.png" 
                         alt='' 
                         width={450} 
@@ -56,11 +59,11 @@ const page = ({params} : achievementDetailsProps) => {
                 </>
 
                 <div className='flex flex-col md:flex-row md:justify-center items-center md:items-start w-full z-0 gap-15 '>
-                    <div className='block md:hidden mt-8 text-center'>
-                        <h1 className='font-impact font-bold text-3xl'>HACKATON WINNERS {id}</h1>
-                        <h3 className='font-bold text-xl mb-5'>Team: 3-4 members</h3>
+                    <div className='block md:hidden mt-10 text-center'>
+                        <h1 className='font-impact font-bold text-4xl'>{title}</h1>
+                        <h3 className='font-bold text-xl mb-5'>{subTitle}</h3>
                     </div>
-                    <div className='w-[340px] md:w-[300px] xl:w-[403px] h-[300px] md:h-[300px] xl:h-[472px] mt-5 md:mt-35 xl:mt-0 relative'>
+                    <div className='w-[300px] md:w-[300px] xl:w-[403px] h-[300px] md:h-[350px] xl:h-[472px] mt-5 md:mt-35 xl:mt-0 relative'>
                         <Image 
                             className='absolute -left-45 -top-20 w-[400px] md:w-[500px] z-0'
                             src="/achievements/achievementDetails/decor-bg-circle.png"
@@ -78,13 +81,13 @@ const page = ({params} : achievementDetailsProps) => {
                         >
                         </Image>
                         
-                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[150px] md:w-[150px] xl:w-[250px] -top-10 left-0 md:-left-13 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
-                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[250px] md:w-[200px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
 
                     </div>
                     <div className='md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] '>
-                        <h1 className='hidden md:block font-impact font-bold text-5xl'>HACKATON WINNERS {id}</h1>
-                        <h3 className='hidden md:block font-bold text-xl mb-5'>Team: 3-4 members</h3>
+                        <h1 className='hidden md:block font-impact font-bold text-5xl'>{title}</h1>
+                        <h3 className='hidden md:block font-bold text-xl mb-5'>{subTitle}</h3>
 
                         <div className='flex flex-col gap-5 text-xl'>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
