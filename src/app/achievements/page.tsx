@@ -5,7 +5,11 @@ import mockFeaturedAchievements from '@/mockData/mockFeaturedAchievements';
 import { AchievementCard } from '@/components/achievement/AchievementCard';
 import { mockAchievements } from '@/mockData/mockAchievements';
 import { getAchievements } from "@/lib/service/achievement";
-import { CldOgImage } from "next-cloudinary";
+import { title } from "process";
+
+export const metadata = {
+    title: "Achievements",
+}
 
 export default async function AchievementsPage() {
     const achieveData = await getAchievements();

@@ -4,15 +4,26 @@ import FrameImage from '@/components/achievement/FrameImage'
 
 type achievementDetailsProps = {
     params:{
-        id:string
+        achievementId:string
+    }
+}
+
+export async function generateMetadata({params}: achievementDetailsProps) {
+    const achievementId = params.achievementId;
+    return await {
+        title: "Achievement "+achievementId,
     }
 }
 
 const page = ({params} : achievementDetailsProps) => {
-    const {id} = params;
+    const {achievementId} = params;
+    
     const title = "HACKATON 2025";
-    const subTitle = "Batch 1";
-
+    const subTitle = "Batch " + achievementId;
+    const urlImg1 = "/achievements/achievementDetails/sample-picture.png";
+    const urlImg2 = "/achievements/achievementDetails/sample-picture.png";
+    
+    
     console.log("params = ", params);
     return (
         <>
@@ -81,8 +92,8 @@ const page = ({params} : achievementDetailsProps) => {
                         >
                         </Image>
                         
-                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
-                        <FrameImage src='/achievements/achievementDetails/sample-picture.png' className='w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src={urlImg1} className='w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src={urlImg2} className='w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
 
                     </div>
                     <div className='md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] '>
