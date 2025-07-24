@@ -4,21 +4,20 @@ import { projectHmrIdentifiersSubscribe } from 'next/dist/build/swc/generated-na
 
 type FrameImageProps = {
     src: string;
-    width:number;
-    height: number;
     className?: string;
 }
 
-const FrameImage = ({src, width, height, className}:  FrameImageProps) => {
+const FrameImage = ({src, className}:  FrameImageProps) => {
     return (
-        <div className={`absolute bg-white p-3 z-0 w-fit ${className}`}>
+        <div className={`absolute bg-white p-2 z-0 ${className}`}>
             <div className='absolute bg-black/50 w-[55%] h-[15%] z-10 -top-4 left-[22%]'></div>
             <Image 
-                className=''
-                src={src} 
-                alt='' 
-                width={width} 
-                height={height}
+                className='w-full h-auto object-contain'
+                src={src}
+                alt=''
+                width={0}
+                height={0}
+                sizes='100vw'
             >
             </Image>
         </div>
