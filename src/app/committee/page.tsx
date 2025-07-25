@@ -38,14 +38,14 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="quoteasset absolute w-[3.5rem] sm:w-[7rem] h-auto z-0 -translate-x-[42rem]"
+            className="quoteasset absolute w-[3.5rem] sm:w-[7rem] h-auto z-0 lg:-translate-x-[42rem] sm:-translate-x-[35rem] -translate-x-[25.5rem]"
           />
           <Image
             src="/comittee/bookasset.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="bookasset absolute w-[3.5rem] sm:w-[10rem] h-auto z-0 translate-x-[41.5rem]"
+            className="bookasset absolute w-[6rem] sm:w-[15rem] h-auto z-0 lg:translate-x-[43rem] sm:translate-x-[37rem] -translate-x-[-29rem] translate-y-[-1rem]"
           />
         </div>
 
@@ -88,14 +88,14 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="yellowstarasset absolute w-[3.5rem] sm:w-[7rem] h-auto z-0 translate-y-[2rem] -translate-x-[44rem]"
+            className="yellowstarasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 sm:translate-y-[2rem] lg:-translate-x-[46rem] sm:-translate-x-[35rem] translate-x-[-25.5rem] translate-y-[1rem]"
           />
           <Image
             src="/comittee/rightcloudasset.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="rightcloudasset absolute w-[3.5rem] sm:w-[14rem] h-auto z-0 translate-x-[39.5rem] translate-y-[4rem]"
+            className="rightcloudasset absolute w-[0rem] sm:w-[14rem] lg:w-[14rem] h-auto z-0 lg:translate-x-[39.5rem] translate-y-[4rem] sm:-translate-x-[-35rem]"
           />
         </div>
         <div className={`internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4`}>
@@ -119,11 +119,11 @@ export default function Home() {
             className="absolute top-[4rem] sm:top-[5rem] w-[15rem] sm:w-[19rem] h-auto z-0"
           />
           <Image
-            src="/comittee/pitaasset.png"
+            src="/comittee/longpitaasset.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="pitaasset absolute w-[3.5rem] sm:w-[8rem] h-auto z-0 translate-y-[2rem] -translate-x-[43.5rem]"
+            className="pitaasset rotate-70 absolute w-[6rem] lg:translate-y-[1rem] sm:w-[12rem] h-auto z-0 sm:translate-y-[-12rem] lg:-translate-x-[50rem] sm:translate-x-[-30rem] translate-x-[-19rem] translate-y-[-15rem]"
           />
         </div>
         <div className={`grid grid-cols-2 sm:grid-cols-3 external-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
@@ -152,14 +152,14 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="leftcloudasset absolute w-[3.5rem] sm:w-[8rem] h-auto z-0 translate-y-[2rem] -translate-x-[43.5rem]"
+            className="leftcloudasset absolute w-[0rem] sm:w-[0rem] lg:w-[10rem] h-auto z-0 translate-y-[2rem] lg:-translate-x-[43.5rem] -translate-x-[27rem]"
           />
           <Image
             src="/comittee/redstarasset.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="redstarasset absolute w-[3.5rem] sm:w-[8rem] h-auto z-0 translate-x-[42.5rem] translate-y-[1rem]"
+            className="redstarasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 lg:translate-x-[44rem] sm:translate-y-[1rem] sm:-translate-x-[-29rem] -translate-x-[-24rem] translate-y-[1rem]"
           />
         </div>
         <div className={`grid grid-cols-2 sm:grid-cols-3 pdddesign-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>
@@ -206,14 +206,14 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="arrowasset absolute w-[3.5rem] sm:w-[12rem] h-auto z-0 -translate-y-[10rem] -translate-x-[28rem]"
+            className="arrowasset absolute w-[0rem] sm:w-[0rem] lg:w-[16rem] h-auto z-0 lg:-translate-y-[10rem] lg:-translate-x-[31rem] sm:-translate-x-[25rem] sm:-translate-y-[6rem]"
           />
           <Image
             src="/comittee/rightcloudasset.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="rightcloudasset2 absolute w-[3.5rem] sm:w-[14rem] h-auto z-0 translate-x-[53rem] -translate-y-[1rem]"
+            className="rightcloudasset2 absolute w-[3.5rem] sm:w-[0rem] lg:w-[14rem] h-auto z-0 lg:translate-x-[53rem] sm:translate-x-[51rem]"
           />
         </div>
 
@@ -234,7 +234,7 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="catasset absolute w-[3.5rem] sm:w-[12rem] h-auto z-0 translate-y-[8rem] -translate-x-[40rem]"
+            className="catasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 sm:translate-y-[2rem] lg:-translate-x-[40rem] sm:translate-x-[-30rem] translate-x-[-24rem]"
           />
         </div>
         <div className="publicrelation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
@@ -260,14 +260,14 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="bigleftcloudasset absolute w-[3.5rem] sm:w-[18rem] h-auto z-0 -translate-y-[2rem] -translate-x-[40rem]"
+            className="bigleftcloudasset absolute w-[0rem] lg:w-[18rem] sm:w-[14rem] h-auto z-0 -translate-y-[2rem] lg:-translate-x-[40rem] sm:-translate-x-[35rem] sm:translate-y-[1rem]"
           />
           <Image
             src="/comittee/starasset.png"
             alt="Committee decoration"
             width={150}
             height={150}
-            className="starasset absolute w-[3.5rem] sm:w-[12rem] h-auto z-0 translate-x-[38rem] translate-y-[1rem]"
+            className="starasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 lg:translate-x-[38rem] sm:translate-y-[1rem] sm:-translate-x-[-30rem] -translate-x-[-24rem] translate-y-[-4rem]"
           />
         </div>
         <div className="socialactivity-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
@@ -294,7 +294,7 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="tapeasset absolute w-[3.5rem] sm:w-[10rem] h-auto z-0 -translate-y-[4rem] -translate-x-[43rem]"
+            className="tapeasset absolute w-[9rem] sm:w-[22rem] h-auto z-0 lg:-translate-y-[4rem] lg:-translate-x-[48rem] sm:translate-x-[-40rem] translate-x-[-27rem] translate-y-[-2rem]"
           />
         </div>
         <div className={`grid grid-cols-2 sm:grid-cols-3 technology-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4`}>

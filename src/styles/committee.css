@@ -46,8 +46,6 @@
     }
     .rightcloudasset {
     transform: translateX(-13rem);
-    width: 12rem;
-    height: auto;
     }
     .pitaasset {
     transform: translateX(15rem);
@@ -59,25 +57,19 @@
     transform: translateX(-15rem);
     }
     .arrowasset {
-    transform: translateX(15rem) translateY(6rem);
-    width: 10rem;
-    height: auto;
+    transform: translateX(15rem) translateY(8rem);
     }
     .rightcloudasset2 {
     transform: translateX(-11.8rem) translateY(3rem);
-    width: 10rem;
     }
     .catasset {
     transform: translateX(13rem);
-    width: 10rem;
     }
     .bigleftcloudasset {
     transform: translateX(13.8rem);
-    width: 12rem;
     }
     .starasset {
     transform: translateX(-15rem);
-    width: 10rem;
     }
     .tapeasset {
     transform: translateX(15rem);
