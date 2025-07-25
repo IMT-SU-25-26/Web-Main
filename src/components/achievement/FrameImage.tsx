@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { projectHmrIdentifiersSubscribe } from 'next/dist/build/swc/generated-native';
 
 type FrameImageProps = {
     src: string;
