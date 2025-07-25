@@ -91,7 +91,7 @@ export default async function AchievementsPage() {
             </>
 
             {/* Main Content */}
-            <div className="flex flex-col items-center justify-center w-full h-full mt-8">
+            <div className="flex flex-col items-center justify-center w-full md:w-max-[80vw] h-full mt-8">
                 <div className="pt-[10rem]">
                     {mockFeaturedAchievements.map((item, index) => (
                         <AchievementFeatured key={index} {...item} imageUrl="/achievements/nplc.png" />
