@@ -26,7 +26,7 @@ export default async function AchievementsPage() {
             <>
                 
                 <Image
-                className="z-10 absolute top-[1.8rem] left-[50%] translate-x-[-50%] w-[20rem]"
+                className="z-10 absolute top-[5rem] left-[50%] translate-x-[-50%] w-[20rem]"
                 src="/achievements/page-title.webp"
                 alt="page title"
                 width={480}
@@ -91,7 +91,7 @@ export default async function AchievementsPage() {
             </>
 
             {/* Main Content */}
-            <div className="flex flex-col items-center justify-center w-full h-full">
+            <div className="flex flex-col items-center justify-center w-full h-full mt-8">
                 <div className="pt-[10rem]">
                     {mockFeaturedAchievements.map((item, index) => (
                         <AchievementFeatured key={index} {...item} imageUrl="/achievements/nplc.png" />
