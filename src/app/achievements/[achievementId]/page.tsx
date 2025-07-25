@@ -29,17 +29,17 @@ export async function generateMetadata({ params }: achievementDetailsProps) {
 const page = async ({params} : achievementDetailsProps) => {
     const {achievementId} = params;
     const achievement = await getAchievementById(achievementId);
-    
-    const title = "HACKATON 2025";
-    const subTitle = "Batch " + achievementId;
-    const urlImg1 = "/achievements/achievementDetails/sample-picture.png";
-    const urlImg2 = "/achievements/achievementDetails/sample-picture.png";
-    const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\nIt was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    
-    const slicedDescription = description.split("\n");
     if(!achievement){
         return <NotFound />;
     }
+    
+    const title = achievement.title;
+    const subTitle = achievementId;
+    const urlImg1 = achievement.imageUrl;
+    const urlImg2 = urlImg1;
+    const description = achievement.description;
+    
+    const slicedDescription = description.split("\n");
     return (
         <>
             <div className="h-[10vh] bg-[#F1EEE6]"></div>
