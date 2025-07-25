@@ -10,6 +10,9 @@ type achievementDetailsProps = {
     }
 }
 
+// export const metadata = {
+//     title: "SU IMT"
+// }
 export async function generateMetadata({ params }: achievementDetailsProps) {
   const achievementId = params.achievementId;
   const achievement = await getAchievementById(achievementId);
@@ -107,8 +110,8 @@ const page = async ({params} : achievementDetailsProps) => {
                         >
                         </Image>
                         
-                        <FrameImage src={urlImg1} className='w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
-                        <FrameImage src={urlImg2} className='w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src={urlImg1?urlImg1:""} className='w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
+                        <FrameImage src={urlImg2?urlImg2:""} className='w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
 
                     </div>
                     <div className='md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] '>
