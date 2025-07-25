@@ -27,14 +27,14 @@ export default async function AchievementsPage() {
                 
                 <Image
                 className="z-10 absolute top-[1.8rem] left-[50%] translate-x-[-50%] w-[20rem]"
-                src="/achievements/page-title.png"
+                src="/achievements/page-title.webp"
                 alt="page title"
                 width={480}
                 height={160}
                 />
                 <Image
                 className="hidden md:block absolute top-[0.5rem] left-[0.5rem] w-[12rem]"
-                src="/achievements/star-laptop.svg"
+                src="/achievements/star-laptop.webp"
                 alt="star laptop"
                 width={120}
                 height={120}
@@ -55,35 +55,35 @@ export default async function AchievementsPage() {
                 />
                 <Image
                 className="hidden md:block absolute top-[19rem] right-[0rem] w-[8rem]"
-                src="/achievements/green-arrow.svg"
+                src="/achievements/green-arrow.webp"
                 alt="green arrow"
                 width={60}
                 height={60}
                 />
                 <Image
                 className="hidden md:block absolute top-[28rem] left-[0rem] w-[6.5rem]"
-                src="/achievements/red-tape.svg"
+                src="/achievements/red-tape.webp"
                 alt="red tape"
                 width={100}
                 height={30}
                 />
                 <Image
                 className="hidden md:block absolute top-[28rem] right-[0rem] w-[5rem]"
-                src="/achievements/yellow-tape.svg"
+                src="/achievements/yellow-tape.webp"
                 alt="yellow tape"
                 width={100}
                 height={30}
                 />
                 <Image
                 className="hidden md:block absolute bottom-[0rem] left-0 w-[10rem]"
-                src="/achievements/bottom-left-decor.svg"
+                src="/achievements/bottom-left-decor.webp"
                 alt="bottom left"
                 width={80}
                 height={80}
                 />
                 <Image
                 className="hidden md:block absolute bottom-[0rem] right-0 w-[10rem]"
-                src="/achievements/bottom-right-decor.svg"
+                src="/achievements/bottom-right-decor.webp"
                 alt="bottom right"
                 width={80}
                 height={80}

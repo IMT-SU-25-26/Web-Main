@@ -35,29 +35,42 @@ export const AchievementCard = ({
     const trimmedDescription = description.length > 75 ? description.slice(0, 75) + "..." : description;
     return (
         <div
-        onClick={()=>{router.push(`${pathname.replace( /\/$/ ,'')}/${id}`)}}
-        className="relative bg-no-repeat bg-cover bg-center w-[320px] h-[400px]"
-        style={{ backgroundImage: "url('/achievements/AchievementCardBG.svg')" }}
+            onClick={() => {
+                router.push(`${pathname.replace(/\/$/, '')}/${id}`);
+            }}
+            className="relative w-[320px] h-[400px] overflow-hidden cursor-pointer"
         >
-        {/* Image placeholder with bottom color bar */}
-        <div className="mt-5 absolute top-[48px] left-[30px] w-[260px] h-[140px] bg-gray-300">
-            <Image src={imageUrl? imageUrl : ""} alt={title} fill className='object-cover'></Image>
-            <div className={`absolute bottom-0 left-0 w-full h-[8px] ${colorMap[borderColor]}`} />
-        </div>
+            <Image
+                src="/achievements/AchievementCardBG.webp"
+                alt="Achievement Card Background"
+                fill
+                className="object-cover object-center"
+                priority
+            />
 
-        {/* Text content below image */}
-        <div className="mt-5 absolute top-[200px] left-[30px] right-[30px]">
-            <h3 className="text-black text-xl font-extrabold">{title}</h3>
+            {/* Image placeholder with bottom color bar */}
+            <div className="mt-5 absolute top-[48px] left-[30px] w-[260px] h-[140px] bg-gray-300">
+                <Image
+                src={imageUrl || ""}
+                alt={title}
+                fill
+                className="object-cover"
+                />
+                <div className={`absolute bottom-0 left-0 w-full h-[8px] ${colorMap[borderColor]}`} />
+            </div>
 
-            <span
-            className={`uppercase font-impact ${colorMap[borderColor]} text-white text-[12px] px-2 py-1 inline-block mt-1 tracking-wide`}
-            style={{ transform: 'rotate(-0.8deg)' }}
-            >
-            {type}
-            </span>
+            {/* Text content below image */}
+            <div className="mt-5 absolute top-[200px] left-[30px] right-[30px]">
+                <h3 className="text-black text-xl font-extrabold">{title}</h3>
+                <span
+                className={`uppercase font-impact ${colorMap[borderColor]} text-white text-[12px] px-2 py-1 inline-block mt-1 tracking-wide`}
+                style={{ transform: 'rotate(-0.8deg)' }}
+                >
+                {type}
+                </span>
+                <p className="font-gill mt-1 text-sm text-black leading-snug">{trimmedDescription}</p>
+            </div>
 
-            <p className="font-gill mt-1 text-sm text-black leading-snug">{trimmedDescription}</p>
-        </div>
         </div>
     );
 };
