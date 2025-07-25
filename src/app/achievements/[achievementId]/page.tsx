@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import FrameImage from '@/components/achievement/FrameImage'
+import { getAchievementById } from '@/lib/service/achievement'
+import NotFound from './not-found'
 
 type achievementDetailsProps = {
     params:{
@@ -8,15 +10,25 @@ type achievementDetailsProps = {
     }
 }
 
-export async function generateMetadata({params}: achievementDetailsProps) {
-    const achievementId = params.achievementId;
-    return await {
-        title: "Achievement "+achievementId,
-    }
+export async function generateMetadata({ params }: achievementDetailsProps) {
+  const achievementId = params.achievementId;
+  const achievement = await getAchievementById(achievementId);
+
+  if (!achievement) {
+    return {
+      title: "Achievement Not Found",
+    };
+  }
+
+  return {
+    title: achievement.title,
+  };
 }
 
-const page = ({params} : achievementDetailsProps) => {
+
+const page = async ({params} : achievementDetailsProps) => {
     const {achievementId} = params;
+    const achievement = await getAchievementById(achievementId);
     
     const title = "HACKATON 2025";
     const subTitle = "Batch " + achievementId;
@@ -25,7 +37,9 @@ const page = ({params} : achievementDetailsProps) => {
     const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\nIt was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     
     const slicedDescription = description.split("\n");
-    console.log("params = ", params);
+    if(!achievement){
+        return <NotFound />;
+    }
     return (
         <>
             <div className="h-[10vh] bg-[#F1EEE6]"></div>
