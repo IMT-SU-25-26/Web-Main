@@ -12,7 +12,7 @@ const FrameImage = ({src, className}:  FrameImageProps) => {
         <div className={`absolute bg-white p-2 z-0 ${className}`}>
             <div className='absolute bg-black/50 w-[55%] h-[15%] z-10 -top-4 left-[22%]'></div>
             <Image 
-                className='w-full h-auto object-contain'
+                className='w-full h-auto object-contain aspect-square'
                 src={src}
                 alt=''
                 width={0}
