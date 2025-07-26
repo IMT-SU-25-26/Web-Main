@@ -2,6 +2,7 @@ import Image from "next/image";
 import "@/styles/committee-card.css";
 
 type PresidentCardProps = {
+  id: string;
   name: string;
   role: string;
   division: string;
@@ -170,7 +171,7 @@ const DIVISION_CONFIG: Record<string, Record<string, (gender: string) => RoleCon
   }
 };
 
-export default function PresidentCard({ name, role, division, gender }: PresidentCardProps) {
+export default function PresidentCard({ id, name, role, division, gender }: PresidentCardProps) {
   // Find the division config
   const divisionConfig = DIVISION_CONFIG[division];
   if (!divisionConfig) {
@@ -207,7 +208,7 @@ export default function PresidentCard({ name, role, division, gender }: Presiden
   const { decorations, color } = roleConfig;
 
   return (
-    <div className="comittee-card relative w-46 h-63 sm:w-46 bg-white shadow-md rounded-md text-center pt-4">
+    <div id={id} className="comittee-card relative w-46 h-63 sm:w-46 bg-white shadow-md rounded-md text-center pt-4">
       {decorations.map((decoration, index) => (
         <Image
           key={index}
