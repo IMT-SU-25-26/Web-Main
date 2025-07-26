@@ -43,9 +43,9 @@ export const AchievementCard = ({
             }}
             onMouseLeave={()=>{
                 setSwinging(true);
-                setTimeout(() => setSwinging(false), 800); // match swing duration
+                setTimeout(() => setSwinging(false), 700); // match swing duration
             }}
-            className={`relative w-[320px] h-[400px] overflow-hidden cursor-pointer hover:rotate-[1.5deg] hover:origin-top ${swinging? 'swing-effect':''} drop-shadow-md active:scale-100 active:brightness-90 duration-200`}
+            className={`relative w-[320px] h-[400px] overflow-hidden cursor-pointer hover:rotate-[1.5deg] hover:origin-top ${swinging? 'swing-effect':''} drop-shadow-md active:scale-100 active:brightness-90 duration-300`}
         >
             <Image
                 src="/achievements/AchievementCardBG.webp"
