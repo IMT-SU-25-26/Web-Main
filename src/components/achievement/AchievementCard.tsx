@@ -38,7 +38,7 @@ export const AchievementCard = ({
             onClick={() => {
                 router.push(`${pathname.replace(/\/$/, '')}/${id}`);
             }}
-            className="relative w-[320px] h-[400px] overflow-hidden cursor-pointer"
+            className="relative w-[320px] h-[400px] overflow-hidden cursor-pointer swing-hover active:scale-100 active:brightness-90 duration-200"
         >
             <Image
                 src="/achievements/AchievementCardBG.webp"
