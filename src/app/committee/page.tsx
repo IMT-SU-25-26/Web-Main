@@ -9,39 +9,39 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  useGSAP(() => {
-    gsap.utils.toArray(".section-reveal").forEach((section: any) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-    });
+  // useGSAP(() => {
+  //   gsap.utils.toArray<HTMLElement>(".section-reveal").forEach((section) => {
+  //     gsap.from(section, {
+  //       opacity: 0,
+  //       y: 50,
+  //       duration: 0.8,
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         start: "top 80%",
+  //         toggleActions: "play none none none",
+  //       },
+  //     });
+  //   });
 
-    gsap.to(".yellowstarasset", {
-      rotate: 360,
-      repeat: -1,
-      duration: 10,
-      ease: "linear"
-    });
-    gsap.to(".redstarasset", {
-      rotate: 360,
-      repeat: -1,
-      duration: 10,
-      ease: "linear"
-    });
-    gsap.to(".starasset", {
-      rotate: 360,
-      repeat: -1,
-      duration: 10,
-      ease: "linear"
-    });
-  }, []);
+  //   gsap.to(".yellowstarasset", {
+  //     rotate: 360,
+  //     repeat: -1,
+  //     duration: 10,
+  //     ease: "linear"
+  //   });
+  //   gsap.to(".redstarasset", {
+  //     rotate: 360,
+  //     repeat: -1,
+  //     duration: 10,
+  //     ease: "linear"
+  //   });
+  //   gsap.to(".starasset", {
+  //     rotate: 360,
+  //     repeat: -1,
+  //     duration: 10,
+  //     ease: "linear"
+  //   });
+  // }, []);
 
   return (
     <>

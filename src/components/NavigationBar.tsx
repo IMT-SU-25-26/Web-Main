@@ -22,7 +22,7 @@ function navbar() {
         <Link className='cursor-pointer hover:underline hover:text-red-500' href="/events">Events</Link>
         <Link className='cursor-pointer hover:underline hover:text-blue-500' href="/achievements">Achievements</Link>
         <Link className='cursor-pointer hover:underline hover:text-yellow-500' href="/activities">Activities</Link>
-        <Link className='cursor-pointer hover:underline hover:text-purple-500' href="/committee">Comittee</Link>
+        <Link className='cursor-pointer hover:underline hover:text-purple-500' href="/committee">Committee</Link>
         
         <div className="relative">
           {isLoading ? (
@@ -154,10 +154,10 @@ function navbar() {
               </Link>
               <Link 
                 className='text-black text-right mr-14 hover:text-purple-500 py-2 text-lg' 
-                href="/comittee"
+                href="/committee"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Comittee
+                Committee
               </Link>
 
               {/* Mobile Auth Section */}
