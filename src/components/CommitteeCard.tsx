@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "@/styles/comittee-card.css";
+import "@/styles/committee-card.css";
 
 type PresidentCardProps = {
   name: string;
