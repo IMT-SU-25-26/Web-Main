@@ -26,15 +26,15 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
     const accentColor = colorList[index % colorList.length];
 
     return (
-        <div className="relative w-[260px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
+        <div className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[260px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
 
         {/* Paper Clip */}
-        <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
             <Image
-            src="/activities/ActivityClip.svg"
+            src="/activities/ActivityClip.webp"
             alt="Paper Clip"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             />
         </div>
 
@@ -62,7 +62,8 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         <div className="flex justify-between items-center mt-4">
             {/* Register Button */}
             <button
-            className="text-white text-[12px] px-4 py-1 rounded"
+            type="button"
+            className="transition-all duration-300 hover:shadow-[0_0_10px_4px] hover:ring-2 text-white text-[12px] px-4 py-1 rounded-md transition duration-300 ease-in-out hover:brightness-90"
             style={{ backgroundColor: accentColor }}
             >
             Register
