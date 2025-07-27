@@ -1,17 +1,6 @@
 import Image from 'next/image';
-
-type Activity = {
-    id: number;
-    title: string;
-    description: string;
-    imageUrl?: string;
-    teamInfo?: string; // e.g., "Team: 2-3 members" or "Individual"
-};
-
-type ActivityCardProps = {
-    activity: Activity;
-    index: number;
-};
+import { usePathname, useRouter } from 'next/navigation';
+import Button from '../Button';
 
 const colorList = [
   '#ED4E45', // red
@@ -22,11 +11,32 @@ const colorList = [
   '#CCBCAF'  // gray
 ];
 
+type Activity = {
+    id: number;
+    title: string;
+    description: string;
+    imageUrl?: string;
+    teamInfo?: string; // e.g., "Team: 2-3 members" or "Individual"
+};
+
+type ActivityCardProps = {
+    activity: Activity,
+    index: number,
+};
+
 export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
     const accentColor = colorList[index % colorList.length];
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const id = activity.id;
 
     return (
-        <div className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[260px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
+        <div
+            onClick={() => {
+                router.push(`${pathname.replace(/\/$/, '')}/${id}`);
+            }}
+            className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[260px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
 
         {/* Paper Clip */}
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
@@ -61,13 +71,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         {/* Bottom Section */}
         <div className="flex justify-between items-center mt-4">
             {/* Register Button */}
-            <button
-            type="button"
-            className="transition-all duration-300 hover:shadow-[0_0_10px_4px] hover:ring-2 text-white text-[12px] px-4 py-1 rounded-md transition duration-300 ease-in-out hover:brightness-90"
-            style={{ backgroundColor: accentColor }}
-            >
-            Register
-            </button>
+            <Button bgColor={accentColor} className='w-fit'>Register</Button>
 
             {/* Team Info */}
             <p className="text-[12px] font-gill text-black opacity-80">
