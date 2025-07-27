@@ -69,108 +69,128 @@
     }
     /* end welcome part */
 
-    .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start about part */
+    .card-left{
+        min-width:  1100px;
+        min-height: 560px;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
+    .about-us-title-text{
+        top: 2rem;
+        left: 2rem;
+        font-size: 6rem;
     }
-    .what-is-su-imt-text{
-        font-size: 7rem;
-    }
-    .su-imt-description{
+    .about-us-description-text{
+        top: 6rem;
+        left: 2rem;
         font-size: 2.5rem;
-         max-width: 80rem;
-        text-align: center;
+        max-width: 1000px;
     }
-    .learn-more-button{
-        font-size: 4rem;
-        padding: 1.5rem 5rem;
-        border-radius: 1.5rem;
+    .handle-card{
+        top: 14rem;
+        left: -12rem;
+        width: 16rem;
+        height: auto;
     }
-    
-    .competition-wrapper{
-        margin-top: -10%;
-    }
-    .competition-text{
-        font-size: 6rem;
-    }
-    .competition-right-background{
-        width: 80rem;
-        height: 45rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
+    .star-card{
+        bottom: -4rem;
+        right: -4rem;
         width: 15rem;
-        top: -30%;
-        right: 40%;
+        height: auto;
     }
-    .competition-star{
+    .background-card-right{
+        top: 4rem;
+        right: -2rem;
+        width: 1008px;
+        height: 618px;
+    }
+    .card-right{
+        min-width:  1008px;
+        min-height: 618px;
+    }
+    .pin{
+        top: -7rem;
+        right: -8rem;
         width: 20rem;
-        top: -25%;
-        right: -3%;
+        height: auto;
     }
-    .join-now-text-container
-    {
-        width: 35rem;
-        height: 10rem;
-        bottom: -5%;
-        left: 47.5%;
+    .triangle{
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 3rem;
+        height: auto;
     }
-    .join-now-text{
+    .about-us-image-container{
+        width: 900px;
+        height: 400px;
+    }
+    .photo-title{
+        margin-left: 3rem;
+        font-size: 2.5rem;
+    }
+    /* end about part */
+
+    /* start our values part */
+    .our-values-text{
         font-size: 6rem;
-        text-align: center;
     }
-    .competition-title-text{
+    .step{
+        top: 8rem;
+        width: 30rem;
+        height: auto;
+    }
+    .strive-card{
+        width: 584px;
+        height: 500px;
+    }
+    .take-responsibility-card{
+        width: 584px;
+        height: 500px;
+    }
+    .explore-card{
+        width: 584px;
+        height: 500px;
+    }
+    .pioneer-card{
+        width: 584px;
+        height: 500px;
+    }
+    .circle-card{
+        width: 80px;
+        height: 80px;
+    }
+    .circle-card h1{
         font-size: 4rem;
+        font-weight: bold;
     }
-    .competition-description-text{
-        font-size: 2rem;
+    .card-title{
+        font-size: 3.875rem;
     }
-    .competition-member-text{
-        font-size: 2rem;
+    .card-description{
+        font-size: 3.25rem;
     }
-    .image-container{
-        width: 100%;
-        height: 50%;
+    .inner-card{
+        padding: 3rem;
     }
-    .explore-text{
-        font-size: 5rem;
-        line-height: 6.5rem;
+    .yellow-pin{
+        top: -5rem;
+        right: -2rem;
+        width: 8rem;
+        height: auto;
     }
-    .home-service-card-left{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
+    .clipper{
+        top: -10rem;
+        right: -8rem;
+        width: 18rem;
+        height: auto;
     }
-    .home-service-card-center{
-        width: 50rem;
-        height: 45rem;
+    .tape{
+        width: 20rem;
+        height: auto;
     }
-    .home-service-card-right{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .explore-button{
-        width: 35rem;
-        height: 10rem;
-    }
-    .explore-button-text{
-        font-size: 5rem;
-    }
-    .service-title-text{
-        font-size: 3.5rem;
-    }
-    .service-type-text{
-        font-size: 2rem;
-    }
-    .service-description-text{
-        font-size: 2rem;
+    /* end our values part */
+
+    .cards-container{
+        padding-bottom: 0rem;
     }
 }
 @media(max-width: 2560px) and (max-height:1600px){
@@ -432,127 +452,127 @@
     }
     /* end welcome part */
 
-  .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start about part */
+    .card-left{
+        min-width:  950px;
+        min-height: 460px;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
+    .about-us-title-text{
+        top: 2rem;
+        left: 2rem;
+        font-size: 6rem;
     }
-    .what-is-su-imt-text{
-        font-size: 7rem;
-    }
-    .su-imt-description{
+    .about-us-description-text{
+        top: 6rem;
+        left: 2rem;
         font-size: 2.5rem;
-         max-width: 80rem;
-        text-align: center;
+        max-width: 800px;
     }
-    .learn-more-button{
-        font-size: 4rem;
-        padding: 1.5rem 5rem;
-        border-radius: 1.5rem;
+    .handle-card{
+        top: 14rem;
+        left: -12rem;
+        width: 16rem;
+        height: auto;
     }
-
-    .sobekan{
-        top: 5%;
-        object-fit: contain;
-        scale: 1.2;
-    }
-    .container-student-union{
-        margin-top: 5%;
-    }
-    .sobekan-biru-kanan{
-        top: -50%;
-        right: -10%;
-        width: 40%;
-    }
-    .sobekan-biru-kiri{
-        top: -50%;
-        left: -10%;
-        width: 40%;
-    }
-
-    .competition-wrapper{
-        margin-top: 6%;
-    }
-    .competition-text{
-        font-size: 6rem;
-    }
-    .competition-right-background{
-        width: 80rem;
-        height: 45rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
+    .star-card{
+        bottom: -4rem;
+        right: -4rem;
         width: 15rem;
-        top: -30%;
-        right: 40%;
+        height: auto;
     }
-    .competition-star{
+    .background-card-right{
+        top: 4rem;
+        right: -2rem;
+        width: 908px;
+        height: 518px;
+    }
+    .card-right{
+        min-width:  908px;
+        min-height: 518px;
+    }
+    .pin{
+        top: -7rem;
+        right: -8rem;
         width: 20rem;
-        top: -25%;
-        right: -3%;
+        height: auto;
     }
-    .join-now-text-container
-    {
-        width: 35rem;
-        height: 10rem;
-        bottom: -5%;
-        left: 47.5%;
+    .triangle{
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 3rem;
+        height: auto;
     }
-    .join-now-text{
-        font-size: 6rem;
-        text-align: center;
+    .about-us-image-container{
+        width: 800px;
+        height: 350px;
     }
-    .competition-title-text{
-        font-size: 4rem;
+    .photo-title{
+        margin-left: 3rem;
+        font-size: 2.5rem;
     }
-    .competition-description-text{
-        font-size: 2rem;
-    }
-    .competition-member-text{
-        font-size: 2rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 5rem;
-        line-height: 6.5rem;
-    }
-    .home-service-card-left{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .home-service-card-center{
-        width: 50rem;
-        height: 45rem;
-    }
-    .home-service-card-right{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .explore-button{
-        width: 35rem;
-        height: 10rem;
-    }
-    .explore-button-text{
+    /* end about part */
+
+    /* start our values part */
+    .our-values-text{
         font-size: 5rem;
     }
-    .service-title-text{
-        font-size: 3.5rem;
+    .step{
+        top: 8rem;
+        width: 25rem;
+        height: auto;
     }
-    .service-type-text{
-        font-size: 2rem;
+    .strive-card{
+        width: 484px;
+        height: 400px;
     }
-    .service-description-text{
-        font-size: 2rem;
+    .take-responsibility-card{
+        width: 484px;
+        height: 400px;
+    }
+    .explore-card{
+        width: 484px;
+        height: 400px;
+    }
+    .pioneer-card{
+        width: 484px;
+        height: 400px;
+    }
+    .circle-card{
+        width: 70px;
+        height: 70px;
+    }
+    .circle-card h1{
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .card-title{
+        font-size: 2.875rem;
+    }
+    .card-description{
+        font-size: 2.25rem;
+    }
+    .inner-card{
+        padding: 3rem;
+    }
+    .yellow-pin{
+        top: -5rem;
+        right: -2rem;
+        width: 8rem;
+        height: auto;
+    }
+    .clipper{
+        top: -9rem;
+        right: -7rem;
+        width: 16rem;
+        height: auto;
+    }
+    .tape{
+        width: 16rem;
+        height: auto;
+    }
+    /* end our values part */
+    .cards-container{
+        padding-bottom: 24rem;
     }
 }
 @media(max-width: 1920px) and (max-height: 1080px) {
@@ -623,213 +643,17 @@
     }
     /* end welcome part */
 
-   .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
-    }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
-    }
-    .what-is-su-imt-text{
-        margin-top: -4%;
-        font-size: 6rem;
-    }
-    .su-imt-description{
-        font-size: 1.5rem;
-         max-width: 50rem;
-        text-align: center;
-    }
-    .learn-more-button{
-        font-size: 4rem;
-        padding: 1.5rem 5rem;
-        border-radius: 1.5rem;
-    }
-
-    .sobekan{
-        top: 5%;
-        object-fit: contain;
-        scale: 1.2;
-    }
-    .container-student-union{
-        margin-top: 5%;
-    }
-    .sobekan-biru-kanan{
-        top: -22.5%;
-        right: -5%;
-        width: 32.5%;
-    }
-    .sobekan-biru-kiri{
-        top: -22.5%;
-        left: -5%;
-        width: 32.5%;
-    }
-
-    .competition-wrapper{
-        margin-top: 0%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 10rem;
-    }
-    .competition-text{
-        font-size: 6rem;
-    }
-    .competition-right-background{
-        width: 55rem;
-        height: 35.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 10.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
-        width: 15rem;
-        top: -25%;
-        right: -3%;
-    }
-    .join-now-text-container
-    {
-        width: 25rem;
-        height: 8rem;
-        bottom: -5%;
-        left: 47.5%;
-    }
-    .join-now-text{
-        font-size: 4rem;
-        text-align: center;
-    }
-    .competition-title-text{
-        font-size: 4rem;
-    }
-    .competition-description-text{
-        font-size: 2rem;
-    }
-    .competition-member-text{
-        font-size: 2rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 5rem;
-        line-height: 6.5rem;
-    }
-    .home-service-card-left{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .home-service-card-center{
-        width: 50rem;
-        height: 45rem;
-    }
-    .home-service-card-right{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .explore-button{
-        width: 25rem;
-        height: 8rem;
-    }
-    .explore-button-text{
-        font-size: 4rem;
-    }
-    .service-title-text{
-        font-size: 3.5rem;
-    }
-    .service-type-text{
-        font-size: 2rem;
-    }
-    .service-description-text{
-        font-size: 2rem;
-    }
-}
-@media(max-width: 1900px) and (max-height: 1920px) {
-    /* start welcome part */
-    .red-bubble{
-        width: 80rem;
-        height: auto;
-    }
-    .yellow-bubble{
-        top: 8.5rem;
-        left: 10rem;
-        width: 50rem;
-        height: auto;
-    }
-    .front-bubble{
-        top: 10rem;
-        left: 15rem;
-        width: 40rem;
-        height: auto;
-    }
-    .welcome{
-        top: 11.5rem;
-        left: 22.5rem;
-        width: 25rem;
-        height: auto;
-    }
-    .to-text{
-        top: 19.5rem;
-        left: 43%;
-        width: 2.5rem;
-        height: auto;
-    }
-    .su-imt-text{
-        top: 20rem;
-        left: 26.5%;
-        width: 30rem;
-        height: auto;
-    }
-    .demon-cat{
-        top: 16rem;
-        left: 16.5rem;
-        width: 6rem;
-        height: auto;
-    }
-    .stars-left{
-        top: 21rem;
-        left: 19rem;
-        width: 4rem;
-        height: auto;
-    }
-    .stars-right{
-        top: 14rem;
-        right: 30rem;
-        width: 4rem;
-        height: auto;
-    }
-    .title-background{
-        top: 42rem;
-        left: 4rem;
-        width: 70rem;
-        height: auto;
-    }
-    .title-text{
-        top: 12rem;
-        left: 22.5rem;
-        font-size: 2.25rem;
-        height: auto;
-    }
-    /* end welcome part */
-
     /* start about part */
     .card-left{
-        min-width:  650px;
-        min-height: 160px;
+        min-width:  750px;
+        min-height: 260px;
     }
     .about-us-title-text{
         font-size: 2.5rem;
     }
     .about-us-description-text{
         font-size: 1.75rem;
-        max-width: 500px;
+        max-width: 600px;
     }
     .handle-card{
         top: 6rem;
@@ -846,11 +670,11 @@
     .background-card-right{
         top: 4rem;
         right: -2rem;
-        width: 608px;
+        width: 708px;
         height: 418px;
     }
     .card-right{
-        min-width:  608px;
+        min-width:  708px;
         min-height: 418px;
     }
     .pin{
@@ -866,7 +690,7 @@
         height: auto;
     }
     .about-us-image-container{
-        width: 500px;
+        width: 600px;
         height: 250px;
     }
     .photo-title{
@@ -875,133 +699,68 @@
     }
     /* end about part */
 
-   .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start our values part */
+    .our-values-text{
+        margin-top: 8rem;
+        font-size: 3rem;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
+    .step{
+        top: 8rem;
+        width: 20rem;
+        height: auto;
     }
-    .what-is-su-imt-text{
-        margin-top: -4%;
-        font-size: 6rem;
+    .strive-card{
+        width: 384px;
+        height: 300px;
     }
-    .su-imt-description{
+    .take-responsibility-card{
+        width: 384px;
+        height: 300px;
+    }
+    .explore-card{
+        width: 384px;
+        height: 300px;
+    }
+    .pioneer-card{
+        width: 384px;
+        height: 300px;
+    }
+    .circle-card{
+        width: 60px;
+        height: 60px;
+    }
+    .circle-card h1{
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    .card-title{
+        font-size: 2rem;
+    }
+    .card-description{
         font-size: 1.5rem;
-         max-width: 50rem;
-        text-align: center;
     }
-    .learn-more-button{
-        font-size: 4rem;
-        padding: 1.5rem 5rem;
-        border-radius: 1.5rem;
+    .inner-card{
+        padding: 3rem;
     }
-
-    .sobekan{
-        top: 4%;
-        object-fit: contain;
-        scale: 1.2;
+    .yellow-pin{
+        top: -4rem;
+        right: -2rem;
+        width: 6rem;
+        height: auto;
     }
-    .container-student-union{
-        margin-top: 0%;
-        min-height: 70rem;
+    .clipper{
+        top: -7rem;
+        right: -6rem;
+        width: 12rem;
+        height: auto;
     }
-    .sobekan-biru-kanan{
-        top: -22.5%;
-        right: -5%;
-        width: 32.5%;
+    .tape{
+        width: 12rem;
+        height: auto;
     }
-    .sobekan-biru-kiri{
-        top: -22.5%;
-        left: -5%;
-        width: 32.5%;
-    }
-
-    .competition-wrapper{
-        margin-top: 0%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 10rem;
-    }
-    .competition-text{
-        font-size: 6rem;
-    }
-    .competition-right-background{
-        width: 55rem;
-        height: 35.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 10.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
-        width: 15rem;
-        top: -25%;
-        right: -3%;
-    }
-    .join-now-text-container
-    {
-        width: 25rem;
-        height: 8rem;
-        bottom: -5%;
-        left: 47.5%;
-    }
-    .join-now-text{
-        font-size: 4rem;
-        text-align: center;
-    }
-    .competition-title-text{
-        font-size: 4rem;
-    }
-    .competition-description-text{
-        font-size: 2rem;
-    }
-    .competition-member-text{
-        font-size: 2rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 5rem;
-        line-height: 6.5rem;
-    }
-    .home-service-card-left{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .home-service-card-center{
-        width: 50rem;
-        height: 45rem;
-    }
-    .home-service-card-right{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .explore-button{
-        width: 25rem;
-        height: 8rem;
-    }
-    .explore-button-text{
-        font-size: 4rem;
-    }
-    .service-title-text{
-        font-size: 3.5rem;
-    }
-    .service-type-text{
-        font-size: 2rem;
-    }
-    .service-description-text{
-        font-size: 2rem;
+    /* end our values part */
+    .cards-container{
+        padding-bottom: 24rem;
     }
 }
 @media(max-width: 1900px) and (max-height: 1200px) {
@@ -1128,132 +887,68 @@
     }
     /* end about part */
 
-   .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start our values part */
+    .our-values-text{
+        margin-top: 8rem;
+        font-size: 3rem;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
+    .step{
+        top: 8rem;
+        width: 20rem;
+        height: auto;
     }
-    .what-is-su-imt-text{
-        margin-top: -10%;
-        font-size: 6rem;
+    .strive-card{
+        width: 300px;
+        height: 270px;
     }
-    .su-imt-description{
+    .take-responsibility-card{
+        width: 300px;
+        height: 270px;
+    }
+    .explore-card{
+        width: 300px;
+        height: 270px;
+    }
+    .pioneer-card{
+        width: 300px;
+        height: 270px;
+    }
+    .circle-card{
+        width: 50px;
+        height: 50px;
+    }
+    .circle-card h1{
+        font-size: 2.25rem;
+        font-weight: bold;
+    }
+    .card-title{
         font-size: 1.5rem;
-         max-width: 50rem;
-        text-align: center;
     }
-    .learn-more-button{
-        font-size: 4rem;
-        padding: 1.5rem 5rem;
-        border-radius: 1.5rem;
+    .card-description{
+        font-size: 1.15rem;
     }
-
-    .sobekan{
-        top: 0%;
-        object-fit: contain;
-        scale: 1.2;
+    .inner-card{
+        padding: 1.5rem;
     }
-    .container-student-union{
-        margin-top: 5%;
+    .yellow-pin{
+        top: -2.5rem;
+        right: -1.5rem;
+        width: 5rem;
+        height: auto;
     }
-    .sobekan-biru-kanan{
-        top: -22.5%;
-        right: -5%;
-        width: 32.5%;
+    .clipper{
+        top: -6rem;
+        right: -5rem;
+        width: 10rem;
+        height: auto;
     }
-    .sobekan-biru-kiri{
-        top: -22.5%;
-        left: -5%;
-        width: 32.5%;
+    .tape{
+        width: 10rem;
+        height: auto;
     }
-
-    .competition-wrapper{
-        margin-top: 0%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 10rem;
-    }
-    .competition-text{
-        font-size: 6rem;
-    }
-    .competition-right-background{
-        width: 55rem;
-        height: 35.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 10.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
-        width: 15rem;
-        top: -25%;
-        right: -3%;
-    }
-    .join-now-text-container
-    {
-        width: 25rem;
-        height: 8rem;
-        bottom: -5%;
-        left: 47.5%;
-    }
-    .join-now-text{
-        font-size: 4rem;
-        text-align: center;
-    }
-    .competition-title-text{
-        font-size: 4rem;
-    }
-    .competition-description-text{
-        font-size: 2rem;
-    }
-    .competition-member-text{
-        font-size: 2rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 5rem;
-        line-height: 6.5rem;
-    }
-    .home-service-card-left{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .home-service-card-center{
-        width: 50rem;
-        height: 45rem;
-    }
-    .home-service-card-right{
-        width: 50rem;
-        height: 40rem;
-        max-height: 40rem;
-    }
-    .explore-button{
-        width: 25rem;
-        height: 8rem;
-    }
-    .explore-button-text{
-        font-size: 4rem;
-    }
-    .service-title-text{
-        font-size: 3.5rem;
-    }
-    .service-type-text{
-        font-size: 2rem;
-    }
-    .service-description-text{
-        font-size: 2rem;
+    /* end our values part */
+    .cards-container{
+        padding-bottom: 24rem;
     }
 }
 @media(max-width: 1728px) and (max-height: 1117px) {
@@ -1324,328 +1019,124 @@
     }
     /* end welcome part */
 
-    .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start about part */
+    .card-left{
+        min-width:  650px;
+        min-height: 160px;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
-    }
-    .what-is-su-imt-text{
-        margin-top: -10%;
-        font-size: 4rem;
-    }
-    .su-imt-description{
-        font-size: 1.25rem;
-         max-width: 50rem;
-        text-align: center;
-    }
-    .learn-more-button{
-        font-size: 2.5rem;
-        padding: 1.5rem 5rem;
-        border-radius: 1.5rem;
-    }
-
-    .sobekan{
-        top: 0%;
-        object-fit: contain;
-        scale: 1;
-    }
-    .container-student-union{
-        margin-top: -5%;
-    }
-    .sobekan-biru-kanan{
-        top: -6.5%;
-        right: -5%;
-        width: 25.5%;
-    }
-    .sobekan-biru-kiri{
-        top: -6.5%;
-        left: -5%;
-        width: 25.5%;
-    }
-
-    .competition-wrapper{
-        margin-top: -12%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 10rem;
-    }
-    .competition-text{
-        font-size: 5rem;
-    }
-    .competition-right-background{
-        width: 48rem;
-        height: 35.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 10.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
-        width: 15rem;
-        top: -25%;
-        right: -3%;
-    }
-    .join-now-text-container
-    {
-        width: 20rem;
-        height: 6rem;
-        bottom: -5%;
-        left: 47.5%;
-    }
-    .join-now-text{
-        font-size: 3rem;
-        text-align: center;
-    }
-    .competition-title-text{
-        font-size: 3rem;
-    }
-    .competition-description-text{
-        font-size: 1.5rem;
-    }
-    .competition-member-text{
-        font-size: 1.5rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 4rem;
-        line-height: 6.5rem;
-    }
-    .home-service-card-left{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .home-service-card-center{
-        width: 30rem;
-        height: 35rem;
-    }
-    .home-service-card-right{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .explore-button{
-        width: 20rem;
-        height: 6rem;
-    }
-    .explore-button-text{
-        font-size: 3rem;
-    }
-    .service-title-text{
+    .about-us-title-text{
         font-size: 2.5rem;
     }
-    .service-type-text{
-        font-size: 1rem;
+    .about-us-description-text{
+        font-size: 1.75rem;
+        max-width: 500px;
     }
-    .service-description-text{
-        font-size: 1.5rem;
-    }
-}
-@media(max-width: 1538px) and (max-height: 2048px){
-    /* start welcome part */
-    .red-bubble{
-        width: 60rem;
-        height: auto;
-    }
-    .yellow-bubble{
+    .handle-card{
         top: 6rem;
-        left: 6rem;
-        width: 40rem;
+        left: -8rem;
+        width: 12rem;
         height: auto;
     }
-    .front-bubble{
-        top: 7rem;
-        left: 9rem;
-        width: 35rem;
+    .star-card{
+        bottom: -3rem;
+        right: -4rem;
+        width: 12rem;
         height: auto;
     }
-    .welcome{
-        top: 8.5rem;
-        left: 14.5rem;
-        width: 21.5rem;
+    .background-card-right{
+        top: 4rem;
+        right: -2rem;
+        width: 608px;
+        height: 418px;
+    }
+    .card-right{
+        min-width:  608px;
+        min-height: 418px;
+    }
+    .pin{
+        top: -5.5rem;
+        right: -6rem;
+        width: 16rem;
         height: auto;
     }
-    .to-text{
-        top: 15.5rem;
-        left: 41%;
-        width: 2.5rem;
+    .triangle{
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 3rem;
         height: auto;
     }
-    .su-imt-text{
-        top: 16rem;
-        left: 24%;
-        width: 25rem;
+    .about-us-image-container{
+        width: 500px;
+        height: 250px;
+    }
+    .photo-title{
+        margin-left: 3rem;
+        font-size: 2.5rem;
+    }
+    /* end about part */
+
+    /* start our values part */
+    .our-values-text{
+        margin-top: 8rem;
+        font-size: 3rem;
+    }
+    .step{
+        top: 8rem;
+        width: 20rem;
         height: auto;
     }
-    .demon-cat{
-        top: 12rem;
-        left: 10.5rem;
+    .strive-card{
+        width: 300px;
+        height: 270px;
+    }
+    .take-responsibility-card{
+        width: 300px;
+        height: 270px;
+    }
+    .explore-card{
+        width: 300px;
+        height: 270px;
+    }
+    .pioneer-card{
+        width: 300px;
+        height: 270px;
+    }
+    .circle-card{
+        width: 50px;
+        height: 50px;
+    }
+    .circle-card h1{
+        font-size: 2.25rem;
+        font-weight: bold;
+    }
+    .card-title{
+        font-size: 1.5rem;
+    }
+    .card-description{
+        font-size: 1.15rem;
+    }
+    .inner-card{
+        padding: 1.5rem;
+    }
+    .yellow-pin{
+        top: -2.5rem;
+        right: -1.5rem;
         width: 5rem;
         height: auto;
     }
-    .stars-left{
-        top: 17rem;
-        left: 13rem;
-        width: 3rem;
+    .clipper{
+        top: -6rem;
+        right: -5rem;
+        width: 10rem;
         height: auto;
     }
-    .stars-right{
-        top: 11rem;
-        right: 20.5rem;
-        width: 3rem;
+    .tape{
+        width: 10rem;
         height: auto;
     }
-    .title-background{
-        top: 31rem;
-        left: 4rem;
-        width: 50rem;
-        height: auto;
-    }
-    .title-text{
-        left: 22.5rem;
-        font-size: 1.5rem;
-        height: auto;
-    }
-    /* end welcome part */
-
-    .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
-    }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
-    }
-    .what-is-su-imt-text{
-        margin-top: -10%;
-        font-size: 3.5rem;
-    }
-    .su-imt-description{
-        font-size: 1.25rem;
-         max-width: 50rem;
-        text-align: center;
-    }
-    .learn-more-button{
-        font-size: 2rem;
-        padding: 1.25rem 4.5rem;
-        border-radius: 1.5rem;
-    }
-
-    .sobekan{
-        top: 0%;
-        object-fit: contain;
-        scale: 1;
-    }
-    .container-student-union{
-        margin-top: -5%;
-        min-height: 60rem;
-    }
-    .sobekan-biru-kanan{
-        top: -6.5%;
-        right: -5%;
-        width: 25.5%;
-    }
-    .sobekan-biru-kiri{
-        top: -6.5%;
-        left: -5%;
-        width: 25.5%;
-    }
-
-    .competition-wrapper{
-        margin-top: -10%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 5rem;
-    }
-    .competition-text{
-        font-size: 3.5rem;
-    }
-    .competition-right-background{
-        width: 43rem;
-        height: 30.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 10.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
-        width: 15rem;
-        top: -25%;
-        right: -5%;
-    }
-    .join-now-text-container
-    {
-        width: 20rem;
-        height: 6rem;
-        bottom: -5%;
-        left: 47.5%;
-    }
-    .join-now-text{
-        font-size: 3rem;
-        text-align: center;
-    }
-    .competition-title-text{
-        font-size: 3rem;
-    }
-    .competition-description-text{
-        font-size: 1.5rem;
-    }
-    .competition-member-text{
-        font-size: 1.5rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 3.5rem;
-        line-height: 4.5rem;
-    }
-    .home-service-card-left{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .home-service-card-center{
-        width: 30rem;
-        height: 35rem;
-    }
-    .home-service-card-right{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .explore-button{
-        width: 20rem;
-        height: 6rem;
-    }
-    .explore-button-text{
-        font-size: 3rem;
-    }
-    .service-title-text{
-        font-size: 2.5rem;
-    }
-    .service-type-text{
-        font-size: 1rem;
-    }
-    .service-description-text{
-        font-size: 1.5rem;
+    /* end our values part */
+    .cards-container{
+        padding-bottom: 24rem;
     }
 }
 @media(max-width: 1512px) and (max-height: 982px){
@@ -1715,133 +1206,125 @@
     }
     /* end welcome part */
 
-    .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start about part */
+    .card-left{
+        min-width:  550px;
+        min-height: 160px;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
-    }
-    .what-is-su-imt-text{
-        margin-top: -10%;
-        font-size: 3.5rem;
-    }
-    .su-imt-description{
-        font-size: 1.25rem;
-         max-width: 50rem;
-        text-align: center;
-    }
-    .learn-more-button{
+    .about-us-title-text{
         font-size: 2rem;
-        padding: 1.25rem 4.5rem;
-        border-radius: 1.5rem;
     }
+    .about-us-description-text{
+        font-size: 1.25rem;
+        max-width: 450px;
+    }
+    .handle-card{
+        top: 6rem;
+        left: -5.5rem;
+        width: 8rem;
+        height: auto;
+    }
+    .star-card{
+        bottom: -2rem;
+        right: -3rem;
+        width: 9rem;
+        height: auto;
+    }
+    .background-card-right{
+        top: 2rem;
+        right: -2rem;
+        width: 508px;
+        height: 318px;
+    }
+    .card-right{
+        min-width:  508px;
+        min-height: 318px;
+    }
+    .pin{
+        top: -4.25rem;
+        right: -4.25rem;
+        width: 12rem;
+        height: auto;
+    }
+    .triangle{
+        top: -0.1rem;
+        right: -0.2rem;
+        width: 2rem;
+        height: auto;
+    }
+    .about-us-image-container{
+        width: 480px;
+        height: 220px;
+    }
+    .photo-title{
+        margin-left: -2rem;
+        font-size: 1.5rem;
+    }
+    /* end about part */
 
-    .sobekan{
-        top: 0%;
-        object-fit: contain;
-        scale: 1;
+    /* start our values part */
+    .our-values-text{
+        margin-top: 8rem;
+        font-size: 3rem;
     }
-    .container-student-union{
-        margin-top: -5%;
-        min-height: 60rem;
-    }
-    .sobekan-biru-kanan{
-        top: -6.5%;
-        right: -5%;
-        width: 25.5%;
-    }
-    .sobekan-biru-kiri{
-        top: -6.5%;
-        left: -5%;
-        width: 25.5%;
-    }
-
-    .competition-wrapper{
-        margin-top: -10%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 5rem;
-    }
-    .competition-text{
-        font-size: 3.5rem;
-    }
-    .competition-right-background{
-        width: 43rem;
-        height: 30.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 10.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
+    .step{
+        top: 8rem;
         width: 15rem;
-        top: -25%;
-        right: -5%;
+        height: auto;
     }
-    .join-now-text-container
-    {
-        width: 20rem;
-        height: 6rem;
-        bottom: -5%;
-        left: 47.5%;
+    .strive-card{
+        width: 290px;
+        height: 250px;
     }
-    .join-now-text{
-        font-size: 3rem;
-        text-align: center;
+    .take-responsibility-card{
+        width: 290px;
+        height: 250px;
     }
-    .competition-title-text{
-        font-size: 3rem;
+    .explore-card{
+        width: 290px;
+        height: 250px;
     }
-    .competition-description-text{
+    .pioneer-card{
+        width: 290px;
+        height: 250px;
+    }
+    .circle-card{
+        width: 50px;
+        height: 50px;
+    }
+    .circle-card h1{
+        font-size: 2.25rem;
+        font-weight: bold;
+    }
+    .card-title{
         font-size: 1.5rem;
     }
-    .competition-member-text{
-        font-size: 1.5rem;
+    .card-description{
+        font-size: 1.15rem;
     }
-    .image-container{
-        width: 100%;
-        height: 50%;
+    .inner-card{
+        padding: 1.5rem;
     }
-    .explore-text{
-        font-size: 3.5rem;
-        line-height: 4.5rem;
+    .yellow-pin{
+        top: -2.5rem;
+        right: -1.5rem;
+        width: 5rem;
+        height: auto;
     }
-    .home-service-card-left{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
+    .clipper{
+        top: -6rem;
+        right: -5rem;
+        width: 10rem;
+        height: auto;
     }
-    .home-service-card-center{
-        width: 30rem;
-        height: 35rem;
+    .tape{
+        width: 10rem;
+        height: auto;
     }
-    .home-service-card-right{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .explore-button{
-        width: 20rem;
-        height: 6rem;
-    }
-    .explore-button-text{
-        font-size: 3rem;
-    }
-    .service-title-text{
-        font-size: 2.5rem;
-    }
-    .service-type-text{
-        font-size: 1rem;
-    }
-    .service-description-text{
-        font-size: 1.5rem;
+    /* end our values part */
+    .cards-container{
+        gap: 4rem;
+        padding-bottom: 10rem;
     }
 }
 @media(max-width: 1366px) and (max-height: 1024px){
@@ -1911,133 +1394,128 @@
     }
     /* end welcome part */
 
-   .sobekan-biru-kiri{
-        width: 32.5%;
-        top: -22.5%;
-        left: -5%;
+    /* start about part */
+    .card-left{
+        min-width:  450px;
+        min-height: 160px;
     }
-    .sobekan-biru-kanan{
-        width: 42.5%;
-        top: -22.5%;
-        right: -7%;
+    .about-us-title-text{
+        font-size: 1.75rem;
     }
-    .what-is-su-imt-text{
-        margin-top: -10%;
-        font-size: 3rem;
-    }
-    .su-imt-description{
+    .about-us-description-text{
         font-size: 1rem;
-         max-width: 40rem;
-        text-align: center;
+        max-width: 375px;
     }
-    .learn-more-button{
+    .handle-card{
+        top: 6rem;
+        left: -4.5rem;
+        width: 6rem;
+        height: auto;
+    }
+    .star-card{
+        bottom: -2rem;
+        right: -3rem;
+        width: 8rem;
+        height: auto;
+    }
+    .background-card-right{
+        top: 2rem;
+        right: 0rem;
+        width: 408px;
+        height: 290px;
+    }
+    .card-right{
+        min-width:  505px;
+        min-height: 290px;
+    }
+    .pin{
+        top: -4.25rem;
+        right: -4.25rem;
+        width: 12rem;
+        height: auto;
+    }
+    .triangle{
+        top: -0.1rem;
+        right: -0.2rem;
+        width: 2rem;
+        height: auto;
+    }
+    .about-us-image-container{
+        width: 480px;
+        height: 220px;
+    }
+    .photo-title{
+        margin-left: -2rem;
         font-size: 1.5rem;
-        padding: 1rem 4rem;
-        border-radius: 1.5rem;
     }
+    /* end about part */
 
-    .sobekan{
-        top: 0%;
-        object-fit: contain;
-        scale: 1;
-    }
-    .container-student-union{
-        margin-top: -8%;
-        min-height: 55rem;
-    }
-    .sobekan-biru-kanan{
-        top: -3.5%;
-        right: -5%;
-        width: 28.5%;
-    }
-    .sobekan-biru-kiri{
-        top: -3.5%;
-        left: -5%;
-        width: 28.5%;
-    }
-
-    .competition-wrapper{
-        margin-top: -10%;
-    }
-    .competition-right-left-container{
-        gap: 5rem;
-        margin-top: 5rem;
-    }
-    .competition-text{
-        font-size: 3rem;
-    }
-    .competition-right-background{
-        width: 38rem;
-        height: 25.5rem;
-        padding: 2rem;
-    }
-    .competition-right-handle{
-        width: 8.5rem;
-        top: -28%;
-        right: 40%;
-    }
-    .competition-star{
-        width: 12.5rem;
-        top: -25%;
-        right: -5%;
-    }
-    .join-now-text-container
-    {
-        width: 20rem;
-        height: 6rem;
-        bottom: -5%;
-        left: 47.5%;
-    }
-    .join-now-text{
-        font-size: 3rem;
-        text-align: center;
-    }
-    .competition-title-text{
+    /* start our values part */
+    .our-values-text{
+        margin-top: 8rem;
         font-size: 2.5rem;
     }
-    .competition-description-text{
+    .step{
+        top: 8rem;
+        width: 10rem;
+        height: auto;
+    }
+    .strive-card{
+        width: 250px;
+        height: 210px;
+    }
+    .take-responsibility-card{
+        width: 250px;
+        height: 210px;
+    }
+    .explore-card{
+        width: 250px;
+        height: 210px;
+    }
+    .pioneer-card{
+        width: 250px;
+        height: 210px;
+    }
+    .circle-card{
+        width: 40px;
+        height: 40px;
+    }
+    .circle-card h1{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .card-title{
         font-size: 1.25rem;
     }
-    .competition-member-text{
-        font-size: 1.25rem;
-    }
-    .image-container{
-        width: 100%;
-        height: 50%;
-    }
-    .explore-text{
-        font-size: 3rem;
-        line-height: 3.5rem;
-    }
-    .home-service-card-left{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .home-service-card-center{
-        width: 30rem;
-        height: 35rem;
-    }
-    .home-service-card-right{
-        width: 30rem;
-        height: 32rem;
-        max-height: 32rem;
-    }
-    .explore-button{
-        width: 20rem;
-        height: 6rem;
-    }
-    .explore-button-text{
-        font-size: 3rem;
-    }
-    .service-title-text{
-        font-size: 2.5rem;
-    }
-    .service-type-text{
+    .card-description{
         font-size: 1rem;
     }
-    .service-description-text{
-        font-size: 1.5rem;
+    .inner-card{
+        padding: 1.5rem;
+    }
+    .yellow-pin{
+        top: -2rem;
+        right: -1.5rem;
+        width: 4rem;
+        height: auto;
+    }
+    .clipper{
+        top: -4rem;
+        right: -3rem;
+        width: 8rem;
+        height: auto;
+    }
+    .tape{
+        width: 8rem;
+        height: auto;
+    }
+    .about-us-container{
+        gap: 8rem;
+    }
+    /* end our values part */
+    .cards-container{
+        gap: 4rem;
+        padding-bottom: 14rem;
     }
 }
 @media(max-width: 1366px) and (max-height: 768px) {

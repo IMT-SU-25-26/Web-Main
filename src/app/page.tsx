@@ -1,6 +1,8 @@
 // import AuthButton from "@/components/AuthButton";
 import Image from "next/image";
 import "@/styles/home.css";
+import Link from "next/link";
+import HomeServicesCard from "@/components/HomeServicesCard";
 export default function Home() {
   return (
     // <div className="flex items-center justify-center min-h-screen">
@@ -8,7 +10,7 @@ export default function Home() {
     // </div>
     <>
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
+      <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
         <div className="relative z-10 w-fit h-full flex items-center justify-center">
           <Image
             className="red-bubble z-[8] top-0"
@@ -105,165 +107,74 @@ export default function Home() {
             </h1>
           </div>
         </div>
-
-        <div className="about-us-container mt-20 flex gap-44 justify-center items-center w-screen">
-          <div className="relative card-left bg-[#FFFFFF] min-w-[560px] min-h-[330px] rounded-3xl shadow-2xl p-12 flex flex-col items-start justify-start gap-4">
-            <h1 className="about-us-title-text text-4xl text-black font-bold">
-              ABOUT US
-            </h1>
-            <p className="about-us-description-text max-w-[560px] text-black">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic
-              adipisci praesentium aperiam ab tempora quis recusandae, laborum
-              assumenda delectus! Velit ad, ipsum odit cumque dicta veniam
-              voluptatum dolorum temporibus nesciunt eligendi accusamus fugiat.
-            </p>
-            <Image
-              className="handle-card absolute z-[9] top-[4rem] -left-[7rem]"
-              src={"/home/handle-card.png"}
-              draggable="false"
-              width={162.36}
-              height={120}
-              alt="mid-bubble"
-            ></Image>
-            <Image
-              className="star-card absolute z-[9] -bottom-[2.5rem] -right-[4rem]"
-              src={"/home/star-card.png"}
-              draggable="false"
-              width={152.33}
-              height={140.12}
-              alt="mid-bubble"
-            ></Image>
-          </div>
-          <div className="background-card-right rotate-12 relative min-w-[504px] min-h-[309] bg-[#EAD6B1]">
-            <div className="card-right absolute flex flex-col items-center justify-center top-8 right-8 min-w-[504px] min-h-[309] bg-[#FFFFFF] gap-4">
-              <Image
-                className="pin absolute -top-[4.27rem] -right-[5rem] w-[12.5rem] h-auto rotate-[-7deg]"
-                src={"/home/pin.png"}
-                draggable="false"
-                width={113.5}
-                height={193.65}
-                alt="stars-right"
-              ></Image>
-              <Image
-                className="triangle absolute -top-[0.15rem] -right-[0.2rem] w-[1.6rem] rotate-[-7deg] h-auto"
-                src={"/home/triangle.svg"}
-                draggable="false"
-                width={113.5}
-                height={193.65}
-                alt="stars-right"
-              ></Image>
-              <div className="about-us-image-container w-[447.16px] h-[208.59px]">
-                <Image
-                  className="w-full h-full object-cover object-center"
-                  src={"/home/cat-placeholder-image.gif"}
-                  draggable="false"
-                  width={426.5}
-                  height={126}
-                  alt="stars-right"
-                ></Image>
-              </div>
-              <h1 className="photo-title px-8 text-start w-full text-xl">
-                SU IMT Team
-              </h1>
-            </div>
-          </div>
-        </div>
-
-        {/* Our values section */}
-        <div className="relative w-screen min-h-screen flex flex-col justify-center items-center">
-          <h1 className="our-values-text text-4xl text-black font-bold">
-            OUR VALUES
-          </h1>
+        <div className="container-student-union mt-15 relative z-10 min-h-screen min-w-screen flex flex-col gap-8 items-center justify-center">
           <Image
-            className="step mt-4"
-            src={"/home/step.svg"}
+            className="sobekan absolute z-[1] w-full h-full bottom-0 left-0"
+            src={"/home/pink-big-fracture.svg"}
             draggable="false"
-            width={277.89}
-            height={113}
-            alt="red-bubble"
+            width={1920}
+            height={1080}
+            alt="sobekan"
+          ></Image>
+          <h1 className="what-is-su-imt-text mt-[-10%] relative z-10 text-6xl font-bold text-white font-family-impact">WHAT IS SU IMT</h1>
+          <p className="su-imt-description relative z-10 text-xl text-white font-bold max-w-2xl text-center">
+            Student Union Information and Multimedia Technology is a student-led organization that serves as a platform for students of the Informatics study program to grow professionally, socially, and academically. SU IMT UC organizes various events, workshops, and initiatives to enhance student engagement, develop leadership skills, and support innovation in technology.
+          </p>
+          <Link href="/" className="learn-more-button relative font-family-impact z-10 text-4xl bg-[#0E54B2] p-6 px-10 rounded-2xl text-white font-bold">
+            Learn More
+          </Link>
+          <Image
+            className="absolute z-[2] w-1/5 top-[27.5%] left-0"
+            src={"/home/circle-stick.svg"}
+            draggable="false"
+            width={422}
+            height={376}
+            alt="circle-stick-left"
+          ></Image>
+          <Image
+            className="absolute z-[3] w-1/5 top-[27.5%] left-0"
+            src={"/home/laptop-on-stick.svg"}
+            draggable="false"
+            width={422}
+            height={376}
+            alt="circle-stick-left"
+          ></Image>
+          <Image
+            className="absolute z-[2] w-[22.5%] top-[42.5%] left-0"
+            src={"/home/book-laptop.png"}
+            draggable="false"
+            width={422}
+            height={376}
+            alt="book-laptop"
           ></Image>
 
-          <div className="cards-container mt-20 grid grid-cols-4 gap-20">
-            {/* card 1 */}
-            <div className="strive-card relative bg-[#F7A7C2] rounded-2xl w-[292px] h-[250px]">
-              <div className="strive-inner inner-card p-4 absolute w-full h-full bg-[#EB427B] rounded-2xl rotate-[-6deg] top-5 left-3 flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#EB427B] font-bold text-2xl">S</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  STRIVE
-                </h1>
-                <h1 className="card-description text-xl text-white font-normal">
-                  Lorem ipsum
-                </h1>
-              </div>
-              <Image
-                className="yellow-pin absolute -top-[3rem] -right-[1rem] w-[4rem] h-auto"
-                width={500}
-                height={500}
-                src="/home/pin-yellow.png"
-                alt="pin-yellow"
-              ></Image>
-            </div>
-            <div className="take-responsibility-card relative mt-4 bg-[#ECD682] rotate-[2.76deg] rounded-2xl w-[292px] h-[250px]">
-              <div className="inner-card p-4 absolute w-full h-full bg-[#F5C309] -top-[1.5rem] -left-[1rem] rounded-2xl flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#F5C309] font-bold text-2xl">T</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  TAKE
-                </h1>
-                <h1 className="card-title text-3xl text-white font-bold">
-                  RESPONSIBILITY
-                </h1>
-                <h1 className="card-description text-xl text-white">
-                  Lorem ipsum
-                </h1>
-              </div>
-            </div>
-            <div className="explore-card relative mt-4 bg-[#AED8AD] rotate-[2.27deg] rounded-2xl w-[292px] h-[250px]">
-              <div className="inner-card p-4 absolute w-full h-full bg-[#37951D] rounded-2xl rotate-[-2.27deg] -left-[0.2rem] -top-[1rem] flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#37951D] font-bold text-2xl">E</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  EXPLORE
-                </h1>
-                <h1 className="card-description text-xl text-white">
-                  Lorem ipsum
-                </h1>
-              </div>
-              <Image
-                className="tape absolute top-[-2rem] right-[25%] w-[9.5rem] h-auto"
-                width={500}
-                height={500}
-                src="/home/tape.png"
-                alt="tape"
-              ></Image>
-            </div>
-            <div className="pioneer-card mt-4 relative bg-[#6CAAFF] rotate-[-13.06deg] rounded-2xl w-[292px] h-[250px]">
-              <div className="inner-card p-4 absolute w-full h-full bg-[#0E53B2] rounded-2xl rotate-[5.61deg] -left-[0.25rem] -top-[0.25rem] flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#0E53B2] font-bold text-2xl">P</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  PIONEER
-                </h1>
-                <h1 className="card-description text-xl text-white">
-                  Lorem ipsum
-                </h1>
-              </div>
-              <Image
-                className="clipper absolute -top-[5rem] -right-[4rem] w-[8.5rem] h-auto"
-                width={500}
-                height={500}
-                src="/home/clipper.png"
-                alt="tape"
-              ></Image>
-            </div>
-          </div>
           <Image
-            className="absolute w-[20%] bottom-0 left-0"
+            className="absolute z-[2] w-1/5 top-[27.5%] right-0"
+            src={"/home/camera.png"}
+            draggable="false"
+            width={422}
+            height={376}
+            alt="camera"
+          ></Image>
+          <Image
+            className="absolute z-[1] w-1/5 top-[27.5%] right-0"
+            src={"/home/circle-background-right.svg"}
+            draggable="false"
+            width={422}
+            height={376}
+            alt="circle-foreground"
+          ></Image>
+          <Image
+            className="absolute z-[1] w-1/5 top-[23.5%] -right-4"
+            src={"/home/circle-foreground-right.svg"}
+            draggable="false"
+            width={422}
+            height={376}
+            alt="circle-background"
+          ></Image>
+
+          <Image
+            className="sobekan-biru-kiri absolute z-0 w-[32.5%] top-[-22.5%] -left-[5%]"
             src={"/home/sobekan-bottom-left.png"}
             draggable="false"
             width={422}
@@ -271,38 +182,66 @@ export default function Home() {
             alt="sobekan-left"
           ></Image>
           <Image
-            className="absolute bottom-0 left-0"
-            src={"/home/heart.png"}
+            className="sobekan-biru-kanan absolute rotate-y-180 z-0 w-[32.5%] top-[-22.5%] -right-[5%]"
+            src={"/home/sobekan-bottom-left.png"}
             draggable="false"
-            width={200}
-            height={200}
-            alt="heart"
-          ></Image>
-          <Image
-            className="absolute w-[20%] bottom-0 right-0"
-            src={"/home/sobekan-bottom-right.png"}
-            draggable="false"
-            width={629}
-            height={400}
+            width={422}
+            height={376}
             alt="sobekan-right"
           ></Image>
-          <Image
-            className="absolute bottom-0 right-0"
-            src={"/home/laptop.png"}
-            draggable="false"
-            width={313.12}
-            height={238.42}
-            alt="laptop"
-          ></Image>
-          <Image
-            className="absolute bottom-20 right-22"
-            src={"/home/laptop-spark.png"}
-            draggable="false"
-            width={147}
-            height={185}
-            alt="laptop-spark"
-          ></Image>
         </div>
+
+        {/* Our values section */}
+        <div className="competition-wrapper relative w-screen flex flex-col justify-start items-center pb-[15%]">
+          <h1 className="competition-text font-family-gill-condensed-bold font-extrabold text-6xl">COMPETITIONS</h1>
+          <div className="competition-right-left-container mt-14 w-full h-full flex gap-[10rem] justify-center items-center">
+            <div className="w-full h-full relative z-10 competition-left-container">
+              <Image className="w-[85%] h-auto" src={"/home/compete-bg.svg"} width={500} height={500} alt="background-compete"></Image>
+              <Image
+                className="absolute z-10 w-[100%] h-auto top-0 left-5"
+                src={"/home/compete.svg"}
+                draggable="false"
+                width={500}
+                height={500}
+                alt="competition-left"
+              ></Image>
+              <div className="join-now-text-container absolute w-[350px] h-[120px] bottom-[-5%] left-[47.5%] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
+                <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
+                  <h1 className="join-now-text font-family-impact text-6xl text-center text-white">Join Now</h1>
+                </div>
+              </div>
+            </div>
+            <div className="competition-right-container w-full h-full">
+              <div className="competition-right-background relative rotate-[-2.5deg] w-[40rem] h-[27.5rem] bg-white flex flex-col gap-4 p-4">
+                <Image className="competition-right-handle absolute top-[-25%] right-[40%] w-[7.5rem] rotate-90" src={"/home/handle-card.png"} width={500} height={500} alt="handle-card"></Image>
+                <Image className="competition-star absolute top-[-15%] right-[-8%] w-[10rem]" src={"/home/star-card.png"} width={500} height={500} alt="star-card"></Image>
+                <div className="image-container bg-gray-300 w-full h-1/2"></div>
+                <h1 className="competition-title-text font-family-impact text-4xl">HACKATHON 2025</h1>
+                <p className="competition-description-text text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, omnis?</p>
+                <p className="competition-member-text text-xl text-end">Team: 3-4 members</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative w-screen pb-[10%] flex flex-col justify-start items-center overflow-hidden">
+           <h1 className="explore-text font-family-gill-condensed-bold font-extrabold text-6xl">EXPLORE OUR</h1>
+           <h1 className="explore-text font-family-gill-condensed-bold font-extrabold text-6xl">COMMUNITY SERVICES</h1>
+           <div className="home-service-card-container relative flex mt-14">
+            <HomeServicesCard className="home-service-card-left absolute left-[25%] top-[3rem] max-h-[18rem]" title="Title" type="Achievements" description="Description for Service 1" color="#0555AB" opacity="75%"/>
+            <HomeServicesCard className="home-service-card-center relative z-10" title="Title" type="Achievements" description="Description for Service 1" color="#0555AB" opacity="100%" />
+            <HomeServicesCard className="home-service-card-right absolute right-[20%] top-[3rem] max-h-[18rem]" title="Title" type="Achievements" description="Description for Service 1" color="#0555AB" opacity="75%"/>
+           </div>
+           <div className="relative flex justify-center items-center w-full h-full mt-[10rem]">
+           <div className="explore-button absolute w-[350px] h-[120px] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
+                <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
+                  <h1 className="explore-button-text font-family-impact text-6xl text-center text-white">EXPLORE</h1>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div className="h-[10vh] w-screen bg-[#E44843]"></div>
       </div>
     </>
   );
