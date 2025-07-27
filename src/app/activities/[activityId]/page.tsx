@@ -120,7 +120,18 @@ const ActivityDetails = ({params}:ActivityDetailsProps) => {
                             {slicedDescription.map((line, index)=>(
                                 <p key={index}>{line}</p>
                             ))}
-                            <Button bgColor='#ED4E45'>REGISTER</Button>
+                            <div className='relative w-fit mt-5'>
+                                <Button bgColor='#ED4E45' className='w-fit px-10 py-3 text-[35px] font-bold rounded-xl'>REGISTER</Button>
+                                <Image
+                                    className='absolute -top-8 -right-14'
+                                    src="/activities/activityDetails/button-decor.webp"
+                                    alt=''
+                                    width={100}
+                                    height={65}
+                                >
+                                </Image>
+                            </div>
+
                         </div>
                     </div>
                 </div>

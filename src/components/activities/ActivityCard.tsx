@@ -71,7 +71,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         {/* Bottom Section */}
         <div className="flex justify-between items-center mt-4">
             {/* Register Button */}
-            <Button bgColor={accentColor} className='w-fit'>Register</Button>
+            <Button bgColor={accentColor} className=''>Register</Button>
 
             {/* Team Info */}
             <p className="text-[12px] font-gill text-black opacity-80">
