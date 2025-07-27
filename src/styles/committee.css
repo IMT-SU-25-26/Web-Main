@@ -1232,7 +1232,7 @@
   }
 
   .rightcloudasset {
-    transform: translateX(-13rem);
+    transform: translateX(13rem) translateY(-3rem);
   }
 
   .leftcloudasset {

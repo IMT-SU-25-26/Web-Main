@@ -135,7 +135,7 @@ export default function Home() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="rightcloudasset absolute w-[0rem] sm:w-[0rem] lg:w-[14rem] h-auto z-0 lg:translate-x-[39.5rem] translate-y-[4rem] sm:translate-y-[2rem] sm:-translate-x-[-35rem]"
+            className="rightcloudasset absolute hidden sm:flex lg:flex sm:w-[0rem] lg:w-[14rem] h-auto z-0 lg:translate-x-[39.5rem] translate-y-[4rem] sm:translate-y-[2rem] sm:-translate-x-[-35rem]"
           />
         </div>
         <div className="section-reveal internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
