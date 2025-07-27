@@ -12,33 +12,503 @@
   }
 }
 
-@media (max-width: 3840px) and (max-height: 2160px) {}
+/* @media (max-width: 3840px) and (max-height: 2160px) {}
 
 @media (max-width: 2850px) and (max-height: 1800px) {}
 
 @media (max-width: 2560px) and (max-height: 1600px) {}
 
-@media (max-width: 2560px) and (max-height: 1140px) {}
+@media (max-width: 2560px) and (max-height: 1140px) {
 
-@media (max-width: 1920px) and (max-height: 1080px) {}
+} */
 
-@media (max-width: 1900px) and (max-height: 1200px) {}
+@media (max-width: 1920px) and (max-height: 1080px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 1.5rem;
+  }
 
-@media (max-width: 1728px) and (max-height: 1117px) {}
+  .internal-container {
+    gap: 1.5rem;
+  }
 
-@media (max-width: 1512px) and (max-height: 982px) {}
+  .quoteasset {
+    transform: translateX(12rem);
+  }
 
-@media (max-width: 1366px) and (max-height: 1024px) {}
+  .bookasset {
+    transform: translateX(-12rem);
+  }
 
-@media (max-width: 1366px) and (max-height: 768px) {}
+  .yellowstarasset {
+    transform: translateX(-12rem);
+  }
 
-@media (max-width: 1280px) and (max-height: 800px) {}
+  .rightcloudasset {
+    transform: translateX(15rem);
+    width: 15rem;
+  }
 
-@media (max-width: 1180px) and (max-height: 820px) {}
+  .leftcloudasset {
+    transform: translateX(-10rem);
+    width: 15rem;
+  }
+
+  .redstarasset {
+    transform: translateX(14rem);
+  }
+
+  .arrowasset {
+    transform: translateX(-5rem) translateY(3rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(14rem) translateY(-2rem);
+  }
+
+  .catasset {
+    transform: translateX(-10rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(-15rem);
+  }
+
+  .starasset {
+    transform: translateX(14rem);
+  }
+
+  .tapeasset {
+    transform: translateX(-6rem);
+  }
+}
+
+@media (max-width: 1900px) and (max-height: 1200px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 1rem;
+  }
+
+  .internal-container {
+    gap: 1rem;
+  }
+
+  .quoteasset {
+    transform: translateX(8rem);
+  }
+
+  .bookasset {
+    transform: translateX(-8rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(-10rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(12rem);
+    width: 18rem;
+  }
+
+  .leftcloudasset {
+    transform: translateX(-8rem);
+    width: 16rem;
+  }
+
+  .redstarasset {
+    transform: translateX(13rem);
+  }
+
+  .arrowasset {
+    transform: translateX(-4rem) translateY(2rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(12rem) translateY(-1rem);
+  }
+
+  .catasset {
+    transform: translateX(-8rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(-12rem);
+  }
+
+  .starasset {
+    transform: translateX(16rem);
+  }
+
+  .tapeasset {
+    transform: translateX(-5rem);
+  }
+}
+
+@media (max-width: 1728px) and (max-height: 1117px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(10rem);
+  }
+
+  .bookasset {
+    transform: translateX(-10rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(-5rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(8rem);
+    width: 16rem;
+  }
+
+  .leftcloudasset {
+    transform: translateX(-4rem);
+    width: 14rem;
+  }
+
+  .redstarasset {
+    transform: translateX(8rem);
+  }
+
+  .arrowasset {
+    transform: translateX(0rem) translateY(4rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(5rem) translateY(1rem);
+  }
+
+  .catasset {
+    transform: translateX(-4rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(-5rem);
+  }
+
+  .starasset {
+    transform: translateX(10rem);
+  }
+
+  .tapeasset {
+    transform: translateX(0rem);
+  }
+}
+
+@media (max-width: 1512px) and (max-height: 982px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(14rem);
+  }
+
+  .bookasset {
+    transform: translateX(-14rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(0rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(1rem);
+    width: 14rem;
+  }
+
+  .leftcloudasset {
+    transform: translateX(1rem);
+    width: 12rem;
+  }
+
+  .redstarasset {
+    transform: translateX(2rem);
+  }
+
+  .arrowasset {
+    transform: translateX(5rem) translateY(6rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-1rem) translateY(2rem);
+  }
+
+  .catasset {
+    transform: translateX(0rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(1rem);
+  }
+
+  .starasset {
+    transform: translateX(4rem);
+  }
+
+  .tapeasset {
+    transform: translateX(3rem);
+  }
+}
+
+@media (max-width: 1366px) and (max-height: 1024px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(16rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(5rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-2rem);
+    width: 10rem;
+  }
+
+  .leftcloudasset {
+    transform: translateX(4.5rem);
+    width: 8rem;
+  }
+
+  .redstarasset {
+    transform: translateX(-3rem);
+  }
+
+  .arrowasset {
+    transform: translateX(10rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-5rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(2rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(5rem);
+  }
+
+  .starasset {
+    transform: translateX(-1rem);
+  }
+
+  .tapeasset {
+    transform: translateX(10rem);
+  }
+}
+
+@media (max-width: 1366px) and (max-height: 768px) {
+  .quoteasset {
+    transform: translateX(16rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(5rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-2rem);
+    width: 10rem;
+  }
+
+  .leftcloudasset {
+    transform: translateX(4.5rem);
+    width: 8rem;
+  }
+
+  .redstarasset {
+    transform: translateX(-3rem);
+  }
+
+  .arrowasset {
+    transform: translateX(10rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-5rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(2rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(5rem);
+  }
+
+  .starasset {
+    transform: translateX(-1rem);
+  }
+
+  .tapeasset {
+    transform: translateX(10rem);
+  }
+}
+
+@media (max-width: 1280px) and (max-height: 800px) {
+  .quoteasset {
+    transform: translateX(16rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(9rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-4rem);
+    width: 10rem;
+  }
+
+  .leftcloudasset {
+    transform: translateX(7rem);
+    width: 8rem;
+  }
+
+  .redstarasset {
+    transform: translateX(-6rem);
+  }
+
+  .arrowasset {
+    transform: translateX(10rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-8rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(5rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(5rem);
+  }
+
+  .starasset {
+    transform: translateX(-1rem);
+  }
+
+  .tapeasset {
+    transform: translateX(10rem);
+  }
+}
+
+@media (max-width: 1180px) and (max-height: 820px) {
+  .quoteasset {
+    transform: translateX(16rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(11rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-9rem);
+  }
+
+  .leftcloudasset {
+    transform: translateX(11rem);
+  }
+
+  .redstarasset {
+    transform: translateX(-9rem);
+  }
+
+  .arrowasset {
+    transform: translateX(12rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-11rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(5rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(11rem);
+  }
+
+  .starasset {
+    transform: translateX(-4rem);
+  }
+
+  .tapeasset {
+    transform: translateX(15rem);
+  }
+}
 
 @media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
   .quoteasset {
-    transform: translateX(14rem);
+    transform: translateX(16rem);
   }
 
   .bookasset {
@@ -58,7 +528,7 @@
   }
 
   .redstarasset {
-    transform: translateX(-15rem);
+    transform: translateX(-13rem);
   }
 
   .arrowasset {
@@ -70,7 +540,7 @@
   }
 
   .catasset {
-    transform: translateX(13rem);
+    transform: translateX(9rem);
   }
 
   .bigleftcloudasset {
@@ -78,7 +548,7 @@
   }
 
   .starasset {
-    transform: translateX(-15rem);
+    transform: translateX(-8rem);
   }
 
   .tapeasset {
@@ -86,15 +556,325 @@
   }
 }
 
-@media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {}
+@media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
 
-@media (max-width: 1024px) and (max-height: 600px) {}
+  .internal-container {
+    gap: 0.85rem;
+  }
 
-@media (max-width: 956px) and (max-height: 440px) and (orientation: landscape) {}
+  .quoteasset {
+    transform: translateX(15rem);
+  }
 
-@media (max-width: 932px) and (max-height: 430px) {}
+  .bookasset {
+    transform: translateX(-15rem);
+  }
 
-@media (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {}
+  .yellowstarasset {
+    transform: translateX(15rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-13rem);
+  }
+
+  .leftcloudasset {
+    transform: translateX(15rem);
+  }
+
+  .redstarasset {
+    transform: translateX(-12rem);
+  }
+
+  .arrowasset {
+    transform: translateX(15rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-11.8rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(9rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(13.8rem);
+  }
+
+  .starasset {
+    transform: translateX(-8rem);
+  }
+
+  .tapeasset {
+    transform: translateX(15rem);
+  }
+}
+
+@media (max-width: 1024px) and (max-height: 600px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(15rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(15rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-13rem);
+  }
+
+  .leftcloudasset {
+    transform: translateX(15rem);
+  }
+
+  .redstarasset {
+    transform: translateX(-14rem);
+  }
+
+  .arrowasset {
+    transform: translateX(15rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-11.8rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(9rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(13.8rem);
+  }
+
+  .starasset {
+    transform: translateX(-9rem);
+  }
+
+  .tapeasset {
+    transform: translateX(15rem);
+  }
+}
+
+@media (max-width: 956px) and (max-height: 440px) and (orientation: landscape) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(15rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(6rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-10rem);
+  }
+
+  .leftcloudasset {
+    transform: translateX(0rem);
+  }
+
+  .redstarasset {
+    transform: translateX(0rem);
+  }
+
+  .arrowasset {
+    transform: translateX(15rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-11.8rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(1rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(13.8rem);
+  }
+
+  .starasset {
+    transform: translateX(-3rem);
+  }
+
+  .tapeasset {
+    transform: translateX(12rem);
+  }
+}
+
+@media (max-width: 932px) and (max-height: 430px) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(15rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(7.5rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-11rem);
+  }
+
+  .leftcloudasset {
+    transform: translateX(0rem);
+  }
+
+  .redstarasset {
+    transform: translateX(-1rem);
+  }
+
+  .arrowasset {
+    transform: translateX(15rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-11.8rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(2rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(13.8rem);
+  }
+
+  .starasset {
+    transform: translateX(-3rem);
+  }
+
+  .tapeasset {
+    transform: translateX(12rem);
+  }
+}
+
+@media (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
+  .hod-container,
+  .external-container,
+  .pdddesign-container,
+  .technology-container,
+  .pdddocumentation-container,
+  .publicrelation-container,
+  .socialactivity-container {
+    gap: 0.85rem;
+  }
+
+  .internal-container {
+    gap: 0.85rem;
+  }
+
+  .quoteasset {
+    transform: translateX(15rem);
+  }
+
+  .bookasset {
+    transform: translateX(-15rem);
+  }
+
+  .yellowstarasset {
+    transform: translateX(7.5rem);
+  }
+
+  .rightcloudasset {
+    transform: translateX(-13rem);
+  }
+
+  .leftcloudasset {
+    transform: translateX(15rem);
+  }
+
+  .redstarasset {
+    transform: translateX(-1rem);
+  }
+
+  .arrowasset {
+    transform: translateX(15rem) translateY(8rem);
+  }
+
+  .rightcloudasset2 {
+    transform: translateX(-11.8rem) translateY(3rem);
+  }
+
+  .catasset {
+    transform: translateX(2rem);
+  }
+
+  .bigleftcloudasset {
+    transform: translateX(13.8rem);
+  }
+
+  .starasset {
+    transform: translateX(-3rem);
+  }
+
+  .tapeasset {
+    transform: translateX(12rem);
+  }
+}
 
 @media (max-width: 853px) and (max-height: 1280px) and (orientation: portrait) {
   .hod-container,
@@ -159,7 +939,6 @@
     transform: translateX(15rem);
   }
 }
-
 
 @media (max-width: 820px) and (max-height: 1180px) {
   .hod-container,
