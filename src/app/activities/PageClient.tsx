@@ -76,7 +76,7 @@ const ActivitiesClient = ({activities}:ActivitiesClientProps) => {
 
                 {/* Activity Cards List */}
                 <section className="p-6 z-10 mb-20">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="flex flex-wrap justify-center gap-4 px-4">
                         {filteredActivities.map((activity, index) => (
                             <ActivityCard key={activity.id} activity={activity} index={index} />
                         ))}
