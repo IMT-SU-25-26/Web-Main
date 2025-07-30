@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import Button from '../Button';
+import { Activity } from '@/types/activity';
 
 const colorList = [
   '#ED4E45', // red
@@ -10,14 +11,6 @@ const colorList = [
   '#F7C235', // yellow
   '#CCBCAF'  // gray
 ];
-
-type Activity = {
-    id: number;
-    title: string;
-    description: string;
-    imageUrl?: string;
-    teamInfo?: string; // e.g., "Team: 2-3 members" or "Individual"
-};
 
 type ActivityCardProps = {
     activity: Activity,
@@ -29,12 +22,12 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
     const router = useRouter();
     const pathname = usePathname();
 
-    const id = activity.id;
-
+    const description = activity.description;
+    const trimmedDescription = description.length > 75 ? description.slice(0, 75) + "..." : description;
     return (
         <div
             onClick={() => {
-                router.push(`${pathname.replace(/\/$/, '')}/${id}`);
+                router.push(`${pathname.replace(/\/$/, '')}/${activity.id}`);
             }}
             className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[260px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
 
@@ -66,7 +59,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         
         {/* Card Content */}
         <h3 className="text-black text-xl font-extrabold">{activity.title}</h3>
-        <p className="font-gill text-[12px] text-black">{activity.description}</p>
+        <p className="font-gill text-[12px] text-black">{trimmedDescription}</p>
 
         {/* Bottom Section */}
         <div className="flex justify-between items-center mt-4">

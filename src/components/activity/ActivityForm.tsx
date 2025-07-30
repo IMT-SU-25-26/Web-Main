@@ -2,15 +2,26 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createActivity, editActivity } from "@/lib/activity";
+import { createActivity, editActivity } from "@/lib/service/activity";
 import { ActivityFormProps } from "@/types/activity";
+import { UploadWidget } from "../UploadWidget";
+import Image from 'next/image';
 
 export default function ActivityForm({ mode, data }: ActivityFormProps) {
   /* States */
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
   const [success, setSuccess] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>(data?.imageUrl || "");
+  const [imagePublicId, setImagePublicId] = useState<string>(
+    data?.imagePublicId || ""
+  );
   const router = useRouter();
+
+  function handleImageUpload(url: string, publicId?: string) {
+    setImageUrl(url);
+    setImagePublicId(publicId || "");
+  }
 
   /* Form Submission Handler */
   async function handleSubmit(formData: FormData) {
@@ -19,6 +30,15 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
     setSuccess("");
 
     try {
+
+      if (imageUrl) {
+        formData.append("imageUrl", imageUrl);
+      }
+
+      if (imagePublicId) {
+        formData.append("imagePublicId", imagePublicId);
+      }
+
       if (mode === "create") {
         /* Create Activity */
         const result = await createActivity(formData);
@@ -126,6 +146,57 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
             placeholder="Enter activity description"
+          />
+        </div>
+
+        {/* Cover Image Input */}
+        <div>
+          <label
+            htmlFor="cover_image"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Cover Image
+          </label>
+          <div className="space-y-3">
+            <UploadWidget onUploadSuccess={handleImageUpload} />
+            {imageUrl && (
+              <div className="flex items-center space-x-3">
+                <Image
+                  width={80}
+                  height={80}
+                  src={imageUrl}
+                  alt="Uploaded cover"
+                  className="w-20 h-20 object-cover rounded-md border"
+                />
+                <button
+                  type="button"
+                  onClick={() => setImageUrl("")}
+                  className="text-red-600 hover:text-red-800 text-sm"
+                >
+                  Remove Image
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Team Info Input */}
+        <div>
+          <label
+            htmlFor="teamInfo"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Team Info
+          </label>
+          <input
+            type="text"
+            id="teamInfo"
+            name="teamInfo"
+            defaultValue={data?.teamInfo || ""}
+            required
+            maxLength={100}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter activity teamInfo"
           />
         </div>
 

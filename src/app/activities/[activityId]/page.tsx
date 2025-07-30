@@ -3,6 +3,7 @@ import Image from 'next/image'
 import FrameImage from '@/components/achievement/FrameImage'
 import { getActivityById } from '@/lib/service/activity'
 import Button from '@/components/Button'
+import NotFound from './not-found'
 
 
 type ActivityDetailsProps = {
@@ -11,14 +12,17 @@ type ActivityDetailsProps = {
     }
 }
 
-const ActivityDetails = ({params}:ActivityDetailsProps) => {
-    const id = params.activityId;
-    const activity = getActivityById(id);
+const ActivityDetails = async ({params}:ActivityDetailsProps) => {
+    const activity = await getActivityById(params.activityId);
 
-    const title = "HACKATON 2025"
-    const subTitle = "Team: 3-4 members"
-    const urlImg = "/activities/activityDetails/sample-image.png"
-    const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\nIt was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    if(!activity){
+        return <NotFound />
+    }
+
+    const title = activity.title;
+    const subTitle = activity.teamInfo;
+    const urlImg = activity.imageUrl;
+    const description = activity.description;
 
     const slicedDescription = description.split("\n");
 
@@ -40,7 +44,7 @@ const ActivityDetails = ({params}:ActivityDetailsProps) => {
 
                     <Image 
                         className='absolute right-0 bottom-0 w-[200px] md:w-[300px] xl:w-[500px] lg:w-[370px]'
-                        src="/activities/activityDetails/bottom-right.webp"
+                        src="/activities/activityDetails/bottom-right.svg"
                         alt='' 
                         width={500} 
                         height={251}

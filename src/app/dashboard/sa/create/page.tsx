@@ -2,7 +2,7 @@ import ActivityForm from "../../../../components/activity/ActivityForm";
 
 export default function CreateActivityPage() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
+    <div className="flex flex-col justify-center items-center min-h-screen pt-[12vh]">
       <h1 className="text-3xl font-bold mb-6">Create New Activity</h1>
       <ActivityForm mode="create" />
     </div>

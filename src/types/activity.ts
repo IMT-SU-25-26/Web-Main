@@ -9,6 +9,9 @@ export interface Activity {
   quota: number;
   createdAt: Date;
   updatedAt: Date;
+  imageUrl: string | null;
+  imagePublicId: string | null;
+  teamInfo:string;
 }
 
 export interface ActivityData {
@@ -41,6 +44,23 @@ export const ActivitySchema = z.object({
     .min(1, "Quota must be at least 1")
     .max(1000, "Quota cannot exceed 1000")
     .int("Quota must be a whole number"),
+
+  imageUrl: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((val) => val || null),
+
+  imagePublicId: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((val) => val || null),
+
+  teamInfo: z
+    .string()
+    .min(1, "Team Info is required")
+    .max(100, "Team info must be less than 100 character"),
 });
 
 export type ActivityInput = z.infer<typeof ActivitySchema>;

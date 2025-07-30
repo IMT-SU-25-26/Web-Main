@@ -26,6 +26,9 @@ export async function createActivity(
       description: formData.get("description") as string,
       location: formData.get("location") as string,
       quota: parseInt(formData.get("quota") as string, 10) || 0,
+      imageUrl: formData.get("imageUrl") as string,
+      imagePublicId: formData.get("imagePublicId") as string,
+      teamInfo: formData.get('teamInfo') as string,
     };
 
     const validationResult = ActivitySchema.safeParse(rawData);

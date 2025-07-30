@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getActivityById } from "@/lib/activity";
+import { getActivityById } from "@/lib/service/activity";
 import { notFound } from "next/navigation";
 
 export default async function ActivityDetailsPage(props: {
