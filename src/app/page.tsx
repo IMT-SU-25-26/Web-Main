@@ -151,7 +151,7 @@ export default function Home() {
 
           <div className="title-background absolute -bottom-14 p-12 z-10 w-fit h-fit flex items-center justify-center bg-[url('/home/title-background.svg')] bg-contain bg-center bg-no-repeat">
             <h1 className="title-text text-2xl text-black rotate-[1.25deg] mb-2">
-              Student Union Informatics - Your Creative Tech Community
+              Student Union Informatics - Your Creative Tech Community!
             </h1>
           </div>
         </div>
@@ -404,7 +404,7 @@ export default function Home() {
 
         <div className="relative z-[2] w-full">
           <Image
-            className="w-[30%] top-[-15rem] h-auto absolute left-0"
+            className="green-home-footer-left w-[30%] top-[-15rem] h-auto absolute left-0"
             src={"/home/green-home-footer-left.svg"}
             draggable="false"
             width={1920}

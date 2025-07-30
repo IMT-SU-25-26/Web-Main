@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeServiceCard } from "@/types/homeCard";
+import { HomeServiceCard } from "@/types/homecard";
 import Image from "next/image";
 
 function HomeServicesCard({ title, type, description, color, opacity, className }: HomeServiceCard) {
@@ -18,7 +18,7 @@ function HomeServicesCard({ title, type, description, color, opacity, className 
         <h2 className={`service-type-text bg-[${color}] w-fit text-lg px-4 text-white font-family-impact uppercase`}>{type}</h2>
         <p className="service-description-text font-family-gill text-black font-bold">{description}</p>
       </div>
-      <Image src="/home/sobekan-community-service.png" alt="Service Image" width={1000} height={1000} className="absolute bottom-[-10%] left-0" />
+      <Image src="/home/sobekan-community-service.png" alt="Service Image" width={1000} height={1000} draggable={false} className="absolute bottom-[-10%] left-0" />
     </div>
   );
 }
