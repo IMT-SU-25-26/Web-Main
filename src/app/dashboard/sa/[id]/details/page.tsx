@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { getActivityById } from "@/lib/service/activity";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import SkeletonLoader from "@/components/SkeletonLoader";
+import Image from "next/image";
 
 export default async function ActivityDetailsPage(props: {
   params: Promise<{ id: string }>;
@@ -85,7 +88,20 @@ export default async function ActivityDetailsPage(props: {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                
+                {/* image */}
+                <Suspense fallback={<SkeletonLoader />}>
+                  <div className="h-[250px] md:h-[400px] bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 relative">
+                    <Image
+                      src={activity.imageUrl || "/file.svg"}
+                      alt="Achievement"
+                      fill
+                      className="rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </Suspense>
+
+                <h2 className="text-xl font-semibold text-gray-900 my-4 mt-9">
                   Description
                 </h2>
                 <div className="prose prose-gray max-w-none">
