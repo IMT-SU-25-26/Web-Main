@@ -17,7 +17,7 @@ export default async function ActivityDetailsPage(props: {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 pt-[14vh] max-w-4xl">
       {/* Back Navigation */}
       <div className="mb-6">
         <Link
@@ -91,12 +91,13 @@ export default async function ActivityDetailsPage(props: {
                 
                 {/* image */}
                 <Suspense fallback={<SkeletonLoader />}>
-                  <div className="h-[250px] md:h-[400px] bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 relative">
+                  <div className="w-[300px] md:w-[500px] m-auto bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 rounded-xl shadow-md overflow-hidden">
                     <Image
                       src={activity.imageUrl || "/file.svg"}
                       alt="Achievement"
-                      fill
-                      className="rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300"
+                      width={400} // matches your max width (can be adjusted)
+                      height={0}  // optional: this can be omitted
+                      className="h-auto w-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                 </Suspense>
