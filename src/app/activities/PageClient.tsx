@@ -23,7 +23,7 @@ const ActivitiesClient = ({activities}:ActivitiesClientProps) => {
             <div className="h-[10vh] bg-[#F1EEE6]" />
 
             {/* Background Container  */}
-            <div className="relative overflow-hidden flex flex-col items-center justify-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
+            <div className="relative overflow-hidden flex flex-col items-center justify-center min-h-[90vh] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
 
                 {/* Decorative Images */}
                 {/* Light Bulb */}

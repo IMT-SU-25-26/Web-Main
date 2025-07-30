@@ -29,7 +29,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
             onClick={() => {
                 router.push(`${pathname.replace(/\/$/, '')}/${activity.id}`);
             }}
-            className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[260px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
+            className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[290px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200">
 
         {/* Paper Clip */}
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
