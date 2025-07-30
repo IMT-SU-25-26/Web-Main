@@ -37,6 +37,46 @@ export default function Home() {
             alt="yellow-star-landing"
           ></Image>
           <Image
+            className="green-spike-landing absolute z-[9] w-[15rem] h-auto top-[0%] left-[0%]"
+            src={"/home/green-spike-landing.svg"}
+            draggable="false"
+            width={628}
+            height={380}
+            alt="green-spike-landing"
+          ></Image>
+          <Image
+            className="crown absolute z-[9] w-[8rem] h-auto top-[17%] right-[18%]"
+            src={"/home/crown.svg"}
+            draggable="false"
+            width={628}
+            height={380}
+            alt="crown"
+          ></Image>
+          <Image
+            className="blue-line-landing absolute z-[9] w-[20rem] h-auto -top-[15%] -right-[18%]"
+            src={"/home/blue-line-landing.svg"}
+            draggable="false"
+            width={628}
+            height={380}
+            alt="blue-line-landing"
+          ></Image>
+          <Image
+            className="red-spike-landing absolute z-[9] w-[22.5rem] h-auto bottom-[25%] -right-[12.5%]"
+            src={"/home/red-spike-landing.webp"}
+            draggable="false"
+            width={628}
+            height={380}
+            alt="red-spike-landing"
+          ></Image>
+          <Image
+            className="green-arrow-landing absolute z-[9] w-[15rem] h-auto bottom-[5%] -right-[2.5%]"
+            src={"/home/green-arrow.png"}
+            draggable="false"
+            width={628}
+            height={380}
+            alt="green-arrow-landing"
+          ></Image>
+          <Image
             className="among-us absolute z-[9] w-[8rem] h-auto bottom-[4rem] -right-[12rem]"
             src={"/home/among-us.svg"}
             draggable="false"
