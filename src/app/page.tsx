@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
       <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
-        <div className="relative z-10 w-fit h-full flex items-center justify-center">
+        <div className="container-landing relative z-10 w-fit h-full flex items-center justify-center">
           <Image
             className="red-bubble z-[8] top-0"
             src={"/home/su-imt-home-red-bubble.svg"}
@@ -148,17 +148,27 @@ export default function Home() {
             height={126}
             alt="stars-right"
           ></Image>
-
-          <div className="title-background absolute -bottom-14 p-12 z-10 w-fit h-fit flex items-center justify-center bg-[url('/home/title-background.svg')] bg-contain bg-center bg-no-repeat">
-            <h1 className="title-text text-2xl text-black rotate-[1.25deg] mb-2">
-              Student Union Informatics - Your Creative Tech Community!
-            </h1>
-          </div>
+          <Image
+            className="title-background absolute z-[10] right-[19rem]"
+            src={"/home/your-creative-tech.svg"}
+            draggable="false"
+            width={426.5}
+            height={126}
+            alt="stars-right"
+          ></Image>
         </div>
         <div className="container-student-union mt-15 relative z-10 min-h-screen min-w-screen flex flex-col gap-8 items-center justify-center">
           <Image
-            className="sobekan absolute z-[1] w-full h-full bottom-0 left-0"
+            className="hidden sm:flex sobekan absolute z-[1] w-full h-full bottom-0 left-0"
             src={"/home/pink-big-fracture.svg"}
+            draggable="false"
+            width={1920}
+            height={1080}
+            alt="sobekan"
+          ></Image>
+          <Image
+            className="flex sm:hidden sobekan absolute z-[1] w-full h-full bottom-0 left-0"
+            src={"/home/mobile-sobekan.svg"}
             draggable="false"
             width={1920}
             height={1080}
@@ -182,7 +192,7 @@ export default function Home() {
             Learn More
           </Link>
           <Image
-            className="absolute z-[2] w-1/5 top-[27.5%] left-0"
+            className="hidden sm:flex absolute z-[2] w-1/5 top-[27.5%] left-0"
             src={"/home/circle-stick.svg"}
             draggable="false"
             width={422}
@@ -190,7 +200,7 @@ export default function Home() {
             alt="circle-stick-left"
           ></Image>
           <Image
-            className="absolute z-[3] w-1/5 top-[27.5%] left-0"
+            className="hidden sm:flex absolute z-[3] w-1/5 top-[27.5%] left-0"
             src={"/home/laptop-on-stick.svg"}
             draggable="false"
             width={422}
@@ -198,7 +208,7 @@ export default function Home() {
             alt="circle-stick-left"
           ></Image>
           <Image
-            className="absolute z-[2] w-[22.5%] top-[42.5%] left-0"
+            className="hidden sm:flex absolute z-[2] w-[22.5%] top-[42.5%] left-0"
             src={"/home/book-laptop.png"}
             draggable="false"
             width={422}
@@ -207,7 +217,7 @@ export default function Home() {
           ></Image>
 
           <Image
-            className="absolute z-[2] w-1/5 top-[27.5%] right-0"
+            className="hidden sm:flex absolute z-[2] w-1/5 top-[27.5%] right-0"
             src={"/home/camera.png"}
             draggable="false"
             width={422}
@@ -215,7 +225,7 @@ export default function Home() {
             alt="camera"
           ></Image>
           <Image
-            className="absolute z-[1] w-1/5 top-[27.5%] right-0"
+            className="hidden sm:flex absolute z-[1] w-1/5 top-[27.5%] right-0"
             src={"/home/circle-background-right.svg"}
             draggable="false"
             width={422}
@@ -223,7 +233,7 @@ export default function Home() {
             alt="circle-foreground"
           ></Image>
           <Image
-            className="absolute z-[1] w-1/5 top-[23.5%] -right-4"
+            className="hidden sm:flex absolute z-[1] w-1/5 top-[23.5%] -right-4"
             src={"/home/circle-foreground-right.svg"}
             draggable="false"
             width={422}
@@ -250,29 +260,70 @@ export default function Home() {
         </div>
 
         {/* Our values section */}
-        <div className="competition-wrapper relative w-screen flex flex-col justify-start items-center pb-[15%]">
+        <div className="flex competition-wrapper relative w-screen flex-col justify-start items-center pb-[15%]">
           <h1 className="competition-text font-family-gill-condensed-bold font-extrabold text-6xl">
             COMPETITIONS
           </h1>
           <div className="competition-right-left-container mt-14 w-full h-full flex gap-[10rem] justify-center items-center">
             <div className="w-full h-full relative z-10 competition-left-container">
+              <div className="relative z-[20] mobile-competition-container">
+                <div
+                  className="rotate-2 -top-[2.5rem] left-[5.5%] absolute mobile-competition-background min-h-[12.5rem] min-w-[23rem] bg-white
+                shadow-[8px_8px_5px_-5px_rgba(0,0,0,0.5)]"
+                >
+                  <div className="mobile-competition-content z-[25] relative w-full h-full flex flex-col justify-center items-center p-4">
+                    <Image
+                      className="competition-mobile-handle absolute top-[-4rem] left-[45%] w-[4.5rem] rotate-90"
+                      src={"/home/handle-card.png"}
+                      width={500}
+                      height={500}
+                      alt="handle-card"
+                    ></Image>
+                    <Image
+                      className="competition-mobile-star absolute top-[-4.5rem] right-[-8%] w-[7.5rem]"
+                      src={"/home/star-card.png"}
+                      width={500}
+                      height={500}
+                      alt="star-card"
+                    ></Image>
+                    <div className="image-mobile-container bg-cover bg-center w-full h-[5.5rem] bg-gray-200"></div>
+                    <h1 className="competition-mobile-title-text font-family-impact text-2xl w-full text-left">
+                      HACKATHON 2025
+                    </h1>
+                    <p className="competition-mobile-description-text text-xs">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Dolores, omnis?
+                    </p>
+                    <p className="competition-mobile-member-text text-xs text-end w-full">
+                      Team: 3-4 members
+                    </p>
+                  </div>
+                </div>
+              </div>
               <Image
-                className="w-[85%] h-auto"
+                  className="red-mobile-spinner absolute z-[2] bottom-[-25%] right-[-22.5%] w-[55%]"
+                  src={"/home/red-spinner.svg"}
+                  width={500}
+                  height={500}
+                  alt="round-spike"
+                ></Image>
+              <Image
+                className="compete-bg relative w-[85%] h-auto"
                 src={"/home/compete-bg.svg"}
                 width={500}
                 height={500}
                 alt="background-compete"
               ></Image>
               <Image
-                className="absolute z-10 w-[100%] h-auto top-0 left-5"
+                className="hidden sm:flex absolute z-10 w-[100%] h-auto top-0 left-5"
                 src={"/home/compete.svg"}
                 draggable="false"
                 width={500}
                 height={500}
                 alt="competition-left"
               ></Image>
-               <Image
-                className="light-bulp absolute z-10 w-[35%] h-auto top-[-60%] left-0"
+              <Image
+                className="hidden sm:flex light-bulp absolute z-10 w-[35%] h-auto top-[-60%] left-0"
                 src={"/home/light-bulp.webp"}
                 draggable="false"
                 width={500}
@@ -287,7 +338,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="relative competition-right-container w-full h-full">
+            <div className="hidden sm:flex relative competition-right-container w-full h-full">
               <div className="competition-right-background relative z-[2] rotate-[-2.5deg] w-[40rem] h-[27.5rem] bg-white flex flex-col gap-4 p-4">
                 <Image
                   className="competition-right-handle absolute top-[-25%] right-[40%] w-[7.5rem] rotate-90"
@@ -322,19 +373,25 @@ export default function Home() {
                   Team: 3-4 members
                 </p>
               </div>
-               <Image
-                  className="red-spinner absolute bottom-[-30%] right-[-10%] w-[35%]"
-                  src={"/home/red-spinner.svg"}
-                  width={500}
-                  height={500}
-                  alt="round-spike"
-                ></Image>
+              <Image
+                className="red-spinner absolute bottom-[-30%] right-[-10%] w-[35%]"
+                src={"/home/red-spinner.svg"}
+                width={500}
+                height={500}
+                alt="round-spike"
+              ></Image>
             </div>
           </div>
-          <Image src={"/home/green-line.svg"} alt="green-line" width={900} height={900} className="green-line absolute right-[-10%] top-[-45%] w-[40%]"></Image>
+          <Image
+            src={"/home/green-line.svg"}
+            alt="green-line"
+            width={900}
+            height={900}
+            className="green-line absolute right-[-10%] top-[-45%] w-[40%]"
+          ></Image>
         </div>
 
-        <div className="relative z-[3] w-screen pb-[10%] flex flex-col justify-start items-center">
+        <div className="flex relative z-[3] w-screen pb-[10%] flex-col justify-start items-center">
           <h1 className="explore-text font-family-gill-condensed-bold font-extrabold text-6xl">
             EXPLORE OUR
           </h1>
@@ -367,7 +424,7 @@ export default function Home() {
               opacity="75%"
             />
           </div>
-          <div className="relative flex justify-center items-center w-full h-full mt-[10rem]">
+          <div className="relative flex justify-center items-center w-full h-full mt-[5rem] sm:mt-[10rem]">
             <div className="explore-button absolute w-[350px] h-[120px] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
               <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
                 <h1 className="explore-button-text font-family-impact text-6xl text-center text-white">
@@ -376,8 +433,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-           <Image
-            className="paper-cloud w-[20%] top-[-5rem] h-auto absolute left-0"
+          <Image
+            className="sm:flex hidden paper-cloud w-[20%] top-[-5rem] h-auto absolute left-0"
             src={"/home/paper-cloud.webp"}
             draggable="false"
             width={1920}
@@ -385,7 +442,7 @@ export default function Home() {
             alt="footer"
           ></Image>
           <Image
-            className="w-[15%] top-[0rem] h-auto absolute right-0"
+            className="green-arrow-footer w-[15%] top-[0rem] h-auto absolute right-0"
             src={"/home/green-arrow-home.png"}
             draggable="false"
             width={1920}
@@ -393,7 +450,7 @@ export default function Home() {
             alt="footer"
           ></Image>
           <Image
-            className="red-star-footer-left w-[20%] top-[35%] h-auto absolute left-0"
+            className="red-star-footer-left w-[20%] top-[35%] h-auto absolute left-0 sm:flex hidden"
             src={"/home/orange-star-footer-left.png"}
             draggable="false"
             width={1920}
