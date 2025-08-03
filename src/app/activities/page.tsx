@@ -1,6 +1,10 @@
 import { getActivities } from '@/lib/service/activity';
 import PageClient from '../activities/PageClient';
 
+export const metadata={
+    title: "Activities"
+}
+
 export default async function ActivityPage() {
     const activities = await getActivities();
 

@@ -12,6 +12,20 @@ type ActivityDetailsProps = {
     }
 }
 
+export async function generateMetadata({ params }: ActivityDetailsProps) {
+  const activity = await getActivityById(params.activityId);
+
+  if (!activity) {
+    return {
+      title: "Achievement Not Found",
+    };
+  }
+
+  return {
+    title: activity.title,
+  };
+}
+
 const ActivityDetails = async ({params}:ActivityDetailsProps) => {
     const activity = await getActivityById(params.activityId);
 
