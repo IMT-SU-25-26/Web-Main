@@ -106,12 +106,12 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         <FrameImage src={urlImg?urlImg:""} className='w-[280px] md:w-[270px] xl:w-[400px] top-0 xl:top-20 left-0 -rotate-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]'></FrameImage>
                     </div>
                     <div className='md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] '>
-                        <div className='relative'>
+                        <div className='relative w-fit'>
                             <h1 className='hidden md:block font-impact font-bold text-5xl'>{title}</h1>
                             <h3 className='hidden md:block font-bold text-xl mb-5'>{subTitle}</h3>
                             
                             <Image 
-                                className='hidden xl:block absolute right-10 top-0 xl:w-[100px]'
+                                className='hidden xl:block absolute left-[105%] top-0 xl:w-[100px]'
                                 src="/activities/activityDetails/among-us.svg" 
                                 alt=''
                                 width={300} 
