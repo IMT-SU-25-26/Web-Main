@@ -6,6 +6,7 @@ import { ActivityCard } from '@/components/activities/ActivityCard';
 import { mockActivities } from '@/mockData/mockActivities';
 import SearchBar from '@/components/SearchBar';
 import { Activity } from '@/types/activity';
+import Image from 'next/image';
 
 type ActivitiesClientProps = {
     activities: Activity[],
@@ -23,44 +24,62 @@ const ActivitiesClient = ({activities}:ActivitiesClientProps) => {
             <div className="h-[10vh] bg-[#F1EEE6]" />
 
             {/* Background Container  */}
-            <div className="relative overflow-hidden flex flex-col items-center justify-center min-h-[90vh] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
+            <div className="select-none relative overflow-hidden flex flex-col items-center justify-center min-h-[90vh] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
 
                 {/* Decorative Images */}
                 {/* Light Bulb */}
-                <img
+                <Image
                     src="/activities/LightBulb.webp"
                     alt="Light Bulb"
-                    className="absolute top-26 left-[0.3] w-28 md:left-6 md:w-30 z-10"
+                    className="absolute select-none top-26 left-[0.3] w-28 md:left-6 md:w-30 z-10"
+                    width={500}
+                    height={500}
+                    draggable={false}
                 />
 
-                <img
+                <Image
                     src="/activities/RedStar.webp"
                     alt="Red Star"
-                    className="hidden md:block absolute top-10 left-30 w-20 h-max z-0"
+                    className="hidden select-none md:block absolute top-10 left-30 w-20 h-max z-0"
+                    width={500}
+                    height={500}
+                    draggable={false}
                 />
-                <img
+                <Image
                     src="/activities/GreenQuote.webp"
                     alt="Green Quote"
-                    className="absolute top-12 right-5 w-20 md:right-10 md:w-30 h-max z-0"
+                    className="absolute select-none top-12 right-5 w-20 md:right-10 md:w-30 h-max z-0"
+                    width={500}
+                    height={500}
+                    draggable={false}
                 />
-                <img
+                <Image
                     src="/activities/BottomLeft.webp"
                     alt="Bottom Left"
-                    className="absolute bottom-0 left-0 w-40 h-max z-0"
+                    className="absolute select-none bottom-0 left-0 w-40 h-max z-0"
+                    width={500}
+                    height={500}
+                    draggable={false}
                 />
-                <img
+                <Image
                     src="/activities/BottomRight.webp"
                     alt="Bottom Right"
-                    className="absolute bottom-0 right-0 w-50 h-max z-0"
+                    className="absolute select-none bottom-0 right-0 w-50 h-max z-0"
+                    width={500}
+                    height={500}
+                    draggable={false}
                 />
 
                 {/* Title Section */}
                 <div className="relative inline-block z-10">
                     {/* Pin */}
-                    <img
+                    <Image
                         src="/activities/RedPin.webp"
                         alt="Red Pin"
-                        className="absolute top-3 -right-4 w-10 h-10 z-20"
+                        className="absolute select-none top-3 -right-4 w-10 h-10 z-20"
+                        width={500}
+                        height={500}
+                        draggable={false}
                     />
 
                     {/* Paper */}

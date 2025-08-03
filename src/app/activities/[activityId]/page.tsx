@@ -32,13 +32,14 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
             <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-[calc(100dvh-10vh)] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
                 
                 {/* Decorative Image */}
-                <>
+                <div className='select-none'>
                     <Image 
-                        className='absolute -right-3 -top-7 md:-top-15 w-[100px] md:w-[180px] xl:w-[300px] lg:w-[230px]'
+                        className='select-none absolute -right-3 -top-7 md:-top-15 w-[100px] md:w-[180px] xl:w-[300px] lg:w-[230px]'
                         src="/activities/activityDetails/top-right.webp" 
                         alt='' 
                         width={300} 
                         height={327}
+                        draggable={false}
                     >
                     </Image>
 
@@ -48,6 +49,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         alt='' 
                         width={500} 
                         height={251}
+                        draggable={false}
                     >
                     </Image>
 
@@ -57,6 +59,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         alt='' 
                         width={500} 
                         height={251}
+                        draggable={false}
                     >
                     </Image>
 
@@ -66,6 +69,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         alt='' 
                         width={450}
                         height={287}
+                        draggable={false}
                     >
                     </Image>
 
@@ -75,6 +79,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         alt='' 
                         width={450}
                         height={287}
+                        draggable={false}
                     >
                     </Image>
 
@@ -84,6 +89,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         alt='' 
                         width={450} 
                         height={287}
+                        draggable={false}
                     >
                     </Image>
                     
@@ -93,9 +99,10 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                         alt='' 
                         width={720} 
                         height={701}
+                        draggable={false}
                     >
                     </Image>
-                </>
+                </div>
 
                 <div className='flex flex-col md:flex-row md:justify-center items-center md:items-start w-full z-0 gap-10 '>
                     <div className='block md:hidden mt-10 text-center'>
@@ -116,6 +123,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                                 alt=''
                                 width={300} 
                                 height={327}
+                                draggable={false}
                             >
                             </Image>
                         </div>
@@ -132,6 +140,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                                     alt=''
                                     width={100}
                                     height={65}
+                                    draggable={false}
                                 >
                                 </Image>
                             </div>
