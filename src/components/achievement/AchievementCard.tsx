@@ -1,8 +1,9 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type AchievementCardProps =  {
     title: string;
@@ -30,17 +31,14 @@ export const AchievementCard = ({
     id,
     imageUrl,
 } : AchievementCardProps) => {
-    const router = useRouter();
     const pathname = usePathname();
     const [swinging, setSwinging] = useState(false);
 
 
     const trimmedDescription = description.length > 75 ? description.slice(0, 75) + "..." : description;
     return (
-        <div
-            onClick={() => {
-                router.push(`${pathname.replace(/\/$/, '')}/${id}`);
-            }}
+        <Link
+            href={`${pathname.replace(/\/$/, '')}/${id}`}
             onMouseLeave={()=>{
                 setSwinging(true);
                 setTimeout(() => setSwinging(false), 700); // match swing duration
@@ -78,6 +76,6 @@ export const AchievementCard = ({
                 <p className="font-gill mt-1 text-sm text-black leading-snug">{trimmedDescription}</p>
             </div>
 
-        </div>
+        </Link>
     );
 };
