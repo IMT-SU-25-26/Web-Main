@@ -301,7 +301,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                  className="red-mobile-spinner absolute z-[2] bottom-[-25%] right-[-22.5%] w-[55%]"
+                  className="red-mobile-spinner flex sm:hidden absolute z-[2] bottom-[-25%] right-[-22.5%] w-[55%]"
                   src={"/home/red-spinner.svg"}
                   width={500}
                   height={500}
