@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getUsers } from "@/lib/user";
+import { getUsers } from "@/lib/service/user";
 import { DeleteButton } from "@/components/DeleteButton";
 
 export default async function TechDashboard() {

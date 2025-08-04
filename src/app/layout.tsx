@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/NavigationBar";
 
 export const metadata: Metadata = {
   title: "SU IMT UC",

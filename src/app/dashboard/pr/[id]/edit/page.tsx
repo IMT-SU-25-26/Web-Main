@@ -1,5 +1,5 @@
-import AchievementForm from "@/components/AchievementForm";
-import { getAchievementById } from "@/lib/achievement";
+import AchievementForm from "@/components/achievement/AchievementForm";
+import { getAchievementById } from "@/lib/service/achievement";
 import { notFound } from "next/navigation";
 
 export default async function EditActivityPage(props: {

@@ -1,4 +1,4 @@
-import { deleteUser } from "@/lib/user";
+import { deleteUser } from "@/lib/service/user";
 
 export async function DeleteButton({ userId }: { userId: string }) {
   async function handleDelete() {
