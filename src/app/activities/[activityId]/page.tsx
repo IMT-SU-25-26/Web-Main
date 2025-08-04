@@ -37,7 +37,6 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
     const subTitle = activity.teamInfo;
     const urlImg = activity.imageUrl;
     const description = activity.description;
-
     const slicedDescription = description.split("\n");
 
     return (
@@ -141,7 +140,7 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                             >
                             </Image>
                         </div>
-
+                      
                         <div className='flex flex-col gap-5 text-xl items-center'>
                             {slicedDescription.map((line, index)=>(
                                 <p key={index}>{line}</p>
@@ -158,7 +157,6 @@ const ActivityDetails = async ({params}:ActivityDetailsProps) => {
                                 >
                                 </Image>
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,6 @@ type ActivityCardProps = {
 export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
     const accentColor = colorList[index % colorList.length];
     const pathname = usePathname();
-
     const description = activity.description;
     const trimmedDescription = description.length > 75 ? description.slice(0, 75) + "..." : description;
     return (
