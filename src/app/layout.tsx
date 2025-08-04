@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { Providers } from "@/components/Providers";
-import Navbar from "@/components/NavigationBar";
+import { Providers } from "@/components/utils/Providers";
+import NavigationBar from "@/components/NavigationBar";
 
 export const metadata: Metadata = {
   title: "SU IMT UC",
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <Navbar/>
+          <NavigationBar />
           {children}
         </Providers>
         <Analytics />
@@ -27,5 +27,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-
 }

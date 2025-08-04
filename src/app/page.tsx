@@ -8,7 +8,7 @@ export default function Home() {
     // <div className="flex items-center justify-center min-h-screen">
     //   <AuthButton />
     // </div>
-    <>
+    <div className="overflow-x-hidden">
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
       <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
         <div className="container-landing relative z-10 w-fit h-full flex items-center justify-center">
@@ -301,12 +301,12 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                  className="red-mobile-spinner flex sm:hidden absolute z-[2] bottom-[-25%] right-[-22.5%] w-[55%]"
-                  src={"/home/red-spinner.svg"}
-                  width={500}
-                  height={500}
-                  alt="round-spike"
-                ></Image>
+                className="red-mobile-spinner flex sm:hidden absolute z-[2] bottom-[-25%] right-[-22.5%] w-[55%]"
+                src={"/home/red-spinner.svg"}
+                width={500}
+                height={500}
+                alt="round-spike"
+              ></Image>
               <Image
                 className="compete-bg relative w-[85%] h-auto"
                 src={"/home/compete-bg.svg"}
@@ -480,6 +480,6 @@ export default function Home() {
 
         <div className="relative z-10 h-[10vh] w-screen bg-[#E44843]"></div>
       </div>
-    </>
+    </div>
   );
 }

@@ -12,7 +12,8 @@ export function UploadWidget({ onUploadSuccess }: UploadWidgetProps) {
           result.event === "success" &&
           result.info &&
           typeof result.info === "object" &&
-          "secure_url" in result.info && "public_id" in result.info
+          "secure_url" in result.info &&
+          "public_id" in result.info
         ) {
           onUploadSuccess(result.info.secure_url, result.info.public_id);
         }

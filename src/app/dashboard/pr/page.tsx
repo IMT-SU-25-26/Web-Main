@@ -1,6 +1,6 @@
 import Link from "next/link";
 import AchievementList from "@/components/achievement/AchievementList";
-import SkeletonLoader from "@/components/SkeletonLoader";
+import SkeletonLoader from "@/components/utils/SkeletonLoader";
 import { Suspense } from "react";
 
 export default function AchievementsPage() {

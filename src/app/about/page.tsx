@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function About() {
+export default function About() {
   return (
     <>
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
@@ -304,5 +304,3 @@ function About() {
     </>
   );
 }
-
-export default About;

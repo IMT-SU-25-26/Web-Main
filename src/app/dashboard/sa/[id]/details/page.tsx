@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getActivityById } from "@/lib/service/activity";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import SkeletonLoader from "@/components/SkeletonLoader";
+import SkeletonLoader from "@/components/utils/SkeletonLoader";
 import Image from "next/image";
 
 export default async function ActivityDetailsPage(props: {
