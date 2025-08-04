@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Role } from "@prisma/client";
 import { User } from "@/types/user";
-import { editUser, getUserById } from "@/lib/user";
+import { editUser, getUserById } from "@/lib/service/user";
 import Link from "next/link";
 
 interface EditUserPageProps {

@@ -1,5 +1,5 @@
 import ActivityForm from "../../../../../components/activity/ActivityForm";
-import { getActivityById } from "@/lib/activity";
+import { getActivityById } from "@/lib/service/activity";
 import { notFound } from "next/navigation";
 
 export default async function EditActivityPage(props: {
@@ -14,7 +14,7 @@ export default async function EditActivityPage(props: {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
+    <div className="flex flex-col justify-center items-center min-h-screen pt-[14vh] pb-10">
       <h1 className="text-3xl font-bold mb-6">Edit Activity</h1>
       <ActivityForm mode="edit" data={activity} />
     </div>

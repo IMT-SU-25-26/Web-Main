@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { getActivities } from "@/lib/service/activity";
+import { Suspense } from "react";
+import SkeletonLoader from "@/components/SkeletonLoader";
+import Image from "next/image";
 
 export default async function ActivitiesPage() {
   const activities = await getActivities();
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 pt-[12vh]">
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Activities</h1>
@@ -46,6 +49,19 @@ export default async function ActivitiesPage() {
               key={activity.id}
               className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 overflow-hidden"
             >
+              {/* image */}
+                <Suspense fallback={<SkeletonLoader />}>
+                  <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-6">
+                    <Image
+                      src={activity.imageUrl || "/file.svg"}
+                      alt="Achievement"
+                      width={400}
+                      height={400}
+                      className="rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </Suspense>
+
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-semibold text-gray-900 line-clamp-2">

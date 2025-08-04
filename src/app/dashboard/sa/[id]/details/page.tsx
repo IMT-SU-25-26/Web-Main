@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { getActivityById } from "@/lib/activity";
+import { getActivityById } from "@/lib/service/activity";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import SkeletonLoader from "@/components/SkeletonLoader";
+import Image from "next/image";
 
 export default async function ActivityDetailsPage(props: {
   params: Promise<{ id: string }>;
@@ -14,7 +17,7 @@ export default async function ActivityDetailsPage(props: {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 pt-[14vh] max-w-4xl">
       {/* Back Navigation */}
       <div className="mb-6">
         <Link
@@ -85,7 +88,21 @@ export default async function ActivityDetailsPage(props: {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                
+                {/* image */}
+                <Suspense fallback={<SkeletonLoader />}>
+                  <div className="w-[300px] md:w-[500px] m-auto bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 rounded-xl shadow-md overflow-hidden">
+                    <Image
+                      src={activity.imageUrl || "/file.svg"}
+                      alt="Achievement"
+                      width={400} // matches your max width (can be adjusted)
+                      height={0}  // optional: this can be omitted
+                      className="h-auto w-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </Suspense>
+
+                <h2 className="text-xl font-semibold text-gray-900 my-4 mt-9">
                   Description
                 </h2>
                 <div className="prose prose-gray max-w-none">
