@@ -2,6 +2,7 @@
 
 @theme {
   --font-family-gill: 'Gill Sans MT', sans-serif;
+  --font-family-gill-condensed-bold: 'Gill Condensed Bold', sans-serif;
   --font-family-impact: 'Impact Custom', Impact, sans-serif;
   --font-family-haetten: 'Haettenschweiler', sans-serif;
   --color-background: #F1EEE6;
@@ -51,6 +52,13 @@ body {
 @font-face {
     font-family: 'Gill Sans MT';
     src: url('/fonts/GillSansMT.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GillSans Condensed Bold';
+    src: url('/fonts/GillSans Condensed Bold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }

@@ -37,7 +37,7 @@ export default function StudentDashboard() {
               Student Dashboard
             </h1>
             <p className="text-2xl text-gray-600 font-light max-w-2xl mx-auto">
-              Welcome back! Here's your application status and recent activities.
+              Welcome back! Here&apos;s your application status and recent activities.
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-400 mx-auto mt-6 rounded-full"></div>
           </div>
