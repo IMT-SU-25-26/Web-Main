@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "@/styles/committee-card.css";
-import type { PresidentCardProps, ImageConfig, RoleConfig } from "@/types/committee";
+import type { PresidentCardProps, RoleConfig } from "@/types/committee";
 
 // Base configuration for common decorations
 const DECORATIONS = {
