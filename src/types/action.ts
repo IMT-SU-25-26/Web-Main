@@ -10,6 +10,10 @@ export interface FormProps<T> {
   data?: T;
 }
 
+export interface ApplyButtonProps {
+  activityId: string;
+}
+
 export interface UploadWidgetProps {
   onUploadSuccess: (url: string, publicId: string) => void;
 }

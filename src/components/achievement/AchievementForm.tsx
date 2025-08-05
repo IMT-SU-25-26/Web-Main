@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createAchievement, editAchievement } from "@/lib/service/achievement";
+import { createAchievement, updateAchievement } from "@/lib/service/achievement";
 import { AchievementFormProps } from "@/types/achievement";
 import { UploadWidget } from "../utils/UploadWidget";
 
@@ -58,7 +58,7 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
         }
       } else if (mode === "edit" && data) {
         /* Edit Achievement */
-        const result = await editAchievement(data.id, formData);
+        const result = await updateAchievement(data.id, formData);
         if (result.success) {
           setSuccess(result.message || "Achievement updated successfully!");
           setTimeout(() => {

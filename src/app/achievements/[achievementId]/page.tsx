@@ -4,13 +4,10 @@ import FrameImage from "@/components/achievement/FrameImage";
 import { getAchievementById } from "@/lib/service/achievement";
 import NotFound from "./not-found";
 
-type achievementDetailsProps = {
-  params: {
-    achievementId: string;
-  };
-};
-
-export async function generateMetadata({ params }: achievementDetailsProps) {
+export async function generateMetadata(props: {
+  params: Promise<{ achievementId: string }>;
+}) {
+  const params = await props.params;
   const achievementId = params.achievementId;
   const achievement = await getAchievementById(achievementId);
 
@@ -25,15 +22,17 @@ export async function generateMetadata({ params }: achievementDetailsProps) {
   };
 }
 
-const page = async ({ params }: achievementDetailsProps) => {
+const page = async (props: { params: Promise<{ achievementId: string }> }) => {
+  const params = await props.params;
   const { achievementId } = params;
   const achievement = await getAchievementById(achievementId);
+
   if (!achievement) {
     return <NotFound />;
   }
 
   const title = achievement.title;
-  const subTitle = achievementId;
+  const subTitle = achievement.id;
   const urlImg1 = achievement.imageUrl;
   const urlImg2 = urlImg1;
   const description = achievement.description;

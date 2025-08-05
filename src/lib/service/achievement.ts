@@ -53,6 +53,7 @@ export async function createAchievement(
     });
 
     revalidatePath("/dashboard/pr");
+    revalidatePath("/achievements");
 
     return {
       success: true,
@@ -68,7 +69,7 @@ export async function createAchievement(
   }
 }
 
-export async function editAchievement(
+export async function updateAchievement(
   id: string,
   formData: FormData
 ): Promise<ActionResult<AchievementData>> {
@@ -124,6 +125,7 @@ export async function deleteAchievement(
     });
 
     revalidatePath("/dashboard/pr");
+    revalidatePath("/achievements");
 
     return {
       success: true,

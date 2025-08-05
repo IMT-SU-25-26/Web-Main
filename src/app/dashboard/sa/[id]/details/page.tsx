@@ -88,7 +88,6 @@ export default async function ActivityDetailsPage(props: {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="mb-8">
-                
                 {/* image */}
                 <Suspense fallback={<SkeletonLoader />}>
                   <div className="w-[300px] md:w-[500px] m-auto bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 rounded-xl shadow-md overflow-hidden">
@@ -96,7 +95,7 @@ export default async function ActivityDetailsPage(props: {
                       src={activity.imageUrl || "/file.svg"}
                       alt="Achievement"
                       width={400} // matches your max width (can be adjusted)
-                      height={0}  // optional: this can be omitted
+                      height={0} // optional: this can be omitted
                       className="h-auto w-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
