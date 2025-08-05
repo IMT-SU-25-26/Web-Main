@@ -1,23 +1,6 @@
 import Image from "next/image";
 import "@/styles/committee-card.css";
-
-type PresidentCardProps = {
-  id: string;
-  name: string;
-  role: string;
-  division: string;
-  gender: "BOY" | "GIRL";
-};
-
-type ImageConfig = {
-  src: string;
-  className: string;
-};
-
-type RoleConfig = {
-  decorations: ImageConfig[];
-  color: string;
-};
+import type { PresidentCardProps, ImageConfig, RoleConfig } from "@/types/committee";
 
 // Base configuration for common decorations
 const DECORATIONS = {
