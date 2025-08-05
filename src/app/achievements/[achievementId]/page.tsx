@@ -5,10 +5,10 @@ import { getAchievementById } from "@/lib/service/achievement";
 import NotFound from "./not-found";
 
 export async function generateMetadata(props: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ achievementId: string }>;
 }) {
   const params = await props.params;
-  const achievementId = params.id;
+  const achievementId = params.achievementId;
   const achievement = await getAchievementById(achievementId);
 
   if (!achievement) {
@@ -22,10 +22,10 @@ export async function generateMetadata(props: {
   };
 }
 
-const page = async (props: { params: Promise<{ id: string }> }) => {
+const page = async (props: { params: Promise<{ achievementId: string }> }) => {
   const params = await props.params;
-  const { id } = params;
-  const achievement = await getAchievementById(id);
+  const { achievementId } = params;
+  const achievement = await getAchievementById(achievementId);
 
   if (!achievement) {
     return <NotFound />;

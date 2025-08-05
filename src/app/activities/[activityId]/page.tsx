@@ -6,10 +6,10 @@ import Button from "@/components/Button";
 import NotFound from "./not-found";
 
 export async function generateMetadata(props: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ activityId: string }>;
 }) {
   const params = await props.params;
-  const activityId = params.id;
+  const activityId = params.activityId;
   const activity = await getActivityById(activityId);
 
   if (!activity) {
@@ -23,9 +23,9 @@ export async function generateMetadata(props: {
   };
 }
 
-const ActivityDetails = async (props: { params: Promise<{ id: string }> }) => {
+const ActivityDetails = async (props: { params: Promise<{ activityId: string }> }) => {
   const params = await props.params;
-  const activityId = params.id;
+  const activityId = params.activityId;
   const activity = await getActivityById(activityId);
 
   if (!activity) {
