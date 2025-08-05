@@ -50,7 +50,7 @@ export async function createActivity(
     });
 
     revalidatePath("/dashboard/sa");
-    revalidatePath("activities");
+    revalidatePath("/activities");
 
     return {
       success: true,
@@ -101,7 +101,7 @@ export async function updateActivity(
     });
 
     revalidatePath("/dashboard/sa");
-    revalidatePath("activities");
+    revalidatePath("/activities");
 
     return {
       success: true,
@@ -124,7 +124,7 @@ export async function deleteActivity(id: string) {
     });
 
     revalidatePath("/dashboard/sa");
-    revalidatePath("activities");
+    revalidatePath("/activities");
 
     return {
       success: true,
