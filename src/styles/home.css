@@ -3004,9 +3004,7 @@
   width: 100%;
   height: 50%;
 }
-.mobile-competition-background {
-  display: none;
-}
+
 .mobile-competition-content {
   gap: 0.5rem;
 }
@@ -3568,9 +3566,6 @@
     width: 100%;
     height: 50%;
   }
-  .mobile-competition-background {
-    display: none;
-  }
   .mobile-competition-content {
     gap: 0.5rem;
   }
@@ -3860,9 +3855,6 @@
   .image-container {
     width: 100%;
     height: 50%;
-  }
-  .mobile-competition-background {
-    display: none;
   }
   .mobile-competition-content {
     gap: 0.5rem;

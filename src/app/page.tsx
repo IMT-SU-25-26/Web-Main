@@ -1,15 +1,522 @@
-// import AuthButton from "@/components/AuthButton";
+"use client";
 import Image from "next/image";
 import "@/styles/home.css";
 import Link from "next/link";
 import HomeServicesCard from "@/components/HomeServicesCard";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() {
+  useGSAP(() => {
+    // Hero section animations
+    const heroElements = [
+      ".red-bubble",
+      ".yellow-bubble",
+      ".front-bubble",
+      ".stars-left",  
+      ".stars-right",
+      ".welcome",
+      ".demon-cat",
+      ".to-text",
+      ".su-imt-text",
+      ".title-background",
+    ];
+    const heroProps = [
+      ".red-spike-landing",
+      ".yellow-star-landing",
+      ".green-spike-landing",
+      ".green-arrow-landing",
+      ".among-us",
+      ".dragon",
+      ".crown",
+    ];
+
+    // Animate hero elements on load
+    gsap.fromTo(
+      heroElements,
+      {
+        opacity: 0,
+        scale: 0.8,
+        y: -50,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.05,
+        ease: "back.out(1.7)",
+        delay: 0.3,
+      }
+    );
+
+     gsap.fromTo(
+      heroProps,
+      {
+        opacity: 0,
+        scale: 0.8,
+        y: -50,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0,
+        ease: "back.out(1.7)",
+        delay: 0.3,
+      }
+    );
+
+    // Student Union section scroll animation
+    gsap.fromTo(
+      ".what-is-su-imt-text",
+      {
+        opacity: 0,
+        y: 100,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".container-student-union",
+          start: "top 80%",
+          end: "top 30%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".su-imt-description",
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".su-imt-description",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".learn-more-button",
+      {
+        opacity: 0,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        delay: 0.5,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".learn-more-button",
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Competition section animations
+    gsap.fromTo(
+      ".competition-text",
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".competition-wrapper",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Competition cards animation
+    gsap.fromTo(
+      ".competition-left-container",
+      {
+        opacity: 0,
+        x: -100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".competition-right-left-container",
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".competition-right-container",
+      {
+        opacity: 0,
+        x: 100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".competition-right-left-container",
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Services section animations
+    gsap.fromTo(
+      ".explore-text",
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".explore-text",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Service cards with staggered animation
+    gsap.fromTo(
+      [".home-service-card-left", ".home-service-card-center", ".home-service-card-right"],
+      {
+        opacity: 0,
+        y: 100,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        stagger: 0.15,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".home-service-card-container",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".explore-button",
+      {
+        opacity: 0,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".explore-button",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Footer elements animation
+    gsap.fromTo(
+      [".green-home-footer-left", ".yellow-spike-right"],
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".green-home-footer-left",
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.to(".green-line", {
+      rotation: 15,
+      yPercent: -30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".competition-wrapper",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    // Hover animations for interactive elements
+    const learnMoreButton = document.querySelector(".learn-more-button");
+    const exploreButton = document.querySelector(".explore-button");
+
+    if (learnMoreButton) {
+      learnMoreButton.addEventListener("mouseenter", () => {
+        gsap.to(learnMoreButton, {
+          scale: 1.05,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+      learnMoreButton.addEventListener("mouseleave", () => {
+        gsap.to(learnMoreButton, {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+    }
+
+    if (exploreButton) {
+      exploreButton.addEventListener("mouseenter", () => {
+        gsap.to(exploreButton, {
+          scale: 1.05,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+      exploreButton.addEventListener("mouseleave", () => {
+        gsap.to(exploreButton, {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+    }
+
+    // Mobile competition card animation
+    gsap.fromTo(
+      ".mobile-competition-container",
+      {
+        opacity: 0,
+        scale: 0.8,
+        rotation: -5,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 2,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".mobile-competition-container",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Laptop, camera, and book animations
+    gsap.fromTo(
+      [".laptop-on-stick", ".camera", ".book-laptop"],
+      {
+        opacity: 0,
+        y: 100,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".container-student-union",
+          start: "top 60%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Alternative: Individual animations with different timings
+    // If you want more control over each element:
+
+    // Laptop animation
+    gsap.fromTo(
+      ".laptop-on-stick",
+      {
+        opacity: 0,
+        x: -50,
+        rotation: -10,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        rotation: 0,
+        duration: 1.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".container-student-union",
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Camera animation
+    gsap.fromTo(
+      ".camera",
+      {
+        opacity: 0,
+        x: 50,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        duration: 1,
+        delay: 0.3,
+        ease: "elastic.out(1, 0.8)",
+        scrollTrigger: {
+          trigger: ".container-student-union",
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Book laptop animation
+    gsap.fromTo(
+      ".book-laptop",
+      {
+        opacity: 0,
+        y: 80,
+        rotation: 5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        rotation: 0,
+        duration: 1.1,
+        delay: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".container-student-union",
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Paper cloud and red star footer animations
+    gsap.fromTo(
+      ".paper-cloud",
+      {
+        opacity: 0,
+        x: -100,
+        rotation: -10,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        rotation: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".paper-cloud",
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".red-star-footer-left",
+      {
+        opacity: 0,
+        x: -80,
+        scale: 0.8,
+        rotation: -20,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".red-star-footer-left",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Alternative: Combined animation with stagger
+    gsap.fromTo(
+      [".paper-cloud", ".red-star-footer-left"],
+      {
+        opacity: 0,
+        x: -100,
+        scale: 0.7,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".explore-text",
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
   return (
-    // <div className="flex items-center justify-center min-h-screen">
-    //   <AuthButton />
-    // </div>
     <div className="overflow-x-hidden">
-      <div className="h-[10vh] bg-[#F1EEE6]"></div>
+      <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
         <div className="container-landing relative z-10 w-fit h-full flex items-center justify-center">
           <Image
@@ -19,7 +526,7 @@ export default function Home() {
             width={924}
             height={560}
             alt="red-bubble"
-          ></Image>
+          />
           <Image
             className="dragon absolute z-[9] w-[12rem] h-auto bottom-[4rem] -left-[12rem]"
             src={"/home/dragon.svg"}
@@ -27,7 +534,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="dragon"
-          ></Image>
+          />
           <Image
             className="yellow-star-landing absolute z-[9] w-[10rem] h-auto top-[30%] -left-[15%]"
             src={"/home/yellow-star-landing.webp"}
@@ -35,7 +542,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="yellow-star-landing"
-          ></Image>
+          />
           <Image
             className="green-spike-landing absolute z-[9] w-[15rem] h-auto top-[0%] left-[0%]"
             src={"/home/green-spike-landing.svg"}
@@ -43,7 +550,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="green-spike-landing"
-          ></Image>
+          />
           <Image
             className="crown absolute z-[9] w-[8rem] h-auto top-[17%] right-[18%]"
             src={"/home/crown.svg"}
@@ -51,7 +558,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="crown"
-          ></Image>
+          />
           <Image
             className="blue-line-landing absolute z-[9] w-[20rem] h-auto -top-[15%] -right-[18%]"
             src={"/home/blue-line-landing.svg"}
@@ -59,7 +566,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="blue-line-landing"
-          ></Image>
+          />
           <Image
             className="red-spike-landing absolute z-[9] w-[22.5rem] h-auto bottom-[25%] -right-[12.5%]"
             src={"/home/red-spike-landing.webp"}
@@ -67,7 +574,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="red-spike-landing"
-          ></Image>
+          />
           <Image
             className="green-arrow-landing absolute z-[9] w-[15rem] h-auto bottom-[5%] -right-[2.5%]"
             src={"/home/green-arrow.png"}
@@ -75,7 +582,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="green-arrow-landing"
-          ></Image>
+          />
           <Image
             className="among-us absolute z-[9] w-[8rem] h-auto bottom-[4rem] -right-[12rem]"
             src={"/home/among-us.svg"}
@@ -83,7 +590,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="mid-bubble"
-          ></Image>
+          />
           <Image
             className="yellow-bubble absolute z-[9] top-[6rem] left-[5rem]"
             src={"/home/su-imt-home-yellow-bubble.svg"}
@@ -91,7 +598,7 @@ export default function Home() {
             width={628}
             height={380}
             alt="mid-bubble"
-          ></Image>
+          />
           <Image
             className="front-bubble absolute z-[10] top-[7.5rem] left-[8rem]"
             src={"/home/su-imt-home-front-buble.svg"}
@@ -99,7 +606,7 @@ export default function Home() {
             width={547}
             height={334}
             alt="front-bubble"
-          ></Image>
+          />
           <Image
             className="welcome absolute z-[10] top-[8.5rem] left-[14rem]"
             src={"/home/welcome.svg"}
@@ -107,7 +614,7 @@ export default function Home() {
             width={324.6}
             height={193.7}
             alt="su-welcome"
-          ></Image>
+          />
           <Image
             className="demon-cat absolute z-[10] top-[12.5rem] left-[9.5rem]"
             src={"/home/demon-cat.png"}
@@ -115,7 +622,7 @@ export default function Home() {
             width={71}
             height={67}
             alt="demon-cat"
-          ></Image>
+          />
           <Image
             className="stars-left absolute z-[10] top-[16.5rem] left-[11rem]"
             src={"/home/stars.svg"}
@@ -123,7 +630,7 @@ export default function Home() {
             width={45}
             height={37}
             alt="stars-left"
-          ></Image>
+          />
           <Image
             className="stars-right absolute z-[10] top-[10.5rem] right-[20rem]"
             src={"/home/stars.svg"}
@@ -131,7 +638,7 @@ export default function Home() {
             width={45}
             height={37}
             alt="stars-right"
-          ></Image>
+          />
           <Image
             className="to-text absolute z-[10] top-[15rem] left-[40.75%]"
             src={"/home/to.svg"}
@@ -139,7 +646,7 @@ export default function Home() {
             width={36.8}
             height={72.9}
             alt="to"
-          ></Image>
+          />
           <Image
             className="su-imt-text absolute z-[10] top-[15.5rem] right-[19rem]"
             src={"/home/su-imt-text.svg"}
@@ -147,7 +654,7 @@ export default function Home() {
             width={426.5}
             height={126}
             alt="stars-right"
-          ></Image>
+          />
           <Image
             className="title-background absolute z-[10] right-[19rem]"
             src={"/home/your-creative-tech.svg"}
@@ -155,7 +662,7 @@ export default function Home() {
             width={426.5}
             height={126}
             alt="stars-right"
-          ></Image>
+          />
         </div>
         <div className="container-student-union mt-15 relative z-10 min-h-screen min-w-screen flex flex-col gap-8 items-center justify-center">
           <Image
@@ -165,7 +672,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="sobekan"
-          ></Image>
+          />
           <Image
             className="flex sm:hidden sobekan absolute z-[1] w-full h-full bottom-0 left-0"
             src={"/home/mobile-sobekan.svg"}
@@ -173,7 +680,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="sobekan"
-          ></Image>
+          />
           <h1 className="what-is-su-imt-text mt-[-10%] relative z-10 text-6xl font-bold text-white font-family-impact">
             WHAT IS SU IMT
           </h1>
@@ -192,54 +699,54 @@ export default function Home() {
             Learn More
           </Link>
           <Image
-            className="hidden sm:flex absolute z-[2] w-1/5 top-[27.5%] left-0"
+            className="hidden circle-stick sm:flex absolute z-[2] w-1/5 top-[27.5%] left-0"
             src={"/home/circle-stick.svg"}
             draggable="false"
             width={422}
             height={376}
             alt="circle-stick-left"
-          ></Image>
+          />
           <Image
-            className="hidden sm:flex absolute z-[3] w-1/5 top-[27.5%] left-0"
+            className="hidden circle-on-stick laptop-on-stick sm:flex absolute z-[3] w-1/5 top-[27.5%] left-0"
             src={"/home/laptop-on-stick.svg"}
             draggable="false"
             width={422}
             height={376}
             alt="circle-stick-left"
-          ></Image>
+          />
           <Image
-            className="hidden sm:flex absolute z-[2] w-[22.5%] top-[42.5%] left-0"
+            className="hidden book-laptop sm:flex absolute z-[2] w-[22.5%] top-[42.5%] left-0"
             src={"/home/book-laptop.png"}
             draggable="false"
             width={422}
             height={376}
             alt="book-laptop"
-          ></Image>
+          />
 
           <Image
-            className="hidden sm:flex absolute z-[2] w-1/5 top-[27.5%] right-0"
+            className="hidden camera sm:flex absolute z-[2] w-1/5 top-[27.5%] right-0"
             src={"/home/camera.png"}
             draggable="false"
             width={422}
             height={376}
             alt="camera"
-          ></Image>
+          />
           <Image
-            className="hidden sm:flex absolute z-[1] w-1/5 top-[27.5%] right-0"
+            className="hidden circle-background sm:flex absolute z-[1] w-1/5 top-[27.5%] right-0"
             src={"/home/circle-background-right.svg"}
             draggable="false"
             width={422}
             height={376}
             alt="circle-foreground"
-          ></Image>
+          />
           <Image
-            className="hidden sm:flex absolute z-[1] w-1/5 top-[23.5%] -right-4"
+            className="hidden circle-foreground sm:flex absolute z-[1] w-1/5 top-[23.5%] -right-4"
             src={"/home/circle-foreground-right.svg"}
             draggable="false"
             width={422}
             height={376}
             alt="circle-background"
-          ></Image>
+          />
 
           <Image
             className="sobekan-biru-kiri absolute z-0 w-[32.5%] top-[-22.5%] -left-[5%]"
@@ -248,7 +755,7 @@ export default function Home() {
             width={422}
             height={376}
             alt="sobekan-left"
-          ></Image>
+          />
           <Image
             className="sobekan-biru-kanan absolute rotate-y-180 z-0 w-[32.5%] top-[-22.5%] -right-[5%]"
             src={"/home/sobekan-bottom-left.png"}
@@ -256,7 +763,7 @@ export default function Home() {
             width={422}
             height={376}
             alt="sobekan-right"
-          ></Image>
+          />
         </div>
 
         {/* Our values section */}
@@ -266,7 +773,7 @@ export default function Home() {
           </h1>
           <div className="competition-right-left-container mt-14 w-full h-full flex gap-[10rem] justify-center items-center">
             <div className="w-full h-full relative z-10 competition-left-container">
-              <div className="relative z-[20] sm:hidden mobile-competition-container">
+              <div className="relative z-[30] block sm:hidden mobile-competition-container">
                 <div
                   className="rotate-2 -top-[2.5rem] left-[5.5%] absolute mobile-competition-background min-h-[12.5rem] min-w-[23rem] bg-white
                 shadow-[8px_8px_5px_-5px_rgba(0,0,0,0.5)]"
@@ -278,14 +785,14 @@ export default function Home() {
                       width={500}
                       height={500}
                       alt="handle-card"
-                    ></Image>
+                    />
                     <Image
                       className="competition-mobile-star absolute top-[-4.5rem] right-[-8%] w-[7.5rem]"
                       src={"/home/star-card.png"}
                       width={500}
                       height={500}
                       alt="star-card"
-                    ></Image>
+                    />
                     <div className="image-mobile-container bg-cover bg-center w-full h-[5.5rem] bg-gray-200"></div>
                     <h1 className="competition-mobile-title-text font-family-impact text-2xl w-full text-left">
                       HACKATHON 2025
@@ -306,14 +813,14 @@ export default function Home() {
                 width={500}
                 height={500}
                 alt="round-spike"
-              ></Image>
+              />
               <Image
                 className="compete-bg relative w-[85%] h-auto"
                 src={"/home/compete-bg.svg"}
                 width={500}
                 height={500}
                 alt="background-compete"
-              ></Image>
+              />
               <Image
                 className="hidden sm:flex absolute z-10 w-[100%] h-auto top-0 left-5"
                 src={"/home/compete.svg"}
@@ -321,7 +828,7 @@ export default function Home() {
                 width={500}
                 height={500}
                 alt="competition-left"
-              ></Image>
+              />
               <Image
                 className="hidden sm:flex light-bulp absolute z-10 w-[35%] h-auto top-[-60%] left-0"
                 src={"/home/light-bulp.webp"}
@@ -329,7 +836,7 @@ export default function Home() {
                 width={500}
                 height={500}
                 alt="competition-left"
-              ></Image>
+              />
               <div className="join-now-text-container absolute w-[350px] h-[120px] bottom-[-5%] left-[47.5%] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
                 <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
                   <h1 className="join-now-text font-family-impact text-6xl text-center text-white">
@@ -339,28 +846,28 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden sm:flex relative competition-right-container w-full h-full">
-              <div className="competition-right-background relative z-[2] rotate-[-2.5deg] w-[40rem] h-[27.5rem] bg-white flex flex-col gap-4 p-4">
+              <div className="competition-right-background relative z-[2] rotate-[-2.5deg] w-[40rem] h-[27.5rem] bg-white flex flex-col gap-4 p-4 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
                 <Image
                   className="competition-right-handle absolute top-[-25%] right-[40%] w-[7.5rem] rotate-90"
                   src={"/home/handle-card.png"}
                   width={500}
                   height={500}
                   alt="handle-card"
-                ></Image>
+                />
                 <Image
                   className="competition-star absolute top-[-15%] right-[-8%] w-[10rem]"
                   src={"/home/star-card.png"}
                   width={500}
                   height={500}
                   alt="star-card"
-                ></Image>
+                />
                 <Image
                   className="round-spike absolute bottom-[-30%] right-[75%] w-[40%]"
                   src={"/home/round-spike.webp"}
                   width={500}
                   height={500}
                   alt="round-spike"
-                ></Image>
+                />
                 <div className="image-container bg-gray-300 w-full h-1/2"></div>
                 <h1 className="competition-title-text font-family-impact text-4xl">
                   HACKATHON 2025
@@ -379,7 +886,7 @@ export default function Home() {
                 width={500}
                 height={500}
                 alt="round-spike"
-              ></Image>
+              />
             </div>
           </div>
           <Image
@@ -388,7 +895,7 @@ export default function Home() {
             width={900}
             height={900}
             className="green-line absolute right-[-10%] top-[-45%] w-[40%]"
-          ></Image>
+          />
         </div>
 
         <div className="flex relative z-[3] w-screen pb-[10%] flex-col justify-start items-center">
@@ -440,7 +947,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="footer"
-          ></Image>
+          />
           <Image
             className="green-arrow-footer w-[15%] top-[0rem] h-auto absolute right-0"
             src={"/home/green-arrow-home.png"}
@@ -448,7 +955,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="footer"
-          ></Image>
+          />
           <Image
             className="red-star-footer-left w-[20%] top-[35%] h-auto absolute left-0 sm:flex hidden"
             src={"/home/orange-star-footer-left.png"}
@@ -456,7 +963,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="footer"
-          ></Image>
+          />
         </div>
 
         <div className="relative z-[2] w-full">
@@ -467,7 +974,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="footer"
-          ></Image>
+          />
           <Image
             className="yellow-spike-right w-[15%] top-[-20rem] h-auto absolute right-0"
             src={"/home/yellow-spike-right.png"}
@@ -475,7 +982,7 @@ export default function Home() {
             width={1920}
             height={1080}
             alt="footer"
-          ></Image>
+          />
         </div>
 
         <div className="relative z-10 h-[10vh] w-screen bg-[#E44843]"></div>
