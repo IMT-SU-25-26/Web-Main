@@ -53,11 +53,6 @@ export const ActivitySchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || null),
-
-  teamInfo: z
-    .string()
-    .min(1, "Team Info is required")
-    .max(100, "Team info must be less than 100 character"),
 });
 
 export type ActivityInput = z.infer<typeof ActivitySchema>;
