@@ -186,8 +186,8 @@ export default function Home() {
             skills, and support innovation in technology.
           </p>
           <Link
-            href="/"
-            className="learn-more-button relative font-family-impact z-10 text-4xl bg-[#0E54B2] p-6 px-10 rounded-2xl text-white font-bold"
+            href="/about"
+            className="learn-more-button relative font-family-impact z-10 text-4xl bg-[#0E54B2] hover:bg-[#2826c3] p-6 px-10 rounded-2xl text-white font-bold"
           >
             Learn More
           </Link>
@@ -266,7 +266,7 @@ export default function Home() {
           </h1>
           <div className="competition-right-left-container mt-14 w-full h-full flex gap-[10rem] justify-center items-center">
             <div className="w-full h-full relative z-10 competition-left-container">
-              <div className="relative z-[20] mobile-competition-container">
+              <div className="relative z-[20] sm:hidden mobile-competition-container">
                 <div
                   className="rotate-2 -top-[2.5rem] left-[5.5%] absolute mobile-competition-background min-h-[12.5rem] min-w-[23rem] bg-white
                 shadow-[8px_8px_5px_-5px_rgba(0,0,0,0.5)]"
