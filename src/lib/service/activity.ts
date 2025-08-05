@@ -28,7 +28,7 @@ export async function createActivity(
       quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
-      teamInfo: formData.get("teamInfo") as string,
+      // teamInfo: formData.get("teamInfo") as string,
     };
 
     const validationResult = ActivitySchema.safeParse(rawData);
@@ -78,7 +78,7 @@ export async function updateActivity(
       quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
-      teamInfo: formData.get("teamInfo") as string,
+      // teamInfo: formData.get("teamInfo") as string,
     };
 
     const validationResult = ActivitySchema.safeParse(rawData);
