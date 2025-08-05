@@ -3,35 +3,32 @@
 import prisma from "../prisma";
 import { revalidatePath } from "next/cache";
 import { ActionResult } from "@/types/action";
-import { Activity, ActivityData, ActivitySchema } from "@/types/activity";
+import { Competition, CompetitionData, CompetitionSchema } from "@/types/competition";
 
-export async function getActivities(): Promise<Activity[]> {
-  return await prisma.activity.findMany({
+export async function getCompetitions(): Promise<Competition[]> {
+  return await prisma.competition.findMany({
     orderBy: { createdAt: "desc" },
   });
 }
 
-export async function getActivityById(id: string): Promise<Activity | null> {
-  return await prisma.activity.findUnique({
+export async function getCompetitionById(id: string): Promise<Competition | null> {
+  return await prisma.competition.findUnique({
     where: { id },
   });
 }
 
-export async function createActivity(
+export async function createCompetition(
   formData: FormData
-): Promise<ActionResult<Activity>> {
+): Promise<ActionResult<Competition>> {
   try {
     const rawData = {
-      title: formData.get("title") as string,
+      name: formData.get("name") as string,
       description: formData.get("description") as string,
-      location: formData.get("location") as string,
-      quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
-      teamInfo: formData.get("teamInfo") as string,
     };
 
-    const validationResult = ActivitySchema.safeParse(rawData);
+    const validationResult = CompetitionSchema.safeParse(rawData);
 
     if (!validationResult.success) {
       const errors = validationResult.error.issues
@@ -45,43 +42,40 @@ export async function createActivity(
 
     const validatedData = validationResult.data;
 
-    const activity = await prisma.activity.create({
+    const competition = await prisma.competition.create({
       data: validatedData,
     });
 
     revalidatePath("/dashboard/sa");
-    revalidatePath("activities");
+    revalidatePath("competitions");
 
     return {
       success: true,
-      data: activity,
-      message: "Activity created successfully!",
+      data: competition,
+      message: "Competition created successfully!",
     };
   } catch (error) {
-    console.error("Failed to create activity:", error);
+    console.error("Failed to create competition:", error);
     return {
       success: false,
-      error: "Failed to create activity. Please try again.",
+      error: "Failed to create competition",
     };
   }
 }
 
-export async function updateActivity(
+export async function updateCompetition(
   id: string,
   formData: FormData
-): Promise<ActionResult<ActivityData>> {
+): Promise<ActionResult<CompetitionData>> {
   try {
     const rawData = {
-      title: formData.get("title") as string,
+      name: formData.get("name") as string,
       description: formData.get("description") as string,
-      location: formData.get("location") as string,
-      quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
-      teamInfo: formData.get("teamInfo") as string,
     };
 
-    const validationResult = ActivitySchema.safeParse(rawData);
+    const validationResult = CompetitionSchema.safeParse(rawData);
 
     if (!validationResult.success) {
       const errors = validationResult.error.issues
@@ -95,43 +89,46 @@ export async function updateActivity(
 
     const validatedData = validationResult.data;
 
-    const activity = await prisma.activity.update({
+    const competition = await prisma.competition.update({
       where: { id },
       data: validatedData,
     });
 
     revalidatePath("/dashboard/sa");
-    revalidatePath("activities");
+    revalidatePath("competitions");
 
     return {
       success: true,
-      data: activity,
-      message: "Activity updated successfully!",
+      data: competition,
+      message: "Competition updated successfully!",
     };
   } catch (error) {
-    console.error("Failed to edit activity:", error);
+    console.error("Failed to update competition:", error);
     return {
       success: false,
-      error: "Failed to edit activity. Please try again.",
+      error: "Failed to update competition",
     };
   }
 }
 
-export async function deleteActivity(id: string) {
+export async function deleteCompetition(id: string): Promise<ActionResult<void>> {
   try {
-    await prisma.activity.delete({
+    await prisma.competition.delete({
       where: { id },
     });
 
     revalidatePath("/dashboard/sa");
-    revalidatePath("activities");
+    revalidatePath("competitions");
 
     return {
       success: true,
-      message: "Activity deleted successfully!",
+      message: "Competition deleted successfully!",
     };
   } catch (error) {
-    console.error("Failed to delete activity:", error);
-    throw new Error("Failed to delete activity. Please try again.");
+    console.error("Failed to delete competition:", error);
+    return {
+      success: false,
+      error: "Failed to delete competition. Please try again.",
+    };
   }
 }

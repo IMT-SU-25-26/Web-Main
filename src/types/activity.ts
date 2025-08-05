@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 import { FormProps } from "./action";
 
 export interface Activity {
@@ -7,11 +7,10 @@ export interface Activity {
   description: string;
   location: string;
   quota: number;
-  createdAt: Date;
-  updatedAt: Date;
   imageUrl: string | null;
   imagePublicId: string | null;
-  teamInfo:string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface ActivityData {
@@ -20,8 +19,6 @@ export interface ActivityData {
   location: string;
   quota: number;
 }
-
-export type ActivityFormProps = FormProps<Activity>;
 
 export const ActivitySchema = z.object({
   title: z
@@ -64,3 +61,5 @@ export const ActivitySchema = z.object({
 });
 
 export type ActivityInput = z.infer<typeof ActivitySchema>;
+
+export type ActivityFormProps = FormProps<Activity>;

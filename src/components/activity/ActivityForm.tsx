@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createActivity, editActivity } from "@/lib/service/activity";
+import { createActivity, updateActivity } from "@/lib/service/activity";
 import { ActivityFormProps } from "@/types/activity";
 import { UploadWidget } from "../utils/UploadWidget";
 import Image from "next/image";
@@ -55,7 +55,7 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
         }
       } else if (mode === "edit" && data) {
         /* Edit Activity */
-        const result = await editActivity(data.id, formData);
+        const result = await updateActivity(data.id, formData);
         if (result.success) {
           setSuccess(result.message || "Activity updated successfully!");
           setTimeout(() => {
@@ -180,7 +180,7 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
         </div>
 
         {/* Team Info Input */}
-        <div>
+        {/* <div>
           <label
             htmlFor="teamInfo"
             className="block text-sm font-medium text-gray-700 mb-1"
@@ -197,7 +197,7 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Enter activity teamInfo"
           />
-        </div>
+        </div> */}
 
         {/* Location Input */}
         <div>

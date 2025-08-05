@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Button from "../Button";
+// import Button from "../Button";
 import { Activity } from "@/types/activity";
 import Link from "next/link";
+import ApplyButton from "../utils/ApplyButton";
 
 const colorList = [
-  "#ED4E45", // red
-  "#118D25", // green
-  "#F64A78", // pink
-  "#0555AB", // blue
-  "#F7C235", // yellow
-  "#CCBCAF", // gray
+  "#ED4E45", // Red
+  "#118D25", // Green
+  "#F64A78", // Pink
+  "#0555AB", // Blue
+  "#F7C235", // Yellow
+  "#CCBCAF", // Gray
 ];
 
 type ActivityCardProps = {
@@ -24,6 +25,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
   const description = activity.description;
   const trimmedDescription =
     description.length > 75 ? description.slice(0, 75) + "..." : description;
+
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${activity.id}`}
@@ -65,14 +67,18 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
       {/* Bottom Section */}
       <div className="flex justify-between items-center mt-4">
         {/* Register Button */}
-        <Button bgColor={accentColor} className="">
+        <ApplyButton
+          bgColor={accentColor}
+          className=""
+          activityId={activity.id}
+        >
           Register
-        </Button>
+        </ApplyButton>
 
         {/* Team Info */}
-        <p className="text-[12px] font-gill text-black opacity-80">
+        {/* <p className="text-[12px] font-gill text-black opacity-80">
           {activity.teamInfo || ""}
-        </p>
+        </p> */}
       </div>
     </Link>
   );

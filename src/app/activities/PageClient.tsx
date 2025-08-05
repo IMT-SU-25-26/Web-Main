@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import { ActivityCard } from "@/components/activities/ActivityCard";
+import { ActivityCard } from "@/components/activity/ActivityCard";
 import SearchBar from "@/components/SearchBar";
 import { Activity } from "@/types/activity";
 import Image from "next/image";
@@ -25,7 +25,6 @@ const ActivitiesClient = ({ activities }: ActivitiesClientProps) => {
       {/* Background Container  */}
       <div className="select-none relative overflow-hidden flex flex-col items-center justify-center min-h-[90vh] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
         {/* Decorative Images */}
-        {/* Light Bulb */}
         <Image
           src="/activities/LightBulb.webp"
           alt="Light Bulb"
@@ -34,7 +33,6 @@ const ActivitiesClient = ({ activities }: ActivitiesClientProps) => {
           height={500}
           draggable={false}
         />
-
         <Image
           src="/activities/RedStar.webp"
           alt="Red Star"
