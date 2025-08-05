@@ -14,7 +14,7 @@ export default function About() {
           className="w-[40%] h-auto"
           draggable="false"
         ></Image>
-        <div className="mt-[2.5rem] relative w-full flex justify-center items-center gap-48">
+        <div className="about-us-wrapper mt-[2.5rem] relative w-full flex justify-center items-center gap-48">
           <div className="relative w-1/3 h-[20rem] bg-white rounded-3xl flex flex-col gap-4 p-12">
             <Image
               src={"/home/handle-card.png"}
@@ -57,7 +57,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="-mt-[5%] min-h-[75rem] min-w-screen relative w-full flex justify-center items-center gap-24">
+        <div className="vision-mission-wrapper mt-[5%] min-h-[75rem] min-w-screen relative w-full flex justify-center items-center gap-24">
           <Image
             src={"/about/BigFractureAbout.webp"}
             width={900}
@@ -107,7 +107,7 @@ export default function About() {
             draggable="false"
           ></Image>
         </div>
-        <div className="relative w-full flex flex-col justify-center items-center gap-8">
+        <div className="our-values-wrapper relative w-full flex flex-col justify-center items-center gap-8">
           <Image
             src={"/about/OurValuesText.svg"}
             width={900}
@@ -124,6 +124,7 @@ export default function About() {
             className="w-[20%] h-auto"
             draggable="false"
           ></Image>
+          <div className="our-values-card-wrapper"></div>
         </div>
       </div>
     </div>
