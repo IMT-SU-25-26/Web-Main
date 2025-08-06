@@ -6,6 +6,7 @@ export interface Achievement {
   title: string;
   description: string;
   teamInfo: string;
+  featured: boolean;
   imageUrl: string | null;
   imagePublicId: string | null;
   createdAt: Date;

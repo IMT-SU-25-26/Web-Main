@@ -2,7 +2,7 @@ import React from "react";
 import { HomeServiceCard } from "@/types/homecard";
 import Image from "next/image";
 
-function HomeServicesCard({
+export default function HomeServicesCard({
   title,
   type,
   description,
@@ -42,5 +42,3 @@ function HomeServicesCard({
     </div>
   );
 }
-
-export default HomeServicesCard;

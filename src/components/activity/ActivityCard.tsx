@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 // import Button from "../Button";
@@ -51,7 +53,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         <div className="w-full h-20 mb-4 overflow-hidden mt-7">
           {/* Activity Image */}
           <Image
-            src={activity.imageUrl || "/placeholder.jpg"}
+            src={activity.imageUrl || "/placeholder.png"}
             alt={activity.title}
             width={360}
             height={144}

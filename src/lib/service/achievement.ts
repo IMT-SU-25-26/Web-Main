@@ -23,6 +23,19 @@ export async function getAchievementById(
   });
 }
 
+export async function getFeaturedAchievement(): Promise<Achievement | null> {
+  return await prisma.achievement.findFirst({
+    where: { featured: true },
+  });
+}
+
+export async function getAchievementsExcludingFeatured(): Promise<Achievement[]> {
+  return await prisma.achievement.findMany({
+    where: { featured: false },
+    orderBy: { createdAt: "desc" },
+  });
+}
+
 export async function createAchievement(
   formData: FormData
 ): Promise<ActionResult<Achievement>> {
