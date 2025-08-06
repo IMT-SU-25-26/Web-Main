@@ -8,7 +8,6 @@ export type PresidentCardProps = {
 
 export type ImageConfig = {
   src: string;
-  className: string;
 };
 
 export type RoleConfig = {

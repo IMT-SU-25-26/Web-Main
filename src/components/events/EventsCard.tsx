@@ -1,23 +1,42 @@
-export default function EventsCard() {
-  return (
-    <div className="bg-[url('/background-paper.png')] bg-cover p-6 rounded-md w-full max-w-4xl mx-auto shadow-md relative">
-      {/* Card Content */}
-      <div className="flex flex-col md:flex-row gap-6 items-center justify-center relative">
-        {/* Left Image Placeholder */}
-        <div className="w-full md:w-1/2 h-48 bg-gray-300 rounded-md shadow-inner" />
+import Image from "next/image";
 
-        {/* Right Text Section */}
-        <div className="flex flex-col items-start text-left gap-2">
-          <h1 className="text-3xl font-extrabold text-black">TECHNOCAMP</h1>
-          <p className="text-lg font-semibold tracking-wider">
-            21 OCTOBER 2024
-          </p>
+type EventsCardProps = {
+  title: string;
+  date: string;
+  isreverse?: boolean;
+  imagesrc?: string;
+};
+
+export default function EventsCard({ title, date, isreverse, imagesrc }: EventsCardProps) {
+  return (
+    <div className="bg-[#f4f4f4] bg-cover p-6 rounded-md w-[90%] max-w-4xl shadow-md relative mx-auto">
+      {/* Card Content */}
+      <div
+        className={`flex flex-col ${
+          isreverse ? "md:flex-row-reverse" : "md:flex-row"
+        } gap-4 items-start justify-center relative w-full h-full`}
+      >
+        {/* Image Section */}
+        <div
+          className={`w-full md:w-[80%] h-48 rounded-md shadow-inner ${
+            imagesrc ? "bg-cover bg-center" : "bg-gray-300"
+          }`}
+          style={imagesrc ? { backgroundImage: `url('${imagesrc}')` } : undefined}
+        />
+
+        {/* Text Section */}
+        <div className="flex flex-col items-center w-full text-center gap-4 md:ml-[5rem] mt-4 mb-10 md:mt-0">
+          {/* Title and Date */}
+          <div className="flex flex-col gap-1 h-full w-full mt-[1rem] items-center text-center">
+            <h1 className="text-3xl md:text-5xl text-black font-family-impact">{title}</h1>
+            <p className="text-base md:text-lg font-semibold tracking-wider">{date}</p>
+          </div>
 
           {/* View More Button */}
           <div className="relative">
-            <div className="explore-button absolute w-[180px] h-[45px] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
+            <div className="viewmore-button absolute w-[180px] md:w-[240px] h-[50px] md:h-[60px] bg-[#0E54B2] p-2 md:p-4 px-4 md:px-8 rounded-2xl bottom-[-2.5rem] md:bottom-[-3.5rem] z-[2] left-1/2 -translate-x-1/2">
               <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
-                <h1 className="explore-button-text font-family-impact text-xl text-center text-white">
+                <h1 className="viewmore-button-text font-family-impact text-xl md:text-3xl text-center text-white">
                   View More
                 </h1>
               </div>
@@ -25,6 +44,13 @@ export default function EventsCard() {
           </div>
         </div>
       </div>
+      <Image
+        src="/events/tearpaper.webp"
+        alt="paper"
+        width={900}
+        height={900}
+        className="w-full h-auto absolute md:bottom-[-26%] left-0 rotate-[2.5deg]"
+      />
     </div>
   );
 }
