@@ -53,7 +53,7 @@ export default async function CompetitionsPage() {
               <Suspense fallback={<SkeletonLoader />}>
                 <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-6">
                   <Image
-                    src={competition.imageUrl || "/file.svg"}
+                    src={competition.imageUrl || "/placeholder/placeholder.png"}
                     alt="Achievement"
                     width={400}
                     height={400}

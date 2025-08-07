@@ -71,8 +71,9 @@ export default async function ActivityDetailsPage(props: {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Created <ClientDate 
-                    createdAt={activity.createdAt.toISOString()} 
+                  Created{" "}
+                  <ClientDate
+                    createdAt={activity.createdAt.toISOString()}
                     format="full"
                   />
                 </div>
@@ -97,7 +98,7 @@ export default async function ActivityDetailsPage(props: {
                 <Suspense fallback={<SkeletonLoader />}>
                   <div className="w-[300px] md:w-[500px] m-auto bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 rounded-xl shadow-md overflow-hidden">
                     <Image
-                      src={activity.imageUrl || "/file.svg"}
+                      src={activity.imageUrl || "/placeholder/placeholder.png"}
                       alt="Achievement"
                       width={400} // matches your max width (can be adjusted)
                       height={0} // optional: this can be omitted
@@ -154,7 +155,9 @@ export default async function ActivityDetailsPage(props: {
                         Last Updated
                       </dt>
                       <dd className="text-sm text-gray-900">
-                        <ClientDateTime dateTime={activity.updatedAt.toISOString()} />
+                        <ClientDateTime
+                          dateTime={activity.updatedAt.toISOString()}
+                        />
                       </dd>
                     </div>
                   </dl>
@@ -214,9 +217,9 @@ export default async function ActivityDetailsPage(props: {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Created</span>
-                      <ClientDate 
-                        createdAt={activity.createdAt.toISOString()} 
-                        className="text-gray-900" 
+                      <ClientDate
+                        createdAt={activity.createdAt.toISOString()}
+                        className="text-gray-900"
                       />
                     </div>
                     <div className="flex justify-between text-sm">

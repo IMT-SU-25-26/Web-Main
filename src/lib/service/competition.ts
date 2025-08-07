@@ -46,7 +46,7 @@ export async function createCompetition(
       data: validatedData,
     });
 
-    revalidatePath("/dashboard/sa");
+    revalidatePath("/dashboard/competitions");
     revalidatePath("competitions");
 
     return {
@@ -94,7 +94,7 @@ export async function updateCompetition(
       data: validatedData,
     });
 
-    revalidatePath("/dashboard/sa");
+    revalidatePath("/dashboard/competitions");
     revalidatePath("competitions");
 
     return {
@@ -117,7 +117,7 @@ export async function deleteCompetition(id: string): Promise<ActionResult<void>>
       where: { id },
     });
 
-    revalidatePath("/dashboard/sa");
+    revalidatePath("/dashboard/competitions");
     revalidatePath("competitions");
 
     return {
