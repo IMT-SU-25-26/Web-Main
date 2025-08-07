@@ -59,9 +59,13 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="w-full overflow-hidden">
+      {" "}
+      {/* Tambah overflow-hidden */}
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="flex flex-col gap-15 items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
+      <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
+        {" "}
+        {/* Tambah overflow-hidden di sini juga */}
         {/* Header dengan animasi */}
         <div className="header-reveal flex justify-center relative">
           <Image
@@ -86,7 +90,6 @@ export default function EventsPage() {
             height={175}
           />
         </div>
-
         {/* Card sections dengan animasi */}
         <div className="section-reveal w-full relative">
           <Image
@@ -100,7 +103,6 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <Image
             className="absolute left-[-2rem] sm:left-[-4rem] top-[2rem] z-0 rotate-[15deg] w-[75px] sm:w-[150px]"
@@ -120,13 +122,11 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <div className="relative z-10">
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <Image
             className="absolute left-[-10rem] sm:left-[-20rem] top-[-5rem] z-0 w-[200px] sm:w-[400px]"
@@ -139,7 +139,6 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <Image
             className="absolute right-[0rem] top-[2rem] z-0 w-[100px] sm:w-[200px]"
@@ -152,7 +151,6 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <Image
             className="yellowstar-rotate absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] bottom-[-5rem] z-0"
@@ -165,13 +163,11 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <div className="relative z-10">
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <Image
             className="absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] top-[-4rem] z-0"
@@ -184,7 +180,6 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative">
           <Image
             className="absolute right-[-1.5rem] sm:right-[-3rem] top-[2rem] z-0 -scale-x-100 w-[100px] sm:w-[200px]"
@@ -197,7 +192,6 @@ export default function EventsPage() {
             <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
           </div>
         </div>
-
         <div className="section-reveal w-full relative h-[28rem] overflow-hidden">
           <Image
             className="absolute w-[10rem] sm:w-[20rem] h-auto left-[-2.5rem] sm:left-[-5rem] bottom-[-10rem] z-0"
