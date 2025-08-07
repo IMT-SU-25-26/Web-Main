@@ -5,22 +5,42 @@ import "@/styles/committee.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Committee() {
+  // Reset scroll position saat component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Refresh ScrollTrigger setelah scroll reset
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  }, []);
+
   useGSAP(() => {
+    // Clear semua ScrollTrigger sebelumnya
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
     gsap.utils.toArray<HTMLElement>(".section-reveal").forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none",
+      gsap.fromTo(section,
+        {
+          opacity: 0,
+          y: 50,
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            refreshPriority: -1,
+          },
+        }
+      );
     });
 
     gsap.to(".yellowstarasset", {
@@ -41,6 +61,11 @@ export default function Committee() {
       duration: 10,
       ease: "linear",
     });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   return (

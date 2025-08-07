@@ -4,11 +4,24 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function EventsPage() {
+  // Reset scroll position saat component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Refresh ScrollTrigger setelah scroll reset
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  }, []);
+
   useGSAP(() => {
+    // Clear semua ScrollTrigger sebelumnya
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
     // Animasi untuk setiap section dengan class "section-reveal"
     gsap.utils
       .toArray<HTMLElement>(".section-reveal")
@@ -16,31 +29,42 @@ export default function EventsPage() {
         // Untuk section terakhir, gunakan trigger point yang lebih rendah
         const isLastSection = index === array.length - 1;
 
-        gsap.from(section, {
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: section,
-            start: isLastSection ? "top 95%" : "top 80%", // Trigger lebih rendah untuk section terakhir
-            toggleActions: "play none none none",
-            // Debug untuk melihat trigger area
-            // markers: true, // hapus comment untuk debug
+        gsap.fromTo(section, 
+          {
+            opacity: 0,
+            y: 50,
           },
-        });
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: section,
+              start: isLastSection ? "top 95%" : "top 80%",
+              toggleActions: "play none none reverse", // Tambah reverse untuk reset
+              refreshPriority: -1, // Prioritas refresh
+            },
+          }
+        );
       });
 
     // Animasi untuk header
-    gsap.from(".header-reveal", {
-      opacity: 0,
-      y: -30,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".header-reveal",
-        start: "top 90%",
-        toggleActions: "play none none none",
+    gsap.fromTo(".header-reveal", 
+      {
+        opacity: 0,
+        y: -30,
       },
-    });
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".header-reveal",
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
 
     // Animasi rotate untuk yellow-star dan yellowstar
     gsap.to(".yellow-star-rotate", {
@@ -56,12 +80,17 @@ export default function EventsPage() {
       duration: 10,
       ease: "linear",
     });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   return (
-    <div className="w-full overflow-hidden"> {/* Tambah overflow-hidden */}
+    <div className="w-full overflow-hidden">
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden"> {/* Tambah overflow-hidden di sini juga */}
+      <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
         {/* Header dengan animasi */}
         <div className="header-reveal flex justify-center relative">
           <Image
