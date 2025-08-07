@@ -2,7 +2,6 @@
 
 import React from "react";
 import AchievementFeatured from "@/components/achievement/AchievementFeatured";
-import mockFeaturedAchievements from "@/mockData/mockFeaturedAchievements";
 import { AchievementCard } from "@/components/achievement/AchievementCard";
 import SearchBar from "@/components/SearchBar";
 import { Achievement } from "@/types/achievement";
