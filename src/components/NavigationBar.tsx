@@ -282,14 +282,6 @@ export default function NavigationBar() {
           >
             <div ref={mobileLinksRef} className="flex flex-col gap-2">
               <Link
-                className="text-white text-center w-full py-2 hover:text-red-500 text-md border-b-white/60 border-b-1 will-change-transform"
-                href="/"
-                onClick={() => handleMobileMenuToggle()}
-              >
-                Home
-              </Link>
-
-              <Link
                 className="text-white text-center w-full py-2 hover:text-green-500 text-md border-b-white/60 border-b-1 will-change-transform"
                 href="/about"
                 onClick={() => handleMobileMenuToggle()}
