@@ -25,12 +25,14 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
   const accentColor = colorList[index % colorList.length];
   const pathname = usePathname();
   const description = competition.description;
+  const descChar = 200;
   const trimmedDescription =
-    description.length > 75 ? description.slice(0, 75) + "..." : description;
+    description.length > descChar ? description.slice(0, descChar) + "..." : description;
 
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${competition.id}`}
+      // href={"https://bit.ly/compucimt"}
       className="transform flex flex-col transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200"
     >
       {/* Paper Clip */}
@@ -58,7 +60,9 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
       <div className="flex justify-between">
         <div>
           <h3 className="w-full text-black text-[1.3rem] font-extrabold">{competition.name}</h3>
-          <div className="flex gap-1 justify-start items-center">
+          
+          {/* Location Desc Logo */}
+          {/* <div className="flex gap-1 justify-start items-center">
             <Image
               className="w-[0.6rem]"
               src={"/activities/point-map.svg"}
@@ -67,9 +71,12 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
               height={50}
             />
             <p className="text-[0.8rem] text-gray-600">$$$</p>
-          </div>
+          </div> */}
+
         </div>
-        <div className="flex flex-col items-center justify-center">
+
+        {/* People Amount Logo */}
+        {/* <div className="flex flex-col items-center justify-center">
           <Image
             className="w-[25px]"
             src={'/activities/logo-people.svg'}
@@ -78,7 +85,8 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
             height={100}
           />
           <p className="text-[0.9rem]">000</p>
-        </div>
+        </div> */}
+
       </div>
       <p className="w-full mt-2 font-gill text-[12px] text-black">{trimmedDescription}</p>
 

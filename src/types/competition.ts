@@ -29,11 +29,11 @@ export const CompetitionSchema = z.object({
     .min(1, "Description is required")
     .max(500, "Description must be less than 500 characters"),
 
-  teamSize: z
-    .number()
-    .min(1, "Team size must be at least 1")
-    .max(1000, "Team size cannot exceed 1000")
-    .int("Team size must be a whole number"),
+  // teamSize: z
+  //   .number()
+  //   .min(1, "Team size must be at least 1")
+  //   .max(1000, "Team size cannot exceed 1000")
+  //   .int("Team size must be a whole number"),
 
   imageUrl: z
     .string()

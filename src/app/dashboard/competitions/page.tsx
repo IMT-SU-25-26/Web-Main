@@ -115,7 +115,7 @@ export default async function CompetitionsPage() {
                     View Details
                   </Link>
                   <Link
-                    href={`/dashboard/sa/${competition.id}/edit`}
+                    href={`/dashboard/competitions/${competition.id}/edit`}
                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium text-center transition-colors"
                   >
                     Edit

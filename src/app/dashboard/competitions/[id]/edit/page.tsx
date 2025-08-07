@@ -1,22 +1,22 @@
-import ActivityForm from "../../../../../components/activity/ActivityForm";
-import { getActivityById } from "@/lib/service/activity";
+import CompetitionsForm from "@/components/competition/CompetitionForm";
+import { getCompetitionById } from "@/lib/service/competition";
 import { notFound } from "next/navigation";
 
-export default async function EditActivityPage(props: {
+export default async function EditCompetitionPage(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
   const id = await params.id;
-  const activity = await getActivityById(id);
+  const competition = await getCompetitionById(id);
 
-  if (!activity) {
+  if (!competition) {
     notFound();
   }
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen pt-[14vh] pb-10">
-      <h1 className="text-3xl font-bold mb-6">Edit Activity</h1>
-      <ActivityForm mode="edit" data={activity} />
+      <h1 className="text-3xl font-bold mb-6">Edit Competition</h1>
+      <CompetitionsForm mode="edit" data={competition} />
     </div>
   );
 }

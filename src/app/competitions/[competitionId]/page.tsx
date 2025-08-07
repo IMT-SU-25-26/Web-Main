@@ -1,40 +1,41 @@
 import React from "react";
 import Image from "next/image";
 import FrameImage from "@/components/achievement/FrameImage";
-import { getActivityById } from "@/lib/service/activity";
+import { getCompetitionById } from "@/lib/service/competition";
 import Button from "@/components/Button";
 import NotFound from "./not-found";
+import Link from "next/link";
 
 export async function generateMetadata(props: {
-  params: Promise<{ activityId: string }>;
+  params: Promise<{ competitionId: string }>;
 }) {
   const params = await props.params;
-  const activityId = params.activityId;
-  const activity = await getActivityById(activityId);
+  const competitionId = params.competitionId;
+  const competition = await getCompetitionById(competitionId);
 
-  if (!activity) {
+  if (!competition) {
     return {
-      title: "Activity Not Found",
+      title: "Competition Not Found",
     };
   }
 
   return {
-    title: activity.title,
+    title: competition.name,
   };
 }
 
-const ActivityDetails = async (props: { params: Promise<{ activityId: string }> }) => {
+const ActivityDetails = async (props: { params: Promise<{ competitionId: string }> }) => {
   const params = await props.params;
-  const activityId = params.activityId;
-  const activity = await getActivityById(activityId);
+  const competitionId = params.competitionId;
+  const competition = await getCompetitionById(competitionId);
 
-  if (!activity) {
+  if (!competition) {
     return <NotFound />;
   }
 
-  const title = activity.title;
-  const urlImg = activity.imageUrl;
-  const description = activity.description;
+  const title = competition.name;
+  const urlImg = competition.imageUrl;
+  const description = competition.description;
   const slicedDescription = description.split("\n");
 
   return (
@@ -139,22 +140,25 @@ const ActivityDetails = async (props: { params: Promise<{ activityId: string }> 
               {slicedDescription.map((line, index) => (
                 <p key={index}>{line}</p>
               ))}
-              <div className="relative w-fit mt-5">
-                <Button
-                  bgColor="#ED4E45"
-                  className="w-fit px-10 py-3 text-[35px] font-bold rounded-xl"
-                >
-                  REGISTER
-                </Button>
-                <Image
-                  className="absolute -top-8 -right-14"
-                  src="/activities/activityDetails/button-decor.webp"
-                  alt=""
-                  width={100}
-                  height={65}
-                  draggable={false}
-                ></Image>
-              </div>
+
+              <Link href="https://bit.ly/compucimt">
+                <div className="relative w-fit mt-5">
+                  <Button
+                    bgColor="#ED4E45"
+                    className="w-fit px-10 py-3 text-[35px] font-bold rounded-xl"
+                  >
+                    REGISTER
+                  </Button>
+                  <Image
+                    className="absolute -top-8 -right-14"
+                    src="/activities/activityDetails/button-decor.webp"
+                    alt=""
+                    width={100}
+                    height={65}
+                    draggable={false}
+                  ></Image>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
