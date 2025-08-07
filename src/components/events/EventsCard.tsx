@@ -1,15 +1,9 @@
 import Image from "next/image";
-
-type EventsCardProps = {
-  title: string;
-  date: string;
-  isreverse?: boolean;
-  imagesrc?: string;
-};
+import type { EventsCardProps } from "@/types/events";
 
 export default function EventsCard({ title, date, isreverse, imagesrc }: EventsCardProps) {
   return (
-    <div className="bg-[#f4f4f4] bg-cover p-6 rounded-md w-[90%] max-w-4xl shadow-md relative mx-auto">
+    <div className="bg-[#f4f4f4] bg-cover p-6 rounded-md w-[90%] h-[25rem] sm:h-[20rem] max-w-4xl shadow-md relative mx-auto">
       {/* Card Content */}
       <div
         className={`flex flex-col ${
@@ -18,14 +12,16 @@ export default function EventsCard({ title, date, isreverse, imagesrc }: EventsC
       >
         {/* Image Section */}
         <div
-          className={`w-full md:w-[80%] h-48 rounded-md shadow-inner ${
+          className={`w-full md:w-[80%] h-60 rounded-md shadow-inner ${
             imagesrc ? "bg-cover bg-center" : "bg-gray-300"
           }`}
           style={imagesrc ? { backgroundImage: `url('${imagesrc}')` } : undefined}
         />
 
         {/* Text Section */}
-        <div className="flex flex-col items-center w-full text-center gap-4 md:ml-[5rem] mt-4 mb-10 md:mt-0">
+        <div className={`flex flex-col items-center w-full text-center gap-4 ${
+          isreverse ? "lg:-ml-[5rem] sm:-ml-[3rem]" : "lg:ml-[-5rem] sm:ml-[-3rem]"
+        } -mt-1 mb-13 md:mt-7`}>
           {/* Title and Date */}
           <div className="flex flex-col gap-1 h-full w-full mt-[1rem] items-center text-center">
             <h1 className="text-3xl md:text-5xl text-black font-family-impact">{title}</h1>
@@ -49,7 +45,7 @@ export default function EventsCard({ title, date, isreverse, imagesrc }: EventsC
         alt="paper"
         width={900}
         height={900}
-        className="w-full h-auto absolute md:bottom-[-26%] left-0 rotate-[2.5deg]"
+        className="w-full h-auto absolute lg:bottom-[-20%] sm:bottom-[-16%] bottom-[-6%] left-0 rotate-[2.5deg]"
       />
     </div>
   );
