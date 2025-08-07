@@ -17,7 +17,7 @@ const AchievementFeatured: FC<AchievementFeaturedProps> = ({
   description,
 }) => {
   return (
-    <div className="w-full overflow-visible">
+    <div className="w-[50vw] m-auto overflow-visible">
       <div className="relative -left-5 md:left-0 min-h-[400px] md:min-h-[200px] py-6 overflow-hidden">
         {/* Background image */}
         <Image

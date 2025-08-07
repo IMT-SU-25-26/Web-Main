@@ -130,6 +130,25 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
           />
         </div>
 
+        <div>
+          <label
+            htmlFor="teamInfo"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Team Info
+          </label>
+          <input
+            type="text"
+            id="teamInfo"
+            name="teamInfo"
+            defaultValue={data?.teamInfo || ""}
+            required
+            maxLength={100}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter achievement Team Info"
+          />
+        </div>
+
         {/* Description Input */}
         <div>
           <label

@@ -42,6 +42,12 @@ export const AchievementSchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || null),
+
+  teamInfo: z
+    .string()
+    .min(1, "Title is required")
+    .max(100, "Title must be less than 100 characters")
+
 });
 
 export type AchievementInput = z.infer<typeof AchievementSchema>;
