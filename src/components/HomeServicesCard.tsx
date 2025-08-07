@@ -12,7 +12,7 @@ export default function HomeServicesCard({
 }: HomeServiceCard) {
   return (
     <div
-      className={`relative min-h-[20rem] min-w-[30rem] bg-[#F5F5F5] p-4 sm:p-8 flex flex-col gap-4 ${className}`}
+      className={`relative min-h-[20rem] min-w-[30rem] bg-[#F5F5F5] p-4 sm:p-8 flex flex-col gap-4 shadow-[-12px_12px_5px_-5px_rgba(0,0,0,0.25)] ${className}`}
       style={{ opacity }}
     >
       <div className="service-image flex flex-col justify-end image-container-hsc bg-gray-200 w-full h-[65%]">
@@ -37,7 +37,7 @@ export default function HomeServicesCard({
         width={1000}
         height={1000}
         draggable={false}
-        className="absolute bottom-[-10%] left-0"
+        className="absolute bottom-[-7.5%] z-[20] left-0"
       />
     </div>
   );

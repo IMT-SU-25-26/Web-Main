@@ -1,306 +1,737 @@
 import Image from "next/image";
 import React from "react";
+import "@/styles/about.css";
 
 export default function About() {
   return (
-    <>
-      <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
-        <div className="relative z-10 w-fit h-full flex items-center justify-center">
-          <Image
-            className="red-bubble z-[8] top-0"
-            src={"/home/su-imt-home-red-bubble.svg"}
-            draggable="false"
-            width={924}
-            height={560}
-            alt="red-bubble"
-          ></Image>
-          <Image
-            className="dragon absolute z-[9] w-[12rem] h-auto bottom-[4rem] -left-[12rem]"
-            src={"/home/dragon.svg"}
-            draggable="false"
-            width={628}
-            height={380}
-            alt="mid-bubble"
-          ></Image>
-          <Image
-            className="among-us absolute z-[9] w-[8rem] h-auto bottom-[4rem] -right-[12rem]"
-            src={"/home/among-us.svg"}
-            draggable="false"
-            width={628}
-            height={380}
-            alt="mid-bubble"
-          ></Image>
-          <Image
-            className="yellow-bubble absolute z-[9] top-[6rem] left-[5rem]"
-            src={"/home/su-imt-home-yellow-bubble.svg"}
-            draggable="false"
-            width={628}
-            height={380}
-            alt="mid-bubble"
-          ></Image>
-          <Image
-            className="front-bubble absolute z-[10] top-[7.5rem] left-[8rem]"
-            src={"/home/su-imt-home-front-buble.svg"}
-            draggable="false"
-            width={547}
-            height={334}
-            alt="front-bubble"
-          ></Image>
-          <Image
-            className="welcome absolute z-[10] top-[8.5rem] left-[14rem]"
-            src={"/home/welcome.svg"}
-            draggable="false"
-            width={324.6}
-            height={193.7}
-            alt="su-welcome"
-          ></Image>
-          <Image
-            className="demon-cat absolute z-[10] top-[12.5rem] left-[9.5rem]"
-            src={"/home/demon-cat.png"}
-            draggable="false"
-            width={71}
-            height={67}
-            alt="demon-cat"
-          ></Image>
-          <Image
-            className="stars-left absolute z-[10] top-[16.5rem] left-[11rem]"
-            src={"/home/stars.svg"}
-            draggable="false"
-            width={45}
-            height={37}
-            alt="stars-left"
-          ></Image>
-          <Image
-            className="stars-right absolute z-[10] top-[10.5rem] right-[20rem]"
-            src={"/home/stars.svg"}
-            draggable="false"
-            width={45}
-            height={37}
-            alt="stars-right"
-          ></Image>
-          <Image
-            className="to-text absolute z-[10] top-[15rem] left-[40.75%]"
-            src={"/home/to.svg"}
-            draggable="false"
-            width={36.8}
-            height={72.9}
-            alt="to"
-          ></Image>
-          <Image
-            className="su-imt-text absolute z-[10] top-[15.5rem] right-[19rem]"
-            src={"/home/su-imt-text.svg"}
-            draggable="false"
-            width={426.5}
-            height={126}
-            alt="stars-right"
-          ></Image>
-
-          <div className="title-background absolute -bottom-14 p-12 z-10 w-fit h-fit flex items-center justify-center bg-[url('/home/title-background.svg')] bg-contain bg-center bg-no-repeat">
-            <h1 className="title-text text-2xl text-black rotate-[1.25deg] mb-2">
-              Student Union Informatics - Your Creative Tech Community
-            </h1>
-          </div>
-        </div>
-
-        <div className="about-us-container mt-20 flex gap-44 justify-center items-center w-screen">
-          <div className="relative card-left bg-[#FFFFFF] min-w-[560px] min-h-[330px] rounded-3xl shadow-2xl p-12 flex flex-col items-start justify-start gap-4">
-            <h1 className="about-us-title-text text-4xl text-black font-bold">
+    <div className="overflow-x-hidden">
+      <div className="h-[6vh] bg-[#F1EEE6]"></div>
+      <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
+        <Image
+          src={"/about/AboutUsText.webp"}
+          width={900}
+          height={900}
+          alt="about-us-text"
+          className="about-us-text sm:mt-0 w-[80%] sm:w-[40%] h-auto"
+          draggable="false"
+        ></Image>
+        <Image
+          src={"/home/paper-cloud.webp"}
+          width={900}
+          height={900}
+          alt="paper-cloud"
+          className="about-us-paper-cloud-mobile absolute sm:hidden w-[30%] rotate-y-180 h-auto right-0 top-[37.5%]"
+          draggable="false"
+        ></Image>
+        <Image
+          src={"/home/dragon.svg"}
+          width={900}
+          height={900}
+          alt="dragont"
+          className="about-us-dragon-mobile absolute sm:hidden w-[20%] rotate-y-180 h-auto right-[5%] top-[34.5%]"
+          draggable="false"
+        ></Image>
+        <Image
+          src={"/about/dragon-breath.webp"}
+          width={900}
+          height={900}
+          alt="dragont"
+          className="about-us-dragon-breath-mobile absolute sm:hidden w-[20%] h-auto right-[17%] top-[28.5%]"
+          draggable="false"
+        ></Image>
+        {/* dekstop */}
+        <div className="hidden sm:flex about-us-wrapper mt-[6.5rem] relative w-full justify-center items-center gap-48">
+          <div className="left-about-card relative w-1/3 h-[20rem] bg-white rounded-3xl flex flex-col gap-4 p-12 shadow-[-12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
+            <Image
+              src={"/home/handle-card.png"}
+              width={900}
+              height={900}
+              alt="handle-about-us-card"
+              className="handle-about-us-card absolute bottom-[20%] -left-[18%] w-[25%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/about/yellow-star.webp"}
+              width={900}
+              height={900}
+              alt="yellow-star"
+              className="yellow-star-about-us absolute -bottom-[10%] -right-[8%] w-[25%] h-auto"
+              draggable="false"
+            ></Image>
+            <h1 className="about-us-card-title-text text-5xl font-family-gill-condensed-bold font-bold">
               ABOUT US
             </h1>
-            <p className="about-us-description-text max-w-[560px] text-black">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic
-              adipisci praesentium aperiam ab tempora quis recusandae, laborum
-              assumenda delectus! Velit ad, ipsum odit cumque dicta veniam
-              voluptatum dolorum temporibus nesciunt eligendi accusamus fugiat.
+            <p className="about-us-card-description-text text-2xl font-family-gill">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
+              aliquam, exercitationem assumenda eligendi possimus a itaque ut
+              dolor optio.
             </p>
-            <Image
-              className="handle-card absolute z-[9] top-[4rem] -left-[7rem]"
-              src={"/home/handle-card.png"}
-              draggable="false"
-              width={162.36}
-              height={120}
-              alt="mid-bubble"
-            ></Image>
-            <Image
-              className="star-card absolute z-[9] -bottom-[2.5rem] -right-[4rem]"
-              src={"/home/star-card.png"}
-              draggable="false"
-              width={152.33}
-              height={140.12}
-              alt="mid-bubble"
-            ></Image>
           </div>
-          <div className="background-card-right rotate-12 relative min-w-[504px] min-h-[309] bg-[#EAD6B1]">
-            <div className="card-right absolute flex flex-col items-center justify-center top-8 right-8 min-w-[504px] min-h-[309] bg-[#FFFFFF] gap-4">
-              <Image
-                className="pin absolute -top-[4.27rem] -right-[5rem] w-[12.5rem] h-auto rotate-[-7deg]"
-                src={"/home/pin.png"}
-                draggable="false"
-                width={113.5}
-                height={193.65}
-                alt="stars-right"
-              ></Image>
-              <Image
-                className="triangle absolute -top-[0.15rem] -right-[0.2rem] w-[1.6rem] rotate-[-7deg] h-auto"
-                src={"/home/triangle.svg"}
-                draggable="false"
-                width={113.5}
-                height={193.65}
-                alt="stars-right"
-              ></Image>
-              <div className="about-us-image-container w-[447.16px] h-[208.59px]">
-                <Image
-                  className="w-full h-full object-cover object-center"
-                  src={"/home/cat-placeholder-image.gif"}
-                  draggable="false"
-                  width={426.5}
-                  height={126}
-                  alt="stars-right"
-                ></Image>
-              </div>
-              <h1 className="photo-title px-8 text-start w-full text-xl">
+          <Image
+            src={"/home/dragon.svg"}
+            width={900}
+            height={900}
+            alt="handle-about-us-card"
+            className="dragon-about absolute -bottom-[100%] right-[5%] w-[10%] h-auto rotate-y-180"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/dragon-breath.webp"}
+            width={900}
+            height={900}
+            alt="dragon-breath"
+            className="dragon-breath absolute -bottom-[75%] right-[12%] w-[10%] h-auto"
+            draggable="false"
+          ></Image>
+           <Image
+            src={"/about/circle-blue-stick.svg"}
+            width={900}
+            height={900}
+            alt="circle-blue-stick"
+            className="circle-blue-stick-about absolute -left-[12.5%] -top-[45%] w-[20%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/circle-red-stick.svg"}
+            width={900}
+            height={900}
+            alt="circle-red-stick"
+            className="circle-red-stick-about absolute -right-[10.5%] -top-[95%] w-[15%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/yellow-star-landing.webp"}
+            width={900}
+            height={900}
+            alt="yellow-star-landing-about"
+            className="yellow-star-landing-about absolute right-[10.5%] -top-[65%] w-[12.5%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/red-spike-landing.webp"}
+            width={900}
+            height={900}
+            alt="red-spike-landing-about"
+            className="red-spike-landing-about absolute left-[6.5%] -top-[100%] w-[12.5%] h-auto"
+            draggable="false"
+          ></Image>
+          <div className="relative">
+            <Image
+              src={"/about/peniti.webp"}
+              width={900}
+              height={900}
+              alt="about-us-text"
+              className="peniti w-[40%] h-auto absolute z-[5] -top-[2%] -right-[9.5%]"
+              draggable="false"
+            ></Image>
+            <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
+            <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] -left-[10%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
+              <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
+              <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
                 SU IMT Team
               </h1>
             </div>
           </div>
         </div>
-
-        {/* Our values section */}
-        <div className="relative w-screen min-h-screen flex flex-col justify-center items-center">
-          <h1 className="our-values-text text-4xl text-black font-bold">
-            OUR VALUES
-          </h1>
-          <Image
-            className="step mt-4"
-            src={"/home/step.svg"}
-            draggable="false"
-            width={277.89}
-            height={113}
-            alt="red-bubble"
-          ></Image>
-
-          <div className="cards-container mt-20 grid grid-cols-4 gap-20">
-            {/* card 1 */}
-            <div className="strive-card relative bg-[#F7A7C2] rounded-2xl w-[292px] h-[250px]">
-              <div className="strive-inner inner-card p-4 absolute w-full h-full bg-[#EB427B] rounded-2xl rotate-[-6deg] top-5 left-3 flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#EB427B] font-bold text-2xl">S</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  STRIVE
-                </h1>
-                <h1 className="card-description text-xl text-white font-normal">
-                  Lorem ipsum
-                </h1>
-              </div>
-              <Image
-                className="yellow-pin absolute -top-[3rem] -right-[1rem] w-[4rem] h-auto"
-                width={500}
-                height={500}
-                src="/home/pin-yellow.png"
-                alt="pin-yellow"
-              ></Image>
-            </div>
-            <div className="take-responsibility-card relative mt-4 bg-[#ECD682] rotate-[2.76deg] rounded-2xl w-[292px] h-[250px]">
-              <div className="inner-card p-4 absolute w-full h-full bg-[#F5C309] -top-[1.5rem] -left-[1rem] rounded-2xl flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#F5C309] font-bold text-2xl">T</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  TAKE
-                </h1>
-                <h1 className="card-title text-3xl text-white font-bold">
-                  RESPONSIBILITY
-                </h1>
-                <h1 className="card-description text-xl text-white">
-                  Lorem ipsum
-                </h1>
-              </div>
-            </div>
-            <div className="explore-card relative mt-4 bg-[#AED8AD] rotate-[2.27deg] rounded-2xl w-[292px] h-[250px]">
-              <div className="inner-card p-4 absolute w-full h-full bg-[#37951D] rounded-2xl rotate-[-2.27deg] -left-[0.2rem] -top-[1rem] flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#37951D] font-bold text-2xl">E</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  EXPLORE
-                </h1>
-                <h1 className="card-description text-xl text-white">
-                  Lorem ipsum
-                </h1>
-              </div>
-              <Image
-                className="tape absolute top-[-2rem] right-[25%] w-[9.5rem] h-auto"
-                width={500}
-                height={500}
-                src="/home/tape.png"
-                alt="tape"
-              ></Image>
-            </div>
-            <div className="pioneer-card mt-4 relative bg-[#6CAAFF] rotate-[-13.06deg] rounded-2xl w-[292px] h-[250px]">
-              <div className="inner-card p-4 absolute w-full h-full bg-[#0E53B2] rounded-2xl rotate-[5.61deg] -left-[0.25rem] -top-[0.25rem] flex flex-col gap-1">
-                <div className="circle-card w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
-                  <h1 className="text-[#0E53B2] font-bold text-2xl">P</h1>
-                </div>
-                <h1 className="mt-4 card-title text-3xl text-white font-bold">
-                  PIONEER
-                </h1>
-                <h1 className="card-description text-xl text-white">
-                  Lorem ipsum
-                </h1>
-              </div>
-              <Image
-                className="clipper absolute -top-[5rem] -right-[4rem] w-[8.5rem] h-auto"
-                width={500}
-                height={500}
-                src="/home/clipper.png"
-                alt="tape"
-              ></Image>
-            </div>
+        {/* mobile */}
+        <div className="flex sm:hidden about-us-wrapper mt-[2.5rem] relative w-full justify-start items-center gap-48">
+          <div className="ml-[5%] left-about-card relative w-[60%] h-[20rem] bg-white rounded-xl flex flex-col gap-4 p-12 shadow-[-12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
+            <Image
+              src={"/home/handle-card.png"}
+              width={900}
+              height={900}
+              alt="handle-about-us-card"
+              className="handle-about-us-card absolute bottom-[20%] -left-[18%] w-[25%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/about/yellow-star.webp"}
+              width={900}
+              height={900}
+              alt="yellow-star"
+              className="yellow-star-about-us absolute -bottom-[10%] -right-[8%] w-[25%] h-auto"
+              draggable="false"
+            ></Image>
+            <h1 className="about-us-card-title-text text-5xl font-family-gill-condensed-bold font-bold">
+              ABOUT US
+            </h1>
+            <p className="about-us-card-description-text text-2xl font-family-gill">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
+              aliquam, exercitationem 
+            </p>
           </div>
           <Image
-            className="absolute w-[20%] bottom-0 left-0"
-            src={"/home/sobekan-bottom-left.png"}
+            src={"/home/dragon.svg"}
+            width={900}
+            height={900}
+            alt="handle-about-us-card"
+            className="dragon-about absolute -bottom-[100%] right-[5%] w-[10%] h-auto rotate-y-180"
             draggable="false"
-            width={422}
-            height={376}
-            alt="sobekan-left"
           ></Image>
           <Image
-            className="absolute bottom-0 left-0"
-            src={"/home/heart.png"}
+            src={"/about/dragon-breath.webp"}
+            width={900}
+            height={900}
+            alt="dragon-breath"
+            className="dragon-breath absolute -bottom-[75%] right-[12%] w-[10%] h-auto"
             draggable="false"
-            width={200}
-            height={200}
-            alt="heart"
           ></Image>
           <Image
-            className="absolute w-[20%] bottom-0 right-0"
-            src={"/home/sobekan-bottom-right.png"}
+            src={"/about/circle-red-stick.svg"}
+            width={900}
+            height={900}
+            alt="circle-red-stick"
+            className="circle-red-stick-about absolute -right-[10.5%] -top-[95%] w-[15%] h-auto"
             draggable="false"
-            width={629}
-            height={400}
-            alt="sobekan-right"
           ></Image>
           <Image
-            className="absolute bottom-0 right-0"
-            src={"/home/laptop.png"}
+            src={"/home/yellow-star-landing.webp"}
+            width={900}
+            height={900}
+            alt="yellow-star-landing-about"
+            className="yellow-star-landing-about absolute right-[10.5%] -top-[65%] w-[12.5%] h-auto"
             draggable="false"
-            width={313.12}
-            height={238.42}
-            alt="laptop"
           ></Image>
           <Image
-            className="absolute bottom-20 right-22"
-            src={"/home/laptop-spark.png"}
+            src={"/home/red-spike-landing.webp"}
+            width={900}
+            height={900}
+            alt="red-spike-landing-about"
+            className="red-spike-landing-about absolute left-[6.5%] -top-[100%] w-[12.5%] h-auto"
             draggable="false"
-            width={147}
-            height={185}
-            alt="laptop-spark"
           ></Image>
         </div>
+        <div className="z-[2] mt-[10%] w-full flex justify-end sm:hidden relative">
+            <Image
+              src={"/about/peniti.webp"}
+              width={900}
+              height={900}
+              alt="about-us-text"
+              className="peniti w-[40%] h-auto absolute z-[5] -top-[2%] -right-[9.5%]"
+              draggable="false"
+            ></Image>
+            <div>
+              <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
+              <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] right-[5%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
+                <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
+                <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
+                  SU IMT Team
+                </h1>
+              </div>
+            </div>
+          </div>
+
+        {/* dekstop */}
+        <div className="hidden sm:flex vision-mission-wrapper -mt-[2.5%] min-h-[75rem] min-w-screen relative w-full justify-center items-center gap-24">
+          <Image
+            src={"/about/BigFractureAbout.webp"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="big-fracture w-[100%] h-auto absolute z-[2]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/CircleKiriFracture.svg"}
+            width={900}
+            height={900}
+            alt="circle-kiri-fracture"
+            className="circle-kiri-fracture w-[40%] h-auto absolute -bottom-[15%] left-0"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/vision-card.svg"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="vision-card w-[30%] h-auto absolute top-[30%] left-[10%] z-[3]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/mission-card.svg"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="mission-card w-[30%] h-auto absolute bottom-[15%] right-[18%] z-[3]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/green-arrow.png"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="green-arrow-about w-[18%] h-auto absolute bottom-[35%] right-[43.25%] rotate-45 z-[3]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/PencilRuler.webp"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="pencil-ruler w-[45%] sm:w-[23.5%] h-auto absolute -top-[5%] left-[0%] z-[3]"
+            draggable="false"
+          ></Image>
+        </div>
+        {/* mobile */}
+        <div className="flex sm:hidden vision-mission-wrapper -mt-[2.5%] min-h-[75rem] min-w-screen relative w-full justify-center items-center gap-24 z-[1]">
+          <Image
+            src={"/about/mobile-big-fracture.svg"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="big-fracture w-[100%] h-auto absolute z-[2]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/vision-card.svg"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="vision-card w-[80%] h-auto absolute top-[30%] z-[3]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/mission-card.svg"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="mission-card w-[80%] h-auto absolute bottom-[15%] z-[3]"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/mobile-pencil-ruler.webp"}
+            width={900}
+            height={900}
+            alt="big-fracture"
+            className="pencil-ruler w-[35%] sm:w-[23.5%] h-auto absolute -top-[5%] left-[0%] z-[3]"
+            draggable="false"
+          ></Image>
+        </div>
+        
+        {/* dekstop */}
+        <div className="hidden sm:flex our-values-wrapper relative w-full flex-col justify-center items-center gap-8">
+          <Image
+            src={"/about/OurValuesText.svg"}
+            width={900}
+            height={900}
+            alt="our-values-text"
+            className="our-values-text w-[20%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/crown.svg"}
+            width={900}
+            height={900}
+            alt="crown"
+            className="crown-about left-[35%] -top-[10%] rotate-[-45deg] absolute w-[6.5%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/among-us.svg"}
+            width={900}
+            height={900}
+            alt="among-us"
+            className="among-us-about right-[25%] top-[10%] absolute w-[8.5%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/step.svg"}
+            width={900}
+            height={900}
+            alt="step-text"
+            className="step w-[20%] h-auto"
+            draggable="false"
+          ></Image>
+          <div className="our-values-card-wrapper p-16 w-full grid grid-cols-2 sm:grid-cols-4 justify-center items-center gap-16">
+            <div className="strive-card">
+              <div className="our-values-card-container relative bg-[#F7A7C2] w-[300px] h-[250px] rounded-2xl">
+                <Image
+                  src={"/about/pin-yellow.png"}
+                  width={900}
+                  height={900}
+                  alt="pin-yellow"
+                  className="absolute w-[25%] h-auto z-[5] -right-[8%] -top-[20%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-6 left-[0.5rem] top-[0.5rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
+                    STRIVE
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 take-responsibility-card">
+              <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[1rem] -top-[1.5rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
+                    TAKE RESPONSIBILITY
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="explore-card">
+              <div className="relative rotate-2 our-values-card-container  mt-[15%] bg-[#AED8AD] w-[300px] h-[250px] rounded-2xl">
+                <Image
+                  src={"/about/tape.png"}
+                  width={900}
+                  height={900}
+                  alt="tape"
+                  className="absolute w-[50%] h-auto z-[5] right-[31%] -top-[10%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[4.5deg] -left-[0.5rem] -top-[0.75rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
+                    EXPLORE
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="pioneer-card">
+              <div className="our-values-card-container relative -rotate-6 mt-[15%] bg-[#6CAAFF] w-[300px] h-[250px] rounded-2xl">
+                <Image
+                  src={"/about/clipper.png"}
+                  width={900}
+                  height={900}
+                  alt="clipper"
+                  className="absolute w-[50%] h-auto z-[5] -right-[20%] -top-[35%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[8.5deg] -left-[0.5rem] -top-[1%]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
+                    PIONEER
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="footer-wrapper w-screen flex justify-between mt-[5%]">
+            <Image
+              src={"/home/sobekan-bottom-left.png"}
+              width={900}
+              height={900}
+              alt="footer-left-background"
+              className="w-[20%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/sobekan-bottom-right.png"}
+              width={900}
+              height={900}
+              alt="footer-right-background"
+              className="w-[20%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/laptop.png"}
+              width={900}
+              height={900}
+              alt="laptop-spark"
+              className="absolute bottom-[5%] -right-[1.5%] w-[25%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/laptop-spark.png"}
+              width={900}
+              height={900}
+              alt="laptop-spark"
+              className="absolute right-[5%] bottom-[15%] w-[15%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/heart.png"}
+              width={900}
+              height={900}
+              alt="heart"
+              className="absolute -left-[0%] -bottom-[0%] w-[12.5%] h-auto"
+              draggable="false"
+            ></Image>
+          </div>
+        </div>
+        {/* mobile */}
+         <div className="z-[0] flex sm:hidden our-values-wrapper relative w-full flex-col justify-center items-center gap-4">
+          <Image
+            src={"/about/OurValuesText.svg"}
+            width={900}
+            height={900}
+            alt="our-values-text"
+            className="our-values-text w-[50%] h-auto"
+            draggable="false"
+          ></Image>
+           <Image
+            src={"/about/bunderan-biru-about-mobile.svg"}
+            width={900}
+            height={900}
+            alt="crown"
+            className="crown-about left-[0%] -top-[25%] absolute w-[15%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/crown.svg"}
+            width={900}
+            height={900}
+            alt="crown"
+            className="crown-about left-[20%] -top-[4%] rotate-[-45deg] absolute w-[8.5%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/home/among-us.svg"}
+            width={900}
+            height={900}
+            alt="among-us"
+            className="among-us-about right-[1.5%] top-[10%] absolute w-[20.5%] h-auto"
+            draggable="false"
+          ></Image>
+          <Image
+            src={"/about/step.svg"}
+            width={900}
+            height={900}
+            alt="step-text"
+            className="step w-[50%] h-auto"
+            draggable="false"
+          ></Image>
+
+          {/* dekstop */}
+          <div className="hidden sm:grid our-values-card-wrapper sm:p-16 w-full grid-cols-2 sm:grid-cols-4 justify-center items-center gap-16">
+            <div className="strive-card">
+              <div className="our-values-card-container relative bg-[#F7A7C2] w-[300px] h-[250px] rounded-2xl">
+                <Image
+                  src={"/about/pin-yellow.png"}
+                  width={900}
+                  height={900}
+                  alt="pin-yellow"
+                  className="absolute w-[25%] h-auto z-[5] -right-[8%] -top-[20%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-6 left-[0.5rem] top-[0.5rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    STRIVE
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 take-responsibility-card">
+              <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[1rem] -top-[1.5rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    TAKE RESPONSIBILITY
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="explore-card">
+              <div className="relative rotate-2 our-values-card-container  mt-[15%] bg-[#AED8AD] w-[300px] h-[250px] rounded-2xl">
+                <Image
+                  src={"/about/tape.png"}
+                  width={900}
+                  height={900}
+                  alt="tape"
+                  className="absolute w-[50%] h-auto z-[5] right-[31%] -top-[10%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[4.5deg] -left-[0.5rem] -top-[0.75rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    EXPLORE
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="pioneer-card">
+              <div className="our-values-card-container relative -rotate-6 mt-[15%] bg-[#6CAAFF] w-[300px] h-[250px] rounded-2xl">
+                <Image
+                  src={"/about/clipper.png"}
+                  width={900}
+                  height={900}
+                  alt="clipper"
+                  className="absolute w-[50%] h-auto z-[5] -right-[20%] -top-[35%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[8.5deg] -left-[0.5rem] -top-[1%]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    PIONEER
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* mobile */}
+          <div className="grid sm:hidden our-values-card-wrapper ml-[4%] p-7 w-full grid-cols-2 justify-center items-center gap-16 space-y-1">
+            <div className="strive-card">
+              <div className="our-values-card-container relative bg-[#F7A7C2] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
+                <Image
+                  src={"/about/pin-yellow.png"}
+                  width={900}
+                  height={900}
+                  alt="pin-yellow"
+                  className="absolute w-[25%] h-auto z-[5] -right-[8%] -top-[20%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-4 left-[0.25rem] top-[0.5rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    STRIVE
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 take-responsibility-card">
+              <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[0.5rem] -top-[0.75rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    TAKE RESPONSIBILITY
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="explore-card">
+              <div className="relative rotate-2 our-values-card-container  mt-[15%] bg-[#AED8AD] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
+                <Image
+                  src={"/about/tape.png"}
+                  width={900}
+                  height={900}
+                  alt="tape"
+                  className="absolute w-[50%] h-auto z-[5] right-[24%] -top-[12.5%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[1.5deg] left-[0rem] -top-[0.5rem]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    EXPLORE
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="pioneer-card">
+              <div className="our-values-card-container relative -rotate-6 mt-[15%] bg-[#6CAAFF] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
+                <Image
+                  src={"/about/clipper.png"}
+                  width={900}
+                  height={900}
+                  alt="clipper"
+                  className="absolute w-[50%] h-auto z-[5] -right-[20%] -top-[35%]"
+                  draggable="false"
+                ></Image>
+                <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[6.5deg] -left-[0.5rem] -top-[1%]">
+                  <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
+                  </div>
+                  <h1 className="our-values-text-title text-3xl text-white font-family-impact">
+                    PIONEER
+                  </h1>
+                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
+                    Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="footer-wrapper w-screen flex justify-between mt-[5%]">
+            <Image
+              src={"/home/sobekan-bottom-left.png"}
+              width={900}
+              height={900}
+              alt="footer-left-background"
+              className="about-footer-left-background w-[20%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/sobekan-bottom-right.png"}
+              width={900}
+              height={900}
+              alt="about-footer-right-background"
+              className="about-footer-right-background w-[20%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/laptop.png"}
+              width={900}
+              height={900}
+              alt="laptop"
+              className="about-laptop absolute bottom-[5%] -right-[1.5%] w-[25%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/laptop-spark.png"}
+              width={900}
+              height={900}
+              alt="laptop-spark"
+              className="about-laptop-spark absolute right-[5%] bottom-[15%] w-[15%] h-auto"
+              draggable="false"
+            ></Image>
+            <Image
+              src={"/home/heart.png"}
+              width={900}
+              height={900}
+              alt="heart"
+              className="about-heart absolute -left-[0%] -bottom-[0%] w-[12.5%] h-auto"
+              draggable="false"
+            ></Image>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
