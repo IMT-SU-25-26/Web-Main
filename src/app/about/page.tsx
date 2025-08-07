@@ -83,7 +83,7 @@ export default function About() {
             className="dragon-breath absolute -bottom-[75%] right-[12%] w-[10%] h-auto"
             draggable="false"
           ></Image>
-           <Image
+          <Image
             src={"/about/circle-blue-stick.svg"}
             width={900}
             height={900}
@@ -157,7 +157,7 @@ export default function About() {
             </h1>
             <p className="about-us-card-description-text text-2xl font-family-gill">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
-              aliquam, exercitationem 
+              aliquam, exercitationem
             </p>
           </div>
           <Image
@@ -202,24 +202,24 @@ export default function About() {
           ></Image>
         </div>
         <div className="z-[2] mt-[10%] w-full flex justify-end sm:hidden relative">
-            <Image
-              src={"/about/peniti.webp"}
-              width={900}
-              height={900}
-              alt="about-us-text"
-              className="peniti w-[40%] h-auto absolute z-[5] -top-[2%] -right-[9.5%]"
-              draggable="false"
-            ></Image>
-            <div>
-              <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
-              <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] right-[5%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
-                <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
-                <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
-                  SU IMT Team
-                </h1>
-              </div>
+          <Image
+            src={"/about/peniti.webp"}
+            width={900}
+            height={900}
+            alt="about-us-text"
+            className="peniti w-[40%] h-auto absolute z-[5] -top-[2%] -right-[9.5%]"
+            draggable="false"
+          ></Image>
+          <div>
+            <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
+            <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] right-[5%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
+              <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
+              <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
+                SU IMT Team
+              </h1>
             </div>
           </div>
+        </div>
 
         {/* dekstop */}
         <div className="hidden sm:flex vision-mission-wrapper -mt-[2.5%] min-h-[75rem] min-w-screen relative w-full justify-center items-center gap-24">
@@ -307,7 +307,7 @@ export default function About() {
             draggable="false"
           ></Image>
         </div>
-        
+
         {/* dekstop */}
         <div className="hidden sm:flex our-values-wrapper relative w-full flex-col justify-center items-center gap-8">
           <Image
@@ -355,7 +355,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-6 left-[0.5rem] top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">
+                      S
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     STRIVE
@@ -370,7 +372,9 @@ export default function About() {
               <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[1rem] -top-[1.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">
+                      T
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     TAKE RESPONSIBILITY
@@ -393,7 +397,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[4.5deg] -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">
+                      E
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     EXPLORE
@@ -416,7 +422,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[8.5deg] -left-[0.5rem] -top-[1%]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">
+                      P
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     PIONEER
@@ -472,7 +480,7 @@ export default function About() {
           </div>
         </div>
         {/* mobile */}
-         <div className="z-[0] flex sm:hidden our-values-wrapper relative w-full flex-col justify-center items-center gap-4">
+        <div className="z-[0] flex sm:hidden our-values-wrapper relative w-full flex-col justify-center items-center gap-4">
           <Image
             src={"/about/OurValuesText.svg"}
             width={900}
@@ -481,7 +489,7 @@ export default function About() {
             className="our-values-text w-[50%] h-auto"
             draggable="false"
           ></Image>
-           <Image
+          <Image
             src={"/about/bunderan-biru-about-mobile.svg"}
             width={900}
             height={900}
@@ -528,7 +536,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-6 left-[0.5rem] top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">
+                      S
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     STRIVE
@@ -543,7 +553,9 @@ export default function About() {
               <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[1rem] -top-[1.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">
+                      T
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     TAKE RESPONSIBILITY
@@ -566,7 +578,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[4.5deg] -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">
+                      E
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     EXPLORE
@@ -589,7 +603,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[8.5deg] -left-[0.5rem] -top-[1%]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">
+                      P
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     PIONEER
@@ -615,7 +631,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-4 left-[0.25rem] top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">
+                      S
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     STRIVE
@@ -630,7 +648,9 @@ export default function About() {
               <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">
+                      T
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     TAKE RESPONSIBILITY
@@ -653,7 +673,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[1.5deg] left-[0rem] -top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">
+                      E
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     EXPLORE
@@ -676,7 +698,9 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[6.5deg] -left-[0.5rem] -top-[1%]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">
+                      P
+                    </h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     PIONEER

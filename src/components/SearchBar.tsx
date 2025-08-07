@@ -42,7 +42,7 @@ export default function SearchBar<T extends SearchableItem>({
       <div className="w-full px-4 my-1 flex justify-center">
         <div className="relative w-full max-w-[260px] sm:max-w-sm md:max-w-md">
           <Image
-            src="/SearchIcon.webp"
+            src="/logos/SearchIcon.webp"
             alt="Search Icon"
             width={18}
             height={18}

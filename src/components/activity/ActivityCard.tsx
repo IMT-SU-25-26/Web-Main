@@ -46,7 +46,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
       <div className="w-full h-50 sm:h-55 mb-2 rounded-lg overflow-hidden">
         {/* Activity Image */}
         <Image
-          src={activity.imageUrl || "/placeholder.png"}
+          src={activity.imageUrl || "/placeholder/placeholder.png"}
           alt={activity.title}
           width={360}
           height={144}

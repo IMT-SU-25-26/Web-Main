@@ -40,14 +40,11 @@ export default function NavigationBar() {
         ease: "power2.in",
       })
         // Then slide menu out
-        .to(
-          mobileMenuRef.current,
-          {
-            x: "100%",
-            duration: 0, // Faster duration
-            ease: "power2.in",
-          },
-        )
+        .to(mobileMenuRef.current, {
+          x: "100%",
+          duration: 0, // Faster duration
+          ease: "power2.in",
+        })
         // Fade overlay
         .to(
           overlayRef.current,
@@ -120,14 +117,14 @@ export default function NavigationBar() {
         />
       </Link>
 
-      <div className="hidden lg:text-xl xl:text-xl 2xl:text-2xl lg:flex gap-4 xl:gap-8 items-center">
-         <Link
+      <div className="hidden lg:text-lg xl:text-lg 2xl:text-xl lg:flex gap-4 xl:gap-8 items-center">
+        <Link
           className="cursor-pointer hover:underline hover:text-green-500"
           href="/about"
         >
           About
         </Link>
-         <Link
+        <Link
           className="cursor-pointer hover:underline hover:text-slate-500"
           href="/competitions"
         >
@@ -174,9 +171,9 @@ export default function NavigationBar() {
                       "U"}
                   </div>
                 ) : (
-                  <div className="w-full h-full bg-gray-400 rounded-full flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-full rounded-full flex items-center justify-center overflow-hidden">
                     <Image
-                      src={"/logos/guest-avatar.svg"}
+                      src={"/placeholder/person.png"}
                       width={40}
                       height={40}
                       alt="Guest Avatar"
@@ -310,13 +307,13 @@ export default function NavigationBar() {
                 href="/achievements"
                 onClick={() => handleMobileMenuToggle()}
               >
-                <Image
+                {/* <Image
                   src={"/about/ArrowKiri.svg"}
                   className="w-3 h-auto"
                   alt="arrow left"
                   width={100}
                   height={100}
-                />
+                /> */}
                 Achievements
               </Link>
 
@@ -340,7 +337,9 @@ export default function NavigationBar() {
               <div className="flex justify-center will-change-transform">
                 {isLoggedIn ? (
                   <div className="text-center">
-                    <p className="text-sm text-gray-600">{session.user?.email}</p>
+                    <p className="text-sm text-gray-600">
+                      {session.user?.email}
+                    </p>
                     <button
                       onClick={() => {
                         signOut({ callbackUrl: "/" });

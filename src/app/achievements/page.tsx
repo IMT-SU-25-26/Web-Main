@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { getAchievements, getAchievementsExcludingFeatured, getFeaturedAchievement } from "@/lib/service/achievement";
+import {
+  getAchievementsExcludingFeatured,
+  getFeaturedAchievement,
+} from "@/lib/service/achievement";
 import AchievementsSearch from "@/components/achievement/AchievementsSearch";
 
 export const metadata = {
@@ -8,7 +11,6 @@ export const metadata = {
 };
 
 export default async function AchievementsPage() {
-  // const achievements = await getAchievements();
   const featuredAchievements = await getFeaturedAchievement();
   const achievementElse = await getAchievementsExcludingFeatured();
 
@@ -83,7 +85,12 @@ export default async function AchievementsPage() {
 
         {/* Main Content */}
         {/* temporary featured achievements, currently still using findFirst */}
-        <AchievementsSearch achievements={achievementElse} featuredAchievements={featuredAchievements ? [featuredAchievements] : undefined} />
+        <AchievementsSearch
+          achievements={achievementElse}
+          featuredAchievements={
+            featuredAchievements ? [featuredAchievements] : undefined
+          }
+        />
       </div>
     </>
   );

@@ -5,7 +5,8 @@ import type { PresidentCardProps, RoleConfig } from "@/types/committee";
 // Base configuration for common decorations
 const DECORATIONS = {
   CROWN: (gender: string) => ({
-    src: gender === "GIRL" ? "/committee/crownpink.png" : "/committee/crown.png",
+    src:
+      gender === "GIRL" ? "/committee/crownpink.png" : "/committee/crown.png",
     className:
       gender === "GIRL"
         ? "crown-pink absolute -top-[3.3rem] -left-[1.8rem] w-[8.5rem] h-auto"
@@ -29,7 +30,9 @@ const DECORATIONS = {
   },
   HOUSE: (gender: string) => ({
     src:
-      gender === "GIRL" ? "/committee/housepink.png" : "/committee/houseblue.png",
+      gender === "GIRL"
+        ? "/committee/housepink.png"
+        : "/committee/houseblue.png",
     className:
       gender === "GIRL"
         ? "house-pink absolute bottom-[4.7rem] right-[1rem] w-[4.5rem] h-auto"
@@ -41,7 +44,9 @@ const DECORATIONS = {
   },
   PAINT: (gender: string) => ({
     src:
-      gender === "GIRL" ? "/committee/paintpink.png" : "/committee/paintblue.png",
+      gender === "GIRL"
+        ? "/committee/paintpink.png"
+        : "/committee/paintblue.png",
     className:
       gender === "GIRL"
         ? "paint-pink absolute bottom-[4.2rem] -right-[1rem] w-[6.7rem] h-auto"

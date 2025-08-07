@@ -48,7 +48,7 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
       <div className="w-full h-50 sm:h-55 mb-2 rounded-lg overflow-hidden">
         {/* Activity Image */}
         <Image
-          src={competition.imageUrl || "/placeholder.png"}
+          src={competition.imageUrl || "/placeholder/placeholder.png"}
           alt={competition.name}
           width={360}
           height={144}

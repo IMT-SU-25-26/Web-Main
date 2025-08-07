@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Card from "@/components/events/EventsCard";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
@@ -10,23 +10,25 @@ gsap.registerPlugin(ScrollTrigger);
 export default function EventsPage() {
   useGSAP(() => {
     // Animasi untuk setiap section dengan class "section-reveal"
-    gsap.utils.toArray<HTMLElement>(".section-reveal").forEach((section, index, array) => {
-      // Untuk section terakhir, gunakan trigger point yang lebih rendah
-      const isLastSection = index === array.length - 1;
-      
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: isLastSection ? "top 95%" : "top 80%", // Trigger lebih rendah untuk section terakhir
-          toggleActions: "play none none none",
-          // Debug untuk melihat trigger area
-          // markers: true, // hapus comment untuk debug
-        },
+    gsap.utils
+      .toArray<HTMLElement>(".section-reveal")
+      .forEach((section, index, array) => {
+        // Untuk section terakhir, gunakan trigger point yang lebih rendah
+        const isLastSection = index === array.length - 1;
+
+        gsap.from(section, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: section,
+            start: isLastSection ? "top 95%" : "top 80%", // Trigger lebih rendah untuk section terakhir
+            toggleActions: "play none none none",
+            // Debug untuk melihat trigger area
+            // markers: true, // hapus comment untuk debug
+          },
+        });
       });
-    });
 
     // Animasi untuk header
     gsap.from(".header-reveal", {
@@ -60,7 +62,6 @@ export default function EventsPage() {
     <div className="overflow-x-hidden">
       <div className="h-[10vh] bg-[#F1EEE6]"></div>
       <div className="flex flex-col gap-15 items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
-        
         {/* Header dengan animasi */}
         <div className="header-reveal flex justify-center relative">
           <Image

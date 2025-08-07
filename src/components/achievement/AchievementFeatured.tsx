@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AchievementCardProps } from "@/types/achievement";
+import ClientDate from "@/components/utils/ClientDate";
 
 const colorMap = {
   blue: "bg-[#0555AB]",
@@ -14,13 +15,8 @@ const colorMap = {
   gray: "bg-[#CCBCAF]",
 };
 
-export function AchievementFeatured ({title, type, description, borderColor, id, imageUrl, createdAt }: AchievementCardProps) {
+export function AchievementFeatured ({title, description, borderColor, id, imageUrl, createdAt }: AchievementCardProps) {
   const pathname = usePathname();
-  const date = createdAt.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 
   const descChar = 250;
   const trimmedDescription = description.length > descChar ? description.slice(0, descChar) + "..." : description;
@@ -66,7 +62,10 @@ export function AchievementFeatured ({title, type, description, borderColor, id,
                     lineHeight: "1rem",
                   }}
                 >
-                  {date}
+                  <ClientDate 
+                    createdAt={createdAt.toISOString()} 
+                    format="full"
+                  />
                 </span>
               </div>
               <div className="max-w-md font-bold">

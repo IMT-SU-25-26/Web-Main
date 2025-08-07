@@ -23,7 +23,9 @@ export async function generateMetadata(props: {
   };
 }
 
-const ActivityDetails = async (props: { params: Promise<{ activityId: string }> }) => {
+const ActivityDetails = async (props: {
+  params: Promise<{ activityId: string }>;
+}) => {
   const params = await props.params;
   const activityId = params.activityId;
   const activity = await getActivityById(activityId);
