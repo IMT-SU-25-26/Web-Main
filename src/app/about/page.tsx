@@ -602,9 +602,9 @@ export default function About() {
             </div>
           </div>
           {/* mobile */}
-          <div className="grid sm:hidden our-values-card-wrapper p-4 w-full grid-cols-2 justify-center items-center gap-16 space-y-1">
+          <div className="grid sm:hidden our-values-card-wrapper ml-[4%] p-7 w-full grid-cols-2 justify-center items-center gap-16 space-y-1">
             <div className="strive-card">
-              <div className="our-values-card-container relative bg-[#F7A7C2] w-[300px] h-[250px] rounded-2xl">
+              <div className="our-values-card-container relative bg-[#F7A7C2] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
                 <Image
                   src={"/about/pin-yellow.png"}
                   width={900}
@@ -627,7 +627,7 @@ export default function About() {
               </div>
             </div>
             <div className="mt-8 take-responsibility-card">
-              <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
+              <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
                     <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
@@ -642,7 +642,7 @@ export default function About() {
               </div>
             </div>
             <div className="explore-card">
-              <div className="relative rotate-2 our-values-card-container  mt-[15%] bg-[#AED8AD] w-[300px] h-[250px] rounded-2xl">
+              <div className="relative rotate-2 our-values-card-container  mt-[15%] bg-[#AED8AD] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
                 <Image
                   src={"/about/tape.png"}
                   width={900}
@@ -665,7 +665,7 @@ export default function About() {
               </div>
             </div>
             <div className="pioneer-card">
-              <div className="our-values-card-container relative -rotate-6 mt-[15%] bg-[#6CAAFF] w-[300px] h-[250px] rounded-2xl">
+              <div className="our-values-card-container relative -rotate-6 mt-[15%] bg-[#6CAAFF] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
                 <Image
                   src={"/about/clipper.png"}
                   width={900}
