@@ -797,7 +797,7 @@ export default function Home() {
                     <h1 className="competition-mobile-title-text font-family-impact text-2xl w-full text-left">
                       HACKATHON 2025
                     </h1>
-                    <p className="competition-mobile-description-text text-xs">
+                    <p className="competition-mobile-description-text w-full text-xs">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Dolores, omnis?
                     </p>
@@ -941,7 +941,7 @@ export default function Home() {
             </div>
           </div>
           <Image
-            className="sm:flex hidden paper-cloud w-[20%] top-[-5rem] h-auto absolute left-0"
+            className="flex paper-cloud w-[20%] top-[-5rem] h-auto absolute left-0"
             src={"/home/paper-cloud.webp"}
             draggable="false"
             width={1920}
