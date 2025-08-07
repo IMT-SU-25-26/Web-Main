@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 
 interface SearchableItem {
   id: string;
-  title: string;
+  title?: string;
+  name?:string;
 }
 
 interface SearchSectionProps<T extends SearchableItem> {
@@ -13,6 +14,7 @@ interface SearchSectionProps<T extends SearchableItem> {
   children: (filteredItems: T[]) => React.ReactNode;
   className?: string;
   placeholder?: string;
+  getSearchValue?: (item:T)=> string;
 }
 
 export default function SearchBar<T extends SearchableItem>({
@@ -20,12 +22,15 @@ export default function SearchBar<T extends SearchableItem>({
   children,
   className,
   placeholder = "Search Here...",
+  getSearchValue = (item)=>item.title ?? ""
 }: SearchSectionProps<T>) {
   const [search, setSearch] = useState("");
 
-  const filteredItems = items.filter((item) =>
-    item.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredItems = useMemo(() => {
+    return items.filter(item =>
+      getSearchValue(item).toLowerCase().includes(search.toLowerCase())
+    );
+  }, [items, search, getSearchValue]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
