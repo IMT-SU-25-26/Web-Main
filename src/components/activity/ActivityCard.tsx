@@ -87,7 +87,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         className="relative mt-auto w-full py-2"
         activityId={activity.id}
       >
-        Register
+        <p className="text-[0.9rem]">Register</p>
       </ApplyButton>
     </Link>
   );
