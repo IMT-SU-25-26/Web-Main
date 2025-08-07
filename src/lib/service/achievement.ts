@@ -40,12 +40,14 @@ export async function createAchievement(
   formData: FormData
 ): Promise<ActionResult<Achievement>> {
   try {
+
     const rawData = {
       title: formData.get("title") as string,
       description: formData.get("description") as string,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
       teamInfo: formData.get("teamInfo") as string,
+      featured: formData.get("featured") === "on" ? true : false,
     };
 
     const validationResult = AchievementSchema.safeParse(rawData);
@@ -94,9 +96,8 @@ export async function updateAchievement(
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
       teamInfo: formData.get("teamInfo") as string,
+      featured: formData.get("featured") === "on" ? true : false,
     };
-
-    console.log("THIS IS RAW DATA : "+ JSON.stringify(rawData));
 
     const validationResult = AchievementSchema.safeParse(rawData);
 
@@ -111,9 +112,6 @@ export async function updateAchievement(
     }
 
     const validatedData = validationResult.data;
-
-    console.log("THIS IS VALIDATED DATA"+ JSON.stringify(validatedData));
-
     const achievement = await prisma.achievement.update({
       where: { id },
       data: validatedData,
