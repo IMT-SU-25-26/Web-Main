@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Committee() {
@@ -294,7 +295,7 @@ export default function Committee() {
             alt="Committee decoration"
             width={150}
             height={150}
-            className="leftcloudasset absolute w-[0rem] sm:w-[0rem] lg:w-[10rem] h-auto z-0 translate-y-[2rem] lg:-translate-x-[43.5rem] -translate-x-[27rem]"
+            className="leftcloudasset absolute hidden lg:flex lg:w-[10rem] h-auto z-0 translate-y-[2rem] lg:-translate-x-[43.5rem] -translate-x-[27rem]"
           />
           <Image
             src="/committee/redstarasset.png"
