@@ -1798,6 +1798,7 @@
     height: 10rem;
     gap: 8px;
     padding: 24px;
+    width: 60%
   }
   .about-us-card-title-text {
     font-size: 28px;
