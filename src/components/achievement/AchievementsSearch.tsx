@@ -1,8 +1,7 @@
-"use client";
+'use client'
 
 import React from "react";
 import AchievementFeatured from "@/components/achievement/AchievementFeatured";
-import mockFeaturedAchievements from "@/mockData/mockFeaturedAchievements";
 import { AchievementCard } from "@/components/achievement/AchievementCard";
 import SearchBar from "@/components/SearchBar";
 import { Achievement } from "@/types/achievement";
@@ -11,9 +10,10 @@ type colorProps = "blue" | "green" | "pink" | "red" | "yellow" | "gray";
 
 interface AchievementsSearchProps {
   achievements: Achievement[];
+  featuredAchievements?: Achievement[];
 }
 
-export default function AchievementsSearch({ achievements }: AchievementsSearchProps) {
+export default function AchievementsSearch({ achievements, featuredAchievements }: AchievementsSearchProps) {
   const colors: colorProps[] = [
     "blue",
     "red",
@@ -29,18 +29,21 @@ export default function AchievementsSearch({ achievements }: AchievementsSearchP
         {(filteredAchievements) => (
           <>
             <div>
-              {mockFeaturedAchievements.map((item, index) => (
-                <AchievementFeatured
-                  key={index}
-                  {...item}
-                  imageUrl="/achievements/nplc.png"
-                />
-              ))}
+              {featuredAchievements && featuredAchievements.map((item, index) => {
+                const borderColor = colors[index % colors.length];
+                return (
+                  <AchievementFeatured
+                    key={index}
+                    {...item}
+                    type="Achivement"
+                    borderColor={borderColor}
+                  />
+                )
+              })}
             </div>
             <section className="flex flex-wrap justify-center gap-4 px-4">
               {filteredAchievements.map((achievement, index) => {
-                const colorIndex = index % colors.length;
-                const borderColor = colors[colorIndex];
+                const borderColor = colors[index % colors.length];
                 return (
                   <AchievementCard
                     key={achievement.id}

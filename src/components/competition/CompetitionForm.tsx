@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createAchievement, updateAchievement } from "@/lib/service/achievement";
-import { AchievementFormProps } from "@/types/achievement";
+import { createCompetition, updateCompetition } from "@/lib/service/competition";
+import { CompetitionFormProps } from "@/types/competition";
 import { UploadWidget } from "../utils/UploadWidget";
+import Image from "next/image";
 
-export default function AchievementForm({ mode, data }: AchievementFormProps) {
+export default function CompetitionsForm({ mode, data }: CompetitionFormProps) {
   /* States */
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -16,7 +16,6 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
   const [imagePublicId, setImagePublicId] = useState<string>(
     data?.imagePublicId || ""
   );
-
   const router = useRouter();
 
   function handleImageUpload(url: string, publicId?: string) {
@@ -40,32 +39,30 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
       }
 
       if (mode === "create") {
-        /* Create Achievement */
-        const result = await createAchievement(formData);
+        /* Create Competition */
+        const result = await createCompetition(formData);
         if (result.success) {
-          setSuccess(result.message || "Achievement created successfully!");
+          setSuccess(result.message || "Competition created successfully!");
           const form = document.getElementById(
-            "achievement-form"
+            "competition-form"
           ) as HTMLFormElement;
           form?.reset();
-          setImageUrl("");
-          setImagePublicId("");
           setTimeout(() => {
-            router.push("/dashboard/pr");
+            router.push("/dashboard/competitions");
           }, 500);
         } else {
-          setErrors([result.error || "Failed to create achievement"]);
+          setErrors([result.error || "Failed to create competition"]);
         }
       } else if (mode === "edit" && data) {
-        /* Edit Achievement */
-        const result = await updateAchievement(data.id, formData);
+        /* Edit Competition */
+        const result = await updateCompetition(data.id, formData);
         if (result.success) {
-          setSuccess(result.message || "Achievement updated successfully!");
+          setSuccess(result.message || "Competition updated successfully!");
           setTimeout(() => {
-            router.push("/dashboard/pr");
+            router.push("/dashboard/competitions");
           }, 500);
         } else {
-          setErrors([result.error || "Failed to update achievement"]);
+          setErrors([result.error || "Failed to update competition"]);
         }
       }
     } catch (error) {
@@ -99,9 +96,9 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
         </div>
       )}
 
-      {/* Achievement Form */}
+      {/* Competition Form */}
       <form
-        id="achievement-form"
+        id="competition-form"
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
@@ -111,41 +108,23 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
           isSubmitting ? "opacity-60 pointer-events-none" : ""
         }`}
       >
+        {/* Name Input */}
         <div>
           <label
-            htmlFor="title"
+            htmlFor="name"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Title
+            Name
           </label>
           <input
             type="text"
-            id="title"
-            name="title"
-            defaultValue={data?.title || ""}
+            id="name"
+            name="name"
+            defaultValue={data?.name || ""}
             required
             maxLength={100}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Enter activity title"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="teamInfo"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Team Info
-          </label>
-          <input
-            type="text"
-            id="teamInfo"
-            name="teamInfo"
-            defaultValue={data?.teamInfo || ""}
-            required
-            maxLength={100}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Enter achievement Team Info"
+            placeholder="Enter competition name"
           />
         </div>
 
@@ -165,33 +144,9 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
             maxLength={500}
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
-            placeholder="Enter activity description"
+            placeholder="Enter competition description"
           />
         </div>
-
-        {/* Switch isFeatured */}
-        <div>
-          <label
-            htmlFor="featured"
-            className="flex items-center cursor-pointer"
-          >
-            <span className="mr-3 text-sm font-medium text-gray-700">
-              Featured
-            </span>
-            <div className="relative">
-              <input
-                type="checkbox"
-                id="featured"
-                name="featured"
-                className="sr-only peer"
-                defaultChecked={data?.featured}
-              />
-              <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 peer-checked:bg-blue-600 transition-all"></div>
-              <div className="absolute top-0.5 left-[2px] bg-white border-gray-300 border rounded-full h-5 w-5 peer-checked:translate-x-full peer-checked:border-white transition-all"></div>
-            </div>
-          </label>
-        </div>
-
 
         {/* Cover Image Input */}
         <div>
@@ -255,9 +210,9 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
               {mode === "create" ? "Creating..." : "Updating..."}
             </span>
           ) : mode === "create" ? (
-            "Create Achievement"
+            "Create Competition"
           ) : (
-            "Update Achievement"
+            "Update Competition"
           )}
         </button>
       </form>

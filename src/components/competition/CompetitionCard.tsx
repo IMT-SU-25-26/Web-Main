@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 // import Button from "../Button";
-import { Activity } from "@/types/activity";
+import { Competition } from "@/types/competition";
 import Link from "next/link";
 import ApplyButton from "../utils/ApplyButton";
 
@@ -16,21 +16,23 @@ const colorList = [
   "#CCBCAF", // Gray
 ];
 
-type ActivityCardProps = {
-  activity: Activity;
+type CompetitionCardProps = {
+  competition: Competition;
   index: number;
 };
 
-export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
+export const CompetitionCard = ({ competition, index }: CompetitionCardProps) => {
   const accentColor = colorList[index % colorList.length];
   const pathname = usePathname();
-  const description = activity.description;
+  const description = competition.description;
+  const descChar = 200;
   const trimmedDescription =
-    description.length > 75 ? description.slice(0, 75) + "..." : description;
+    description.length > descChar ? description.slice(0, descChar) + "..." : description;
 
   return (
     <Link
-      href={`${pathname.replace(/\/$/, "")}/${activity.id}`}
+      href={`${pathname.replace(/\/$/, "")}/${competition.id}`}
+      // href={"https://bit.ly/compucimt"}
       className="transform flex flex-col transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200"
     >
       {/* Paper Clip */}
@@ -46,8 +48,8 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
       <div className="w-full h-50 sm:h-55 mb-2 rounded-lg overflow-hidden">
         {/* Activity Image */}
         <Image
-          src={activity.imageUrl || "/placeholder.png"}
-          alt={activity.title}
+          src={competition.imageUrl || "/placeholder.png"}
+          alt={competition.name}
           width={360}
           height={144}
           className="w-full h-full object-cover"
@@ -57,8 +59,10 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
       {/* Card Content */}
       <div className="flex justify-between">
         <div>
-          <h3 className="w-full text-black text-[1.3rem] font-extrabold">{activity.title}</h3>
-          <div className="flex gap-1 justify-start items-center">
+          <h3 className="w-full text-black text-[1.3rem] font-extrabold">{competition.name}</h3>
+          
+          {/* Location Desc Logo */}
+          {/* <div className="flex gap-1 justify-start items-center">
             <Image
               className="w-[0.6rem]"
               src={"/activities/point-map.svg"}
@@ -66,10 +70,13 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
               width={50}
               height={50}
             />
-            <p className="text-[0.8rem] text-gray-600">{activity.location}</p>
-          </div>
+            <p className="text-[0.8rem] text-gray-600">$$$</p>
+          </div> */}
+
         </div>
-        <div className="flex flex-col items-center justify-center">
+
+        {/* People Amount Logo */}
+        {/* <div className="flex flex-col items-center justify-center">
           <Image
             className="w-[25px]"
             src={'/activities/logo-people.svg'}
@@ -77,15 +84,16 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
             width={100}
             height={100}
           />
-          <p className="text-[0.9rem]">{activity.quota}</p>
-        </div>
+          <p className="text-[0.9rem]">000</p>
+        </div> */}
+
       </div>
       <p className="w-full mt-2 font-gill text-[12px] text-black">{trimmedDescription}</p>
 
       <ApplyButton
         bgColor={accentColor}
         className="relative mt-auto w-full py-2"
-        activityId={activity.id}
+        activityId={competition.id}
       >
         <p className="text-[0.9rem]">Register</p>
       </ApplyButton>

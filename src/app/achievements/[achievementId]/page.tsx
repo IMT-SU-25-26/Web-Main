@@ -32,7 +32,7 @@ const page = async (props: { params: Promise<{ achievementId: string }> }) => {
   }
 
   const title = achievement.title;
-  const subTitle = achievement.id;
+  const subTitle = achievement.teamInfo;
   const urlImg1 = achievement.imageUrl;
   const urlImg2 = urlImg1;
   const description = achievement.description;
