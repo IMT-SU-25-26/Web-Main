@@ -921,6 +921,90 @@
 @media (max-width: 1180px) and (max-height: 820px) {
 }
 @media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
+  /* About us section */
+  .about-us-wrapper {
+    gap: 7rem;
+  }
+  .left-about-card {
+    height: 13rem;
+    gap: 16px;
+    padding: 32px;
+  }
+  .about-us-card-title-text {
+    font-size: 32px;
+  }
+  .about-us-card-description-text {
+    font-size: 16px;
+  }
+
+  .peniti {
+    top: -4.5%;
+    right: -8.5%;
+  }
+  .su-imt-team-card-background {
+    width: 350px;
+    height: 200px;
+  }
+  .su-imt-team-card-foreground {
+    width: 350px;
+    height: 200px;
+  }
+  .su-imt-team-card-text {
+    font-size: 20px;
+  }
+
+  /* Vision mission section */
+  .vision-mission-wrapper {
+    margin-top: -20.5%;
+  }
+  .big-fracture {
+    width: 100%;
+    height: auto;
+  }
+  .mission-card {
+    bottom: 29.5%;
+  }
+  .vision-card {
+    top: 40%;
+  }
+  .pencil-ruler {
+    top: 15%;
+  }
+  .green-arrow-about {
+    bottom: 39.5%;
+  }
+  .circle-kiri-fracture {
+    width: 50%;
+    bottom: 6%;
+  }
+
+  /* our values section */
+  .our-values-wrapper {
+    margin-top: -25.5%;
+  }
+  .our-values-card-wrapper {
+    gap: 3rem;
+  }
+  .our-values-card-container {
+    width: 200px;
+    height: 150px;
+  }
+  .our-values-details-wrapper {
+    padding: 0.75rem;
+  }
+  .our-values-logo-container {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .our-values-logo {
+    font-size: 24px;
+  }
+  .our-values-text-title {
+    font-size: 18px;
+  }
+  .our-values-text-description {
+    font-size: 12px;
+  }
 }
 @media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
 }
