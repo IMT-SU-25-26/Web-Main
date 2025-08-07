@@ -31,57 +31,64 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${activity.id}`}
-      className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[290px] sm:w-[280px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-[2px] px-6 py-5 mt-8 text-left border-[1px] border-gray-200"
+      className="transform flex flex-col transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200"
     >
       {/* Paper Clip */}
-      <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
         <Image
-          src="/activities/ActivityClip.webp"
-          alt="Paper Clip"
+          src="/activities/tape.svg"
+          alt="tape"
           width={80}
           height={80}
         />
       </div>
 
-      <div className="relative w-full max-w-xs overflow-hidden">
-        {/* Accent bar */}
-        <div
-          className="absolute top-0 left-0 w-full h-5"
-          style={{ backgroundColor: accentColor }}
+      <div className="w-full h-50 sm:h-55 mb-2 rounded-lg overflow-hidden">
+        {/* Activity Image */}
+        <Image
+          src={activity.imageUrl || "/placeholder.png"}
+          alt={activity.title}
+          width={360}
+          height={144}
+          className="w-full h-full object-cover"
         />
-
-        <div className="w-full h-20 mb-4 overflow-hidden mt-7">
-          {/* Activity Image */}
-          <Image
-            src={activity.imageUrl || "/placeholder.png"}
-            alt={activity.title}
-            width={360}
-            height={144}
-            className="w-full h-full object-cover"
-          />
-        </div>
       </div>
 
       {/* Card Content */}
-      <h3 className="text-black text-xl font-extrabold">{activity.title}</h3>
-      <p className="font-gill text-[12px] text-black">{trimmedDescription}</p>
-
-      {/* Bottom Section */}
-      <div className="flex justify-between items-center mt-4">
-        {/* Register Button */}
-        <ApplyButton
-          bgColor={accentColor}
-          className=""
-          activityId={activity.id}
-        >
-          Register
-        </ApplyButton>
-
-        {/* Team Info */}
-        {/* <p className="text-[12px] font-gill text-black opacity-80">
-          {activity.teamInfo || ""}
-        </p> */}
+      <div className="flex justify-between">
+        <div>
+          <h3 className="w-full text-black text-[1.3rem] font-extrabold">{activity.title}</h3>
+          <div className="flex gap-1 justify-start items-center">
+            <Image
+              className="w-[0.6rem]"
+              src={"/activities/point-map.svg"}
+              alt="Point map" 
+              width={50}
+              height={50}
+            />
+            <p className="text-[0.8rem] text-gray-600">{activity.location}</p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <Image
+            className="w-[25px]"
+            src={'/activities/logo-people.svg'}
+            alt="People Logo"
+            width={100}
+            height={100}
+          />
+          <p className="text-[0.9rem]">{activity.quota}</p>
+        </div>
       </div>
+      <p className="w-full mt-2 font-gill text-[12px] text-black">{trimmedDescription}</p>
+
+      <ApplyButton
+        bgColor={accentColor}
+        className="relative mt-auto w-full py-2"
+        activityId={activity.id}
+      >
+        Register
+      </ApplyButton>
     </Link>
   );
 };

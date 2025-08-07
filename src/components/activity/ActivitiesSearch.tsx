@@ -14,8 +14,8 @@ export default function ActivitiesSearch({ activities }: ActivitiesSearchProps) 
     <div className="z-10 w-full px-4 md:px-8 lg:px-32">
       <SearchBar items={activities}>
         {(filteredActivities) => (
-          <section className="p-6 z-10 mb-20">
-            <div className="flex flex-wrap justify-center gap-4 px-4">
+          <section className="p-2 z-10 mb-10">
+            <div className="flex flex-wrap justify-center gap-4 px-0">
               {filteredActivities.map((activity, index) => (
                 <ActivityCard
                   key={activity.id}

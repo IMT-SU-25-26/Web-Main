@@ -34,7 +34,7 @@ export default function SearchBar<T extends SearchableItem>({
   return (
     <div className={className}>
       {/* Integrated Search Bar with your existing styling */}
-      <div className="w-full px-4 my-6 flex justify-center">
+      <div className="w-full px-4 my-1 flex justify-center">
         <div className="relative w-full max-w-[260px] sm:max-w-sm md:max-w-md">
           <Image
             src="/SearchIcon.webp"
