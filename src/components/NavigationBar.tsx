@@ -121,6 +121,18 @@ export default function NavigationBar() {
       </Link>
 
       <div className="hidden lg:text-xl xl:text-xl 2xl:text-2xl lg:flex gap-4 xl:gap-8 items-center">
+         <Link
+          className="cursor-pointer hover:underline hover:text-green-500"
+          href="/about"
+        >
+          About
+        </Link>
+         <Link
+          className="cursor-pointer hover:underline hover:text-slate-500"
+          href="/competitions"
+        >
+          Competitions
+        </Link>
         <Link
           className="cursor-pointer hover:underline hover:text-red-500"
           href="/events"
@@ -278,11 +290,19 @@ export default function NavigationBar() {
               </Link>
 
               <Link
-                className="text-white text-center w-full py-2 hover:text-red-500 text-md border-b-white/60 border-b-1 will-change-transform"
+                className="text-white text-center w-full py-2 hover:text-green-500 text-md border-b-white/60 border-b-1 will-change-transform"
                 href="/about"
                 onClick={() => handleMobileMenuToggle()}
               >
                 About
+              </Link>
+
+              <Link
+                className="text-white text-center w-full py-2 hover:text-slate-500 text-md border-b-white/60 border-b-1 will-change-transform"
+                href="/competitions"
+                onClick={() => handleMobileMenuToggle()}
+              >
+                Competitions
               </Link>
 
               <Link
