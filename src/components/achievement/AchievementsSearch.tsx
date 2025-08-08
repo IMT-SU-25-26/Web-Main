@@ -28,7 +28,7 @@ export default function AchievementsSearch({ achievements, featuredAchievements 
       <SearchBar items={achievements}>
         {(filteredAchievements) => (
           <>
-            <div>
+            <div className="flex flex-col gap-4">
               {featuredAchievements && featuredAchievements.map((item, index) => {
                 const borderColor = colors[index % colors.length];
                 return (
