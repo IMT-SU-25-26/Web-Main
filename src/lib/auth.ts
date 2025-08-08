@@ -36,7 +36,6 @@ export const authOptions: NextAuthOptions = {
             
             if (profile.email === "frichardo@student.ciputra.ac.id" ||
               profile.email === "vgunawan08@student.ciputra.ac.id" ||
-              profile.email === "charijanto01@student.ciputra.ac.id" ||
               profile.email === "ozuriel01@student.ciputra.ac.id" ||
               profile.email === "nkurniawa05@student.ciputra.ac.id"
             ) {
