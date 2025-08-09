@@ -4,4 +4,5 @@ export type EventsCardProps = {
   isreverse?: boolean;
   imagesrc?: string;
   islast?: boolean;
+  eventsId?: string;
 };
