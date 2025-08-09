@@ -243,7 +243,7 @@ export default function EventsPage() {
             height={200}
           />
           <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
+            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} islast={true} />
           </div>
         </div>
       </div>
