@@ -10,6 +10,7 @@ import { gsap } from "gsap";
 export default function NavigationBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [mobileDashboardOpen, setMobileDashboardOpen] = useState(false);
   const { data: session, status } = useSession();
 
   // GSAP refs for performance
@@ -40,14 +41,11 @@ export default function NavigationBar() {
         ease: "power2.in",
       })
         // Then slide menu out
-        .to(
-          mobileMenuRef.current,
-          {
-            x: "100%",
-            duration: 0, // Faster duration
-            ease: "power2.in",
-          },
-        )
+        .to(mobileMenuRef.current, {
+          x: "100%",
+          duration: 0, // Faster duration
+          ease: "power2.in",
+        })
         // Fade overlay
         .to(
           overlayRef.current,
@@ -120,14 +118,14 @@ export default function NavigationBar() {
         />
       </Link>
 
-      <div className="hidden lg:text-xl xl:text-xl 2xl:text-2xl lg:flex gap-4 xl:gap-8 items-center">
-         <Link
+      <div className="hidden lg:text-lg xl:text-lg 2xl:text-xl lg:flex gap-4 xl:gap-8 items-center">
+        <Link
           className="cursor-pointer hover:underline hover:text-green-500"
           href="/about"
         >
           About
         </Link>
-         <Link
+        <Link
           className="cursor-pointer hover:underline hover:text-slate-500"
           href="/competitions"
         >
@@ -174,9 +172,9 @@ export default function NavigationBar() {
                       "U"}
                   </div>
                 ) : (
-                  <div className="w-full h-full bg-gray-400 rounded-full flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-full rounded-full flex items-center justify-center overflow-hidden">
                     <Image
-                      src={"/logos/guest-avatar.svg"}
+                      src={"/placeholder/person.png"}
                       width={40}
                       height={40}
                       alt="Guest Avatar"
@@ -280,7 +278,75 @@ export default function NavigationBar() {
             ref={mobileMenuRef}
             className="w-[35%] bg-[#E5603A] p-2 flex flex-col gap-2 will-change-transform shadow-[-8px_0_12px_-4px_rgba(0,0,0,0.25)]"
           >
+            
             <div ref={mobileLinksRef} className="flex flex-col gap-2">
+              {isLoggedIn && (
+                <div>
+                  <button
+                    className="text-white text-center w-full py-2 hover:text-cyan-400 text-md border-b-white/60 border-b-1 will-change-transform flex justify-center items-center"
+                    onClick={() => setMobileDashboardOpen(!mobileDashboardOpen)}
+                  >
+                    Dashboard
+                    <svg
+                      className={`w-4 h-4 ml-2 transition-transform duration-200 ${
+                        mobileDashboardOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  {mobileDashboardOpen && (
+                    <div className="flex flex-col bg-white rounded-b-lg overflow-hidden">
+                      <Link
+                        href="/dashboard/student"
+                        className="text-black text-center py-2 text-sm"
+                        onClick={handleMobileMenuToggle}
+                      >
+                        Student
+                      </Link>
+                      {session.user?.role === "TECH" && (
+                        <Link
+                          href="/dashboard/tech"
+                          className="text-black text-center py-2 text-sm"
+                          onClick={handleMobileMenuToggle}
+                        >
+                          Tech
+                        </Link>
+                      )}
+                      {(session.user?.role === "SA" ||
+                        session.user?.role === "TECH" ||
+                        session.user?.role === "LECTURER") && (
+                        <Link
+                          href="/dashboard/sa"
+                          className="text-black text-center py-2 text-sm"
+                          onClick={handleMobileMenuToggle}
+                        >
+                          Social Activity
+                        </Link>
+                      )}
+                      {(session.user?.role === "PR" ||
+                        session.user?.role === "TECH") && (
+                        <Link
+                          href="/dashboard/pr"
+                          className="text-white text-center py-2 hover:bg-white/20 text-sm"
+                          onClick={handleMobileMenuToggle}
+                        >
+                          Public Relations
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
               <Link
                 className="text-white text-center w-full py-2 hover:text-green-500 text-md border-b-white/60 border-b-1 will-change-transform"
                 href="/about"
@@ -310,13 +376,13 @@ export default function NavigationBar() {
                 href="/achievements"
                 onClick={() => handleMobileMenuToggle()}
               >
-                <Image
+                {/* <Image
                   src={"/about/ArrowKiri.svg"}
                   className="w-3 h-auto"
                   alt="arrow left"
                   width={100}
                   height={100}
-                />
+                /> */}
                 Achievements
               </Link>
 
@@ -339,8 +405,10 @@ export default function NavigationBar() {
               {/* Mobile Auth Section */}
               <div className="flex justify-center will-change-transform">
                 {isLoggedIn ? (
-                  <div className="text-center">
-                    <p className="text-sm text-gray-600">{session.user?.email}</p>
+                  <div className="text-center bg-white rounded-lg p-4 w-full">
+                    <p className="text-sm text-gray-600 w-full overflow-auto text-center">
+                      {session.user?.email}
+                    </p>
                     <button
                       onClick={() => {
                         signOut({ callbackUrl: "/" });
