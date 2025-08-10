@@ -30,6 +30,24 @@ export async function getApplicationsByActivityId(
   });
 }
 
+export async function getStatusApplication(
+  activityId: string,
+  userId: string
+): Promise<String | undefined> {
+  const applications = await getApplicationsByActivityId(activityId);
+  const userApplications = applications.find((app) => app.userId === userId);
+  return userApplications?.status || undefined;
+}
+
+export async function getAmountApprovedApplication(
+  activityId: string){
+  const applications = await getApplicationsByActivityId(activityId);
+  const approvedApplications = applications.filter(
+    (app) => app.status === "APPROVED"
+  );
+  return approvedApplications.length;
+}
+
 export async function createApplication(
   userId: string,
   activityId: string

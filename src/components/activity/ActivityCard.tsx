@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { Activity } from "@/types/activity";
 import Link from "next/link";
 import ApplyButton from "../utils/ApplyButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAmountApprovedApplication } from "@/lib/service/application";
 
 const colorList = [
   "#ED4E45", // Red
@@ -29,6 +30,16 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
   const description = activity.description;
   const trimmedDescription =
     description.length > 75 ? description.slice(0, 75) + "..." : description;
+
+  const [approvedCount, setApprovedCount] = useState<number>(0);
+
+  useEffect(() => {
+    const fetchApprovedCount = async () => {
+      const count = await getAmountApprovedApplication(activity.id);
+      setApprovedCount(count);
+    };
+    fetchApprovedCount();
+  }, [activity.id]);
 
   return (
     <Link
@@ -85,7 +96,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
             width={100}
             height={100}
           />
-          <p className="text-[0.9rem]">{activity.quota}</p>
+          <p className="text-[0.9rem]">{approvedCount}/{activity.quota}</p>
         </div>
       </div>
       <p className="w-full mt-2 font-gill text-[12px] text-black">{trimmedDescription}</p>
@@ -95,7 +106,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         className="relative mt-auto w-full py-2"
         activityId={activity.id}
       >
-        <p className="text-[0.9rem]">Register</p>
+        Register
       </ApplyButton>
     </Link>
   );

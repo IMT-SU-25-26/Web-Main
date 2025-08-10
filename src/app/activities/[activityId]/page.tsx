@@ -41,8 +41,8 @@ const ActivityDetails = async (props: {
 
   return (
     <>
-      <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-[calc(100dvh-10vh)] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
+      <div className="h-[6.5vh] bg-[#F1EEE6]"></div>
+      <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-[calc(100dvh-6.5vh)] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
         {/* Decorative Image */}
         <div className="select-none">
           <Image
