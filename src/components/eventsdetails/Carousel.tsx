@@ -30,7 +30,7 @@ export default function Carousel() {
     // Infinite loop dengan seamless transition
     gsap.to(slidesContainer, {
       x: -slideWidth * totalSlides,
-      duration: totalSlides * 2, // durasi tetap sesuai yang sudah ada
+      duration: totalSlides * 3, // durasi tetap sesuai yang sudah ada
       ease: "none",
       repeat: -1,
       repeatDelay: 0,
