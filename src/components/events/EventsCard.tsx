@@ -44,8 +44,15 @@ export default function EventsCard({
               width={900}
               height={900}
               className={`hidden sm:block w-14 h-auto absolute z-[9999] top-[-1.5rem] ${
-                isreverse ? "sm:left-[15rem] lg:left-[20.3rem]" : "sm:right-[18rem] lg:right-[22.4rem]"
+                isreverse ? "left-[46%]" : "right-[46%]"
               }`}
+            />
+            <Image
+              src="/events/red-button.svg"
+              alt="paper"
+              width={900}
+              height={900}
+              className="block sm:hidden w-12 h-auto absolute z-[9999] top-[-6.5%] right-[93%]"
             />
             <Image
               src={
@@ -56,7 +63,18 @@ export default function EventsCard({
               alt="paper"
               width={900}
               height={900}
-              className={`${isreverse ? "w-30 sm:rotate-[3deg]" : "w-25"} hidden sm:block lg:rotate-0 h-auto absolute z-50 top-[1rem] ${isreverse ? "sm:left-[17rem] lg:left-[22rem]" : "sm:right-[20rem] lg:right-[24rem]"} ${islast ? "sm:hidden" : ""}`}
+              className={`w-[1.65rem] hidden sm:block h-auto absolute z-50 top-[1rem] ${
+                isreverse ? "left-[47%]" : "right-[47%]"
+              } ${islast ? "sm:hidden" : ""}`}
+            />
+            <Image
+              src={"/events/red-rope-right.svg"}
+              alt="paper"
+              width={900}
+              height={900}
+              className={`w-[2rem] block sm:hidden h-auto absolute z-50 top-[6%] right-[100%] ${
+                islast ? "hidden" : ""
+              }`}
             />
             <h1 className="text-3xl md:text-5xl text-black font-family-impact">
               {title}

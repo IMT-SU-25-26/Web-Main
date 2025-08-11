@@ -203,7 +203,7 @@ export default function EventsPage() {
 
         <div className="section-reveal w-full relative">
           <Image
-            className="absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] top-[-4rem] z-0"
+            className="absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] top-[-4rem] z-0 hidden sm:block"
             src="/events/blue-book.webp"
             alt="bluebook"
             width={400}
