@@ -15,7 +15,11 @@ const colorMap = {
   gray: "bg-[#CCBCAF]",
 };
 
-export function AchievementFeatured ({title, description, borderColor, id, imageUrl, createdAt }: AchievementCardProps) {
+interface AchievementCardPropsExtension extends AchievementCardProps {
+  className?: string;
+}
+
+export function AchievementFeatured ({title, description, borderColor, id, imageUrl, createdAt, className }: AchievementCardPropsExtension) {
   const pathname = usePathname();
 
   const descChar = 250;
@@ -24,7 +28,7 @@ export function AchievementFeatured ({title, description, borderColor, id, image
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${id}`}
-      className="active:brightness-90"
+      className={`active:brightness-90 ${className}`}
     >
       <div className="w-[100vw] max-w-[80rem] m-auto overflow-visible">
         <div className="relative -left-5 md:left-0 min-h-[90px] md:min-h-[200px] max-w-[120vw] md:max-w-[50rem] m-auto py-6 overflow-hidden">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 interface SearchableItem {
@@ -35,6 +35,7 @@ export default function SearchBar<T extends SearchableItem>({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+
 
   return (
     <div className={className}>

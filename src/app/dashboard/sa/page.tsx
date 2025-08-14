@@ -14,12 +14,20 @@ export default async function ActivitiesPage() {
           <h1 className="text-3xl font-bold text-gray-900">Activities</h1>
           <p className="text-gray-600 mt-2">Manage and view all activities</p>
         </div>
-        <Link
-          href="/dashboard/sa/create"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
-        >
-          Create New Activity
-        </Link>
+        <div className="flex space-x-4">
+          <Link
+            href="/dashboard/sa/approval"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Approval
+          </Link>
+          <Link
+            href="/dashboard/sa/create"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Create New Activity
+          </Link>
+        </div>
       </div>
 
       {activities.length === 0 ? (
