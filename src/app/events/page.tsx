@@ -101,7 +101,7 @@ export default function EventsPage() {
           />
 
           <Image
-            className="absolute -top-15 left-0 z-0"
+            className="hidden sm:block absolute -top-15 left-0 z-0"
             src="/events/top-cloud.webp"
             alt="topcloud"
             width={500}
@@ -117,7 +117,7 @@ export default function EventsPage() {
           />
 
           <Image
-            className="absolute -top-15 right-0 z-0 -scale-x-100"
+            className="hidden sm:block absolute -top-15 right-0 z-0 -scale-x-100"
             src="/events/top-cloud.webp"
             alt="topcloud"
             width={500}
