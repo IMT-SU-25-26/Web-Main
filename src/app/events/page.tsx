@@ -89,8 +89,41 @@ export default function EventsPage() {
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="h-[10vh] bg-[#F1EEE6]"></div>
+      <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
+        <div className="relative w-full">
+          <Image
+            className="absolute -top-10 left-0 z-1"
+            src="/events/top-blue-paper.webp"
+            alt="bluepaper"
+            width={200}
+            height={200}
+          />
+
+          <Image
+            className="absolute -top-15 left-0 z-0"
+            src="/events/top-cloud.webp"
+            alt="topcloud"
+            width={500}
+            height={500}
+          />
+          
+          <Image
+            className="absolute -top-10 right-0 z-1 -scale-x-100"
+            src="/events/top-blue-paper.webp"
+            alt="bluepaper"
+            width={200}
+            height={200}
+          />
+
+          <Image
+            className="absolute -top-15 right-0 z-0 -scale-x-100"
+            src="/events/top-cloud.webp"
+            alt="topcloud"
+            width={500}
+            height={500}
+          />
+        </div>
         {/* Header dengan animasi */}
         <div className="header-reveal flex justify-center relative">
           <Image
