@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getUserById } from '@/lib/service/user';
 import { getActivityById } from '@/lib/service/activity';
-import { getApplications, setStatusApplication, getAmountApprovedApplication } from '@/lib/service/application';
+import { getApplications, setStatusApplication, getAmountApprovedApplication, deleteApplication } from '@/lib/service/application';
 import { Status } from "@prisma/client";
 
 // Applicant interface now represents fully merged data from Application, User, Activity
@@ -111,7 +111,7 @@ export default function App() {
 
   const confirmDelete = async () => {
     if (selectedApplicant) {
-      const res = await setStatusApplication(selectedApplicant.id, Status.REJECTED);
+      const res = await deleteApplication(selectedApplicant.id);
       if (res.success) {
         setApplicants(prev =>
           prev.filter(app => app.id !== selectedApplicant.id)
