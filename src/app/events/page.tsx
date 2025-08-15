@@ -87,7 +87,7 @@ export default function EventsPage() {
       src: "/events/cloud.webp",
       alt: "cloud",
       className:
-        "absolute w-[10rem] sm:w-[20rem] h-auto left-[-2.5rem] sm:left-[-5rem] bottom-[-10rem] z-0",
+        "absolute w-[10rem] sm:w-[20rem] h-auto left-[-2.5rem] sm:left-[-5rem] bottom-[-20rem] z-0",
       width: 400,
       height: 400,
     },
@@ -196,7 +196,6 @@ export default function EventsPage() {
         isComingSoon: true,
       },
       decorativeImages: ["cloud", "pinkOval"],
-      customStyles: "h-[28rem] overflow-hidden",
     },
   ];
 
@@ -293,7 +292,7 @@ export default function EventsPage() {
   return (
     <div className="w-full overflow-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
-      <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
+      <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden pb-[7rem]">
         <div className="header-reveal relative w-full">
           <Image
             className="absolute -top-10 left-0 z-1"
@@ -356,9 +355,7 @@ export default function EventsPage() {
         {cardSections.map((section) => (
           <div
             key={section.id}
-            className={`section-reveal w-full relative ${
-              section.customStyles || ""
-            }`}
+            className={`section-reveal w-full relative `}
           >
             {/* Render gambar dekoratif yang dipilih */}
             {renderDecorativeImages(section.decorativeImages)}
