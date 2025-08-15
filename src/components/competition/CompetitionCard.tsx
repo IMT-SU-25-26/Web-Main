@@ -20,9 +20,10 @@ const colorList = [
 type CompetitionCardProps = {
   competition: Competition;
   index: number;
+  className?: string;
 };
 
-export const CompetitionCard = ({ competition, index }: CompetitionCardProps) => {
+export const CompetitionCard = ({ competition, index, className }: CompetitionCardProps) => {
   const accentColor = colorList[index % colorList.length];
   const [swinging, setSwinging] = useState(false);
   const pathname = usePathname();
@@ -40,7 +41,7 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
       }}
       className={`transform flex flex-col transition-all duration-300 relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200 hover:rotate-[1.5deg] hover:origin-top ${
         swinging ? "swing-effect" : ""
-      } `}
+      } ${className} `}
     >
       {/* Paper Clip */}
       <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">

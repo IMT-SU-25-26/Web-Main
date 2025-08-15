@@ -13,34 +13,7 @@ interface ActivitiesSearchProps {
 export default function ActivitiesSearch({ activities }: ActivitiesSearchProps) {
 
   // Animate all left-starting cards
-  useEffect(() => {
-    gsap.fromTo(
-      ".start-left",
-      { opacity: 0, x: -30 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "power1.out",
-        stagger: 0.1,
-      }
-    );
-
-    // Animate all right-starting cards
-    gsap.fromTo(
-      ".start-right",
-      { opacity: 0, x: 30 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "power1.out",
-        stagger: 0.1,
-      }
-    );
-    
+  useEffect(() => {    
     // Animate all bottom-starting cards
     gsap.fromTo(
       ".start-bottom",
