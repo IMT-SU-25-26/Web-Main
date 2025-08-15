@@ -18,9 +18,210 @@ export default function EventsPage() {
     }, 100);
   }, []);
 
+  // Konfigurasi gambar dekoratif untuk setiap section
+  const decorativeImages = {
+    redWheel: {
+      src: "/events/red-wheel.svg",
+      alt: "redwheel",
+      className:
+        "absolute right-[-8rem] sm:right-[-16rem] top-[3rem] z-0 w-[200px] sm:w-[400px]",
+      width: 400,
+      height: 400,
+    },
+    lightBulb: {
+      src: "/events/lightbulb.webp",
+      alt: "lightbulb",
+      className:
+        "absolute left-[-2rem] sm:left-[-4rem] top-[2rem] z-0 rotate-[15deg] w-[75px] sm:w-[150px]",
+      width: 150,
+      height: 150,
+    },
+    redRibbon: {
+      src: "/events/red-ribbon.webp",
+      alt: "redribbon",
+      className:
+        "absolute left-[-2rem] sm:left-[-4rem] top-[5rem] z-0 rotate-[60deg] w-[75px] sm:w-[150px]",
+      width: 150,
+      height: 150,
+    },
+    blueWheel: {
+      src: "/events/blue-wheel.svg",
+      alt: "bluewheel",
+      className:
+        "absolute left-[-10rem] sm:left-[-20rem] top-[-5rem] z-0 w-[200px] sm:w-[400px]",
+      width: 400,
+      height: 400,
+    },
+    greenArrow: {
+      src: "/events/green-arrow.webp",
+      alt: "greenarrow",
+      className: "absolute right-[0rem] top-[2rem] z-0 w-[100px] sm:w-[200px]",
+      width: 200,
+      height: 200,
+    },
+    yellowStar: {
+      src: "/events/yellowstar.webp",
+      alt: "yellowstar",
+      className:
+        "yellowstar-rotate absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] bottom-[-5rem] z-0",
+      width: 400,
+      height: 400,
+    },
+    blueBook: {
+      src: "/events/blue-book.webp",
+      alt: "bluebook",
+      className:
+        "absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] top-[-4rem] z-0 hidden sm:block",
+      width: 400,
+      height: 400,
+    },
+    camera: {
+      src: "/events/camera.webp",
+      alt: "camera",
+      className:
+        "absolute right-[-1.5rem] sm:right-[-3rem] top-[2rem] z-0 -scale-x-100 w-[100px] sm:w-[200px]",
+      width: 200,
+      height: 200,
+    },
+    cloud: {
+      src: "/events/cloud.webp",
+      alt: "cloud",
+      className:
+        "absolute w-[10rem] sm:w-[20rem] h-auto left-[-2.5rem] sm:left-[-5rem] bottom-[-10rem] z-0",
+      width: 400,
+      height: 400,
+    },
+    pinkOval: {
+      src: "/events/pink-oval.svg",
+      alt: "pinkoval",
+      className:
+        "absolute w-[12.5rem] sm:w-[25rem] h-auto right-[-1.5rem] sm:right-[-3rem] top-[22rem] z-0",
+      width: 200,
+      height: 200,
+    },
+  };
+
+  // Konfigurasi section dengan gambar dekoratif yang dipilih
+  const cardSections = [
+    {
+      id: "section-1",
+      cardProps: {
+        title: "Pulse",
+        date: "21 August 2025",
+        isreverse: false,
+        eventsId: "pulse",
+      },
+      decorativeImages: ["redWheel"], // Pilih gambar yang mau dipakai
+    },
+    {
+      id: "section-2",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: true,
+        eventsId: "Technocamp",
+      },
+      decorativeImages: ["lightBulb", "redRibbon"], // Bisa multiple images
+    },
+    {
+      id: "section-3",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: false,
+      },
+      decorativeImages: [], // Tidak ada gambar dekoratif
+    },
+    {
+      id: "section-4",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: true,
+      },
+      decorativeImages: ["blueWheel"],
+    },
+    {
+      id: "section-5",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: false,
+      },
+      decorativeImages: ["greenArrow"],
+    },
+    {
+      id: "section-6",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: true,
+      },
+      decorativeImages: ["yellowStar"],
+    },
+    {
+      id: "section-7",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: false,
+      },
+      decorativeImages: [],
+    },
+    {
+      id: "section-8",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: true,
+      },
+      decorativeImages: ["blueBook"],
+    },
+    {
+      id: "section-9",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: false,
+      },
+      decorativeImages: ["camera"],
+    },
+    {
+      id: "section-10",
+      cardProps: {
+        title: "TECHNOCAMP",
+        date: "21 OCTOBER 2025",
+        isreverse: true,
+        islast: true,
+        isComingSoon: true,
+      },
+      decorativeImages: ["cloud", "pinkOval"],
+      customStyles: "h-[28rem] overflow-hidden",
+    },
+  ];
+
+  // Component untuk render gambar dekoratif
+  const renderDecorativeImages = (imageKeys: string[]) => {
+    return imageKeys.map((key) => {
+      const image = decorativeImages[key as keyof typeof decorativeImages];
+      if (!image) return null;
+
+      return (
+        <Image
+          key={key}
+          className={image.className}
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+        />
+      );
+    });
+  };
+
   useGSAP(() => {
     // Clear semua ScrollTrigger sebelumnya
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     // Animasi untuk setiap section dengan class "section-reveal"
     gsap.utils
@@ -29,7 +230,8 @@ export default function EventsPage() {
         // Untuk section terakhir, gunakan trigger point yang lebih rendah
         const isLastSection = index === array.length - 1;
 
-        gsap.fromTo(section, 
+        gsap.fromTo(
+          section,
           {
             opacity: 0,
             y: 50,
@@ -49,7 +251,8 @@ export default function EventsPage() {
       });
 
     // Animasi untuk header
-    gsap.fromTo(".header-reveal", 
+    gsap.fromTo(
+      ".header-reveal",
       {
         opacity: 0,
         y: -30,
@@ -83,7 +286,7 @@ export default function EventsPage() {
 
     // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -91,7 +294,7 @@ export default function EventsPage() {
     <div className="w-full overflow-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div className="flex flex-col gap-15 items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
-        <div className="relative w-full">
+        <div className="header-reveal relative w-full">
           <Image
             className="absolute -top-10 left-0 z-1"
             src="/events/top-blue-paper.webp"
@@ -107,7 +310,7 @@ export default function EventsPage() {
             width={500}
             height={500}
           />
-          
+
           <Image
             className="absolute -top-10 right-0 z-1 -scale-x-100"
             src="/events/top-blue-paper.webp"
@@ -150,135 +353,22 @@ export default function EventsPage() {
         </div>
 
         {/* Card sections dengan animasi */}
-        <div className="section-reveal w-full relative">
-          <Image
-            className="absolute right-[-8rem] sm:right-[-16rem] top-[3rem] z-0 w-[200px] sm:w-[400px]"
-            src="/events/red-wheel.svg"
-            alt="redwheel"
-            width={400}
-            height={400}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
-          </div>
-        </div>
+        {cardSections.map((section, index) => (
+          <div
+            key={section.id}
+            className={`section-reveal w-full relative ${
+              section.customStyles || ""
+            }`}
+          >
+            {/* Render gambar dekoratif yang dipilih */}
+            {renderDecorativeImages(section.decorativeImages)}
 
-        <div className="section-reveal w-full relative">
-          <Image
-            className="absolute left-[-2rem] sm:left-[-4rem] top-[2rem] z-0 rotate-[15deg] w-[75px] sm:w-[150px]"
-            src="/events/lightbulb.webp"
-            alt="lightbulb"
-            width={150}
-            height={150}
-          />
-          <Image
-            className="absolute left-[-2rem] sm:left-[-4rem] top-[5rem] z-0 rotate-[60deg] w-[75px] sm:w-[150px]"
-            src="/events/red-ribbon.webp"
-            alt="redribbon"
-            width={150}
-            height={150}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
+            {/* Card component */}
+            <div className="relative z-10">
+              <Card {...section.cardProps} />
+            </div>
           </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <Image
-            className="absolute left-[-10rem] sm:left-[-20rem] top-[-5rem] z-0 w-[200px] sm:w-[400px]"
-            src="/events/blue-wheel.svg"
-            alt="bluewheel"
-            width={400}
-            height={400}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <Image
-            className="absolute right-[0rem] top-[2rem] z-0 w-[100px] sm:w-[200px]"
-            src="/events/green-arrow.webp"
-            alt="greenarrow"
-            width={200}
-            height={200}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <Image
-            className="yellowstar-rotate absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] bottom-[-5rem] z-0"
-            src="/events/yellowstar.webp"
-            alt="yellowstar"
-            width={400}
-            height={400}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <Image
-            className="absolute w-[10rem] sm:w-[20rem] h-auto left-[-5rem] sm:left-[-10rem] top-[-4rem] z-0 hidden sm:block"
-            src="/events/blue-book.webp"
-            alt="bluebook"
-            width={400}
-            height={400}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative">
-          <Image
-            className="absolute right-[-1.5rem] sm:right-[-3rem] top-[2rem] z-0 -scale-x-100 w-[100px] sm:w-[200px]"
-            src="/events/camera.webp"
-            alt="camera"
-            width={200}
-            height={200}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={false} />
-          </div>
-        </div>
-
-        <div className="section-reveal w-full relative h-[28rem] overflow-hidden">
-          <Image
-            className="absolute w-[10rem] sm:w-[20rem] h-auto left-[-2.5rem] sm:left-[-5rem] bottom-[-10rem] z-0"
-            src="/events/cloud.webp"
-            alt="cloud"
-            width={400}
-            height={400}
-          />
-          <Image
-            className="absolute w-[12.5rem] sm:w-[25rem] h-auto right-[-1.5rem] sm:right-[-3rem] top-[22rem] z-0"
-            src="/events/pink-oval.svg"
-            alt="pinkoval"
-            width={200}
-            height={200}
-          />
-          <div className="relative z-10">
-            <Card title="TECHNOCAMP" date="21 OCTOBER 2025" isreverse={true} islast={true} />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -5,4 +5,5 @@ export type EventsCardProps = {
   imagesrc?: string;
   islast?: boolean;
   eventsId?: string;
+  isComingSoon?: boolean;
 };

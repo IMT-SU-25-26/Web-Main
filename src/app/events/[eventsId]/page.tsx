@@ -15,11 +15,45 @@ export default function EventDetailPage({
   params: Promise<{ eventsId: string }>;
 }) {
   const [eventsId, setEventsId] = useState<string>("");
+  const [eventDate, setEventDate] = useState<string>("");
+  const [eventDescription, setEventDescription] = useState<string>("");
+
+  // Data events yang sama dengan di EventsPage
+  const eventsData = [
+    {
+      id: "pulse",
+      title: "Pulse",
+      date: "21 August 2025",
+      description:
+        "Pulse merupakan event teknologi terbesar yang menghadirkan inovasi-inovasi terdepan dalam dunia digital. Event ini menampilkan berbagai startup teknologi, workshop coding, dan kompetisi hackathon yang menarik. Bergabunglah dengan para tech enthusiast dan developer untuk berbagi ide dan menciptakan solusi inovatif.",
+    },
+    {
+      id: "Technocamp",
+      title: "TECHNOCAMP",
+      date: "21 OCTOBER 2025",
+      description:
+        "Technocamp adalah bootcamp intensif yang dirancang untuk mengembangkan skill programming dan teknologi terkini. Peserta akan belajar langsung dari industry expert melalui hands-on workshop, mentoring session, dan project-based learning. Cocok untuk pemula yang ingin terjun ke dunia tech.",
+    },
+    // Tambahkan event lain sesuai kebutuhan
+  ];
 
   useEffect(() => {
     // Resolve the params promise
     params.then(({ eventsId }) => {
       setEventsId(eventsId);
+
+      // Cari data event berdasarkan eventsId
+      const eventData = eventsData.find((event) => event.id === eventsId);
+      if (eventData) {
+        setEventDate(eventData.date);
+        setEventDescription(eventData.description);
+      } else {
+        // Fallback jika event tidak ditemukan
+        setEventDate("Coming Soon");
+        setEventDescription(
+          "Informasi event akan segera hadir. Stay tuned untuk update terbaru mengenai event menarik ini!"
+        );
+      }
     });
   }, [params]);
 
@@ -46,17 +80,98 @@ export default function EventDetailPage({
           scale: 1,
           rotation: 0,
           duration: 0.8,
-          delay: index * 0.2, // Stagger effect
+          delay: index * 0.2,
           ease: "back.out(1.7)",
         }
       );
     });
+
+    // Animasi untuk title dan date dengan efek typewriter
+    gsap.fromTo(
+      ".event-title",
+      {
+        opacity: 0,
+        x: -100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        delay: 1,
+        ease: "power3.out",
+      }
+    );
+
+    gsap.fromTo(
+      ".event-date",
+      {
+        opacity: 0,
+        x: 100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        delay: 1.3,
+        ease: "power3.out",
+      }
+    );
+
+    // Animasi untuk description dengan stagger
+    gsap.fromTo(
+      ".description-paragraph",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 1.8,
+        stagger: 0.3,
+        ease: "power2.out",
+      }
+    );
+
+    // Animasi untuk carousel dengan slide in
+    gsap.fromTo(
+      ".carousel-container",
+      {
+        opacity: 0,
+        y: 50,
+        rotateX: -10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+      }
+    );
+
+    // Animasi background paper dengan parallax effect
+    gsap.fromTo(
+      ".background-paper",
+      {
+        opacity: 0,
+        scale: 1.1,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 2,
+        ease: "power2.out",
+      }
+    );
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-hidden">
       <div className="h-[5vh] bg-[#F1EEE6]"></div>
-      <div className="pt-5 relative flex flex-col items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
+      <div className="background-paper pt-5 relative flex flex-col items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
         <Image
           src="/eventsdetails/top-left.webp"
           alt="top left"
@@ -92,39 +207,27 @@ export default function EventDetailPage({
           width={200}
           height={200}
         />
-        {/* Tampilkan Carousel */}
-        <div className="w-full relative mt-10 mb-5 rotate-[-2deg]">
-          <Carousel />
+        {/* Tampilkan Carousel dengan eventsId */}
+        <div className="carousel-container w-full relative mt-10 mb-5 rotate-[-2deg]">
+          <Carousel eventsId={eventsId} />
         </div>
 
         {/* Event Detail Content */}
         <div className="max-w-4xl mx-auto px-6 py-8 mb-25">
           {/* Date and Title */}
-          <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-8">
-            <h1 className="text-6xl md:text-8xl font-black text-black leading-none">
-              {eventsId}
+          <div className="flex flex-col md:justify-between mb-8">
+            <h1 className="event-title text-6xl md:text-8xl font-black text-black leading-none">
+              {eventsId || "Loading..."} {/* Tampilkan judul event */}
             </h1>
-            <p className="text-2xl sm:text2-xl lg:text-3xl font-bold text-black tracking-wider ml-[0.2rem] mt-4 md:mt-0 md:mb-[0.4rem]">
-              21 OCTOBER 2024
+            <p className="event-date text-2xl sm:text2-xl lg:text-3xl font-bold text-black tracking-wider ml-[0.2rem] mt-4 md:mt-3 md:mb-[0.4rem]">
+              {eventDate || "Loading..."}
             </p>
           </div>
 
           {/* Description */}
           <div className="space-y-6 text-black text-lg md:text-xl leading-relaxed">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
-            </p>
-
-            <p>
-              It was popularised in the 1960s with the release of Letraset
-              sheets containing Lorem Ipsum passages, and more recently with
-              desktop publishing software like Aldus PageMaker including
-              versions of Lorem Ipsum.
+            <p className="description-paragraph">
+              {eventDescription || "Loading..."}
             </p>
           </div>
         </div>
