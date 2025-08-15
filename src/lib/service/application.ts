@@ -33,7 +33,7 @@ export async function getApplicationsByActivityId(
 export async function getStatusApplication(
   activityId: string,
   userId: string
-): Promise<String | undefined> {
+): Promise<string | undefined> {
   const applications = await getApplicationsByActivityId(activityId);
   const userApplications = applications.find((app) => app.userId === userId);
   return userApplications?.status || undefined;

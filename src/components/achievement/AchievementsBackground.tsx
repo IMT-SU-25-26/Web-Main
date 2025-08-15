@@ -7,6 +7,7 @@ import { gsap } from 'gsap'
 export default function AchievementsBackground() {
   const bgRef = useRef<HTMLDivElement>(null)
 
+  // Animate all left-starting cards
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animate all elements with .decor-img
@@ -31,6 +32,7 @@ export default function AchievementsBackground() {
 
     return () => ctx.revert()
   }, [])
+  
 
   return (
     <div ref={bgRef}>
