@@ -106,7 +106,7 @@ export default function EventsPage() {
     {
       id: "section-1",
       cardProps: {
-        title: "Pulse",
+        title: "PULSE",
         date: "21 August 2025",
         isreverse: false,
         eventsId: "pulse",
@@ -126,71 +126,79 @@ export default function EventsPage() {
     {
       id: "section-3",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "DEANS CUP",
+        date: "15 SEPTEMBER 2025",
         isreverse: false,
+        eventsId: "DeansCup",
+        isComingSoon: true,
       },
       decorativeImages: [], // Tidak ada gambar dekoratif
     },
     {
       id: "section-4",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "DEW",
+        date: "27 SEPTEMBER 2025",
         isreverse: true,
+        isComingSoon: true,
       },
       decorativeImages: ["blueWheel"],
     },
     {
       id: "section-5",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "INAUGURATION NIGHT",
+        date: "30 OCTOBER 2025",
         isreverse: false,
+        isComingSoon: true,
       },
       decorativeImages: ["greenArrow"],
     },
     {
       id: "section-6",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "NPLC",
+        date: "8 NOVEMBER 2025",
         isreverse: true,
+        isComingSoon: true,
       },
       decorativeImages: ["yellowStar"],
     },
     {
       id: "section-7",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "RED CARPET NIGHT",
+        date: "20 FEBRUARY 2026",
         isreverse: false,
+        isComingSoon: true,
       },
       decorativeImages: [],
     },
     {
       id: "section-8",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "HACKFEST HACKETHON",
+        date: "17 APRIL 2026",
         isreverse: true,
+        isComingSoon: true,
       },
       decorativeImages: ["blueBook"],
     },
     {
       id: "section-9",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "COMING SOON",
+        date: "COMING SOON",
         isreverse: false,
+        isComingSoon: true,
       },
       decorativeImages: ["camera"],
     },
     {
       id: "section-10",
       cardProps: {
-        title: "TECHNOCAMP",
-        date: "21 OCTOBER 2025",
+        title: "COMING SOON",
+        date: "COMING SOON",
         isreverse: true,
         islast: true,
         isComingSoon: true,
@@ -353,10 +361,7 @@ export default function EventsPage() {
 
         {/* Card sections dengan animasi */}
         {cardSections.map((section) => (
-          <div
-            key={section.id}
-            className={`section-reveal w-full relative `}
-          >
+          <div key={section.id} className={`section-reveal w-full relative `}>
             {/* Render gambar dekoratif yang dipilih */}
             {renderDecorativeImages(section.decorativeImages)}
 

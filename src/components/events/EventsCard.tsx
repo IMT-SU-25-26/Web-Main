@@ -12,16 +12,16 @@ export default function EventsCard({
   isComingSoon,
 }: EventsCardProps) {
   return (
-    <div className="bg-[#f4f4f4] bg-cover p-6 rounded-md w-[90%] h-[25rem] sm:h-[20rem] max-w-4xl shadow-md relative mx-auto">
+    <div className="bg-[#f4f4f4] bg-cover p-6 rounded-md w-[90%] min-h-[25rem] sm:min-h-[20rem] max-w-4xl shadow-md relative mx-auto">
       {/* Card Content */}
       <div
         className={`flex flex-col ${
           isreverse ? "md:flex-row-reverse" : "md:flex-row"
-        } gap-4 items-start justify-center relative w-full h-full`}
+        } gap-4 items-start justify-start relative w-full`}
       >
-        {/* Image Section */}
+        {/* Image Section - Fixed Height */}
         <div
-          className={`w-full md:w-[80%] h-60 rounded-md shadow-inner ${
+          className={`w-full md:w-[50%] h-48 sm:h-60 flex-shrink-0 rounded-md shadow-inner ${
             imagesrc ? "bg-cover bg-center" : "bg-gray-300"
           }`}
           style={
@@ -29,16 +29,16 @@ export default function EventsCard({
           }
         />
 
-        {/* Text Section */}
+        {/* Text Section - Flexible Height */}
         <div
-          className={`flex flex-col items-center w-full text-center gap-4 ${
+          className={`flex flex-col items-center w-full text-center gap-4 flex-grow ${
             isreverse
               ? "lg:-ml-[5rem] sm:-ml-[3rem]"
               : "lg:ml-[-5rem] sm:ml-[-3rem]"
-          } -mt-1 mb-13 md:mt-7`}
+          } -mt-1 mb-13 md:mt-7 py-4`}
         >
           {/* Title and Date */}
-          <div className="flex flex-col gap-1 h-full w-full mt-[1rem] items-center text-center">
+          <div className="flex flex-col gap-1 w-full mt-[1rem] items-center text-center flex-grow justify-center">
             <Image
               src="/events/red-button.svg"
               alt="paper"
@@ -73,11 +73,11 @@ export default function EventsCard({
               alt="paper"
               width={900}
               height={900}
-              className={`w-[2rem] block sm:hidden h-auto absolute z-50 top-[6%] right-[100%] ${
+              className={`w-[2.4rem] block sm:hidden h-auto absolute z-50 top-[6%] right-[100%] ${
                 islast ? "hidden" : ""
               }`}
             />
-            <h1 className="text-3xl md:text-5xl text-black font-family-impact">
+            <h1 className="text-3xl md:text-4xl text-black font-family-impact">
               {title}
             </h1>
             <p className="text-base md:text-lg font-semibold tracking-wider">
