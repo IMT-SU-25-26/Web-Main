@@ -1,9 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { getAchievements } from "@/lib/service/achievement";
+import { useState, useEffect } from "react";
+import { Achievement } from "@/types/achievement";
 
-export default async function AchievementList() {
-  const achievements = await getAchievements();
+interface AchievementListProps {
+  achievements: Achievement[];
+}
+
+export default function AchievementList({
+  achievements,
+}: AchievementListProps) {
+  const [filteredAchievements, setFilteredAchievements] =
+    useState<Achievement[]>(achievements);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const filtered = achievements.filter((achievement) =>
+      achievement.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredAchievements(filtered);
+  }, [searchTerm, achievements]);
 
   if (achievements.length === 0) {
     return (
@@ -48,76 +66,109 @@ export default async function AchievementList() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {achievements.map((achievement) => (
-        <div
-          key={achievement.id}
-          className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden backdrop-blur-sm"
-        >
-          <div className="relative overflow-hidden">
-            <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-6">
-              <Image
-                src={achievement.imageUrl || "/file.svg"}
-                alt="Achievement"
-                width={400}
-                height={400}
-                className="rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300"
+    <div className="mt-8">
+      {/* Search Bar */}
+      <div className="mb-6">
+        <div className="relative max-w-[90%] sm:max-w-[50%] flex gap-4">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg
+              className="h-5 w-5 text-orange-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
-            </div>
-            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
-              <svg
-                className="w-5 h-5 text-yellow-500"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            </div>
+            </svg>
           </div>
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-gray-900 line-clamp-2 mb-3 group-hover:text-blue-600 transition-colors">
-              {achievement.title}
-            </h3>
-            <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
-              {achievement.description}
-            </p>
-            <div className="flex items-center text-sm text-gray-500 mb-6">
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              {new Date(achievement.createdAt).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </div>
-            <div className="flex space-x-3">
-              <Link
-                href={`/dashboard/pr/${achievement.id}/details`}
-                className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-700 px-4 py-3 rounded-xl text-sm font-semibold text-center transition-all duration-200 border border-gray-200 hover:border-gray-300"
-              >
-                View Details
-              </Link>
-              <Link
-                href={`/dashboard/pr/${achievement.id}/edit`}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-3 rounded-xl text-sm font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
-              >
-                Edit
-              </Link>
-            </div>
-          </div>
+          <input
+            type="text"
+            placeholder="Search achievements..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="block w-full pl-10 pr-3 py-2 border-3 border-orange-500 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+          />
+          <Link
+            href="/dashboard/pr/create"
+            className="flex items-center hover:scale-110 transition-transform duration-200"
+          >
+            <Image
+              src="/dashboard/pr/plus.svg"
+              alt="plus"
+              width={20}
+              height={20}
+              className="w-[2.5rem]"
+            />
+          </Link>
         </div>
-      ))}
+      </div>
+
+      {/* Table */}
+      <div className="rounded-2xl border-2 border-blue-700 overflow-x-auto shadow-sm">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr className="bg-[#0A56A7] text-white">
+              <th className="p-4 text-center">ID</th>
+              <th className="p-4 text-center">Title</th>
+              <th className="p-4 text-center">Action Buttons</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredAchievements.map((achievement, index) => (
+              <tr
+                key={achievement.id}
+                className={index % 2 === 0 ? "bg-pink-300" : "bg-white"}
+              >
+                <td className="p-4 text-center border border-blue-700 w-[8rem]">
+                  {achievement.id}
+                </td>
+                <td className="p-4 text-center border border-blue-700 w-[40rem]">
+                  {achievement.title}
+                </td>
+                <td className="p-4 text-center border border-blue-700">
+                  <div className="flex items-center justify-center gap-8">
+                    <Link
+                      href={`/dashboard/pr/${achievement.id}/edit`}
+                      className="inline-flex items-center justify-center rounded-md p-2 w-15 h-9 bg-[#0A56A7] text-white hover:bg-blue-800 transition-colors"
+                    >
+                      <Image
+                        src="/dashboard/pr/pencil.svg"
+                        alt="pencil"
+                        width={20}
+                        height={20}
+                      />
+                    </Link>
+                    <Link
+                      href={`/dashboard/pr/${achievement.id}/details`}
+                      className="inline-flex items-center justify-center rounded-md p-2 w-15 h-9 bg-[#E63910] text-white hover:bg-red-700 transition-colors"
+                    >
+                      <Image
+                        src="/dashboard/pr/trash.svg"
+                        alt="trash"
+                        width={20}
+                        height={20}
+                      />
+                    </Link>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* No results message */}
+      {filteredAchievements.length === 0 && searchTerm && (
+        <div className="text-center py-8">
+          <p className="text-gray-500">
+            No achievements found matching "{searchTerm}"
+          </p>
+        </div>
+      )}
     </div>
   );
 }
