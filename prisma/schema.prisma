@@ -27,6 +27,11 @@ enum Role {
   VIEWER
 }
 
+enum CategoryActivity{
+  RESEARCH
+  ACTIVITY
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -77,16 +82,17 @@ model User {
 }
 
 model Activity {
-  id            String        @id @default(cuid())
+  id            String             @id @default(cuid())
   title         String
   description   String
   location      String
   quota         Int
   imageUrl      String?
   imagePublicId String?
+  category      CategoryActivity   @default(ACTIVITY)
   applications  Application[]
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
 }
 
 model Achievement {

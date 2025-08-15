@@ -16,6 +16,12 @@ export default async function ActivitiesPage() {
         </div>
         <div className="flex space-x-4">
           <Link
+            href="/dashboard/sa/categories"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Manage Category
+          </Link>
+          <Link
             href="/dashboard/sa/approval"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
           >
