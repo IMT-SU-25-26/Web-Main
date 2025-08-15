@@ -165,7 +165,7 @@ export default function AchievementList({
       {filteredAchievements.length === 0 && searchTerm && (
         <div className="text-center py-8">
           <p className="text-gray-500">
-            No achievements found matching "{searchTerm}"
+            No achievements found matching &quot;{searchTerm}&quot; Title
           </p>
         </div>
       )}

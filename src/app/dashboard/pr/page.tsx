@@ -1,10 +1,11 @@
-import Link from "next/link";
-import AchievementListWrapper from "@/components/achievement/AchievementListWrapper";
+import AchievementList from "@/components/achievement/AchievementList";
 import SkeletonLoader from "@/components/utils/SkeletonLoader";
 import { Suspense } from "react";
 import Image from "next/image";
+import { getAchievements } from "@/lib/service/achievement";
 
-export default function AchievementsPage() {
+export default async function AchievementsPage() {
+  const achievements = await getAchievements();
   return (
     <div className="w-full overflow-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
@@ -19,7 +20,7 @@ export default function AchievementsPage() {
 
         {
           <Suspense fallback={<SkeletonLoader />}>
-            <AchievementListWrapper />
+            <AchievementList achievements={achievements} />
           </Suspense>
         }
         <Image
