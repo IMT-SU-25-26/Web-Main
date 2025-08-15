@@ -193,7 +193,7 @@ export default function UnauthorizedPage() {
           </h1>
 
           <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-            Oops! You don't have the necessary permissions to access this page.
+            Oops! You don&apos;t have the necessary permissions to access this page.
             Please check your credentials or contact an administrator.
           </p>
 
@@ -204,15 +204,6 @@ export default function UnauthorizedPage() {
             >
               🏠 Back to Home
             </Link>
-
-            <div className="pt-4">
-              <Link
-                href="/contact"
-                className="text-gray-500 hover:text-gray-700 text-sm underline decoration-dotted underline-offset-4 transition-colors duration-200"
-              >
-                Need help? Contact support
-              </Link>
-            </div>
           </div>
         </div>
       </div>
