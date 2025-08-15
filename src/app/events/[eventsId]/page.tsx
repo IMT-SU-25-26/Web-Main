@@ -9,6 +9,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+// Pindahkan eventsData ke luar component
+const eventsData = [
+  {
+    id: "pulse",
+    title: "Pulse",
+    date: "21 August 2025",
+    description:
+      "Pulse merupakan event teknologi terbesar yang menghadirkan inovasi-inovasi terdepan dalam dunia digital. Event ini menampilkan berbagai startup teknologi, workshop coding, dan kompetisi hackathon yang menarik. Bergabunglah dengan para tech enthusiast dan developer untuk berbagi ide dan menciptakan solusi inovatif.",
+  },
+  {
+    id: "Technocamp",
+    title: "TECHNOCAMP",
+    date: "21 OCTOBER 2025",
+    description:
+      "Technocamp adalah bootcamp intensif yang dirancang untuk mengembangkan skill programming dan teknologi terkini. Peserta akan belajar langsung dari industry expert melalui hands-on workshop, mentoring session, dan project-based learning. Cocok untuk pemula yang ingin terjun ke dunia tech.",
+  },
+  // Tambahkan event lain sesuai kebutuhan
+];
+
 export default function EventDetailPage({
   params,
 }: {
@@ -17,25 +36,6 @@ export default function EventDetailPage({
   const [eventsId, setEventsId] = useState<string>("");
   const [eventDate, setEventDate] = useState<string>("");
   const [eventDescription, setEventDescription] = useState<string>("");
-
-  // Data events yang sama dengan di EventsPage
-  const eventsData = [
-    {
-      id: "pulse",
-      title: "Pulse",
-      date: "21 August 2025",
-      description:
-        "Pulse merupakan event teknologi terbesar yang menghadirkan inovasi-inovasi terdepan dalam dunia digital. Event ini menampilkan berbagai startup teknologi, workshop coding, dan kompetisi hackathon yang menarik. Bergabunglah dengan para tech enthusiast dan developer untuk berbagi ide dan menciptakan solusi inovatif.",
-    },
-    {
-      id: "Technocamp",
-      title: "TECHNOCAMP",
-      date: "21 OCTOBER 2025",
-      description:
-        "Technocamp adalah bootcamp intensif yang dirancang untuk mengembangkan skill programming dan teknologi terkini. Peserta akan belajar langsung dari industry expert melalui hands-on workshop, mentoring session, dan project-based learning. Cocok untuk pemula yang ingin terjun ke dunia tech.",
-    },
-    // Tambahkan event lain sesuai kebutuhan
-  ];
 
   useEffect(() => {
     // Resolve the params promise
@@ -55,7 +55,7 @@ export default function EventDetailPage({
         );
       }
     });
-  }, [params]);
+  }, [params]); // Sekarang hanya params yang jadi dependency
 
   useEffect(() => {
     // Animasi untuk decorative images - langsung pop-up tanpa scroll

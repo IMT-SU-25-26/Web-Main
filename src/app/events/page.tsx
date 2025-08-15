@@ -353,7 +353,7 @@ export default function EventsPage() {
         </div>
 
         {/* Card sections dengan animasi */}
-        {cardSections.map((section, index) => (
+        {cardSections.map((section) => (
           <div
             key={section.id}
             className={`section-reveal w-full relative ${
