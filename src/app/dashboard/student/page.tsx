@@ -1,93 +1,165 @@
-"use client";
+import { getApplicationsByUserId } from "@/lib/service/application";
+import { getActivityById } from "@/lib/service/activity";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+import DeleteButtonWithConfirmation from "@/components/dashboard/DeleteButtonWithConfirmation";
 
-import { useState } from "react";
+export default async function StudentDashboard() {
+  const session = await getServerSession(authOptions);
 
-export default function StudentDashboard() {
-  const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  if (!session?.user?.id) {
+    // You can redirect, throw, or return an error UI here
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-xl text-red-600">User session not found.</p>
+      </div>
+    );
+  }
 
-  const applications = [
-    {
-      id: 1,
-      title: "Application NPLC",
-      status: "Submitted",
-      statusColor: "text-green-600",
-      statusBg: "bg-green-100",
-      description: "National Programming Logic Competition application",
-      date: "Submitted on Dec 15, 2023",
-      icon: "",
-    },
-  ];
+  const applications = await getApplicationsByUserId(session.user.id);
+
+  // Fetch activities for all applications
+  const activities = await Promise.all(
+    applications.map((app) => getActivityById(app.activityId))
+  );
 
   return (
-    <>
-      <div className="h-[10vh] bg-gradient-to-br from-[#F1EEE6] to-[#E8E5DD]"></div>
-
-      <div className="min-h-screen bg-gradient-to-br from-[#F1EEE6] to-[#E8E5DD] relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: "url('/backgrounds/background-paper.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
-
-        <div className="relative z-10 container mx-auto px-6 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-7xl font-impact text-gray-800 mb-4 tracking-wide drop-shadow-sm">
-              Student Dashboard
-            </h1>
-            <p className="text-2xl text-gray-600 font-light max-w-2xl mx-auto">
-              Welcome back! Here&apos;s your application status and recent
-              activities.
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-400 mx-auto mt-6 rounded-full"></div>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">
-              NPLC Application
-            </h2>
-
-            <div className="flex justify-center">
-              {applications.map((app) => (
-                <div
-                  key={app.id}
-                  className={`bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-white/30 max-w-md w-full ${
-                    selectedCard === app.id
-                      ? "scale-105 ring-4 ring-orange-200"
-                      : ""
-                  }`}
-                  onMouseEnter={() => setSelectedCard(app.id)}
-                  onMouseLeave={() => setSelectedCard(null)}
-                >
-                  <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 border-b border-gray-200">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-4xl">{app.icon}</div>
-                      <span
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${app.statusBg} ${app.statusColor}`}
-                      >
-                        {app.status}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {app.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">{app.description}</p>
-                  </div>
-
-                  <div className="p-6">
-                    <p className="text-gray-500 text-sm mb-6">{app.date}</p>
-                    <button className="w-full bg-gradient-to-r from-orange-400 to-red-400 text-white font-semibold py-3 px-6 rounded-xl hover:from-orange-500 hover:to-red-500 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                      View Application Details
-                    </button>
-                  </div>
-                </div>
-              ))}
+    <div className="min-h-screen bg-[#F1EEE6] bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center flex flex-col">
+      <div className="h-[6vh] bg-[#F1EEE6] w-full"></div>
+      <div className="flex flex-col items-center justify-center p-[5%]">
+        <h1 className="text-6xl w-full text-start font-bold font-family-impact mb-6 text-black">
+          Your Applications
+        </h1>
+        <div className="w-full">
+          {applications.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-16">
+              <p className="text-2xl font-family-gill text-gray-700 text-center mb-2">
+                You have not applied for anything yet
+              </p>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="overflow-x-auto min-h-[300px]">
+                <table
+                  className="min-w-full table-auto"
+                  style={{
+                    borderCollapse: "separate",
+                    borderSpacing: 0,
+                    borderRadius: 16,
+                    overflow: "hidden",
+                    border: "4px solid #1e40af", // blue-800, thicker outer border
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <thead>
+                    <tr>
+                      <th className="text-xs font-semibold text-white uppercase px-6 py-3 text-center bg-[#0555AB] border-b-2 border-blue-800 first:rounded-tl-xl last:rounded-tr-xl">
+                        Title
+                      </th>
+                      <th className="text-xs font-semibold text-white uppercase px-6 py-3 text-center bg-[#0555AB] border-b-2 border-blue-800">
+                        Status
+                      </th>
+                      <th className="text-xs font-semibold text-white uppercase px-6 py-3 text-center bg-[#0555AB] border-b-2 border-blue-800">
+                        Date
+                      </th>
+                      <th className="text-xs font-semibold text-white uppercase px-6 py-3 text-center bg-[#0555AB] border-b-2 border-blue-800">
+                        Action Buttons
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {applications.map((app, idx) => {
+                      const activity = activities[idx];
+                      return (
+                        <tr
+                          key={app.id}
+                          className={`${
+                            idx % 2 === 0 ? "bg-[#F8A5C2]" : "bg-white"
+                          }`}
+                          style={{
+                            borderBottom: "2px solid #1e40af", // blue-800
+                          }}
+                        >
+                          <td className="font-medium px-6 py-4 border-r-2 border-blue-800 first:rounded-bl-xl text-center">
+                            {activity?.title || "-"}
+                          </td>
+                          <td className="px-6 py-4 border-r-2 border-blue-800 text-center">
+                            <span
+                              className={`inline-block px-3 py-1 rounded-lg text-xs font-semibold
+                          ${
+                            app.status === "PENDING"
+                              ? idx % 2 === 0
+                                ? "bg-white text-yellow-900"
+                                : "bg-[#e1cadd] text-black"
+                              : app.status === "REJECTED"
+                              ? idx % 2 === 0
+                                ? "bg-white text-yellow-900"
+                                : "bg-[#e1cadd] text-black"
+                              : app.status === "APPROVED"
+                              ? idx % 2 === 0
+                                ? "bg-white text-yellow-900"
+                                : "bg-[#e1cadd] text-black"
+                              : idx % 2 === 0
+                              ? "bg-white text-yellow-900"
+                              : "bg-[#e1cadd] text-black"
+                          }
+                        `}
+                              style={{ minWidth: "100px" }}
+                            >
+                              {app.status}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 border-r-2 border-blue-800 text-center">
+                            {app.createdAt
+                              ? new Date(app.createdAt).toLocaleDateString()
+                              : "-"}
+                          </td>
+                            <td className="px-6 w-full h-full last:rounded-br-xl md:px-6 md:py-4 md:flex md:justify-center md:items-center">
+                              <div className="flex justify-center w-auto items-center h-full md:w-auto md:h-auto">
+                                <DeleteButtonWithConfirmation applicationId={app.id} />
+                              </div>
+                            </td>
+                        </tr>
+                      );
+                    })}
+
+                    {/* Empty rows */}
+                    {applications.length < 4 &&
+                      Array(4 - applications.length)
+                        .fill(0)
+                        .map((_, index) => (
+                          <tr
+                            key={`empty-${index}`}
+                            className={`${
+                              (index + applications.length) % 2 === 0
+                                ? "bg-[#F8A5C2]"
+                                : "bg-white"
+                            }`}
+                            style={{
+                              borderBottom: "2px solid #1e40af",
+                            }}
+                          >
+                            <td className="px-6 py-4 border-r-2 border-blue-800 text-center">
+                              &nbsp;
+                            </td>
+                            <td className="px-6 py-4 border-r-2 border-blue-800 text-center">
+                              &nbsp;
+                            </td>
+                            <td className="px-6 py-4 border-r-2 border-blue-800 text-center">
+                              &nbsp;
+                            </td>
+                            <td className="px-6 py-4 flex justify-center space-x-2">
+                               &nbsp;
+                            </td>
+                          </tr>
+                        ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
