@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Competition } from "@/types/competition";
 import Link from "next/link";
 import ApplyButton from "../utils/ApplyButton";
+import { useState } from "react";
 
 const colorList = [
   "#ED4E45", // Red
@@ -19,10 +20,12 @@ const colorList = [
 type CompetitionCardProps = {
   competition: Competition;
   index: number;
+  className?: string;
 };
 
-export const CompetitionCard = ({ competition, index }: CompetitionCardProps) => {
+export const CompetitionCard = ({ competition, index, className }: CompetitionCardProps) => {
   const accentColor = colorList[index % colorList.length];
+  const [swinging, setSwinging] = useState(false);
   const pathname = usePathname();
   const description = competition.description;
   const descChar = 200;
@@ -32,8 +35,13 @@ export const CompetitionCard = ({ competition, index }: CompetitionCardProps) =>
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${competition.id}`}
-      // href={"https://bit.ly/compucimt"}
-      className="transform flex flex-col transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200"
+      onMouseLeave={() => {
+        setSwinging(true);
+        setTimeout(() => setSwinging(false), 700); // match swing duration (in global.css ; .swing-effect)
+      }}
+      className={`transform flex flex-col transition-all duration-300 relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200 hover:rotate-[1.5deg] hover:origin-top ${
+        swinging ? "swing-effect" : ""
+      } ${className} `}
     >
       {/* Paper Clip */}
       <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">

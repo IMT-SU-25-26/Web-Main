@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { Activity } from "@/types/activity";
 import Link from "next/link";
 import ApplyButton from "../utils/ApplyButton";
+import { useState, useEffect } from "react";
+import { getAmountApprovedApplication } from "@/lib/service/application";
 
 const colorList = [
   "#ED4E45", // Red
@@ -19,19 +21,37 @@ const colorList = [
 type ActivityCardProps = {
   activity: Activity;
   index: number;
+  className?: string;
 };
 
-export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
+export const ActivityCard = ({ activity, index, className }: ActivityCardProps) => {
   const accentColor = colorList[index % colorList.length];
+  const [swinging, setSwinging] = useState(false);
   const pathname = usePathname();
   const description = activity.description;
   const trimmedDescription =
     description.length > 75 ? description.slice(0, 75) + "..." : description;
 
+  const [approvedCount, setApprovedCount] = useState<number>(0);
+
+  useEffect(() => {
+    const fetchApprovedCount = async () => {
+      const count = await getAmountApprovedApplication(activity.id);
+      setApprovedCount(count);
+    };
+    fetchApprovedCount();
+  }, [activity.id]);
+
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${activity.id}`}
-      className="transform flex flex-col transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200"
+      onMouseLeave={() => {
+        setSwinging(true);
+        setTimeout(() => setSwinging(false), 700); // match swing duration (in global.css ; .swing-effect)
+      }}
+      className={`transform flex flex-col transition-all duration-300 relative w-[330px] sm:w-[360px] h-[430px] bg-white shadow-[5px_5px_10px_rgba(0,0,0,0.1)] rounded-xl px-4 py-4 mt-8 text-left border-[1px] border-gray-200 hover:rotate-[1.5deg] hover:origin-top ${
+        swinging ? "swing-effect" : ""
+      } ${className}`}
     >
       {/* Paper Clip */}
       <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
@@ -77,7 +97,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
             width={100}
             height={100}
           />
-          <p className="text-[0.9rem]">{activity.quota}</p>
+          <p className="text-[0.9rem]">{approvedCount}/{activity.quota}</p>
         </div>
       </div>
       <p className="w-full mt-2 font-gill text-[12px] text-black">{trimmedDescription}</p>
@@ -87,7 +107,7 @@ export const ActivityCard = ({ activity, index }: ActivityCardProps) => {
         className="relative mt-auto w-full py-2"
         activityId={activity.id}
       >
-        <p className="text-[0.9rem]">Register</p>
+        Register
       </ApplyButton>
     </Link>
   );

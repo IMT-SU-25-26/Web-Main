@@ -23,8 +23,8 @@ export async function getAchievementById(
   });
 }
 
-export async function getFeaturedAchievement(): Promise<Achievement | null> {
-  return await prisma.achievement.findFirst({
+export async function getFeaturedAchievements(): Promise<Achievement[] | undefined> {
+  return await prisma.achievement.findMany({
     where: { featured: true },
   });
 }

@@ -30,6 +30,51 @@ export async function getApplicationsByActivityId(
   });
 }
 
+export async function getStatusApplication(
+  activityId: string,
+  userId: string
+): Promise<string | undefined> {
+  const applications = await getApplicationsByActivityId(activityId);
+  const userApplications = applications.find((app) => app.userId === userId);
+  return userApplications?.status || undefined;
+}
+
+export async function setStatusApplication(
+  id: string,
+  status: Status
+): Promise<ActionResult<Application>> {
+  try {
+    const application = await prisma.application.update({
+      where: { id },
+      data: { status },
+    });
+
+    revalidatePath("/dashboard/sa");
+    revalidatePath("/activities");
+
+    return {
+      success: true,
+      data: application,
+      message: "Application status updated successfully!",
+    };
+  } catch (error) {
+    console.error("Error updating application status:", error);
+    return {
+      success: false,
+      error: "An error occurred while updating the application status.",
+    };
+  }
+}
+
+export async function getAmountApprovedApplication(
+  activityId: string){
+  const applications = await getApplicationsByActivityId(activityId);
+  const approvedApplications = applications.filter(
+    (app) => app.status === "APPROVED"
+  );
+  return approvedApplications.length;
+}
+
 export async function createApplication(
   userId: string,
   activityId: string

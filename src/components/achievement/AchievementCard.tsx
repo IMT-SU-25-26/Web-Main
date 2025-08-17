@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AchievementCardProps } from "@/types/achievement";
 
 const colorMap = {
@@ -15,6 +15,10 @@ const colorMap = {
   gray: "bg-[#CCBCAF]",
 };
 
+interface AchievementCardPropsExtension extends AchievementCardProps {
+  className?: string;
+}
+
 export const AchievementCard = ({
   title,
   type,
@@ -22,22 +26,24 @@ export const AchievementCard = ({
   borderColor,
   id,
   imageUrl,
-}: AchievementCardProps) => {
+  className
+}: AchievementCardPropsExtension) => {
   const pathname = usePathname();
   const [swinging, setSwinging] = useState(false);
 
   const trimmedDescription =
     description.length > 75 ? description.slice(0, 75) + "..." : description;
+
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${id}`}
       onMouseLeave={() => {
         setSwinging(true);
-        setTimeout(() => setSwinging(false), 700); // match swing duration (in global.css ; .swing-effect)
+        setTimeout(() => setSwinging(false), 700);
       }}
-      className={`relative w-[320px] h-[400px] overflow-hidden cursor-pointer hover:rotate-[1.5deg] hover:origin-top ${
+      className={`relative w-[320px] h-[400px] overflow-hidden cursor-pointer hover:rotate-[1.3deg] hover:origin-top ${
         swinging ? "swing-effect" : ""
-      } drop-shadow-md active:scale-100 active:brightness-90 duration-300`}
+      } drop-shadow-md active:scale-100 active:brightness-90 duration-300 ${className}`}
     >
       <Image
         src="/achievements/AchievementCardBG.webp"
