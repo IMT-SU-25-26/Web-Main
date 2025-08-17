@@ -16,7 +16,7 @@ const eventsData = [
     title: "Pulse",
     date: "21 August 2025",
     description:
-      "Pulse merupakan event teknologi terbesar yang menghadirkan inovasi-inovasi terdepan dalam dunia digital. Event ini menampilkan berbagai startup teknologi, workshop coding, dan kompetisi hackathon yang menarik. Bergabunglah dengan para tech enthusiast dan developer untuk berbagi ide dan menciptakan solusi inovatif.",
+      "Pulse merupakan program magang yang diselenggarakan oleh Student Union IMT. Program ini menjadi wadah bagi mahasiswa untuk mengembangkan keterampilan, berkontribusi langsung dalam berbagai proyek organisasi, serta belajar mengenai manajemen dan teknologi di lingkungan prodi IMT. Melalui Pulse, peserta magang dapat merasakan pengalaman nyata dalam bekerja sebagai bagian dari tim, sekaligus memperluas relasi dan kemampuan profesional.",
   },
   {
     id: "Technocamp",
@@ -216,10 +216,10 @@ export default function EventDetailPage({
         <div className="max-w-4xl mx-auto px-6 py-8 mb-25">
           {/* Date and Title */}
           <div className="flex flex-col md:justify-between mb-8">
-            <h1 className="event-title text-6xl md:text-8xl font-black text-black leading-none">
+            <h1 className="event-title text-4xl sm:text-6xl md:text-8xl font-black text-black leading-none">
               {eventsId || "Loading..."} {/* Tampilkan judul event */}
             </h1>
-            <p className="event-date text-2xl sm:text2-xl lg:text-3xl font-bold text-black tracking-wider ml-[0.2rem] mt-4 md:mt-3 md:mb-[0.4rem]">
+            <p className="event-date text-md sm:text-xl lg:text-3xl font-bold text-black tracking-wider ml-[0.2rem] mt-4 md:mt-3 md:mb-[0.4rem]">
               {eventDate || "Loading..."}
             </p>
           </div>

@@ -108,8 +108,8 @@ export default function AchievementList({
       </div>
 
       {/* Table */}
-      <div className="rounded-2xl border-2 border-blue-700 overflow-x-auto shadow-sm">
-        <table className="w-full border-collapse">
+      <div className="rounded-2xl border-2 border-blue-700 overflow-x-auto shadow-sm z-10000">
+        <table className="w-full border-collapse z-10000">
           <thead>
             <tr className="bg-[#0A56A7] text-white">
               <th className="p-4 text-center">ID</th>
