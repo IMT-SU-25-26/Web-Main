@@ -21,10 +21,11 @@ export default function Committee() {
 
   useGSAP(() => {
     // Clear semua ScrollTrigger sebelumnya
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     gsap.utils.toArray<HTMLElement>(".section-reveal").forEach((section) => {
-      gsap.fromTo(section,
+      gsap.fromTo(
+        section,
         {
           opacity: 0,
           y: 50,
@@ -64,7 +65,7 @@ export default function Committee() {
 
     // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -209,31 +210,35 @@ export default function Committee() {
           />
           <Card
             id="internal-2"
-            name="Nama Lengkap"
+            name="Dave Tristian Nurcahyo"
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/dave.jpg"
           />
           <Card
             id="internal-3"
-            name="Nama Lengkap"
+            name="Amadeus Ian Gunadi"
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/amadeus.jpg"
           />
           <Card
             id="internal-4"
-            name="Nama Lengkap"
+            name="Eileen Cynthia Mark"
             role="MEMBER"
             division="INTERNAL"
             gender="GIRL"
+            imagesrc="/internal/eileen.jpg"
           />
           <Card
             id="internal-5"
-            name="Nama Lengkap"
+            name="Angga Dhamika Jaya"
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/angga.jpg"
           />
         </div>
 
@@ -271,6 +276,7 @@ export default function Committee() {
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/altaf.jpg"
           />
           <Card
             id="external-3"
@@ -278,6 +284,7 @@ export default function Committee() {
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/bb.jpg"
           />
           <Card
             id="external-4"
@@ -285,6 +292,7 @@ export default function Committee() {
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/niki.jpg"
           />
           <Card
             id="external-5"
@@ -292,6 +300,7 @@ export default function Committee() {
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/jose.jpg"
           />
           <Card
             id="external-6"
@@ -299,6 +308,7 @@ export default function Committee() {
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/wesley.jpg"
           />
         </div>
 
@@ -482,7 +492,7 @@ export default function Committee() {
             className="catasset absolute w-[6rem] sm:w-[10rem] h-auto z-0 sm:translate-y-[2rem] lg:-translate-x-[40rem] sm:translate-x-[-30rem] translate-x-[-24rem]"
           />
         </div>
-        <div className="section-reveal publicrelation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+        <div className="section-reveal publicrelation-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="pr-1"
             name="Nama Lengkap"
@@ -503,6 +513,13 @@ export default function Committee() {
             role="MEMBER"
             division="PUBLIC RELATION"
             gender="BOY"
+          />
+          <Card
+            id="pr-4"
+            name="Nama Lengkap"
+            role="MEMBER"
+            division="PUBLIC RELATION"
+            gender="GIRL"
           />
         </div>
 
@@ -619,13 +636,6 @@ export default function Committee() {
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
-          />
-          <Card
-            id="tech-6"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="TECHNOLOGY"
-            gender="GIRL"
           />
         </div>
       </div>

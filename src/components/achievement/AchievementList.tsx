@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Achievement } from "@/types/achievement";
+import { deleteAchievement } from "@/lib/service/achievement";
 
 interface AchievementListProps {
   achievements: Achievement[];
@@ -15,6 +16,7 @@ export default function AchievementList({
   const [filteredAchievements, setFilteredAchievements] =
     useState<Achievement[]>(achievements);
   const [searchTerm, setSearchTerm] = useState("");
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   useEffect(() => {
     const filtered = achievements.filter((achievement) =>
@@ -22,6 +24,32 @@ export default function AchievementList({
     );
     setFilteredAchievements(filtered);
   }, [searchTerm, achievements]);
+
+  const handleDelete = async (id: string, title: string) => {
+    if (!confirm(`Are you sure you want to delete "${title}"?`)) {
+      return;
+    }
+
+    setDeletingId(id);
+    try {
+      const result = await deleteAchievement(id);
+
+      if (result.success) {
+        // Remove from local state
+        setFilteredAchievements((prev) =>
+          prev.filter((achievement) => achievement.id !== id)
+        );
+        alert(result.message || "Achievement deleted successfully!");
+      } else {
+        alert(result.error || "Failed to delete achievement");
+      }
+    } catch (error) {
+      console.error("Delete error:", error);
+      alert("Failed to delete achievement. Please try again.");
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   if (achievements.length === 0) {
     return (
@@ -66,13 +94,13 @@ export default function AchievementList({
   }
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 mb-10">
       {/* Search Bar */}
-      <div className="mb-6">
-        <div className="relative max-w-[90%] sm:max-w-[50%] flex gap-4">
+      <div className="mb-6 flex justify-center z-30 relative">
+        <div className="relative w-[80%] sm:w-[40%] flex gap-4">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <svg
-              className="h-5 w-5 text-orange-500"
+              className="h-5 w-5 text-[#E93400]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -90,7 +118,7 @@ export default function AchievementList({
             placeholder="Search achievements..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="block w-full pl-10 pr-3 py-2 border-3 border-orange-500 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+            className="block w-full pl-10 pr-3 py-2 border-3 border-[#E93400] rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
           />
           <Link
             href="/dashboard/pr/create"
@@ -108,10 +136,10 @@ export default function AchievementList({
       </div>
 
       {/* Table */}
-      <div className="rounded-2xl border-2 border-blue-700 overflow-x-auto shadow-sm z-10000">
-        <table className="w-full border-collapse z-10000">
+      <div className="rounded-2xl border-2 border-blue-700 overflow-x-auto shadow-sm z-[20] relative">
+        <table className="w-full border-collapse z-[20] relative">
           <thead>
-            <tr className="bg-[#0A56A7] text-white">
+            <tr className="bg-[#0555AB] text-white">
               <th className="p-4 text-center">ID</th>
               <th className="p-4 text-center">Title</th>
               <th className="p-4 text-center">Action Buttons</th>
@@ -121,7 +149,7 @@ export default function AchievementList({
             {filteredAchievements.map((achievement, index) => (
               <tr
                 key={achievement.id}
-                className={index % 2 === 0 ? "bg-pink-300" : "bg-white"}
+                className={index % 2 === 0 ? "bg-[#ED4291ae]" : "bg-white"}
               >
                 <td className="p-4 text-center border border-blue-700 w-[8rem]">
                   {achievement.id}
@@ -142,17 +170,24 @@ export default function AchievementList({
                         height={20}
                       />
                     </Link>
-                    <Link
-                      href={`/dashboard/pr/${achievement.id}/details`}
-                      className="inline-flex items-center justify-center rounded-md p-2 w-15 h-9 bg-[#E63910] text-white hover:bg-red-700 transition-colors"
+                    <button
+                      onClick={() =>
+                        handleDelete(achievement.id, achievement.title)
+                      }
+                      disabled={deletingId === achievement.id}
+                      className="inline-flex items-center justify-center rounded-md p-2 w-15 h-9 bg-[#E63910] text-white hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Image
-                        src="/dashboard/pr/trash.svg"
-                        alt="trash"
-                        width={20}
-                        height={20}
-                      />
-                    </Link>
+                      {deletingId === achievement.id ? (
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      ) : (
+                        <Image
+                          src="/dashboard/pr/trash.svg"
+                          alt="trash"
+                          width={20}
+                          height={20}
+                        />
+                      )}
+                    </button>
                   </div>
                 </td>
               </tr>

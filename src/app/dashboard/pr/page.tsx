@@ -10,12 +10,11 @@ export default async function AchievementsPage() {
     <div className="w-full overflow-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div className="relative min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden p-10">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-5xl font-family-impact font-bold text-gray-900 tracking-wide">
-              Achievements
-            </h1>
-          </div>
+
+        <div className="flex justify-center items-center mb-8 z-100">
+          <h1 className="z-100 text-5xl font-family-impact font-bold text-gray-900 tracking-wide text-center">
+            Achievements
+          </h1>
         </div>
 
         {
