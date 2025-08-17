@@ -16,7 +16,7 @@ export default function Carousel({ eventsId }: CarouselProps) {
   // Data slides berdasarkan eventsId
   const getSlidesByEventId = (eventId: string) => {
     const slideData: Record<string, Array<{ src: string; alt: string }>> = {
-      pulse: [
+      Pulse: [
         { src: "/pulse/foto1.jpg", alt: "Event Image 1" },
         { src: "/pulse/foto2.jpg", alt: "Event Image 2" },
         { src: "/pulse/foto3.jpg", alt: "Event Image 3" },

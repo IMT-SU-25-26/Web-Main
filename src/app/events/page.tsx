@@ -109,7 +109,7 @@ export default function EventsPage() {
         title: "PULSE",
         date: "21 August 2025",
         isreverse: false,
-        eventsId: "pulse",
+        eventsId: "Pulse",
         imagesrc: "/pulse/main.jpg",
       },
       decorativeImages: ["redWheel"], // Pilih gambar yang mau dipakai
