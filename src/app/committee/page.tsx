@@ -5,22 +5,43 @@ import "@/styles/committee.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Committee() {
+  // Reset scroll position saat component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Refresh ScrollTrigger setelah scroll reset
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  }, []);
+
   useGSAP(() => {
+    // Clear semua ScrollTrigger sebelumnya
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
     gsap.utils.toArray<HTMLElement>(".section-reveal").forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none",
+      gsap.fromTo(
+        section,
+        {
+          opacity: 0,
+          y: 50,
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            refreshPriority: -1,
+          },
+        }
+      );
     });
 
     gsap.to(".yellowstarasset", {
@@ -41,6 +62,11 @@ export default function Committee() {
       duration: 10,
       ease: "linear",
     });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
@@ -105,45 +131,51 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 hod-container gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
           <Card
             id="hod-1"
-            name="Nama Lengkap"
+            name="Dave Gideon Tanjung W."
             role="PRESIDENT"
             division="HOD"
             gender="BOY"
+            imagesrc="/hod/dave.jpg"
           />
           <Card
             id="hod-2"
-            name="Nama Lengkap"
+            name="Marcellino Indra Wijaya"
             role="VICE PRES"
             division="HOD"
             gender="BOY"
+            imagesrc="/hod/acel.jpg"
           />
           <Card
             id="hod-3"
-            name="Nama Lengkap"
+            name="Theressa Natasha Thebez"
             role="SECRETARY"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/there.jpg"
           />
           <Card
             id="hod-4"
-            name="Nama Lengkap"
+            name="Graciella Chelsea Lu"
             role="SECRETARY"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/chelsealu.jpg"
           />
           <Card
             id="hod-5"
-            name="Nama Lengkap"
+            name="Priscilia King Chandra"
             role="TREASURER"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/priscilia.jpg"
           />
           <Card
             id="hod-6"
-            name="Nama Lengkap"
+            name="Chrisensia Abigail Gani"
             role="TREASURER"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/abbie.jpg"
           />
         </div>
 
@@ -177,38 +209,43 @@ export default function Committee() {
         <div className="section-reveal internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
           <Card
             id="internal-1"
-            name="Nama Lengkap"
+            name="Rinaldy Tanriady Tan"
             role="PRESIDENT"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/rinaldy.jpg"
           />
           <Card
             id="internal-2"
-            name="Nama Lengkap"
+            name="Dave Tristian Nurcahyo"
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/dave.jpg"
           />
           <Card
             id="internal-3"
-            name="Nama Lengkap"
+            name="Amadeus Ian Gunadi"
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/amadeus.jpg"
           />
           <Card
             id="internal-4"
-            name="Nama Lengkap"
+            name="Eileen Cynthia Mark"
             role="MEMBER"
             division="INTERNAL"
             gender="GIRL"
+            imagesrc="/internal/eileen.jpg"
           />
           <Card
             id="internal-5"
-            name="Nama Lengkap"
+            name="Angga Dhamika Jaya"
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/angga.jpg"
           />
         </div>
 
@@ -235,45 +272,51 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 external-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="external-1"
-            name="Nama Lengkap"
+            name="Delvincent Patricio"
             role="PRESIDENT"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/delvincent.jpg"
           />
           <Card
             id="external-2"
-            name="Nama Lengkap"
+            name="Muhammad Altaf Hilmi"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/altaf.jpg"
           />
           <Card
             id="external-3"
-            name="Nama Lengkap"
+            name="Kristoforus Bertrand W."
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/bb.jpg"
           />
           <Card
             id="external-4"
-            name="Nama Lengkap"
+            name="Nicholas Gerwin Mawardji"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/niki.jpg"
           />
           <Card
             id="external-5"
-            name="Nama Lengkap"
+            name="Filemon Jose Hagen"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/jose.jpg"
           />
           <Card
             id="external-6"
-            name="Nama Lengkap"
+            name="Wesley Goeinwan"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/wesley.jpg"
           />
         </div>
 
@@ -304,49 +347,69 @@ export default function Committee() {
             className="redstarasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 lg:translate-x-[44rem] sm:translate-y-[1rem] sm:-translate-x-[-29rem] -translate-x-[-24rem] translate-y-[1rem]"
           />
         </div>
-        <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 pdddesign-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
-          <Card
-            id="pdddesign-1"
-            name="Nama Lengkap"
-            role="PRESIDENT"
-            division="PDD DESIGN"
-            gender="BOY"
-          />
-          <Card
-            id="pdddesign-2"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="GIRL"
-          />
-          <Card
-            id="pdddesign-3"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="GIRL"
-          />
-          <Card
-            id="pdddesign-4"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="BOY"
-          />
-          <Card
-            id="pdddesign-5"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="BOY"
-          />
-          <Card
-            id="pdddesign-6"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="BOY"
-          />
+        <div className="section-reveal pdddesign-container flex flex-col gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+          {/* First row - 4 cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 justify-center items-center">
+            <Card
+              id="pdddesign-1"
+              name="Rex Kenny Wirasantoso"
+              role="PRESIDENT"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/rex.jpg"
+            />
+            <Card
+              id="pdddesign-2"
+              name="Chelsea Deanna Husin"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="GIRL"
+              imagesrc="/pdddesign/cz.jpg"
+            />
+            <Card
+              id="pdddesign-3"
+              name="Matahari Dea Zakiara"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="GIRL"
+              imagesrc="/pdddesign/matahari.jpg"
+            />
+            <Card
+              id="pdddesign-4"
+              name="Bryan Charlie Lukito S."
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/bc.jpg"
+            />
+          </div>
+          {/* Second row - 3 cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 justify-center items-center">
+            <Card
+              id="pdddesign-5"
+              name="Jason Christoper"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/jc.jpg"
+            />
+            <Card
+              id="pdddesign-6"
+              name="Jason Tio"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/jason.jpg"
+            />
+            <Card
+              id="pdddesign-7"
+              name="Clarice Harijanto"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="GIRL"
+              imagesrc="/pr/clarice.jpg"
+            />
+          </div>
         </div>
 
         {/* PDD Documentation */}
@@ -372,54 +435,61 @@ export default function Committee() {
         <div className="section-reveal pdddocumentation-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="pdddoc-1"
-            name="Nama Lengkap"
+            name="Matthew Regan Hadiwidjaja"
             role="PRESIDENT"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/matthewregan.jpg"
           />
           <Card
             id="pdddoc-2"
-            name="Nama Lengkap"
+            name="Sean Lawton"
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/sean.jpg"
           />
           <Card
             id="pdddoc-3"
-            name="Nama Lengkap"
+            name="Flabianos Jason Muljono"
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/flabianos.jpg"
           />
           <Card
             id="pdddoc-4"
-            name="Nama Lengkap"
+            name="Keane Juan Suryanto"
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/keane.jpg"
           />
         </div>
         <div className="section-reveal pdddocumentation-container relative grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-5 justify-center items-center px-4">
           <Card
             id="pdddoc-5"
-            name="Nama Lengkap"
+            name="Stevanus Ivan Santoso"
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/ivan.jpg"
           />
           <Card
             id="pdddoc-6"
-            name="Nama Lengkap"
+            name="Clarrence Adrianto H."
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/clarrence.jpg"
           />
           <Card
             id="pdddoc-7"
-            name="Nama Lengkap"
+            name="Kenneth Jonathan Halim"
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
+            imagesrc="/pdddocum/kenneth.jpg"
           />
           <Image
             src="/committee/arrowasset.png"
@@ -457,28 +527,33 @@ export default function Committee() {
             className="catasset absolute w-[6rem] sm:w-[10rem] h-auto z-0 sm:translate-y-[2rem] lg:-translate-x-[40rem] sm:translate-x-[-30rem] translate-x-[-24rem]"
           />
         </div>
-        <div className="section-reveal publicrelation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
-          <Card
-            id="pr-1"
-            name="Nama Lengkap"
-            role="PRESIDENT"
-            division="PUBLIC RELATION"
-            gender="GIRL"
-          />
-          <Card
-            id="pr-2"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PUBLIC RELATION"
-            gender="BOY"
-          />
-          <Card
-            id="pr-3"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="PUBLIC RELATION"
-            gender="BOY"
-          />
+        <div className="section-reveal publicrelation-container flex justify-center mt-10 px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 justify-center items-center">
+            <Card
+              id="pr-1"
+              name="Felicia Joshlyn Purnomo"
+              role="PRESIDENT"
+              division="PUBLIC RELATION"
+              gender="GIRL"
+              imagesrc="/pr/feli.jpg"
+            />
+            <Card
+              id="pr-2"
+              name="Shatrya Christiano Chandra"
+              role="MEMBER"
+              division="PUBLIC RELATION"
+              gender="BOY"
+              imagesrc="/pr/shatrya.jpg"
+            />
+            <Card
+              id="pr-3"
+              name="Dylan Patrick Willyam"
+              role="MEMBER"
+              division="PUBLIC RELATION"
+              gender="BOY"
+              imagesrc="/pr/dylan.jpg"
+            />
+          </div>
         </div>
 
         {/* Social Activity */}
@@ -511,31 +586,35 @@ export default function Committee() {
         <div className="section-reveal socialactivity-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="sa-1"
-            name="Nama Lengkap"
+            name="Aaron Asa Soelistiono"
             role="PRESIDENT"
             division="SOCIAL ACTIVITY"
             gender="BOY"
+            imagesrc="/sa/aaron.jpg"
           />
           <Card
             id="sa-2"
-            name="Nama Lengkap"
+            name="Hans Vere Liem"
             role="MEMBER"
             division="SOCIAL ACTIVITY"
             gender="BOY"
+            imagesrc="/sa/hanz.jpg"
           />
           <Card
             id="sa-3"
-            name="Nama Lengkap"
+            name="Muhammad Dzaky Nabil A."
             role="MEMBER"
             division="SOCIAL ACTIVITY"
             gender="BOY"
+            imagesrc="/sa/dzaky.jpg"
           />
           <Card
             id="sa-4"
-            name="Nama Lengkap"
+            name="Jeferey Teddy Santosa"
             role="MEMBER"
             division="SOCIAL ACTIVITY"
             gender="BOY"
+            imagesrc="/sa/jeferey.jpg"
           />
         </div>
 
@@ -562,45 +641,43 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 technology-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="tech-1"
-            name="Nama Lengkap"
+            name="Valentino Manuel Gunawan"
             role="PRESIDENT"
             division="TECHNOLOGY"
             gender="BOY"
+            imagesrc="/tech/valen.jpg"
           />
           <Card
             id="tech-2"
-            name="Nama Lengkap"
+            name="Bryan Fernando Dinata"
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
+            imagesrc="/tech/bryan.jpg"
           />
           <Card
             id="tech-3"
-            name="Nama Lengkap"
+            name="Obie Zuriel"
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
+            imagesrc="/tech/obie.jpg"
           />
           <Card
             id="tech-4"
-            name="Nama Lengkap"
+            name="Felix Richardo"
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
+            imagesrc="/tech/felix.jpg"
           />
           <Card
             id="tech-5"
-            name="Nama Lengkap"
+            name="Nicholas Leroy Kurniawan"
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
-          />
-          <Card
-            id="tech-6"
-            name="Nama Lengkap"
-            role="MEMBER"
-            division="TECHNOLOGY"
-            gender="GIRL"
+            imagesrc="/tech/nicho.jpg"
           />
         </div>
       </div>
