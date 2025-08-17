@@ -154,7 +154,7 @@ export default function AchievementList({
                 <td className="p-4 text-center border border-blue-700 w-[8rem]">
                   {achievement.id}
                 </td>
-                <td className="p-4 text-center border border-blue-700 w-[40rem]">
+                <td className="p-4 text-center border border-blue-700 w-[55rem]">
                   {achievement.title}
                 </td>
                 <td className="p-4 text-center border border-blue-700">
