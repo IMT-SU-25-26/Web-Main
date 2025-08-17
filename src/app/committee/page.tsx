@@ -131,45 +131,51 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 hod-container gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
           <Card
             id="hod-1"
-            name="Nama Lengkap"
+            name="Dave Gideon Tanjung W."
             role="PRESIDENT"
             division="HOD"
             gender="BOY"
+            imagesrc="/hod/dave.jpg"
           />
           <Card
             id="hod-2"
-            name="Nama Lengkap"
+            name="Marcellino Indra Wijaya"
             role="VICE PRES"
             division="HOD"
             gender="BOY"
+            imagesrc="/hod/acel.jpg"
           />
           <Card
             id="hod-3"
-            name="Nama Lengkap"
+            name="Theressa Natasha Thebez"
             role="SECRETARY"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/there.jpg"
           />
           <Card
             id="hod-4"
-            name="Nama Lengkap"
+            name="Graciella Chelsea Lu"
             role="SECRETARY"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/acel.jpg"
           />
           <Card
             id="hod-5"
-            name="Nama Lengkap"
+            name="Priscilia King Chandra"
             role="TREASURER"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/priscilia.jpg"
           />
           <Card
             id="hod-6"
-            name="Nama Lengkap"
+            name="Chrisensia Abigail Gani"
             role="TREASURER"
             division="HOD"
             gender="GIRL"
+            imagesrc="/hod/acel.jpg"
           />
         </div>
 
@@ -203,10 +209,11 @@ export default function Committee() {
         <div className="section-reveal internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
           <Card
             id="internal-1"
-            name="Nama Lengkap"
+            name="Rinaldy Tanriady Tan"
             role="PRESIDENT"
             division="INTERNAL"
             gender="BOY"
+            imagesrc="/internal/rinaldy.jpg"
           />
           <Card
             id="internal-2"
@@ -265,14 +272,15 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 external-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="external-1"
-            name="Nama Lengkap"
+            name="Delvincent Patricio"
             role="PRESIDENT"
             division="EXTERNAL"
             gender="BOY"
+            imagesrc="/external/delvincent.jpg"
           />
           <Card
             id="external-2"
-            name="Nama Lengkap"
+            name="Muhammad Altaf Hilmi"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -280,7 +288,7 @@ export default function Committee() {
           />
           <Card
             id="external-3"
-            name="Nama Lengkap"
+            name="Kristoforus Bertrand W."
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -288,7 +296,7 @@ export default function Committee() {
           />
           <Card
             id="external-4"
-            name="Nama Lengkap"
+            name="Nicholas Gerwin Mawardji"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -296,7 +304,7 @@ export default function Committee() {
           />
           <Card
             id="external-5"
-            name="Nama Lengkap"
+            name="Filemon Jose Hagen"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -304,7 +312,7 @@ export default function Committee() {
           />
           <Card
             id="external-6"
-            name="Nama Lengkap"
+            name="Wesley Goeinwan"
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
