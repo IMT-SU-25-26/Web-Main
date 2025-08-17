@@ -12,7 +12,8 @@
     "prisma:reset": "dotenv -e .env.local -- prisma migrate reset",
     "prisma:seed": "dotenv -e .env.local -- prisma db seed",
     "prisma:studio": "dotenv -e .env.local -- prisma studio",
-    "prisma:generate": "dotenv -e .env.local -- prisma generate"
+    "prisma:generate": "dotenv -e .env.local -- prisma generate",
+    "prisma:deploy": "dotenv -e .env.local -- prisma migrate deploy"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

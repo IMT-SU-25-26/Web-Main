@@ -150,7 +150,7 @@ const DIVISION_CONFIG: Record<
     }),
     MEMBER: (gender) => ({
       decorations: [DECORATIONS.STATUE(gender)],
-      color: "#0555AB",
+      color: gender === "GIRL" ? "#F64A78" : "#0555AB",
     }),
   },
   "SOCIAL ACTIVITY": {
@@ -181,6 +181,7 @@ export default function PresidentCard({
   role,
   division,
   gender,
+  imagesrc,
 }: PresidentCardProps) {
   // Find the division config
   const divisionConfig = DIVISION_CONFIG[division];
@@ -235,7 +236,13 @@ export default function PresidentCard({
         />
       ))}
       <div className="committee-pp w-37 h-37 mx-auto rounded-full bg-[#D9D9D9] overflow-hidden">
-        {/* Placeholder for member photo */}
+        <Image
+          src={imagesrc || "eventsdetails/template.svg"}
+          alt="Committee member photo"
+          width={150}
+          height={150}
+          className="object-cover w-full h-full"
+        />
       </div>
       <div
         className="committee-role committee-profile mt-3.5 text-white font-extrabold text-base py-0.5 px-0.5 w-33.5 h-6.5 flex justify-center items-center mx-auto"
