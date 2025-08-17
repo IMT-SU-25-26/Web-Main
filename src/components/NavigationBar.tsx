@@ -10,6 +10,7 @@ import { gsap } from "gsap";
 export default function NavigationBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [mobileDashboardOpen, setMobileDashboardOpen] = useState(false);
   const { data: session, status } = useSession();
 
   // GSAP refs for performance
@@ -277,7 +278,75 @@ export default function NavigationBar() {
             ref={mobileMenuRef}
             className="w-[35%] bg-[#E5603A] p-2 flex flex-col gap-2 will-change-transform shadow-[-8px_0_12px_-4px_rgba(0,0,0,0.25)]"
           >
+            
             <div ref={mobileLinksRef} className="flex flex-col gap-2">
+              {isLoggedIn && (
+                <div>
+                  <button
+                    className="text-white text-center w-full py-2 hover:text-cyan-400 text-md border-b-white/60 border-b-1 will-change-transform flex justify-center items-center"
+                    onClick={() => setMobileDashboardOpen(!mobileDashboardOpen)}
+                  >
+                    Dashboard
+                    <svg
+                      className={`w-4 h-4 ml-2 transition-transform duration-200 ${
+                        mobileDashboardOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  {mobileDashboardOpen && (
+                    <div className="flex flex-col bg-white rounded-b-lg overflow-hidden">
+                      <Link
+                        href="/dashboard/student"
+                        className="text-black text-center py-2 text-sm"
+                        onClick={handleMobileMenuToggle}
+                      >
+                        Student
+                      </Link>
+                      {session.user?.role === "TECH" && (
+                        <Link
+                          href="/dashboard/tech"
+                          className="text-black text-center py-2 text-sm"
+                          onClick={handleMobileMenuToggle}
+                        >
+                          Tech
+                        </Link>
+                      )}
+                      {(session.user?.role === "SA" ||
+                        session.user?.role === "TECH" ||
+                        session.user?.role === "LECTURER") && (
+                        <Link
+                          href="/dashboard/sa"
+                          className="text-black text-center py-2 text-sm"
+                          onClick={handleMobileMenuToggle}
+                        >
+                          Social Activity
+                        </Link>
+                      )}
+                      {(session.user?.role === "PR" ||
+                        session.user?.role === "TECH") && (
+                        <Link
+                          href="/dashboard/pr"
+                          className="text-white text-center py-2 hover:bg-white/20 text-sm"
+                          onClick={handleMobileMenuToggle}
+                        >
+                          Public Relations
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
               <Link
                 className="text-white text-center w-full py-2 hover:text-green-500 text-md border-b-white/60 border-b-1 will-change-transform"
                 href="/about"
@@ -336,8 +405,8 @@ export default function NavigationBar() {
               {/* Mobile Auth Section */}
               <div className="flex justify-center will-change-transform">
                 {isLoggedIn ? (
-                  <div className="text-center">
-                    <p className="text-sm text-gray-600">
+                  <div className="text-center bg-white rounded-lg p-4 w-full">
+                    <p className="text-sm text-gray-600 w-full overflow-auto text-center">
                       {session.user?.email}
                     </p>
                     <button
