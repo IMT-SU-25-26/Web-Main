@@ -76,7 +76,7 @@ export default function Committee() {
         {/* Main Title */}
         <div className="section-reveal relative flex justify-center items-center mt-8 w-full px-4 sm:w-[27.5rem] h-[8.75rem]">
           <h1 className="text-black font-extrabold text-2xl sm:text-4xl z-10 -rotate-3 -top-[1.3rem] sm:-top-[1rem] relative -tracking-[0.08rem] text-center">
-            COMMITTEE MEMBERS
+            UNION MEMBERS
           </h1>
           <Image
             src="/committee/rectanglecommitteememberback.svg"
