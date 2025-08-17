@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
           });
 
           if (dbUser) {
-            let assignedRole: Role = dbUser.role;
+            const assignedRole: Role = dbUser.role;
 
             await prisma.user.update({
               where: { id: user.id },
