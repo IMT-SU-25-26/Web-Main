@@ -151,10 +151,10 @@ export default function AchievementList({
                 key={achievement.id}
                 className={index % 2 === 0 ? "bg-[#ED4291ae]" : "bg-white"}
               >
-                <td className="p-4 text-center border border-blue-700 w-[8rem]">
+                <td className="p-4 text-center border border-blue-700 w-[8%]">
                   {achievement.id}
                 </td>
-                <td className="p-4 text-center border border-blue-700 w-[55rem]">
+                <td className="p-4 text-center border border-blue-700 w-[65%]">
                   {achievement.title}
                 </td>
                 <td className="p-4 text-center border border-blue-700">
