@@ -347,55 +347,69 @@ export default function Committee() {
             className="redstarasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 lg:translate-x-[44rem] sm:translate-y-[1rem] sm:-translate-x-[-29rem] -translate-x-[-24rem] translate-y-[1rem]"
           />
         </div>
-        <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 pdddesign-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
-          <Card
-            id="pdddesign-1"
-            name="Rex Kenny Wirasantoso"
-            role="PRESIDENT"
-            division="PDD DESIGN"
-            gender="BOY"
-            imagesrc="/pdddesign/rex.jpg"
-          />
-          <Card
-            id="pdddesign-2"
-            name="Chelsea Deanna Husin"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="GIRL"
-            imagesrc="/pdddesign/cz.jpg"
-          />
-          <Card
-            id="pdddesign-3"
-            name="Matahari Dea Zakiara"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="GIRL"
-            imagesrc="/pdddesign/matahari.jpg"
-          />
-          <Card
-            id="pdddesign-4"
-            name="Bryan Charlie Lukito S."
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="BOY"
-            imagesrc="/pdddesign/bc.jpg"
-          />
-          <Card
-            id="pdddesign-5"
-            name="Jason Christoper"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="BOY"
-            imagesrc="/pdddesign/jc.jpg"
-          />
-          <Card
-            id="pdddesign-6"
-            name="Jason Tio"
-            role="MEMBER"
-            division="PDD DESIGN"
-            gender="BOY"
-            imagesrc="/pdddesign/jason.jpg"
-          />
+        <div className="section-reveal pdddesign-container flex flex-col gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+          {/* First row - 4 cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 justify-center items-center">
+            <Card
+              id="pdddesign-1"
+              name="Rex Kenny Wirasantoso"
+              role="PRESIDENT"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/rex.jpg"
+            />
+            <Card
+              id="pdddesign-2"
+              name="Chelsea Deanna Husin"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="GIRL"
+              imagesrc="/pdddesign/cz.jpg"
+            />
+            <Card
+              id="pdddesign-3"
+              name="Matahari Dea Zakiara"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="GIRL"
+              imagesrc="/pdddesign/matahari.jpg"
+            />
+            <Card
+              id="pdddesign-4"
+              name="Bryan Charlie Lukito S."
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/bc.jpg"
+            />
+          </div>
+          {/* Second row - 3 cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 justify-center items-center">
+            <Card
+              id="pdddesign-5"
+              name="Jason Christoper"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/jc.jpg"
+            />
+            <Card
+              id="pdddesign-6"
+              name="Jason Tio"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="BOY"
+              imagesrc="/pdddesign/jason.jpg"
+            />
+            <Card
+              id="pdddesign-7"
+              name="Clarice Harijanto"
+              role="MEMBER"
+              division="PDD DESIGN"
+              gender="GIRL"
+              imagesrc="/pr/clarice.jpg"
+            />
+          </div>
         </div>
 
         {/* PDD Documentation */}
@@ -513,39 +527,33 @@ export default function Committee() {
             className="catasset absolute w-[6rem] sm:w-[10rem] h-auto z-0 sm:translate-y-[2rem] lg:-translate-x-[40rem] sm:translate-x-[-30rem] translate-x-[-24rem]"
           />
         </div>
-        <div className="section-reveal publicrelation-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
-          <Card
-            id="pr-1"
-            name="Felicia Joshlyn Purnomo"
-            role="PRESIDENT"
-            division="PUBLIC RELATION"
-            gender="GIRL"
-            imagesrc="/pr/feli.jpg"
-          />
-          <Card
-            id="pr-2"
-            name="Shatrya Christiano Chandra"
-            role="MEMBER"
-            division="PUBLIC RELATION"
-            gender="BOY"
-            imagesrc="/pr/shatrya.jpg"
-          />
-          <Card
-            id="pr-3"
-            name="Dylan Patrick Willyam"
-            role="MEMBER"
-            division="PUBLIC RELATION"
-            gender="BOY"
-            imagesrc="/pr/dylan.jpg"
-          />
-          <Card
-            id="pr-4"
-            name="Clarice Harijanto"
-            role="MEMBER"
-            division="PUBLIC RELATION"
-            gender="GIRL"
-            imagesrc="/pr/clarice.jpg"
-          />
+        <div className="section-reveal publicrelation-container flex justify-center mt-10 px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 justify-center items-center">
+            <Card
+              id="pr-1"
+              name="Felicia Joshlyn Purnomo"
+              role="PRESIDENT"
+              division="PUBLIC RELATION"
+              gender="GIRL"
+              imagesrc="/pr/feli.jpg"
+            />
+            <Card
+              id="pr-2"
+              name="Shatrya Christiano Chandra"
+              role="MEMBER"
+              division="PUBLIC RELATION"
+              gender="BOY"
+              imagesrc="/pr/shatrya.jpg"
+            />
+            <Card
+              id="pr-3"
+              name="Dylan Patrick Willyam"
+              role="MEMBER"
+              division="PUBLIC RELATION"
+              gender="BOY"
+              imagesrc="/pr/dylan.jpg"
+            />
+          </div>
         </div>
 
         {/* Social Activity */}
