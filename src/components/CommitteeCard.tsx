@@ -1,28 +1,12 @@
 import Image from "next/image";
 import "@/styles/committee-card.css";
-
-type PresidentCardProps = {
-  id: string;
-  name: string;
-  role: string;
-  division: string;
-  gender: "BOY" | "GIRL";
-};
-
-type ImageConfig = {
-  src: string;
-  className: string;
-};
-
-type RoleConfig = {
-  decorations: ImageConfig[];
-  color: string;
-};
+import type { PresidentCardProps, RoleConfig } from "@/types/committee";
 
 // Base configuration for common decorations
 const DECORATIONS = {
   CROWN: (gender: string) => ({
-    src: gender === "GIRL" ? "/committee/crownpink.png" : "/committee/crown.png",
+    src:
+      gender === "GIRL" ? "/committee/crownpink.png" : "/committee/crown.png",
     className:
       gender === "GIRL"
         ? "crown-pink absolute -top-[3.3rem] -left-[1.8rem] w-[8.5rem] h-auto"
@@ -46,7 +30,9 @@ const DECORATIONS = {
   },
   HOUSE: (gender: string) => ({
     src:
-      gender === "GIRL" ? "/committee/housepink.png" : "/committee/houseblue.png",
+      gender === "GIRL"
+        ? "/committee/housepink.png"
+        : "/committee/houseblue.png",
     className:
       gender === "GIRL"
         ? "house-pink absolute bottom-[4.7rem] right-[1rem] w-[4.5rem] h-auto"
@@ -58,7 +44,9 @@ const DECORATIONS = {
   },
   PAINT: (gender: string) => ({
     src:
-      gender === "GIRL" ? "/committee/paintpink.png" : "/committee/paintblue.png",
+      gender === "GIRL"
+        ? "/committee/paintpink.png"
+        : "/committee/paintblue.png",
     className:
       gender === "GIRL"
         ? "paint-pink absolute bottom-[4.2rem] -right-[1rem] w-[6.7rem] h-auto"
@@ -162,7 +150,7 @@ const DIVISION_CONFIG: Record<
     }),
     MEMBER: (gender) => ({
       decorations: [DECORATIONS.STATUE(gender)],
-      color: "#0555AB",
+      color: gender === "GIRL" ? "#F64A78" : "#0555AB",
     }),
   },
   "SOCIAL ACTIVITY": {
@@ -193,6 +181,7 @@ export default function PresidentCard({
   role,
   division,
   gender,
+  imagesrc,
 }: PresidentCardProps) {
   // Find the division config
   const divisionConfig = DIVISION_CONFIG[division];
@@ -247,7 +236,13 @@ export default function PresidentCard({
         />
       ))}
       <div className="committee-pp w-37 h-37 mx-auto rounded-full bg-[#D9D9D9] overflow-hidden">
-        {/* Placeholder for member photo */}
+        <Image
+          src={imagesrc || "eventsdetails/template.svg"}
+          alt="Committee member photo"
+          width={150}
+          height={150}
+          className="object-cover w-full h-full"
+        />
       </div>
       <div
         className="committee-role committee-profile mt-3.5 text-white font-extrabold text-base py-0.5 px-0.5 w-33.5 h-6.5 flex justify-center items-center mx-auto"

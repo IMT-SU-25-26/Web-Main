@@ -6,6 +6,7 @@ export interface Achievement {
   title: string;
   description: string;
   teamInfo: string;
+  featured: boolean;
   imageUrl: string | null;
   imagePublicId: string | null;
   createdAt: Date;
@@ -18,6 +19,11 @@ export interface AchievementData {
   imageUrl: string | null;
   imagePublicId: string | null;
 }
+
+export interface AchievementCardProps extends Achievement {
+  type: string;
+  borderColor: "blue" | "green" | "pink" | "red" | "yellow" | "gray";
+};
 
 export const AchievementSchema = z.object({
   title: z
@@ -41,6 +47,15 @@ export const AchievementSchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || null),
+
+  teamInfo: z
+    .string()
+    .min(1, "Title is required")
+    .max(100, "Title must be less than 100 characters"),
+
+  featured: z
+    .boolean()
+
 });
 
 export type AchievementInput = z.infer<typeof AchievementSchema>;

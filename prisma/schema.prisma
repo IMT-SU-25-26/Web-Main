@@ -94,6 +94,7 @@ model Achievement {
   title         String
   description   String
   teamInfo      String   @default("")
+  featured      Boolean  @default(false)
   imageUrl      String?
   imagePublicId String?
   createdAt     DateTime @default(now())

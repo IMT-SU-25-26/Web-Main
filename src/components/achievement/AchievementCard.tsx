@@ -4,15 +4,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-
-type AchievementCardProps = {
-  title: string;
-  type: string;
-  description: string;
-  borderColor: "blue" | "green" | "pink" | "red" | "yellow" | "gray";
-  id: string;
-  imageUrl: string | null;
-};
+import { AchievementCardProps } from "@/types/achievement";
 
 const colorMap = {
   blue: "bg-[#0555AB]",
@@ -57,7 +49,13 @@ export const AchievementCard = ({
 
       {/* Image placeholder with bottom color bar */}
       <div className="mt-5 absolute top-[48px] left-[30px] w-[260px] h-[140px] bg-gray-300">
-        <Image src={imageUrl || ""} alt={title} fill className="object-cover" />
+        {imageUrl ? (
+          <Image src={imageUrl} alt={title} fill className="object-cover" />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-400 text-sm">No Image</span>
+          </div>
+        )}
         <div
           className={`absolute bottom-0 left-0 w-full h-[8px] ${colorMap[borderColor]}`}
         />

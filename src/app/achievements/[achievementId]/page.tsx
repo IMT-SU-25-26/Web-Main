@@ -32,7 +32,7 @@ const page = async (props: { params: Promise<{ achievementId: string }> }) => {
   }
 
   const title = achievement.title;
-  const subTitle = achievement.id;
+  const subTitle = achievement.teamInfo;
   const urlImg1 = achievement.imageUrl;
   const urlImg2 = urlImg1;
   const description = achievement.description;
@@ -98,14 +98,18 @@ const page = async (props: { params: Promise<{ achievementId: string }> }) => {
               height={186}
             ></Image>
 
-            <FrameImage
-              src={urlImg1 ? urlImg1 : ""}
-              className="w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
-            ></FrameImage>
-            <FrameImage
-              src={urlImg2 ? urlImg2 : ""}
-              className="w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
-            ></FrameImage>
+            {urlImg1 && (
+              <FrameImage
+                src={urlImg1}
+                className="w-[130px] md:w-[180px] xl:w-[250px] -top-10 left-0 md:-left-10 xl:-left-25 -rotate-15 z-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
+              />
+            )}
+            {urlImg2 && (
+              <FrameImage
+                src={urlImg2}
+                className="w-[210px] md:w-[270px] xl:w-[350px] bottom-0 right-0 rotate-15 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
+              />
+            )}
           </div>
           <div className="md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] ">
             <h1 className="hidden md:block font-impact font-bold text-5xl">

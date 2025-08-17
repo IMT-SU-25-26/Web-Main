@@ -67,6 +67,7 @@ export async function main() {
         teamInfo: "Individual achievement",
         imageUrl: null,
         imagePublicId: null,
+        featured: true
       },
       {
         title: "Team Player",

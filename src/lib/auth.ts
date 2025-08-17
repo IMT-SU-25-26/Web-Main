@@ -34,7 +34,12 @@ export const authOptions: NextAuthOptions = {
           if (dbUser) {
             let assignedRole: Role = dbUser.role;
             
-            if (profile.email === "frichardo@student.ciputra.ac.id") {
+            if (profile.email === "frichardo@student.ciputra.ac.id" ||
+              profile.email === "vgunawan08@student.ciputra.ac.id" ||
+              profile.email === "charijanto01@student.ciputra.ac.id" ||
+              profile.email === "ozuriel01@student.ciputra.ac.id" ||
+              profile.email === "nkurniawa05@student.ciputra.ac.id"
+            ) {
               assignedRole = Role.TECH;
             }
 

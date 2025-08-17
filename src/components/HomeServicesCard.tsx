@@ -2,7 +2,7 @@ import React from "react";
 import { HomeServiceCard } from "@/types/homecard";
 import Image from "next/image";
 
-function HomeServicesCard({
+export default function HomeServicesCard({
   title,
   type,
   description,
@@ -16,14 +16,15 @@ function HomeServicesCard({
       style={{ opacity }}
     >
       <div className="service-image flex flex-col justify-end image-container-hsc bg-gray-200 w-full h-[65%]">
-        <div className={`w-full h-[10%] bg-[${color}]`}></div>
+        <div className="w-full h-[10%]" style={{ backgroundColor: color }}></div>
       </div>
       <div>
         <h1 className="service-title-text font-family-gill-condensed-bold font-bold text-4xl">
           {title}
         </h1>
         <h2
-          className={`service-type-text bg-[${color}] w-fit text-lg px-4 text-white font-family-impact uppercase`}
+          className="service-type-text w-fit text-lg px-4 text-white font-family-impact uppercase"
+          style={{ backgroundColor: color }}
         >
           {type}
         </h2>
@@ -42,5 +43,3 @@ function HomeServicesCard({
     </div>
   );
 }
-
-export default HomeServicesCard;
