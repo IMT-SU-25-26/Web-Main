@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getActivityById } from "@/lib/service/activity";
+import { getCompetitionById } from "@/lib/service/competition";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import SkeletonLoader from "@/components/utils/SkeletonLoader";
@@ -7,14 +7,14 @@ import Image from "next/image";
 import ClientDate from "@/components/utils/ClientDate";
 import ClientDateTime from "@/components/utils/ClientDateTime";
 
-export default async function ActivityDetailsPage(props: {
+export default async function CompetitionDetailsPage(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
   const id = params.id;
-  const activity = await getActivityById(id);
+  const competition = await getCompetitionById(id);
 
-  if (!activity) {
+  if (!competition) {
     notFound();
   }
 
@@ -23,7 +23,7 @@ export default async function ActivityDetailsPage(props: {
       {/* Back Navigation */}
       <div className="mb-6">
         <Link
-          href="/dashboard/sa"
+          href="/dashboard/competitions"
           className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors"
         >
           <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -33,7 +33,7 @@ export default async function ActivityDetailsPage(props: {
               clipRule="evenodd"
             />
           </svg>
-          Back to Activities
+          Back to Competitions
         </Link>
       </div>
 
@@ -43,22 +43,8 @@ export default async function ActivityDetailsPage(props: {
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-12 text-white">
           <div className="flex justify-between items-start">
             <div className="flex-1">
-              <h1 className="text-3xl font-bold mb-4">{activity.title}</h1>
+              <h1 className="text-3xl font-bold mb-4">{competition.name}</h1>
               <div className="flex items-center space-x-6 text-blue-100">
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  {activity.location}
-                </div>
                 <div className="flex items-center">
                   <svg
                     className="w-5 h-5 mr-2"
@@ -71,17 +57,12 @@ export default async function ActivityDetailsPage(props: {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Created <ClientDate 
-                    createdAt={activity.createdAt.toISOString()} 
+                  Created{" "}
+                  <ClientDate
+                    createdAt={competition.createdAt.toISOString()}
                     format="full"
                   />
                 </div>
-              </div>
-            </div>
-            <div className="text-right">
-              <div className="bg-white bg-opacity-20 rounded-lg px-4 py-2">
-                <div className="text-2xl font-bold">{activity.quota}</div>
-                <div className="text-sm text-blue-100">Available Spots</div>
               </div>
             </div>
           </div>
@@ -97,7 +78,7 @@ export default async function ActivityDetailsPage(props: {
                 <Suspense fallback={<SkeletonLoader />}>
                   <div className="w-[300px] md:w-[500px] m-auto bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 rounded-xl shadow-md overflow-hidden">
                     <Image
-                      src={activity.imageUrl || "/file.svg"}
+                      src={competition.imageUrl || "/placeholder/placeholder.png"}
                       alt="Achievement"
                       width={400} // matches your max width (can be adjusted)
                       height={0} // optional: this can be omitted
@@ -111,15 +92,15 @@ export default async function ActivityDetailsPage(props: {
                 </h2>
                 <div className="prose prose-gray max-w-none">
                   <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                    {activity.description}
+                    {competition.description}
                   </p>
                 </div>
               </div>
 
-              {/* Activity Details */}
+              {/* Competition Details */}
               <div className="mb-8">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                  Activity Information
+                  Competition Information
                 </h2>
                 <div className="bg-gray-50 rounded-lg p-6">
                   <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -128,25 +109,7 @@ export default async function ActivityDetailsPage(props: {
                         Activity ID
                       </dt>
                       <dd className="text-sm text-gray-900 font-mono bg-white px-2 py-1 rounded border">
-                        {activity.id}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500 mb-1">
-                        Location
-                      </dt>
-                      <dd className="text-sm text-gray-900">
-                        {activity.location}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500 mb-1">
-                        Participant Quota
-                      </dt>
-                      <dd className="text-sm text-gray-900">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          {activity.quota} participants
-                        </span>
+                        {competition.id}
                       </dd>
                     </div>
                     <div>
@@ -154,7 +117,9 @@ export default async function ActivityDetailsPage(props: {
                         Last Updated
                       </dt>
                       <dd className="text-sm text-gray-900">
-                        <ClientDateTime dateTime={activity.updatedAt.toISOString()} />
+                        <ClientDateTime
+                          dateTime={competition.updatedAt.toISOString()}
+                        />
                       </dd>
                     </div>
                   </dl>
@@ -170,7 +135,7 @@ export default async function ActivityDetailsPage(props: {
                 </h3>
                 <div className="space-y-3">
                   <Link
-                    href={`/dashboard/sa/${activity.id}/edit`}
+                    href={`/dashboard/competitions/${competition.id}/edit`}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
                   >
                     <svg
@@ -180,11 +145,11 @@ export default async function ActivityDetailsPage(props: {
                     >
                       <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                     </svg>
-                    Edit Activity
+                    Edit Competition
                   </Link>
 
                   <Link
-                    href="/dashboard/sa"
+                    href="/dashboard/competitions"
                     className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
                   >
                     <svg
@@ -214,16 +179,10 @@ export default async function ActivityDetailsPage(props: {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Created</span>
-                      <ClientDate 
-                        createdAt={activity.createdAt.toISOString()} 
-                        className="text-gray-900" 
+                      <ClientDate
+                        createdAt={competition.createdAt.toISOString()}
+                        className="text-gray-900"
                       />
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-500">Capacity</span>
-                      <span className="text-gray-900">
-                        {activity.quota} people
-                      </span>
                     </div>
                   </div>
                 </div>

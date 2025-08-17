@@ -360,7 +360,6 @@ export default function EventsPage() {
             height={175}
           />
         </div>
-
         {/* Card sections dengan animasi */}
         {cardSections.map((section) => (
           <div key={section.id} className={`section-reveal w-full relative `}>
