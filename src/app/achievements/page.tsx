@@ -26,6 +26,7 @@ export default async function AchievementsPage() {
           achievements={achievementElse}
           featuredAchievements={featuredAchievements}
         />
+        
       </div>
     </>
   );

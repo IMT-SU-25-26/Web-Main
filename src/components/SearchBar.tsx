@@ -15,6 +15,8 @@ interface SearchSectionProps<T extends SearchableItem> {
   className?: string;
   placeholder?: string;
   getSearchValue?: (item:T)=> string;
+  width?: string;
+  additionalElements?: React.ReactNode;
 }
 
 export default function SearchBar<T extends SearchableItem>({
@@ -22,7 +24,9 @@ export default function SearchBar<T extends SearchableItem>({
   children,
   className,
   placeholder = "Search Here...",
-  getSearchValue = (item)=>item.title ?? ""
+  getSearchValue = (item)=>item.title ?? "",
+  width = "100%",
+  additionalElements = null,
 }: SearchSectionProps<T>) {
   const [search, setSearch] = useState("");
 
@@ -38,9 +42,9 @@ export default function SearchBar<T extends SearchableItem>({
 
 
   return (
-    <div className={className}>
+    <div className="">
       {/* Integrated Search Bar with your existing styling */}
-      <div className="w-full px-4 my-1 flex justify-center">
+      <div className={` my-1 flex justify-center items-center gap-2 ${width || width!='' ? 'w-['+width+']' : ''} ${className? className : ''}`}>
         <div className="relative w-full max-w-[260px] sm:max-w-sm md:max-w-md">
           <Image
             src="/logos/SearchIcon.webp"
@@ -57,6 +61,7 @@ export default function SearchBar<T extends SearchableItem>({
             className="w-full pl-10 pr-4 py-2 border-[2.5px] border-[#FF4712] rounded-full bg-white focus:outline-none placeholder-gray-400 text-sm"
           />
         </div>
+        {additionalElements}
       </div>
       {children(filteredItems)}
     </div>

@@ -1,27 +1,23 @@
-import Link from "next/link";
-import AchievementList from "@/components/achievement/AchievementList";
-import SkeletonLoader from "@/components/utils/SkeletonLoader";
-import { Suspense } from "react";
+import { getAchievements } from '@/lib/service/achievement'
+import React from 'react'
+import AchievementsBackground from '@/components/achievement/dashboard/AchievementsBackground';
+import AchievementsSearch from '@/components/achievement/dashboard/AchievementsSearch';
 
-export default function AchievementsPage() {
+async function AchievementDashboard() {
+  const achievements = await getAchievements();
   return (
-    <div className="container mx-auto px-4 py-8 pt-[12vh]">
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Achievements</h1>
-          <p className="text-gray-600 mt-2">Manage and view all achievements</p>
-        </div>
-        <Link
-          href="/dashboard/pr/create"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
-        >
-          Create New Achievement
-        </Link>
-      </div>
+    <>   
+      <div className='h-[6.5vh]'></div>
+      <div className="overflow-hidden relative flex flex-col items-center justify-start min-h-[93.5vh] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
+        {/* decor image */}
+        <AchievementsBackground />
 
-      <Suspense fallback={<SkeletonLoader />}>
-        <AchievementList />
-      </Suspense>
-    </div>
-  );
+        {/* Achievement search */}
+        <AchievementsSearch achievements={achievements} />
+      </div>
+    
+    </>
+  )
 }
+
+export default AchievementDashboard
