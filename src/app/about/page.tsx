@@ -159,7 +159,7 @@ export default function About() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".our-values-wrapper",
-          start: "top 80%",
+          start: "top 90%",
           toggleActions: "play none none reverse",
         }
       });
