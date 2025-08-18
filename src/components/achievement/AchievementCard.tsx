@@ -1,18 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-
-type AchievementCardProps = {
-  title: string;
-  type: string;
-  description: string;
-  borderColor: "blue" | "green" | "pink" | "red" | "yellow" | "gray";
-  id: string;
-  imageUrl: string | null;
-};
+import Image from "next/image";
+import { AchievementCardProps } from "@/types/achievement";
 
 const colorMap = {
   blue: "bg-[#0555AB]",
@@ -23,6 +15,10 @@ const colorMap = {
   gray: "bg-[#CCBCAF]",
 };
 
+interface AchievementCardPropsExtension extends AchievementCardProps {
+  className?: string;
+}
+
 export const AchievementCard = ({
   title,
   type,
@@ -30,22 +26,24 @@ export const AchievementCard = ({
   borderColor,
   id,
   imageUrl,
-}: AchievementCardProps) => {
+  className
+}: AchievementCardPropsExtension) => {
   const pathname = usePathname();
   const [swinging, setSwinging] = useState(false);
 
   const trimmedDescription =
     description.length > 75 ? description.slice(0, 75) + "..." : description;
+
   return (
     <Link
       href={`${pathname.replace(/\/$/, "")}/${id}`}
       onMouseLeave={() => {
         setSwinging(true);
-        setTimeout(() => setSwinging(false), 700); // match swing duration (in global.css ; .swing-effect)
+        setTimeout(() => setSwinging(false), 700);
       }}
-      className={`relative w-[320px] h-[400px] overflow-hidden cursor-pointer hover:rotate-[1.5deg] hover:origin-top ${
+      className={`relative w-[320px] h-[400px] overflow-hidden cursor-pointer hover:rotate-[1.3deg] hover:origin-top ${
         swinging ? "swing-effect" : ""
-      } drop-shadow-md active:scale-100 active:brightness-90 duration-300`}
+      } drop-shadow-md active:scale-100 active:brightness-90 duration-300 ${className}`}
     >
       <Image
         src="/achievements/AchievementCardBG.webp"
@@ -57,7 +55,13 @@ export const AchievementCard = ({
 
       {/* Image placeholder with bottom color bar */}
       <div className="mt-5 absolute top-[48px] left-[30px] w-[260px] h-[140px] bg-gray-300">
-        <Image src={imageUrl || ""} alt={title} fill className="object-cover" />
+        {imageUrl ? (
+          <Image src={imageUrl} alt={title} fill className="object-cover" />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-400 text-sm">No Image</span>
+          </div>
+        )}
         <div
           className={`absolute bottom-0 left-0 w-full h-[8px] ${colorMap[borderColor]}`}
         />

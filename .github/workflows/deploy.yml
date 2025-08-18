@@ -1,0 +1,50 @@
+name: Deploy to Production VPS
+
+# This action runs on every push to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SSH and Deploy
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USERNAME }}
+        key: ${{ secrets.VPS_DEPLOY_KEY }}
+        port: 22
+        script: |
+          # Load NVM
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+          # Navigate to your app directory
+          cd ~/su-imt
+
+          # Pull the latest changes from the main branch
+          echo "🚚 Pulling latest code..."
+          git pull origin main
+
+          # Install dependencies
+          echo "📦 Installing dependencies..."
+          pnpm install
+
+          # Run database migrations
+          echo "🗄️ Running database migrations..."
+          pnpm prisma:deploy
+
+          # Build the application
+          echo "🔨 Building new version..."
+          pnpm build
+
+          # Reload the app with PM2 for zero-downtime
+          echo "🚀 Reloading application..."
+          pm2 reload next-app
+
+          echo "✅ Deployment finished!"

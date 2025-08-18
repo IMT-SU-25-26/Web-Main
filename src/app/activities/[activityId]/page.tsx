@@ -23,7 +23,9 @@ export async function generateMetadata(props: {
   };
 }
 
-const ActivityDetails = async (props: { params: Promise<{ activityId: string }> }) => {
+const ActivityDetails = async (props: {
+  params: Promise<{ activityId: string }>;
+}) => {
   const params = await props.params;
   const activityId = params.activityId;
   const activity = await getActivityById(activityId);
@@ -39,8 +41,8 @@ const ActivityDetails = async (props: { params: Promise<{ activityId: string }> 
 
   return (
     <>
-      <div className="h-[10vh] bg-[#F1EEE6]"></div>
-      <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-[calc(100dvh-10vh)] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
+      <div className="h-[6.5vh] bg-[#F1EEE6]"></div>
+      <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-[calc(100dvh-6.5vh)] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
         {/* Decorative Image */}
         <div className="select-none">
           <Image
@@ -112,10 +114,12 @@ const ActivityDetails = async (props: { params: Promise<{ activityId: string }> 
             <h1 className="font-impact font-bold text-4xl">{title}</h1>
           </div>
           <div className="w-[300px] md:w-[300px] xl:w-[450px] h-[300px] md:h-[350px] xl:h-[472px] mt-0 md:mt-35 xl:mt-0 relative">
-            <FrameImage
-              src={urlImg ? urlImg : ""}
-              className="w-[280px] md:w-[270px] xl:w-[400px] top-0 xl:top-20 left-0 -rotate-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
-            ></FrameImage>
+            {urlImg && (
+              <FrameImage
+                src={urlImg}
+                className="w-[280px] md:w-[270px] xl:w-[400px] top-0 xl:top-20 left-0 -rotate-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
+              />
+            )}
           </div>
           <div className="md:w-[40%] md:mt-10 w-[80%] z-10 mb-[12vh] ">
             <div className="relative w-fit">
@@ -133,7 +137,7 @@ const ActivityDetails = async (props: { params: Promise<{ activityId: string }> 
               ></Image>
             </div>
 
-            <div className="flex flex-col gap-5 text-xl items-center">
+            <div className="flex flex-col mt-10 gap-5 text-xl items-center">
               {slicedDescription.map((line, index) => (
                 <p key={index}>{line}</p>
               ))}

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import SkeletonLoader from "@/components/utils/SkeletonLoader";
 import Image from "next/image";
+import ClientDate from "@/components/utils/ClientDate";
+import ClientDateTime from "@/components/utils/ClientDateTime";
 
 export default async function ActivityDetailsPage(props: {
   params: Promise<{ id: string }>;
@@ -69,7 +71,11 @@ export default async function ActivityDetailsPage(props: {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Created {new Date(activity.createdAt).toLocaleDateString()}
+                  Created{" "}
+                  <ClientDate
+                    createdAt={activity.createdAt.toISOString()}
+                    format="full"
+                  />
                 </div>
               </div>
             </div>
@@ -92,7 +98,7 @@ export default async function ActivityDetailsPage(props: {
                 <Suspense fallback={<SkeletonLoader />}>
                   <div className="w-[300px] md:w-[500px] m-auto bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-0 rounded-xl shadow-md overflow-hidden">
                     <Image
-                      src={activity.imageUrl || "/file.svg"}
+                      src={activity.imageUrl || "/placeholder/placeholder.png"}
                       alt="Achievement"
                       width={400} // matches your max width (can be adjusted)
                       height={0} // optional: this can be omitted
@@ -149,8 +155,9 @@ export default async function ActivityDetailsPage(props: {
                         Last Updated
                       </dt>
                       <dd className="text-sm text-gray-900">
-                        {new Date(activity.updatedAt).toLocaleDateString()} at{" "}
-                        {new Date(activity.updatedAt).toLocaleTimeString()}
+                        <ClientDateTime
+                          dateTime={activity.updatedAt.toISOString()}
+                        />
                       </dd>
                     </div>
                   </dl>
@@ -210,14 +217,10 @@ export default async function ActivityDetailsPage(props: {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Created</span>
-                      <span className="text-gray-900">
-                        {Math.ceil(
-                          (Date.now() -
-                            new Date(activity.createdAt).getTime()) /
-                            (1000 * 60 * 60 * 24)
-                        )}{" "}
-                        days ago
-                      </span>
+                      <ClientDate
+                        createdAt={activity.createdAt.toISOString()}
+                        className="text-gray-900"
+                      />
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Capacity</span>

@@ -8,8 +8,8 @@ const NotFound = () => {
         Achievement Not Found
       </h1>
       <p className="text-lg md:text-xl text-gray-700 mb-6">
-        The achievement you&apos;re looking for isn&apos;t available. It may have been
-        removed or the link is incorrect.
+        The achievement you&apos;re looking for isn&apos;t available. It may
+        have been removed or the link is incorrect.
       </p>
       <Link
         href="/achievements"

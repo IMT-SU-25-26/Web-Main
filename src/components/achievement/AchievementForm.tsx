@@ -130,6 +130,25 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
           />
         </div>
 
+        <div>
+          <label
+            htmlFor="teamInfo"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Team Info
+          </label>
+          <input
+            type="text"
+            id="teamInfo"
+            name="teamInfo"
+            defaultValue={data?.teamInfo || ""}
+            required
+            maxLength={100}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter achievement Team Info"
+          />
+        </div>
+
         {/* Description Input */}
         <div>
           <label
@@ -149,6 +168,30 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
             placeholder="Enter activity description"
           />
         </div>
+
+        {/* Switch isFeatured */}
+        <div>
+          <label
+            htmlFor="featured"
+            className="flex items-center cursor-pointer"
+          >
+            <span className="mr-3 text-sm font-medium text-gray-700">
+              Featured
+            </span>
+            <div className="relative">
+              <input
+                type="checkbox"
+                id="featured"
+                name="featured"
+                className="sr-only peer"
+                defaultChecked={data?.featured}
+              />
+              <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 peer-checked:bg-blue-600 transition-all"></div>
+              <div className="absolute top-0.5 left-[2px] bg-white border-gray-300 border rounded-full h-5 w-5 peer-checked:translate-x-full peer-checked:border-white transition-all"></div>
+            </div>
+          </label>
+        </div>
+
 
         {/* Cover Image Input */}
         <div>

@@ -151,9 +151,9 @@ export default function NavigationBar() {
         </Link>
         <Link
           className="cursor-pointer hover:underline hover:text-purple-500"
-          href="/committee"
+          href="/members"
         >
-          Committee
+          Members
         </Link>
 
         <div className="relative">
@@ -396,10 +396,10 @@ export default function NavigationBar() {
 
               <Link
                 className="text-white text-center py-2 hover:text-purple-500 text-md border-b-white/60 border-b-1 will-change-transform"
-                href="/committee"
+                href="/members"
                 onClick={() => handleMobileMenuToggle()}
               >
-                Committee
+                Members
               </Link>
 
               {/* Mobile Auth Section */}

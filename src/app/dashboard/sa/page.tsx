@@ -14,12 +14,26 @@ export default async function ActivitiesPage() {
           <h1 className="text-3xl font-bold text-gray-900">Activities</h1>
           <p className="text-gray-600 mt-2">Manage and view all activities</p>
         </div>
-        <Link
-          href="/dashboard/sa/create"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
-        >
-          Create New Activity
-        </Link>
+        <div className="flex space-x-4">
+          <Link
+            href="/dashboard/sa/categories"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Manage Category
+          </Link>
+          <Link
+            href="/dashboard/sa/approval"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Approval
+          </Link>
+          <Link
+            href="/dashboard/sa/create"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Create New Activity
+          </Link>
+        </div>
       </div>
 
       {activities.length === 0 ? (
@@ -50,17 +64,17 @@ export default async function ActivitiesPage() {
               className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 overflow-hidden"
             >
               {/* image */}
-                <Suspense fallback={<SkeletonLoader />}>
-                  <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-6">
-                    <Image
-                      src={activity.imageUrl || "/file.svg"}
-                      alt="Achievement"
-                      width={400}
-                      height={400}
-                      className="rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                </Suspense>
+              <Suspense fallback={<SkeletonLoader />}>
+                <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-6">
+                  <Image
+                    src={activity.imageUrl || "/placeholder/placeholder.png"}
+                    alt="Achievement"
+                    width={400}
+                    height={400}
+                    className="rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              </Suspense>
 
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">

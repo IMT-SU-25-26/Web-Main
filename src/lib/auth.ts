@@ -32,11 +32,7 @@ export const authOptions: NextAuthOptions = {
           });
 
           if (dbUser) {
-            let assignedRole: Role = dbUser.role;
-            
-            if (profile.email === "frichardo@student.ciputra.ac.id") {
-              assignedRole = Role.TECH;
-            }
+            const assignedRole: Role = dbUser.role;
 
             await prisma.user.update({
               where: { id: user.id },
@@ -62,7 +58,7 @@ export const authOptions: NextAuthOptions = {
           where: { id: token.id as string },
           select: { role: true },
         });
-        token.role = dbUser?.role || Role.VIEWER;
+        token.role = dbUser?.role || Role.STUDENT;
       }
 
       return token;
