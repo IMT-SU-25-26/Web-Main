@@ -169,7 +169,7 @@ export default function App() {
               height:
                 openMenuId && baseHeight !== null
                   ? openMenuId
-                    ? baseHeight + 130 /* 10rem = 160px */
+                    ? baseHeight + baseHeight*3.5 /* 10rem = 160px */
                     : baseHeight
                   : undefined,
             }}
