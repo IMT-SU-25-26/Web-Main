@@ -32,7 +32,7 @@ export default function ActivitiesSearch({ activities }: ActivitiesSearchProps) 
 
   return (
     <div className="z-10 w-full px-4 md:px-8 lg:px-32">
-      <SearchBar items={activities} className="start-bottom">
+      <SearchBar items={activities} className="start-bottom" isCentered={true}>
         {(filteredActivities) => (
           <section className="p-2 z-10 mb-10">
             <div className="flex flex-wrap justify-center gap-4 px-0">
