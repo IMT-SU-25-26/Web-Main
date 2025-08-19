@@ -1,13 +1,8 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
-
-interface SearchableItem {
-  id: string;
-  title?: string;
-  name?:string;
-}
+import { SearchableItem } from "@/types/dashboard";
 
 interface SearchSectionProps<T extends SearchableItem> {
   items: T[];
