@@ -3,4 +3,7 @@ export type EventsCardProps = {
   date: string;
   isreverse?: boolean;
   imagesrc?: string;
+  islast?: boolean;
+  eventsId?: string;
+  isComingSoon?: boolean;
 };

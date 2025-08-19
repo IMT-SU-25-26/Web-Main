@@ -4,6 +4,7 @@ export type PresidentCardProps = {
   role: string;
   division: string;
   gender: "BOY" | "GIRL";
+  imagesrc?: string;
 };
 
 export type ImageConfig = {
