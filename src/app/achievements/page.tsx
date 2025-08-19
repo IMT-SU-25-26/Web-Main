@@ -19,7 +19,7 @@ export default async function AchievementsPage() {
     <>
       {/* Background Container - Server Component (Static) */}
       <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
-        <AchievementsBackground />
+
 
         {/* Main Content */}
         <AchievementsSearch
@@ -27,6 +27,7 @@ export default async function AchievementsPage() {
           featuredAchievements={featuredAchievements}
         />
         
+        <AchievementsBackground />
       </div>
     </>
   );

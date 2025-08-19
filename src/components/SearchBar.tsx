@@ -18,6 +18,7 @@ interface SearchSectionProps<T extends SearchableItem> {
   width?: string;
   additionalElements?: React.ReactNode;
   childrenOverflow?: boolean;
+  isCentered?: boolean;
 }
 
 export default function SearchBar<T extends SearchableItem>({
@@ -29,6 +30,7 @@ export default function SearchBar<T extends SearchableItem>({
   width = "100%",
   additionalElements = null,
   childrenOverflow = false,
+  isCentered = false,
 }: SearchSectionProps<T>) {
   const [search, setSearch] = useState("");
 
@@ -47,8 +49,8 @@ export default function SearchBar<T extends SearchableItem>({
     <div className={`w-full ${className ?? ""}`}>
       {/* Search bar row */}
       <div
-        className={`my-1 flex justify-center items-center gap-2`}
-        style={{ width }}
+        className={`my-1 ${isCentered? "m-auto" : ""} flex justify-center items-center gap-2 w-[300px] md:w-[400px]`}
+        // style={{ width }}
       >
         <div className="relative w-full max-w-[260px] sm:max-w-sm md:max-w-md">
           <Image

@@ -70,7 +70,7 @@ export default function AchievementsSearch({ achievements, featuredAchievements 
 
   return (
     <div className="flex flex-col items-center justify-center w-full md:w-max-[70vw] h-full mt-8 pt-[10rem]">
-      <SearchBar items={achievements} className="start-bottom">
+      <SearchBar items={achievements} className="start-bottom" isCentered={true}>
         {(filteredAchievements) => (
           <>
             <div className="flex flex-col gap-4">
