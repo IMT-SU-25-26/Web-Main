@@ -9,6 +9,7 @@ type ButtonProps = {
   children: React.ReactNode;
   className?: string;
   activityId: string;
+  confirmApply?: (onConfirm: () => Promise<void>) => void;
 };
 
 export default function ApplyButton({
@@ -16,6 +17,7 @@ export default function ApplyButton({
   children,
   className,
   activityId,
+  confirmApply
 }: ButtonProps) {
   const { data: session, status } = useSession();
   const [applicationStatus, setApplicationStatus] = useState<string | undefined>(undefined);
@@ -36,16 +38,18 @@ export default function ApplyButton({
       signIn("google");
       return;
     }
-
-    // prevent multiple applications
-    if (!applicationStatus) {
-      const result = await createApplication(session.user.id, activityId);
-      if (result.success) {
-        setApplicationStatus("PENDING");
-      } else {
-        alert(`Error: ${result.error}`);
+    
+    confirmApply?.(async () => {
+      // prevent multiple applications
+      if (!applicationStatus) {
+        const result = await createApplication(session.user.id, activityId);
+        if (result.success) {
+          setApplicationStatus("PENDING");
+        } else {
+          alert(`Error: ${result.error}`);
+        }
       }
-    }
+    });
   };
 
   let childrenTemp = children;

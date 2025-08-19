@@ -8,9 +8,10 @@ import gsap from "gsap";
 
 interface ActivitiesSearchProps {
   activities: Activity[];
+  confirmApply?: (onConfirm: () => Promise<void>) => void;
 }
 
-export default function ActivitiesSearch({ activities }: ActivitiesSearchProps) {
+export default function ActivitiesSearch({ activities, confirmApply }: ActivitiesSearchProps) {
 
   // Animate all left-starting cards
   useEffect(() => {    
@@ -41,6 +42,7 @@ export default function ActivitiesSearch({ activities }: ActivitiesSearchProps) 
                   <ActivityCard
                     activity={activity}
                     index={index}
+                    confirmApply={confirmApply}
                   />
                 </div>
               ))}

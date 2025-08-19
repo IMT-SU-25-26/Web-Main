@@ -1,5 +1,6 @@
 import z from "zod";
 import { FormProps } from "./action";
+import { CategoryActivity } from "@prisma/client";
 
 export interface Activity {
   id: string;
@@ -11,6 +12,7 @@ export interface Activity {
   imagePublicId: string | null;
   createdAt: Date;
   updatedAt: Date;
+  category: CategoryActivity;
 }
 
 export interface ActivityData {

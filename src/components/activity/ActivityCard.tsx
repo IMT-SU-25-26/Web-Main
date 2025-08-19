@@ -22,9 +22,10 @@ type ActivityCardProps = {
   activity: Activity;
   index: number;
   className?: string;
+  confirmApply?: (onConfirm: () => Promise<void>) => void;
 };
 
-export const ActivityCard = ({ activity, index, className }: ActivityCardProps) => {
+export const ActivityCard = ({ activity, index, className, confirmApply }: ActivityCardProps) => {
   const accentColor = colorList[index % colorList.length];
   const [swinging, setSwinging] = useState(false);
   const pathname = usePathname();
@@ -106,6 +107,7 @@ export const ActivityCard = ({ activity, index, className }: ActivityCardProps) 
         bgColor={accentColor}
         className="relative mt-auto w-full py-2"
         activityId={activity.id}
+        confirmApply={confirmApply}
       >
         Register
       </ApplyButton>

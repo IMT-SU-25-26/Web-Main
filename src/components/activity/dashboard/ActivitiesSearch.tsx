@@ -3,21 +3,21 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
-import { Achievement } from "@/types/achievement";
-import { deleteAchievement } from "@/lib/service/achievement";
 import gsap from "gsap";
+import { Activity } from "@prisma/client";
+import { deleteActivity } from "@/lib/service/activity";
 
-type AchievementSearchProps = {
-  achievements: Achievement[];
+type ActivitiesSearchProps = {
+  activities: Activity[];
 };
 
-export default function AchievementsSearch({ achievements }: AchievementSearchProps) {
+export default function AchievementsSearch({ activities }: ActivitiesSearchProps) {
   const [confirmId, setConfirmId] = useState<string | null>(null);
 
   const handleDelete = async (id: string) => {
     // Call your delete function here
     // await deleteAchievement(id);
-    const res =  await deleteAchievement(id);
+    const res =  await deleteActivity(id);
     setConfirmId(null);
   };
 
@@ -68,9 +68,9 @@ export default function AchievementsSearch({ achievements }: AchievementSearchPr
   return (
     <>
       <div className="h-full w-[90vw] max-w-5xl flex flex-col items-start justify-start z-1 pt-10 gap-2">
-        <h1 className="font-family-impact text-5xl start-left">Achievements</h1>
+        <h1 className="font-family-impact text-5xl start-left">Activities</h1>
         <SearchBar
-          items={achievements}
+          items={activities}
           width="400px"
           className="start-left"
           additionalElements={
