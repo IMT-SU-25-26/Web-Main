@@ -82,6 +82,7 @@ export default function AchievementsSearch({ achievements }: AchievementSearchPr
           }
         >
           {(filteredAchievements) => (
+            // this is the table inside search bar component
             <div className="rounded-2xl overflow-hidden start-left border-4 border-[#003772] bg-[#0555AB] w-full mt-5">
               <div className="overflow-x-auto thin-scroll">
                 <table className="w-full border-collapse table-fixed min-w-[600px]">

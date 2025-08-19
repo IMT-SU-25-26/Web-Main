@@ -41,10 +41,13 @@ export default function SearchBar<T extends SearchableItem>({
   };
 
 
-  return (
-    <div className="">
-      {/* Integrated Search Bar with your existing styling */}
-      <div className={` my-1 flex justify-center items-center gap-2 ${width || width!='' ? 'w-['+width+']' : ''} ${className? className : ''}`}>
+ return (
+    <div className={`w-full ${className ?? ""}`}>
+      {/* Search bar row */}
+      <div
+        className={`my-1 flex justify-center items-center gap-2`}
+        style={{ width }}
+      >
         <div className="relative w-full max-w-[260px] sm:max-w-sm md:max-w-md">
           <Image
             src="/logos/SearchIcon.webp"
@@ -63,7 +66,9 @@ export default function SearchBar<T extends SearchableItem>({
         </div>
         {additionalElements}
       </div>
-      {children(filteredItems)}
+
+      {/* Render children without restrictive wrapper */}
+      <div className="w-full overflow-x-auto">{children(filteredItems)}</div>
     </div>
   );
 }
