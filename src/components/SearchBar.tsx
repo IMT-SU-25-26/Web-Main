@@ -17,6 +17,7 @@ interface SearchSectionProps<T extends SearchableItem> {
   getSearchValue?: (item:T)=> string;
   width?: string;
   additionalElements?: React.ReactNode;
+  childrenOverflow?: boolean;
 }
 
 export default function SearchBar<T extends SearchableItem>({
@@ -27,6 +28,7 @@ export default function SearchBar<T extends SearchableItem>({
   getSearchValue = (item)=>item.title ?? "",
   width = "100%",
   additionalElements = null,
+  childrenOverflow = false,
 }: SearchSectionProps<T>) {
   const [search, setSearch] = useState("");
 
@@ -68,7 +70,7 @@ export default function SearchBar<T extends SearchableItem>({
       </div>
 
       {/* Render children without restrictive wrapper */}
-      <div className="w-full overflow-x-auto">{children(filteredItems)}</div>
+      <div className={`w-full ${childrenOverflow? "overflow-x-auto" : ""}`}>{children(filteredItems)}</div>
     </div>
   );
 }
