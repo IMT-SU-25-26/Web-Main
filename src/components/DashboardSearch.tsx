@@ -3,14 +3,13 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
-import { Achievement } from "@/types/achievement";
-import { deleteAchievement } from "@/lib/service/achievement";
 import { SearchableItem } from "@/types/dashboard";
 import gsap from "gsap";
+import { ActionResult } from "@/types/action";
 
 type ItemsSearchProps<T extends SearchableItem> = {
   items: T[];
-  deleteItem: (id: string) => Promise<void>;
+  deleteItem: (id: string) => Promise<ActionResult<void>>;
   label: string;
   urlForEdit:string;
 };
@@ -77,7 +76,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
           width="400px"
           className="start-left"
           additionalElements={
-            <Link href={"/dashboard/pr/create"}>
+            <Link href={urlForEdit+"/create"}>
               <button className="bg-[#E93400] cursor-pointer font-family-gill aspect-square w-10 text-2xl font-bold text-white rounded-full items-center align-middle">
                 +
               </button>
@@ -106,7 +105,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                           {item.id}
                         </td>
                         <td className="border-r-2 border-[#003772] px-4 py-2">
-                          {item.title}
+                          {item.title || item.name}
                         </td>
                         <td className="px-4 py-2 flex gap-4 justify-center">
                           <Link
@@ -115,7 +114,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                           >
                             <Image
                               src="/achievements/dashboard/pencil-logo.svg"
-                              alt="Edit Achievement"
+                              alt={"Edit "+label}
                               fill
                               className="object-contain py-[0.5rem]"
                             />
@@ -126,7 +125,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                           >
                             <Image
                               src="/achievements/dashboard/trash-logo.svg"
-                              alt="Delete Achievement"
+                              alt={`Delete `+ label}
                               fill
                               className="object-contain py-[0.5rem]"
                             />

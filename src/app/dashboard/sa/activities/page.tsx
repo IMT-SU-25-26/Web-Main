@@ -1,10 +1,9 @@
-import { getAchievements } from '@/lib/service/achievement'
 import React from 'react'
-import ActivitySearch from '@/components/activity/dashboard/ActivitiesSearch';
 import { getActivities } from '@/lib/service/activity';
 import DashboardBackground from '@/components/DashboardBackground';
-
-async function AchievementDashboard() {
+import DashboardSearch from '@/components/DashboardSearch';
+import { deleteActivity } from '@/lib/service/activity';
+async function ActivitiesDashboard() {
   const activities = await getActivities();
   return (
     <>   
@@ -14,11 +13,11 @@ async function AchievementDashboard() {
         <DashboardBackground />
 
         {/* Achievement search */}
-        <ActivitySearch activities={activities} />
+        <DashboardSearch items={activities} deleteItem={deleteActivity}  label='Activities' urlForEdit='/dashboard/sa/activities'/>
       </div>
     
     </>
   )
 }
 
-export default AchievementDashboard
+export default ActivitiesDashboard
