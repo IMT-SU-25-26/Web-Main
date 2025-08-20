@@ -1,5 +1,5 @@
-import DashboardBackground from '@/components/DashboardBackground'
-import DashboardSearch from '@/components/DashboardSearch'
+import DashboardBackground from '@/components/dashboard/DashboardBackground'
+import DashboardSearch from '@/components/dashboard/DashboardSearch'
 import { getCompetitions } from '@/lib/service/competition'
 import { deleteCompetition } from '@/lib/service/competition'
 import React from 'react'

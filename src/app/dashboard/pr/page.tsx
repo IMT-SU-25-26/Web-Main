@@ -1,7 +1,7 @@
 import { getAchievements } from '@/lib/service/achievement'
 import React from 'react'
-import DashboardSearch from '@/components/DashboardSearch';
-import DashboardBackground from '@/components/DashboardBackground';
+import DashboardSearch from '@/components/dashboard/DashboardSearch';
+import DashboardBackground from '@/components/dashboard/DashboardBackground';
 import { deleteAchievement } from '@/lib/service/achievement';
 
 async function AchievementDashboard() {

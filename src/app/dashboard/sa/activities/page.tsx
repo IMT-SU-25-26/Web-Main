@@ -1,7 +1,7 @@
 import React from 'react'
 import { getActivities } from '@/lib/service/activity';
-import DashboardBackground from '@/components/DashboardBackground';
-import DashboardSearch from '@/components/DashboardSearch';
+import DashboardBackground from '@/components/dashboard/DashboardBackground';
+import DashboardSearch from '@/components/dashboard/DashboardSearch';
 import { deleteActivity } from '@/lib/service/activity';
 import { SideNavSupport } from '@/types/dashboard'
 
