@@ -17,10 +17,9 @@ type SALayoutDashboardProps = {
 };
 
 const SideNavCtx = createContext<{ handleSideNav: () => void } | null>(null);
-export const useSideNav = () => {
-  const v = useContext(SideNavCtx);
-  if (!v) throw new Error("useSideNav must be used under SideNavCtx.Provider");
-  return v;
+
+export const useOptionalSideNav = () => {
+  return useContext(SideNavCtx); // could be null if no provider
 };
 
 export default function SALayoutDashboard({ children }: SALayoutDashboardProps) {

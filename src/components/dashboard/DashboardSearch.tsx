@@ -6,21 +6,22 @@ import SearchBar from "@/components/SearchBar";
 import { SearchableItem } from "@/types/dashboard";
 import gsap from "gsap";
 import { ActionResult } from "@/types/action";
-import { useSideNav } from "@/app/dashboard/sa/layout";
+import { useOptionalSideNav } from "@/app/dashboard/sa/layout";
 
 type ItemsSearchProps<T extends SearchableItem> = {
   items: T[];
   deleteItem: (id: string) => Promise<ActionResult<void>>;
   label: string;
   urlForEdit:string;
+  additionalElements?: React.ReactNode;
 };
 
 
-export default function ItemsSearch<T extends SearchableItem>({ items, deleteItem, label, urlForEdit }: ItemsSearchProps<T>) {
+export default function ItemsSearch<T extends SearchableItem>({ items, deleteItem, label, urlForEdit, additionalElements }: ItemsSearchProps<T>) {
   const [confirmId, setConfirmId] = useState<string | null>(null);
 
-  const { handleSideNav } = useSideNav();
-  console.log(handleSideNav);
+  const sideNav = useOptionalSideNav();
+  console.log("sideNav", sideNav);
 
   const handleDelete = async (id: string) => {
     const res =  await deleteItem(id);
@@ -74,15 +75,17 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
   return (
     <>
       <div className="h-full w-[90vw] max-w-5xl flex flex-col items-start justify-start z-1 pt-10 gap-2">
-        <h1 className={`font-family-impact text-5xl start-left cursor-pointer xl:cursor-default`} onClick={handleSideNav} >
+        <h1 className={`font-family-impact text-5xl start-left cursor-pointer xl:cursor-default`} onClick={sideNav?.handleSideNav} >
           {label}
-          <Image
-            src="/dashboard/block-right-arrow.svg"
-            alt="Menu Side Nav"
-            width={18}
-            height={18}
-            className="inline-block ml-3 cursor-pointer xl:hidden"
-          />
+          {sideNav != null && (
+            <Image
+              src="/dashboard/block-right-arrow.svg"
+              alt="Menu Side Nav"
+              width={18}
+              height={18}
+              className="inline-block ml-3 cursor-pointer xl:hidden"
+            />
+          )}
 
         </h1>
         <SearchBar<T>
@@ -90,11 +93,15 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
           width="400px"
           className="start-left"
           additionalElements={
-            <Link href={urlForEdit+"/create"}>
-              <button className="bg-[#E93400] cursor-pointer font-family-gill aspect-square w-10 text-2xl font-bold text-white rounded-full items-center align-middle">
-                +
-              </button>
-            </Link>
+            <>
+              <Link href={urlForEdit+"/create"}>
+                <button className="bg-[#E93400] cursor-pointer font-family-gill aspect-square w-10 text-2xl font-bold text-white rounded-full items-center align-middle">
+                  +
+                </button>
+              </Link>
+              {additionalElements}
+            </>
+
           }
         >
           {(filteredItems) => (
