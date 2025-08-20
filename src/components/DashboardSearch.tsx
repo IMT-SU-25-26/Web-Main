@@ -6,6 +6,7 @@ import SearchBar from "@/components/SearchBar";
 import { SearchableItem } from "@/types/dashboard";
 import gsap from "gsap";
 import { ActionResult } from "@/types/action";
+import { useSideNav } from "@/app/dashboard/sa/layout";
 
 type ItemsSearchProps<T extends SearchableItem> = {
   items: T[];
@@ -17,6 +18,9 @@ type ItemsSearchProps<T extends SearchableItem> = {
 
 export default function ItemsSearch<T extends SearchableItem>({ items, deleteItem, label, urlForEdit }: ItemsSearchProps<T>) {
   const [confirmId, setConfirmId] = useState<string | null>(null);
+
+  const { handleSideNav } = useSideNav();
+  console.log(handleSideNav);
 
   const handleDelete = async (id: string) => {
     const res =  await deleteItem(id);
@@ -70,7 +74,17 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
   return (
     <>
       <div className="h-full w-[90vw] max-w-5xl flex flex-col items-start justify-start z-1 pt-10 gap-2">
-        <h1 className="font-family-impact text-5xl start-left">{label}</h1>
+        <h1 className={`font-family-impact text-5xl start-left cursor-pointer xl:cursor-default`} onClick={handleSideNav} >
+          {label}
+          <Image
+            src="/dashboard/block-right-arrow.svg"
+            alt="Menu Side Nav"
+            width={18}
+            height={18}
+            className="inline-block ml-3 cursor-pointer xl:hidden"
+          />
+
+        </h1>
         <SearchBar<T>
           items={items}
           width="400px"

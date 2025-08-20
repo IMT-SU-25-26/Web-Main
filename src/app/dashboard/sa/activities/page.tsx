@@ -3,7 +3,14 @@ import { getActivities } from '@/lib/service/activity';
 import DashboardBackground from '@/components/DashboardBackground';
 import DashboardSearch from '@/components/DashboardSearch';
 import { deleteActivity } from '@/lib/service/activity';
-async function ActivitiesDashboard() {
+import { SideNavSupport } from '@/types/dashboard'
+
+export const metadata = {
+  title: 'Activities',
+  description: 'Activities Dashboard',
+}
+
+async function ActivitiesDashboard({handleSideNav} : SideNavSupport) {
   const activities = await getActivities();
   return (
     <>   

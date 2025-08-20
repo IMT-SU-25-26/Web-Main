@@ -3,3 +3,7 @@ export interface SearchableItem {
   title?: string;
   name?:string;
 }
+
+export interface SideNavSupport{
+  handleSideNav?: () => void;
+}
