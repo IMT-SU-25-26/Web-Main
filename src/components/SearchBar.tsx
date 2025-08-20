@@ -4,48 +4,70 @@ import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { SearchableItem } from "@/types/dashboard";
 
-interface SearchSectionProps<T extends SearchableItem> {
+interface CategoryFilter extends SearchableItem<number> {
+  id: number;
+  name: string;
+}
+
+interface SearchSectionProps<T, C extends CategoryFilter> {
   items: T[];
+  categories?: C[];
   children: (filteredItems: T[]) => React.ReactNode;
   className?: string;
   placeholder?: string;
-  getSearchValue?: (item:T)=> string;
+  getSearchValue?: (item: T) => string;
+  getItemCategoryId?: (item: T) => string | number;
   width?: string;
   additionalElements?: React.ReactNode;
   childrenOverflow?: boolean;
   isCentered?: boolean;
 }
 
-export default function SearchBar<T extends SearchableItem>({
+export default function SearchBar<T, C extends CategoryFilter>({
   items,
+  categories,
   children,
   className,
   placeholder = "Search Here...",
-  getSearchValue = (item)=>item.title ?? "",
+  getSearchValue = (item) => (item as any).title ?? "",
+  getItemCategoryId = (item) => (item as any).categoryId,
   width = "100%",
   additionalElements = null,
   childrenOverflow = false,
   isCentered = false,
-}: SearchSectionProps<T>) {
+}: SearchSectionProps<T, C>) {
   const [search, setSearch] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState<(string | number)[]>([]);
 
-  const filteredItems = useMemo(() => {
-    return items.filter(item =>
-      getSearchValue(item).toLowerCase().includes(search.toLowerCase())
+  // handle category toggle
+  const toggleCategory = (categoryId: string | number) => {
+    setSelectedCategories((prev) =>
+      prev.includes(categoryId)
+        ? prev.filter((id) => id !== categoryId)
+        : [...prev, categoryId]
     );
-  }, [items, search, getSearchValue]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
   };
 
+  // filter items
+  const filteredItems = useMemo(() => {
+    return items.filter((item) => {
+      const matchesSearch = getSearchValue(item)
+        .toLowerCase()
+        .includes(search.toLowerCase());
 
- return (
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.includes(getItemCategoryId(item));
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [items, search, selectedCategories, getSearchValue, getItemCategoryId]);
+
+  return (
     <div className={`w-full ${className ?? ""}`}>
-      {/* Search bar row */}
+      {/* Search bar */}
       <div
-        className={`my-1 ${isCentered? "m-auto" : ""} flex justify-center items-center gap-2 w-[300px] md:w-[400px]`}
-        // style={{ width }}
+        className={`my-1 ${isCentered ? "m-auto" : ""} flex justify-center items-center gap-2 w-[300px] md:w-[400px]`}
       >
         <div className="relative w-full max-w-[260px] sm:max-w-sm md:max-w-md">
           <Image
@@ -58,7 +80,7 @@ export default function SearchBar<T extends SearchableItem>({
           <input
             type="text"
             value={search}
-            onChange={handleInputChange}
+            onChange={(e) => setSearch(e.target.value)}
             placeholder={placeholder}
             className="w-full pl-10 pr-4 py-2 border-[2.5px] border-[#FF4712] rounded-full bg-white focus:outline-none placeholder-gray-400 text-sm"
           />
@@ -66,8 +88,33 @@ export default function SearchBar<T extends SearchableItem>({
         {additionalElements}
       </div>
 
-      {/* Render children without restrictive wrapper */}
-      <div className={`w-full ${childrenOverflow? "overflow-x-auto" : ""}`}>{children(filteredItems)}</div>
+      {/* Category filter buttons */}
+      {categories  && (
+          <div className="flex flex-wrap gap-2 justify-center my-2">
+            {categories.map((cat) => {
+              const isActive = selectedCategories.includes(cat.id);
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => toggleCategory(cat.id)}
+                  className={`px-3 py-1 rounded-full border transition ${
+                    isActive
+                      ? "bg-[#FF4712] text-white border-[#FF4712]"
+                      : "bg-white text-black border-[#FF4712] hover:bg-gray-100"
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              );
+            })}
+          </div>
+        )
+      }
+
+      {/* Render children */}
+      <div className={`w-full ${childrenOverflow ? "overflow-x-auto" : ""}`}>
+        {children(filteredItems)}
+      </div>
     </div>
   );
 }

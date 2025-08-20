@@ -80,6 +80,20 @@ export async function createApplication(
   activityId: string
 ): Promise<ActionResult<Application>> {
   try {
+    // Step 1: check existing applications
+    const existingApplications = await getApplicationsByUserId(userId);
+    const alreadyApplied = existingApplications.some(
+      (app) => app.activityId === activityId
+    );
+
+    if (alreadyApplied) {
+      return {
+        success: false,
+        error: "You have already applied for this activity.",
+      };
+    }
+
+    // Step 2: validate data
     const rawData = {
       userId,
       activityId,
@@ -100,6 +114,7 @@ export async function createApplication(
 
     const validatedData = validationResult.data;
 
+    // Step 3: create application
     const application = await prisma.application.create({
       data: {
         userId: validatedData.userId,
@@ -125,6 +140,7 @@ export async function createApplication(
   }
 }
 
+
 export async function deleteApplication(
   id: string
 ): Promise<ActionResult<Application>> {
@@ -149,3 +165,4 @@ export async function deleteApplication(
     };
   }
 }
+

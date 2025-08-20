@@ -21,17 +21,32 @@ async function ActivitiesDashboard() {
 
         {/* Achievement search */}
         <DashboardSearch items={activities} deleteItem={deleteActivity}  label='Activities' urlForEdit='/dashboard/sa/activities' additionalElements={
-          <Link href="/dashboard/sa/activities/approval">
-            <button className='rounded-full h-full w-10 flex items-center justify-center aspect-square text-white bg-[#003772]'>
-              <Image
-                width={22}
-                height={22}
-                alt="Add Activity"
-                src="/dashboard/approval-logo.svg"
-                className="text-white object-contain"
-              />
-            </button>
-          </Link>
+          <>
+            <Link href="/dashboard/sa/activities/approval">
+              {/* Nav Button for Approval Page */}
+              <button className='rounded-full h-full w-10 flex items-center justify-center aspect-square text-white bg-[#003772] cursor-pointer'>
+                <Image
+                  width={22}
+                  height={22}
+                  alt="Add Activity"
+                  src="/dashboard/approval-logo.svg"
+                  className="text-white object-contain"
+                />
+              </button>
+            </Link>
+
+            <Link href="/dashboard/sa/activities/categories">
+              <button className='rounded-full h-full w-10 flex items-center justify-center aspect-square text-white bg-[#003772] cursor-pointer'>
+                <Image
+                  width={22}
+                  height={22}
+                  alt="Add Activity"
+                  src="/dashboard/label-logo.svg"
+                  className="text-white object-contain"
+                />
+              </button>
+            </Link>
+          </>
         }/>
       </div>
     

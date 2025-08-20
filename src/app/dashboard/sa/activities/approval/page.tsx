@@ -165,14 +165,6 @@ export default function App() {
           <div
             ref={containerRef}
             className="overflow-x-auto transition-all duration-300"
-            style={{
-              height:
-                openMenuId && baseHeight !== null
-                  ? openMenuId
-                    ? baseHeight + baseHeight*3.5 /* 10rem = 160px */
-                    : baseHeight
-                  : undefined,
-            }}
           >
               {loading ? (
                 <div className="p-6 text-center text-gray-500">Loading...</div>

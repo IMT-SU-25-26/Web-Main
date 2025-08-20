@@ -1,6 +1,5 @@
 import z from "zod";
 import { FormProps } from "./action";
-import { CategoryActivity } from "@prisma/client";
 
 export interface Activity {
   id: string;
@@ -12,7 +11,7 @@ export interface Activity {
   imagePublicId: string | null;
   createdAt: Date;
   updatedAt: Date;
-  category: CategoryActivity;
+  categoryId: number;
 }
 
 export interface ActivityData {
@@ -55,6 +54,11 @@ export const ActivitySchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || null),
+
+  // disini harusnya ada pengecekan categoryId terdaftar atau ngga
+  categoryId: z
+    .number()
+    .int("Category id must be a number")
 });
 
 export type ActivityInput = z.infer<typeof ActivitySchema>;

@@ -3,15 +3,17 @@ import React, { useState } from 'react'
 import ActivityBackground from './ActivityBackground'
 import ActivitiesSearch from './ActivitiesSearch'
 import { Activity } from '@prisma/client';
+import { CategoryActivity } from '@prisma/client'
 
 type ClientPageActivitiesProps = {
     activities: Activity[];
+    categoryActivities: CategoryActivity[];
 }
 
-function ClientPageActivities({activities }: ClientPageActivitiesProps) {
+function ClientPageActivities({activities, categoryActivities }: ClientPageActivitiesProps) {
   const [showConfirm, setShowConfirm] = useState(false);
   const [pendingAction, setPendingAction] = useState<(() => Promise<void>) | null>(null);
-
+  
   const confirmApply = (onConfirm: () => Promise<void>) => {
     setShowConfirm(true);
     setPendingAction(() => onConfirm); // store async function
@@ -36,7 +38,7 @@ function ClientPageActivities({activities }: ClientPageActivitiesProps) {
       {/* Background Container */}
       <div className="select-none relative overflow-hidden flex flex-col items-center justify-center min-h-[90vh] pt-0 w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6]">
         <ActivityBackground />
-        <ActivitiesSearch activities={activities} confirmApply={confirmApply} />
+        <ActivitiesSearch activities={activities} confirmApply={confirmApply} categoryActivities={categoryActivities} />
       </div>
 
       {/* Confirmation Popup */}

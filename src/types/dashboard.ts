@@ -1,5 +1,5 @@
-export interface SearchableItem {
-  id: string;
+export interface SearchableItem<T = string> {
+  id: T;
   title?: string;
   name?:string;
 }
