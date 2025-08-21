@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createActivity, updateActivity } from "@/lib/service/activity";
-import { ActivityFormProps } from "@/types/activity";
+import { ActivityFormProps } from "@/types/service/activity";
 import { UploadWidget } from "../utils/UploadWidget";
 import Image from "next/image";
 

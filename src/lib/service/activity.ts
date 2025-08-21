@@ -3,7 +3,7 @@
 import prisma from "../prisma";
 import { revalidatePath } from "next/cache";
 import { ActionResult } from "@/types/action";
-import { Activity, ActivityData, ActivitySchema } from "@/types/activity";
+import { Activity, ActivityData, ActivitySchema } from "@/types/service/activity";
 import { Category } from "@prisma/client";
 
 export async function getActivities(): Promise<Activity[]> {
@@ -52,7 +52,7 @@ export async function createActivity(
       data: validatedData,
     });
 
-    revalidatePath("/dashboard/sa");
+    revalidatePath("/dashboard/sa/activities");
     revalidatePath("/activities");
 
     return {
@@ -105,7 +105,7 @@ export async function updateActivity(
       data: validatedData,
     });
 
-    revalidatePath("/dashboard/sa");
+    revalidatePath("/dashboard/sa/activities");
     revalidatePath("/activities");
 
     return {
@@ -128,7 +128,7 @@ export async function deleteActivity(id: string) {
       where: { id },
     });
 
-    revalidatePath("/dashboard/sa");
+    revalidatePath("/dashboard/sa/activities");
     revalidatePath("/activities");
 
     return {

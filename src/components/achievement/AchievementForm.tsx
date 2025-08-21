@@ -126,7 +126,7 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
             required
             maxLength={100}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Enter activity title"
+            placeholder="Enter achievement title"
           />
         </div>
 
@@ -145,7 +145,7 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
             required
             maxLength={100}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Enter achievement Team Info"
+            placeholder="Enter achievement team info"
           />
         </div>
 
@@ -165,7 +165,7 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
             maxLength={500}
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
-            placeholder="Enter activity description"
+            placeholder="Enter achievement description"
           />
         </div>
 
