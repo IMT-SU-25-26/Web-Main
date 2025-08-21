@@ -7,7 +7,7 @@ import { getUserById } from '@/lib/service/user';
 import { getActivityById } from '@/lib/service/activity';
 import { getApplications, setStatusApplication, getAmountApprovedApplication, deleteApplication } from '@/lib/service/application';
 import { Status } from "@prisma/client";
-import { useOptionalSideNav } from '@/app/dashboard/sa/layout';
+import { useOptionalSideNav } from '@/lib/contexts/SANavContext';
 import gsap from "gsap";
 
 // Applicant interface now represents fully merged data from Application, User, Activity
@@ -212,7 +212,7 @@ export default function ApplicationsPage() {
                     <table className="w-full border-collapse table-fixed min-w-[800px]">
                       <thead className="bg-[#0555AB] text-white">
                         <tr className="border-b-2 border-[#003772]">
-                          <th className="w-2/8 border-r-2 border-[#003772] px-4 py-2">
+                          <th className="w-3/8 border-r-2 border-[#003772] px-4 py-2">
                             Applicant
                           </th>
                           <th className="w-2/8 border-r-2 border-[#003772] px-4 py-2">
@@ -221,7 +221,7 @@ export default function ApplicationsPage() {
                           <th className="w-1/8 border-r-2 border-[#003772] px-4 py-2">
                             Status
                           </th>
-                          <th className="w-3/8 px-4 py-2">Actions</th>
+                          <th className="w-2/8 px-4 py-2">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -250,7 +250,7 @@ export default function ApplicationsPage() {
                             </td>
                             <td className="border-r-2 border-[#003772] px-4 py-2 text-center">
                               <span
-                                className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${getStatusColor(
+                                className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(
                                   applicant.status
                                 )}`}
                               >

@@ -2,26 +2,21 @@
 
 import React, {
   useState,
-  createContext,
-  useContext,
   useEffect,
   useRef,
 } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SideNavProvider } from "@/lib/contexts/SANavContext";
 
 type SALayoutDashboardProps = {
   children: React.ReactElement; // accept any child component
 };
 
-const SideNavCtx = createContext<{ handleSideNav: () => void } | null>(null);
-
-export const useOptionalSideNav = () => {
-  return useContext(SideNavCtx); // could be null if no provider
-};
-
-export default function SALayoutDashboard({ children }: SALayoutDashboardProps) {
+export default function SALayoutDashboard({
+  children,
+}: SALayoutDashboardProps) {
   const pathname = usePathname();
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
   const sideNavRef = useRef<HTMLDivElement | null>(null);
@@ -59,9 +54,7 @@ export default function SALayoutDashboard({ children }: SALayoutDashboardProps) 
         {/* menu SA */}
         <div
           ref={sideNavRef}
-          className={`absolute top-0 ${
-            isSideNavOpen ? "left-0" : "-left-full"
-          } 
+          className={`absolute top-0 ${isSideNavOpen ? "left-0" : "-left-full"} 
             transition-all duration-300 ease-in-out xl:static xl:block h-[93.5vh] w-[20vw] min-w-[15rem] bg-white z-10`}
         >
           <Image
@@ -147,9 +140,9 @@ export default function SALayoutDashboard({ children }: SALayoutDashboardProps) 
         </div>
 
         {/* clone child and inject handleSideNav */}
-        <SideNavCtx.Provider value={{ handleSideNav }}>
+        <SideNavProvider value={{ handleSideNav }}>
           {children}
-        </SideNavCtx.Provider>
+        </SideNavProvider>
       </div>
     </>
   );

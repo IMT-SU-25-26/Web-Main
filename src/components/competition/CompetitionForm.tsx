@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createCompetition, updateCompetition } from "@/lib/service/competition";
-import { CompetitionFormProps } from "@/types/competition";
+import { CompetitionFormProps } from "@/types/service/competition";
 import { UploadWidget } from "../utils/UploadWidget";
 import Image from "next/image";
 

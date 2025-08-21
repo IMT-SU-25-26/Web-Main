@@ -1,6 +1,6 @@
 import z from "zod";
 import { Status } from "@prisma/client";
-import { FormProps } from "./action";
+import { FormProps } from "../action";
 
 export interface Application {
   id: string;

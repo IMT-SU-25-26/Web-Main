@@ -6,7 +6,7 @@ import SearchBar from "@/components/SearchBar";
 import { SearchableItem } from "@/types/dashboard";
 import gsap from "gsap";
 import { ActionResult } from "@/types/action";
-import { useOptionalSideNav } from "@/app/dashboard/sa/layout";
+import { useOptionalSideNav } from "@/lib/contexts/SANavContext";
 
 type ItemsSearchProps<T extends SearchableItem> = {
   items: T[];

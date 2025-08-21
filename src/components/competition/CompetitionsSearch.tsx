@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { CompetitionCard } from "@/components/competition/CompetitionCard";
 import SearchBar from "@/components/SearchBar";
-import { Competition } from "@/types/competition";
+import { Competition } from "@/types/service/competition";
 import gsap from "gsap";
 
 interface CompetitionsSearchProps {

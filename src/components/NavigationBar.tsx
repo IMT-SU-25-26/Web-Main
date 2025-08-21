@@ -167,10 +167,14 @@ export default function NavigationBar() {
             >
               <div className="profile-image rounded-full w-10 h-10 flex items-center justify-center hover:ring-2 hover:ring-blue-300 transition-all">
                 {isLoggedIn ? (
-                  <div className="w-full h-full bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                    {session.user?.name?.charAt(0).toUpperCase() ||
-                      session.user?.email?.charAt(0).toUpperCase() ||
-                      "U"}
+                  <div className="w-full h-full rounded-full flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={session.user?.image || "/placeholder/person.png"}
+                      width={40}
+                      height={40}
+                      alt="Profile Avatar"
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
                 ) : (
                   <div className="w-full h-full rounded-full flex items-center justify-center overflow-hidden">

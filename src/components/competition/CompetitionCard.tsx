@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 // import Button from "../Button";
-import { Competition } from "@/types/competition";
+import { Competition } from "@/types/service/competition";
 import Link from "next/link";
 import ApplyButton from "../utils/ApplyButton";
 import { useState } from "react";
