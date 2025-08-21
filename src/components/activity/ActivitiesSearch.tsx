@@ -3,17 +3,22 @@
 import React, { useEffect } from "react";
 import { ActivityCard } from "@/components/activity/ActivityCard";
 import SearchBar from "@/components/SearchBar";
-import { Activity } from "@/types/activity";
-import { CategoryActivity } from '@prisma/client';
+import { Activity, Category } from "@prisma/client";
 import gsap from "gsap";
 
 interface ActivitiesSearchProps {
   activities: Activity[];
-  categoryActivities: CategoryActivity[];
+  categories: Category[];
   confirmApply?: (onConfirm: () => Promise<void>) => void;
 }
 
-export default function ActivitiesSearch({ activities, confirmApply, categoryActivities }: ActivitiesSearchProps) {
+export default function ActivitiesSearch({ activities, confirmApply, categories }: ActivitiesSearchProps) {
+
+  // Transform enum categories to CategoryFilter format
+  const categoryFilters = categories.map((category, index) => ({
+    id: index,
+    name: category,
+  }));
 
   // Animate all left-starting cards
   useEffect(() => {    
@@ -35,7 +40,13 @@ export default function ActivitiesSearch({ activities, confirmApply, categoryAct
 
   return (
     <div className="z-10 w-full px-4 md:px-8 lg:px-32">
-      <SearchBar items={activities} className="start-bottom" isCentered={true} categories={categoryActivities} getItemCategoryId={(item)=>(item.categoryId)}>
+      <SearchBar 
+        items={activities} 
+        className="start-bottom" 
+        isCentered={true} 
+        categories={categoryFilters} 
+        getItemCategoryId={(item) => categories.indexOf(item.category)}
+      >
         {(filteredActivities) => (
           <section className="p-2 z-10 mb-10">
             <div className="flex flex-wrap justify-center gap-4 px-0">
@@ -45,7 +56,7 @@ export default function ActivitiesSearch({ activities, confirmApply, categoryAct
                     activity={activity}
                     index={index}
                     confirmApply={confirmApply}
-                    category={categoryActivities?.find(c => c.id === activity.categoryId)?.name ?? 'undefined'}
+                    category={activity.category}
                   />
                 </div>
               ))}

@@ -1,6 +1,6 @@
 import z from "zod";
 import { Category } from "@prisma/client";
-import { FormProps } from "./action";
+import { FormProps } from "../action";
 
 export interface Activity {
   id: string;
@@ -85,5 +85,3 @@ export type ActivityInput = z.infer<typeof ActivitySchema>;
 export interface ActivityFormProps extends FormProps<Activity> {
   categories: Category[];
 }
-
-export type ActivityFormProps_Old = FormProps<Activity>;

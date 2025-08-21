@@ -3,7 +3,11 @@
 import prisma from "../prisma";
 import { revalidatePath } from "next/cache";
 import { ActionResult } from "@/types/action";
-import { Competition, CompetitionData, CompetitionSchema } from "@/types/competition";
+import {
+  Competition,
+  CompetitionData,
+  CompetitionSchema,
+} from "@/types/service/competition";
 
 export async function getCompetitions(): Promise<Competition[]> {
   return await prisma.competition.findMany({
@@ -11,7 +15,9 @@ export async function getCompetitions(): Promise<Competition[]> {
   });
 }
 
-export async function getCompetitionById(id: string): Promise<Competition | null> {
+export async function getCompetitionById(
+  id: string
+): Promise<Competition | null> {
   return await prisma.competition.findUnique({
     where: { id },
   });
@@ -111,7 +117,9 @@ export async function updateCompetition(
   }
 }
 
-export async function deleteCompetition(id: string): Promise<ActionResult<void>> {
+export async function deleteCompetition(
+  id: string
+): Promise<ActionResult<void>> {
   try {
     await prisma.competition.delete({
       where: { id },

@@ -4,6 +4,7 @@ import prisma from "../prisma";
 import { revalidatePath } from "next/cache";
 import { ActionResult } from "@/types/action";
 import { Activity, ActivityData, ActivitySchema } from "@/types/activity";
+import { Category } from "@prisma/client";
 
 export async function getActivities(): Promise<Activity[]> {
   return await prisma.activity.findMany({
@@ -25,10 +26,12 @@ export async function createActivity(
       title: formData.get("title") as string,
       description: formData.get("description") as string,
       location: formData.get("location") as string,
+      startDate: new Date(formData.get("startDate") as string),
+      creditPoint: parseInt(formData.get("creditPoint") as string, 10) || 0,
       quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
-      categoryId: parseInt(formData.get("categoryActivity") as string, 10) || 0,
+      category: formData.get("category") as Category,
     };
 
     const validationResult = ActivitySchema.safeParse(rawData);
@@ -75,10 +78,12 @@ export async function updateActivity(
       title: formData.get("title") as string,
       description: formData.get("description") as string,
       location: formData.get("location") as string,
+      startDate: new Date(formData.get("startDate") as string),
+      creditPoint: parseInt(formData.get("creditPoint") as string, 10) || 0,
       quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
       imagePublicId: formData.get("imagePublicId") as string,
-      categoryId: parseInt(formData.get("categoryActivity") as string, 10) || 0,
+      category: formData.get("category") as Category,
     };
 
     const validationResult = ActivitySchema.safeParse(rawData);
@@ -133,5 +138,20 @@ export async function deleteActivity(id: string) {
   } catch (error) {
     console.error("Failed to delete activity:", error);
     throw new Error("Failed to delete activity. Please try again.");
+  }
+}
+
+export async function getApprovedApplicationsCount(activityId: string): Promise<number> {
+  try {
+    const count = await prisma.application.count({
+      where: {
+        activityId: activityId,
+        status: "APPROVED",
+      },
+    });
+    return count;
+  } catch (error) {
+    console.error("Failed to get approved applications count:", error);
+    return 0;
   }
 }

@@ -1,5 +1,3 @@
-import CategoryActivity from '@prisma/client'
-
 export interface ActionResult<T> {
   success: boolean;
   data?: T;

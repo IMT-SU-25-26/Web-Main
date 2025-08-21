@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AchievementCardProps } from "@/types/achievement";
+import { AchievementCardProps } from "@/types/service/achievement";
 import ClientDate from "@/components/utils/ClientDate";
 
 const colorMap = {
@@ -44,7 +44,13 @@ export function AchievementFeatured ({title, description, borderColor, id, image
           <div className="relative left-1/2 -translate-x-[52%] md:translate-x-0 md:left-0 z-10 my-2  w-[75vw] md:w-[90vw]  md:max-w-5xl mx-auto px-4 pb-18 md:p-0 ml-[50px] md:px-6 lg:px-8 flex flex-col md:flex-row md:items-center gap-4">
             {/* Image */}
             <div className="relative md:ml-[10p] left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 w-[230px] sm:w-[280px] md:w-[180px] h-[210px] md:h-[120px] bg-gray-300">
-              <Image src={imageUrl||''} alt={title} fill className="object-cover" />
+              {imageUrl ? (
+                <Image src={imageUrl} alt={title} fill className="object-cover" />
+              ) : (
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                  <span className="text-gray-400 text-sm">No Image</span>
+                </div>
+              )}
               <div className={`absolute bottom-0 left-0 w-full h-[8px] ${colorMap[borderColor]} shadow-sm`} />
             </div>
 

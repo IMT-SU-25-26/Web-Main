@@ -1,6 +1,6 @@
 import { getActivities } from "@/lib/service/activity";
 import ClientPageActivities from "@/components/activity/ClientPage";
-import { getCategoriesActivity } from '@/lib/service/categoryActivity';
+import { Category } from "@prisma/client";
 
 export const metadata = {
   title: "Activities",
@@ -8,11 +8,14 @@ export const metadata = {
 
 export default async function ActivityPage() {
   const activities = await getActivities();
-  const categoryActivities = await getCategoriesActivity();
+  const categories = Object.values(Category);
 
-    return (
-        <>
-            <ClientPageActivities activities={activities} categoryActivities={categoryActivities} />
-        </>
-    );
+  return (
+    <>
+      <ClientPageActivities
+        activities={activities}
+        categories={categories}
+      />
+    </>
+  );
 }

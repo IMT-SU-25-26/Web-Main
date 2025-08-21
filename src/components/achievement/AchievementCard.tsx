@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AchievementCardProps } from "@/types/achievement";
+import { AchievementCardProps } from "@/types/service/achievement";
 
 const colorMap = {
   blue: "bg-[#0555AB]",

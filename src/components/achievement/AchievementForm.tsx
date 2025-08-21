@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createAchievement, updateAchievement } from "@/lib/service/achievement";
-import { AchievementFormProps } from "@/types/achievement";
+import { AchievementFormProps } from "@/types/service/achievement";
 import { UploadWidget } from "../utils/UploadWidget";
 
 export default function AchievementForm({ mode, data }: AchievementFormProps) {

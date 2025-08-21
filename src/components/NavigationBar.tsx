@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -126,12 +127,6 @@ export default function NavigationBar() {
           About
         </Link>
         <Link
-          className="cursor-pointer hover:underline hover:text-slate-500"
-          href="/competitions"
-        >
-          Competitions
-        </Link>
-        <Link
           className="cursor-pointer hover:underline hover:text-red-500"
           href="/events"
         >
@@ -148,6 +143,12 @@ export default function NavigationBar() {
           href="/activities"
         >
           Activities
+        </Link>
+        <Link
+          className="cursor-pointer hover:underline hover:text-slate-500"
+          href="/competitions"
+        >
+          Competitions
         </Link>
         <Link
           className="cursor-pointer hover:underline hover:text-purple-500"
@@ -278,7 +279,6 @@ export default function NavigationBar() {
             ref={mobileMenuRef}
             className="w-[35%] bg-[#E5603A] p-2 flex flex-col gap-2 will-change-transform shadow-[-8px_0_12px_-4px_rgba(0,0,0,0.25)]"
           >
-            
             <div ref={mobileLinksRef} className="flex flex-col gap-2">
               {isLoggedIn && (
                 <div>
@@ -356,14 +356,6 @@ export default function NavigationBar() {
               </Link>
 
               <Link
-                className="text-white text-center w-full py-2 hover:text-slate-500 text-md border-b-white/60 border-b-1 will-change-transform"
-                href="/competitions"
-                onClick={() => handleMobileMenuToggle()}
-              >
-                Competitions
-              </Link>
-
-              <Link
                 className="text-white text-center w-full py-2 hover:text-red-500 text-md border-b-white/60 border-b-1 will-change-transform"
                 href="/events"
                 onClick={() => handleMobileMenuToggle()}
@@ -376,13 +368,6 @@ export default function NavigationBar() {
                 href="/achievements"
                 onClick={() => handleMobileMenuToggle()}
               >
-                {/* <Image
-                  src={"/about/ArrowKiri.svg"}
-                  className="w-3 h-auto"
-                  alt="arrow left"
-                  width={100}
-                  height={100}
-                /> */}
                 Achievements
               </Link>
 
@@ -392,6 +377,14 @@ export default function NavigationBar() {
                 onClick={() => handleMobileMenuToggle()}
               >
                 Activities
+              </Link>
+
+              <Link
+                className="text-white text-center w-full py-2 hover:text-slate-500 text-md border-b-white/60 border-b-1 will-change-transform"
+                href="/competitions"
+                onClick={() => handleMobileMenuToggle()}
+              >
+                Competitions
               </Link>
 
               <Link

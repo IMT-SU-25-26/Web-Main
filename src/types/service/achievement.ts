@@ -1,5 +1,5 @@
 import z from "zod";
-import { FormProps } from "./action";
+import { FormProps } from "../action";
 
 export interface Achievement {
   id: string;

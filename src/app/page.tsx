@@ -1,22 +1,23 @@
 "use client";
-import Image from "next/image";
-import "@/styles/home.css";
+
 import Link from "next/link";
-import HomeServicesCard from "@/components/HomeServicesCard";
-import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HomeServicesCard from "@/components/HomeServicesCard";
+import "@/styles/home.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useGSAP(() => {
-    // Hero section animations
+    // Hero Section Animations
     const heroElements = [
       ".red-bubble",
       ".yellow-bubble",
       ".front-bubble",
-      ".stars-left",  
+      ".stars-left",
       ".stars-right",
       ".welcome",
       ".demon-cat",
@@ -34,7 +35,7 @@ export default function Home() {
       ".crown",
     ];
 
-    // Animate hero elements on load
+    // Animate Hero Elements On Load
     gsap.fromTo(
       heroElements,
       {
@@ -53,7 +54,7 @@ export default function Home() {
       }
     );
 
-     gsap.fromTo(
+    gsap.fromTo(
       heroProps,
       {
         opacity: 0,
@@ -71,7 +72,7 @@ export default function Home() {
       }
     );
 
-    // Student Union section scroll animation
+    // Student Union Section Scroll Animation
     gsap.fromTo(
       ".what-is-su-imt-text",
       {
@@ -134,7 +135,7 @@ export default function Home() {
       }
     );
 
-    // Competition section animations
+    // Competition Section Animations
     gsap.fromTo(
       ".competition-text",
       {
@@ -154,7 +155,7 @@ export default function Home() {
       }
     );
 
-    // Competition cards animation
+    // Competition Cards Animation
     gsap.fromTo(
       ".competition-left-container",
       {
@@ -194,7 +195,7 @@ export default function Home() {
       }
     );
 
-    // Services section animations
+    // Services Section Animations
     gsap.fromTo(
       ".explore-text",
       {
@@ -215,9 +216,13 @@ export default function Home() {
       }
     );
 
-    // Service cards with staggered animation
+    // Service Cards with Staggered Animation
     gsap.fromTo(
-      [".home-service-card-left", ".home-service-card-center", ".home-service-card-right"],
+      [
+        ".home-service-card-left",
+        ".home-service-card-center",
+        ".home-service-card-right",
+      ],
       {
         opacity: 0,
         y: 100,
@@ -257,7 +262,7 @@ export default function Home() {
       }
     );
 
-    // Footer elements animation
+    // Footer Elements Animation
     gsap.fromTo(
       [".green-home-footer-left", ".yellow-spike-right"],
       {
@@ -290,7 +295,7 @@ export default function Home() {
       },
     });
 
-    // Hover animations for interactive elements
+    // Hover Animations for Interactive Elements
     const learnMoreButton = document.querySelector(".learn-more-button");
     const exploreButton = document.querySelector(".explore-button");
 
@@ -328,7 +333,7 @@ export default function Home() {
       });
     }
 
-    // Mobile competition card animation
+    // Mobile Competition Card Animation
     gsap.fromTo(
       ".mobile-competition-container",
       {
@@ -350,7 +355,7 @@ export default function Home() {
       }
     );
 
-    // Laptop, camera, and book animations
+    // Laptop, Camera, and Book Animations
     gsap.fromTo(
       [".laptop-on-stick", ".camera", ".book-laptop"],
       {
@@ -373,10 +378,10 @@ export default function Home() {
       }
     );
 
-    // Alternative: Individual animations with different timings
+    // Alternative: Individual Animations with Different Timings
     // If you want more control over each element:
 
-    // Laptop animation
+    // Laptop Animation
     gsap.fromTo(
       ".laptop-on-stick",
       {
@@ -398,7 +403,7 @@ export default function Home() {
       }
     );
 
-    // Camera animation
+    // Camera Animation
     gsap.fromTo(
       ".camera",
       {
@@ -421,7 +426,7 @@ export default function Home() {
       }
     );
 
-    // Book laptop animation
+    // Book Laptop Animation
     gsap.fromTo(
       ".book-laptop",
       {
@@ -444,7 +449,7 @@ export default function Home() {
       }
     );
 
-    // Paper cloud and red star footer animations
+    // Paper Cloud and Red Star Footer Animations
     gsap.fromTo(
       ".paper-cloud",
       {
@@ -490,7 +495,7 @@ export default function Home() {
       }
     );
 
-    // Alternative: Combined animation with stagger
+    // Alternative: Combined Animation with Stagger
     gsap.fromTo(
       [".paper-cloud", ".red-star-footer-left"],
       {
@@ -766,7 +771,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Our values section */}
+        {/* Our Values Section */}
         <div className="flex competition-wrapper relative w-screen flex-col justify-start items-center pb-[15%]">
           <h1 className="competition-text font-family-gill-condensed-bold font-extrabold text-6xl">
             COMPETITIONS

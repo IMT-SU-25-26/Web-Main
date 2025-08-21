@@ -40,9 +40,9 @@ export const authOptions: NextAuthOptions = {
             });
           }
         }
-        
+
         revalidatePath("/dashboard/tech");
-        
+
         return true;
       } else {
         throw new Error("You must use a @ciputra.ac.id email to sign in");
@@ -52,7 +52,7 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
       }
-      
+
       if (token.id) {
         const dbUser = await prisma.user.findUnique({
           where: { id: token.id as string },

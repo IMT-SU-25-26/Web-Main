@@ -7,7 +7,7 @@ import {
   Achievement,
   AchievementData,
   AchievementSchema,
-} from "@/types/achievement";
+} from "@/types/service/achievement";
 
 export async function getAchievements(): Promise<Achievement[]> {
   return await prisma.achievement.findMany({
@@ -23,13 +23,17 @@ export async function getAchievementById(
   });
 }
 
-export async function getFeaturedAchievements(): Promise<Achievement[] | undefined> {
+export async function getFeaturedAchievements(): Promise<
+  Achievement[] | undefined
+> {
   return await prisma.achievement.findMany({
     where: { featured: true },
   });
 }
 
-export async function getAchievementsExcludingFeatured(): Promise<Achievement[]> {
+export async function getAchievementsExcludingFeatured(): Promise<
+  Achievement[]
+> {
   return await prisma.achievement.findMany({
     where: { featured: false },
     orderBy: { createdAt: "desc" },
@@ -40,7 +44,6 @@ export async function createAchievement(
   formData: FormData
 ): Promise<ActionResult<Achievement>> {
   try {
-
     const rawData = {
       title: formData.get("title") as string,
       description: formData.get("description") as string,

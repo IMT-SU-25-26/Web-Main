@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Role } from "@prisma/client";
-import { User } from "@/types/user";
+import { User } from "@/types/service/user";
 import { editUser, getUserById } from "@/lib/service/user";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ interface EditUserPageProps {
 export default function EditUserPage({ params }: EditUserPageProps) {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
-  const [selectedRole, setSelectedRole] = useState<Role>("VIEWER");
+  const [selectedRole, setSelectedRole] = useState<Role>("STUDENT");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
@@ -68,7 +68,7 @@ export default function EditUserPage({ params }: EditUserPageProps) {
   };
 
   const roleOptions: { value: Role; label: string; description: string }[] = [
-    { value: "VIEWER", label: "Viewer", description: "Can only view content" },
+    { value: "STUDENT", label: "Student", description: "Can only view content" },
     { value: "LECTURER", label: "Lecturer", description: "Can view and manage academic content" },
     { value: "PR", label: "Public Relations", description: "Can manage PR achievements and content" },
     { value: "SA", label: "Social Activity", description: "Can manage social activities" },

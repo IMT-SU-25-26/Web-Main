@@ -1,12 +1,12 @@
 import ActivityForm from "@/components/activity/ActivityForm";
-import { getCategoriesActivity } from "@/lib/service/categoryActivity";
+import { Category } from "@prisma/client";
 
 export default async function CreateActivityPage() {
-  const categoryActivities = await getCategoriesActivity();
+  const categories = Object.values(Category);
   return (
     <div className="flex flex-col w-full justify-center items-center min-h-screen pt-[12vh]">
       <h1 className="text-3xl font-bold mb-6">Create New Activity</h1>
-      <ActivityForm mode="create" categoryActivities={categoryActivities} />
+      <ActivityForm mode="create" categories={categories} />
     </div>
   );
 }

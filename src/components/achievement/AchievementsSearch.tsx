@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import AchievementFeatured from "@/components/achievement/AchievementFeatured";
 import { AchievementCard } from "@/components/achievement/AchievementCard";
 import SearchBar from "@/components/SearchBar";
-import { Achievement } from "@/types/achievement";
+import { Achievement } from "@/types/service/achievement";
 import gsap from "gsap";
 
 type colorProps = "blue" | "green" | "pink" | "red" | "yellow" | "gray";

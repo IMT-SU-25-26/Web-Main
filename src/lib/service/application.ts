@@ -4,7 +4,7 @@ import prisma from "../prisma";
 import { Status } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { ActionResult } from "@/types/action";
-import { Application, ApplicationSchema } from "@/types/application";
+import { Application, ApplicationSchema } from "@/types/service/application";
 
 export async function getApplications(): Promise<Application[]> {
   return await prisma.application.findMany({
@@ -66,8 +66,7 @@ export async function setStatusApplication(
   }
 }
 
-export async function getAmountApprovedApplication(
-  activityId: string){
+export async function getAmountApprovedApplication(activityId: string) {
   const applications = await getApplicationsByActivityId(activityId);
   const approvedApplications = applications.filter(
     (app) => app.status === "APPROVED"
@@ -140,7 +139,6 @@ export async function createApplication(
   }
 }
 
-
 export async function deleteApplication(
   id: string
 ): Promise<ActionResult<Application>> {
@@ -165,4 +163,3 @@ export async function deleteApplication(
     };
   }
 }
-

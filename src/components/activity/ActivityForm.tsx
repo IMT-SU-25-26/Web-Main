@@ -7,7 +7,7 @@ import { ActivityFormProps } from "@/types/activity";
 import { UploadWidget } from "../utils/UploadWidget";
 import Image from "next/image";
 
-export default function ActivityForm({ mode, data, categoryActivities }: ActivityFormProps) {
+export default function ActivityForm({ mode, data, categories }: ActivityFormProps) {
   /* States */
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -148,27 +148,27 @@ export default function ActivityForm({ mode, data, categoryActivities }: Activit
           />
         </div>
 
-        {/* Category Activity */}
+        {/* Category */}
         <div>
           <label
-            htmlFor="categoryActivity"
+            htmlFor="category"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Category Activity
+            Category
           </label>
           <select
-            id="categoryActivity"
-            name="categoryActivity"
-            defaultValue={data?.categoryId || ""}
+            id="category"
+            name="category"
+            defaultValue={data?.category || ""}
             required
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="" disabled>
               Select a category
             </option>
-            {categoryActivities.map((cat) => (
-              <option key={cat.id} value={cat.id}>
-                {cat.name}
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
               </option>
             ))}
           </select>
@@ -243,6 +243,45 @@ export default function ActivityForm({ mode, data, categoryActivities }: Activit
             maxLength={100}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Enter activity location"
+          />
+        </div>
+
+        {/* Start Date Input */}
+        <div>
+          <label
+            htmlFor="startDate"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Start Date
+          </label>
+          <input
+            type="datetime-local"
+            id="startDate"
+            name="startDate"
+            defaultValue={data?.startDate ? new Date(data.startDate).toISOString().slice(0, 16) : ""}
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+
+        {/* Credit Point Input */}
+        <div>
+          <label
+            htmlFor="creditPoint"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Credit Point
+          </label>
+          <input
+            type="number"
+            id="creditPoint"
+            name="creditPoint"
+            defaultValue={data?.creditPoint || ""}
+            required
+            min={1}
+            max={10}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter credit points (1-10)"
           />
         </div>
 
