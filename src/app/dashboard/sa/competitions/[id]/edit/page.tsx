@@ -14,7 +14,7 @@ export default async function EditCompetitionPage(props: {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen pt-[14vh] pb-10">
+    <div className="flex flex-col w-full justify-center items-center min-h-screen pt-[14vh] pb-10">
       <h1 className="text-3xl font-bold mb-6">Edit Competition</h1>
       <CompetitionsForm mode="edit" data={competition} />
     </div>
