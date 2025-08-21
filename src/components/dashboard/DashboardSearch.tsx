@@ -24,7 +24,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
   console.log("sideNav", sideNav);
 
   const handleDelete = async (id: string) => {
-    const res =  await deleteItem(id);
+    await deleteItem(id);
     setConfirmId(null);
   };
 
@@ -90,7 +90,6 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
         </h1>
         <SearchBar<T>
           items={items}
-          width="400px"
           className="start-left"
           additionalElements={
             <>
@@ -101,7 +100,6 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
               </Link>
               {additionalElements}
             </>
-
           }
         >
           {(filteredItems) => (
@@ -111,9 +109,9 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                 <table className="w-full border-collapse table-fixed min-w-[600px]">
                   <thead className="bg-[#0555AB] text-white">
                     <tr className="border-b-2 border-[#003772]">
-                      <th className="w-1/7 border-r-2 border-[#003772] px-4 py-2">ID</th>
-                      <th className="w-4/7 border-r-2 border-[#003772] px-4 py-2">Title</th>
-                      <th className="w-2/7 px-4 py-2">Action Buttons</th>
+                      <th className="w-2/8 border-r-2 border-[#003772] px-4 py-2">ID</th>
+                      <th className="w-4/8 border-r-2 border-[#003772] px-4 py-2">Title</th>
+                      <th className="w-2/8 px-4 py-2">Action Buttons</th>
                     </tr>
                   </thead>
                   <tbody>

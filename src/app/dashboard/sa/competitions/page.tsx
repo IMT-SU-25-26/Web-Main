@@ -3,7 +3,6 @@ import DashboardSearch from '@/components/dashboard/DashboardSearch'
 import { getCompetitions } from '@/lib/service/competition'
 import { deleteCompetition } from '@/lib/service/competition'
 import React from 'react'
-import { SideNavSupport } from '@/types/dashboard'
 
 export const metadata = {
     title: 'Competitions',

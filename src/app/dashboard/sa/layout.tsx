@@ -2,7 +2,6 @@
 
 import React, {
   useState,
-  ReactElement,
   createContext,
   useContext,
   useEffect,
@@ -106,10 +105,34 @@ export default function SALayoutDashboard({ children }: SALayoutDashboardProps) 
                     : ""
                 }`}
               >
-                Activity
+                Activities
                 <Image
                   className={`absolute -right-3 top-1/2 -translate-y-1/2 transition-opacity duration-200 ${
                     pathname.includes("/dashboard/sa/activities")
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                  src="/dashboard/block-right-arrow.svg"
+                  alt="Right Arrow"
+                  width={20}
+                  height={20}
+                />
+              </p>
+            </Link>
+
+            {/* Applications */}
+            <Link href={"/dashboard/sa/applications"} onClick={handleSideNav}>
+              <p
+                className={`relative border-b-3 border-black font-family-gill text-xl text-center py-3 ${
+                  pathname.includes("/dashboard/sa/applications")
+                    ? "font-bold"
+                    : ""
+                }`}
+              >
+                Applications
+                <Image
+                  className={`absolute -right-3 top-1/2 -translate-y-1/2 transition-opacity duration-200 ${
+                    pathname.includes("/dashboard/sa/applications")
                       ? "opacity-100"
                       : "opacity-0"
                   }`}

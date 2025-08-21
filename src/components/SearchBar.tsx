@@ -17,21 +17,19 @@ interface SearchSectionProps<T, C extends CategoryFilter> {
   placeholder?: string;
   getSearchValue?: (item: T) => string;
   getItemCategoryId?: (item: T) => string | number;
-  width?: string;
   additionalElements?: React.ReactNode;
   childrenOverflow?: boolean;
   isCentered?: boolean;
 }
 
-export default function SearchBar<T, C extends CategoryFilter>({
+export default function SearchBar<T extends SearchableItem, C extends CategoryFilter = CategoryFilter>({
   items,
   categories,
   children,
   className,
   placeholder = "Search Here...",
-  getSearchValue = (item) => (item as any).title ?? "",
-  getItemCategoryId = (item) => (item as any).categoryId,
-  width = "100%",
+  getSearchValue = (item) => item.title ?? item.name ?? "",
+  getItemCategoryId = (item) => (item as T & { categoryId?: string | number }).categoryId ?? "",
   additionalElements = null,
   childrenOverflow = false,
   isCentered = false,
