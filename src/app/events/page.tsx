@@ -109,7 +109,7 @@ export default function EventsPage() {
         title: "PULSE",
         date: "21 August 2025",
         isreverse: false,
-        eventsId: "Pulse",
+        eventsId: "pulse",
         imagesrc: "/pulse/main.jpg",
       },
       decorativeImages: ["redWheel"], // Pilih gambar yang mau dipakai
@@ -120,7 +120,7 @@ export default function EventsPage() {
         title: "TECHNOCAMP",
         date: "21 OCTOBER 2025",
         isreverse: true,
-        eventsId: "Technocamp",
+        eventsId: "technocamp",
         imagesrc: "/technocamp/main.jpg",
       },
       decorativeImages: ["lightBulb", "redRibbon"], // Bisa multiple images

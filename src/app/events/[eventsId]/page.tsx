@@ -12,15 +12,15 @@ gsap.registerPlugin(ScrollTrigger);
 // Pindahkan eventsData ke luar component
 const eventsData = [
   {
-    id: "Pulse",
+    id: "pulse",
     title: "Pulse",
     date: "21 August 2025",
     description:
       "Pulse merupakan program magang yang diselenggarakan oleh Student Union IMT. Program ini menjadi wadah bagi mahasiswa untuk mengembangkan keterampilan, berkontribusi langsung dalam berbagai proyek organisasi, serta belajar mengenai manajemen dan teknologi di lingkungan prodi IMT. Melalui Pulse, peserta magang dapat merasakan pengalaman nyata dalam bekerja sebagai bagian dari tim, sekaligus memperluas relasi dan kemampuan profesional.",
   },
   {
-    id: "Technocamp",
-    title: "TECHNOCAMP",
+    id: "technocamp",
+    title: "Technocamp",
     date: "21 OCTOBER 2025",
     description:
       "Technocamp adalah bootcamp intensif yang dirancang untuk mengembangkan skill programming dan teknologi terkini. Peserta akan belajar langsung dari industry expert melalui hands-on workshop, mentoring session, dan project-based learning. Cocok untuk pemula yang ingin terjun ke dunia tech.",
@@ -34,6 +34,7 @@ export default function EventDetailPage({
   params: Promise<{ eventsId: string }>;
 }) {
   const [eventsId, setEventsId] = useState<string>("");
+  const [eventTitle, setEventTitle] = useState<string>("");
   const [eventDate, setEventDate] = useState<string>("");
   const [eventDescription, setEventDescription] = useState<string>("");
 
@@ -45,10 +46,12 @@ export default function EventDetailPage({
       // Cari data event berdasarkan eventsId
       const eventData = eventsData.find((event) => event.id === eventsId);
       if (eventData) {
+        setEventTitle(eventData.title);
         setEventDate(eventData.date);
         setEventDescription(eventData.description);
       } else {
         // Fallback jika event tidak ditemukan
+        setEventTitle("Coming Soon");
         setEventDate("Coming Soon");
         setEventDescription(
           "Informasi event akan segera hadir. Stay tuned untuk update terbaru mengenai event menarik ini!"
@@ -91,11 +94,11 @@ export default function EventDetailPage({
       ".event-title",
       {
         opacity: 0,
-        x: -100,
+        y: 50,
       },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         duration: 1.2,
         delay: 1,
         ease: "power3.out",
@@ -106,14 +109,14 @@ export default function EventDetailPage({
       ".event-date",
       {
         opacity: 0,
-        x: 100,
+        scale: 0.8,
       },
       {
         opacity: 1,
-        x: 0,
-        duration: 1.2,
-        delay: 1.3,
-        ease: "power3.out",
+        scale: 1,
+        duration: 0.8,
+        delay: 0.8,
+        ease: "back.out(1.7)",
       }
     );
 
@@ -128,9 +131,26 @@ export default function EventDetailPage({
         opacity: 1,
         y: 0,
         duration: 0.8,
-        delay: 1.8,
-        stagger: 0.3,
+        delay: 1.5,
         ease: "power2.out",
+      }
+    );
+
+    // Animasi untuk register button (jika ada)
+    gsap.fromTo(
+      ".register-button-container",
+      {
+        opacity: 0,
+        y: 40,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        delay: 2,
+        ease: "back.out(1.7)",
       }
     );
 
@@ -171,65 +191,94 @@ export default function EventDetailPage({
   return (
     <div className="w-full overflow-hidden">
       <div className="h-[5vh] bg-[#F1EEE6]"></div>
-      <div className="background-paper pt-5 relative flex flex-col items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
+      <div className="background-paper pt-8 relative flex flex-col items-center min-h-screen w-full bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] overflow-hidden">
+        {/* Decorative Elements with reduced opacity for better hierarchy */}
         <Image
           src="/eventsdetails/top-left.webp"
           alt="top left"
           width={700}
           height={475}
-          className="top-left-image top-[-2rem] sm:top-[-3rem] md:top-[-4rem] left-0 absolute w-[12rem] sm:w-[18rem] md:w-[25rem] lg:w-[25rem]"
+          className="top-left-image top-[-2rem] sm:top-[-3rem] md:top-[-4rem] left-0 absolute w-[12rem] sm:w-[18rem] md:w-[25rem] lg:w-[25rem] opacity-80"
         />
         <Image
           src="/eventsdetails/top-right.svg"
           alt="top right"
           width={700}
           height={475}
-          className="top-right-image top-0 right-0 absolute w-[20rem] sm:w-[25rem] md:w-[30rem] lg:w-[35rem]"
+          className="top-right-image top-0 right-0 absolute w-[20rem] sm:w-[25rem] md:w-[30rem] lg:w-[35rem] opacity-70"
         />
         <Image
           src="/events/pink-oval.svg"
           alt="pink oval"
           width={700}
           height={475}
-          className="pink-oval-image bottom-[-10rem] sm:bottom-[-13rem] lg:bottom-[-18rem] left-[-7rem] sm:left-[-5rem] md:left-[-7rem] absolute w-[20rem] sm:w-[25rem] md:w-[30rem] lg:w-[35rem]"
+          className="pink-oval-image bottom-[-10rem] sm:bottom-[-13rem] lg:bottom-[-18rem] left-[-7rem] sm:left-[-5rem] md:left-[-7rem] absolute w-[20rem] sm:w-[25rem] md:w-[30rem] lg:w-[35rem] opacity-60"
         />
         <Image
           src="/eventsdetails/bottom-left-2.svg"
           alt="bottom left"
           width={700}
           height={475}
-          className="bottom-left-image bottom-[-3rem] sm:bottom-[-4rem] md:bottom-[-5rem] left-0 absolute w-[12rem] sm:w-[18rem] md:w-[25rem] lg:w-[25rem] z-1"
+          className="bottom-left-image bottom-[-3rem] sm:bottom-[-4rem] md:bottom-[-5rem] left-0 absolute w-[12rem] sm:w-[18rem] md:w-[25rem] lg:w-[25rem] z-1 opacity-70"
         />
         <Image
-          className="camera-image absolute bottom-[-2rem] sm:bottom-[-2rem] md:bottom-[-3rem] right-[-1rem] sm:right-[-2rem] md:right-[-6rem] w-[8rem] sm:w-[12rem] md:w-[15rem] lg:w-[15rem] -scale-x-100 rotate-[7deg]"
+          className="camera-image absolute bottom-[-2rem] sm:bottom-[-2rem] md:bottom-[-3rem] right-[-1rem] sm:right-[-2rem] md:right-[-6rem] w-[8rem] sm:w-[12rem] md:w-[15rem] lg:w-[15rem] -scale-x-100 rotate-[7deg] opacity-75"
           src="/events/camera.webp"
           alt="camera"
           width={200}
           height={200}
         />
+        
         {/* Tampilkan Carousel dengan eventsId */}
-        <div className="carousel-container w-full relative mt-10 mb-5 rotate-[-2deg]">
+        <div className="carousel-container w-full relative mt-12 mb-8 rotate-[-1deg]">
           <Carousel eventsId={eventsId} />
         </div>
 
         {/* Event Detail Content */}
-        <div className="max-w-4xl mx-auto px-6 py-8 mb-25">
-          {/* Date and Title */}
-          <div className="flex flex-col md:justify-between mb-8">
-            <h1 className="event-title text-4xl sm:text-6xl md:text-8xl font-black text-black leading-none">
-              {eventsId || "Loading..."} {/* Tampilkan judul event */}
-            </h1>
-            <p className="event-date text-md sm:text-xl lg:text-3xl font-bold text-black tracking-wider ml-[0.2rem] mt-4 md:mt-3 md:mb-[0.4rem]">
+        <div className="max-w-6xl mx-auto px-8 py-16 mb-32">
+          {/* Date Badge */}
+          <div className="event-date mb-8">
+            <span className="inline-block bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium tracking-wider uppercase">
               {eventDate || "Loading..."}
-            </p>
+            </span>
+          </div>
+
+          {/* Title */}
+          <div className="mb-16">
+            <h1 className="event-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-gray-900 leading-[0.9] tracking-tight">
+              {eventTitle || "Loading..."}
+            </h1>
           </div>
 
           {/* Description */}
-          <div className="space-y-6 text-black text-lg md:text-xl leading-relaxed">
-            <p className="description-paragraph">
+          <div className="max-w-4xl mb-20">
+            <p className="description-paragraph text-gray-700 text-xl md:text-2xl leading-relaxed font-light">
               {eventDescription || "Loading..."}
             </p>
           </div>
+
+          {/* Register Button - Only for Pulse */}
+          {eventsId === "pulse" && (
+            <div className="register-button-container">
+              <button className="register-button group relative inline-flex items-center px-10 py-5 bg-gray-900 text-white font-semibold text-xl rounded-xl hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <span className="relative z-10">Register Now</span>
+                <svg
+                  className="ml-4 w-6 h-6 transition-transform duration-300 group-hover:translate-x-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

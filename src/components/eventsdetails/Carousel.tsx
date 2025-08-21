@@ -7,7 +7,7 @@ import Content from "./Content";
 
 interface CarouselProps {
   eventsId?: string;
-}
+} 
 
 export default function Carousel({ eventsId }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -16,13 +16,13 @@ export default function Carousel({ eventsId }: CarouselProps) {
   // Data slides berdasarkan eventsId
   const getSlidesByEventId = (eventId: string) => {
     const slideData: Record<string, Array<{ src: string; alt: string }>> = {
-      Pulse: [
+      pulse: [
         { src: "/pulse/foto1.jpg", alt: "Event Image 1" },
         { src: "/pulse/foto2.jpg", alt: "Event Image 2" },
         { src: "/pulse/foto3.jpg", alt: "Event Image 3" },
         { src: "/pulse/foto4.jpg", alt: "Event Image 4" },
       ],
-      Technocamp: [
+      technocamp: [
         { src: "/technocamp/foto1.jpg", alt: "Event Image 1" },
         { src: "/technocamp/foto2.jpg", alt: "Event Image 2" },
         { src: "/technocamp/foto3.jpg", alt: "Event Image 3" },
@@ -81,7 +81,7 @@ export default function Carousel({ eventsId }: CarouselProps) {
   const extendedSlides = [...slides, ...slides];
 
   return (
-    <div ref={carouselRef} className="w-full overflow-hidden relative">
+    <div ref={carouselRef} className="w-full scale-x-105 overflow-hidden relative">
       <div
         ref={slidesRef}
         className="flex gap-2 bg-[rgba(0,0,0,0.8)]"
