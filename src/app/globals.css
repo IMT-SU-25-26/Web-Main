@@ -48,6 +48,20 @@ body {
   transform-origin: top center;
 }
 
+/* Custom scrollbar just for the ID column */
+.thin-scroll::-webkit-scrollbar {
+  height: 2px; /* ultra-thin horizontal scrollbar */
+}
+
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent; /* fully transparent track */
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.7); /* gray-500 with opacity */
+  border-radius: 9999px; /* rounded pill shape */
+}
+
 @font-face {
   font-family: "Gill Sans MT";
   src: url("/fonts/GillSansMT.otf") format("opentype");

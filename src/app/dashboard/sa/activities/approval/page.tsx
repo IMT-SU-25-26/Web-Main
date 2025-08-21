@@ -158,21 +158,13 @@ export default function App() {
   return (
     <>
       <div className='h-[6.5vh]'></div>
-      <div className="min-h-[90vh] bg-gray-100 p-4 sm:p-6 lg:p-8">
+      <div className="min-h-[90vh] w-full bg-gray-100 p-4 sm:p-6 lg:p-8">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-2xl font-semibold text-gray-800 mb-6">Activity Applicants</h1>
           <div className="bg-white shadow-md rounded-lg">
           <div
             ref={containerRef}
             className="overflow-x-auto transition-all duration-300"
-            style={{
-              height:
-                openMenuId && baseHeight !== null
-                  ? openMenuId
-                    ? baseHeight + 130 /* 10rem = 160px */
-                    : baseHeight
-                  : undefined,
-            }}
           >
               {loading ? (
                 <div className="p-6 text-center text-gray-500">Loading...</div>

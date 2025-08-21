@@ -1,3 +1,5 @@
+import CategoryActivity from '@prisma/client'
+
 export interface ActionResult<T> {
   success: boolean;
   data?: T;
@@ -7,6 +9,7 @@ export interface ActionResult<T> {
 
 export interface FormProps<T> {
   mode: "create" | "edit";
+  categoryActivities: CategoryActivity[];
   data?: T;
 }
 

@@ -7,7 +7,7 @@ import { ActivityFormProps } from "@/types/activity";
 import { UploadWidget } from "../utils/UploadWidget";
 import Image from "next/image";
 
-export default function ActivityForm({ mode, data }: ActivityFormProps) {
+export default function ActivityForm({ mode, data, categoryActivities }: ActivityFormProps) {
   /* States */
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -48,7 +48,7 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
           ) as HTMLFormElement;
           form?.reset();
           setTimeout(() => {
-            router.push("/dashboard/sa");
+            router.push("/dashboard/sa/activities");
           }, 500);
         } else {
           setErrors([result.error || "Failed to create activity"]);
@@ -59,7 +59,7 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
         if (result.success) {
           setSuccess(result.message || "Activity updated successfully!");
           setTimeout(() => {
-            router.push("/dashboard/sa");
+            router.push("/dashboard/sa/activities");
           }, 500);
         } else {
           setErrors([result.error || "Failed to update activity"]);
@@ -147,6 +147,33 @@ export default function ActivityForm({ mode, data }: ActivityFormProps) {
             placeholder="Enter activity description"
           />
         </div>
+
+        {/* Category Activity */}
+        <div>
+          <label
+            htmlFor="categoryActivity"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Category Activity
+          </label>
+          <select
+            id="categoryActivity"
+            name="categoryActivity"
+            defaultValue={data?.categoryId || ""}
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+            <option value="" disabled>
+              Select a category
+            </option>
+            {categoryActivities.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
 
         {/* Cover Image Input */}
         <div>

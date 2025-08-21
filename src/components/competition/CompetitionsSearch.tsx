@@ -31,7 +31,7 @@ export default function CompetitionsSearch({ competitions }: CompetitionsSearchP
   
   return (
     <div className="z-10 w-full px-4 md:px-8 lg:px-32">
-      <SearchBar items={competitions} getSearchValue={(item)=>(item.name)} className="start-bottom">
+      <SearchBar items={competitions} getSearchValue={(item)=>(item.name)} isCentered={true} className="start-bottom">
         {(filteredCompetitions) => (
           <section className="p-2 z-10 mb-10">
             <div className="flex flex-wrap justify-center gap-4 px-0">

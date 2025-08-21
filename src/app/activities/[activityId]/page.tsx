@@ -4,6 +4,7 @@ import FrameImage from "@/components/achievement/FrameImage";
 import { getActivityById } from "@/lib/service/activity";
 import Button from "@/components/Button";
 import NotFound from "./not-found";
+import ActivityBackground from "@/components/activity/details/ActivityBackground";
 
 export async function generateMetadata(props: {
   params: Promise<{ activityId: string }>;
@@ -44,70 +45,7 @@ const ActivityDetails = async (props: {
       <div className="h-[6.5vh] bg-[#F1EEE6]"></div>
       <div className="overflow-hidden relative flex flex-col items-center justify-center min-h-[calc(100dvh-6.5vh)] w-full bg-[url('/backgrounds/background-paper.png')] bg-cover bg-center bg-[#F1EEE6] m-0 p-0">
         {/* Decorative Image */}
-        <div className="select-none">
-          <Image
-            className="select-none absolute -right-3 -top-7 md:-top-15 w-[100px] md:w-[180px] xl:w-[300px] lg:w-[230px]"
-            src="/activities/activityDetails/top-right.webp"
-            alt=""
-            width={300}
-            height={327}
-            draggable={false}
-          ></Image>
-
-          <Image
-            className="absolute right-0 bottom-0 w-[200px] md:w-[300px] xl:w-[500px] lg:w-[370px]"
-            src="/activities/activityDetails/bottom-right.svg"
-            alt=""
-            width={500}
-            height={251}
-            draggable={false}
-          ></Image>
-
-          <Image
-            className="hidden xl:block absolute right-0 bottom-10 w-[200px] md:w-[300px] lg:w-[370px] xl:w-[300px]"
-            src="/activities/activityDetails/bottom-right2.webp"
-            alt=""
-            width={500}
-            height={251}
-            draggable={false}
-          ></Image>
-
-          <Image
-            className="hidden md:block absolute -left-5 -top-23 w-[300px] lg:w-[250px] xl:w-[250px] "
-            src="/activities/activityDetails/top-left.svg"
-            alt=""
-            width={450}
-            height={287}
-            draggable={false}
-          ></Image>
-
-          <Image
-            className="hidden lg:block absolute left-50 top-0 w-[300px] lg:w-[250px] xl:w-[150px] "
-            src="/activities/activityDetails/top-left2.webp"
-            alt=""
-            width={450}
-            height={287}
-            draggable={false}
-          ></Image>
-
-          <Image
-            className=" absolute -left-50 md:-left-0 -bottom-5 w-[350px] md:w-[300px] xl:w-[450px] lg:w-[200px]"
-            src="/activities/activityDetails/bottom-left.webp"
-            alt=""
-            width={450}
-            height={287}
-            draggable={false}
-          ></Image>
-
-          <Image
-            className="absolute -left-45 top-40 md:top-80 xl:top-53 w-[300px] md:w-[350px]  z-0"
-            src="/activities/activityDetails/red-fan.svg"
-            alt=""
-            width={720}
-            height={701}
-            draggable={false}
-          ></Image>
-        </div>
+        <ActivityBackground />
 
         <div className="flex flex-col md:flex-row md:justify-center items-center md:items-start w-full z-0 gap-10 ">
           <div className="block md:hidden mt-10 text-center">
@@ -137,9 +75,9 @@ const ActivityDetails = async (props: {
               ></Image>
             </div>
 
-            <div className="flex flex-col mt-10 gap-5 text-xl items-center">
+            <div className="flex flex-col mt-10 gap-5 text-xl items-center break-words">
               {slicedDescription.map((line, index) => (
-                <p key={index}>{line}</p>
+                <p className="break-words w-full" key={index}>{line}</p>
               ))}
               <div className="relative w-fit mt-5">
                 <Button

@@ -22,9 +22,11 @@ type ActivityCardProps = {
   activity: Activity;
   index: number;
   className?: string;
+  confirmApply?: (onConfirm: () => Promise<void>) => void;
+  category : string;
 };
 
-export const ActivityCard = ({ activity, index, className }: ActivityCardProps) => {
+export const ActivityCard = ({ activity, index, className, confirmApply, category }: ActivityCardProps) => {
   const accentColor = colorList[index % colorList.length];
   const [swinging, setSwinging] = useState(false);
   const pathname = usePathname();
@@ -77,7 +79,11 @@ export const ActivityCard = ({ activity, index, className }: ActivityCardProps) 
       {/* Card Content */}
       <div className="flex justify-between">
         <div>
-          <h3 className="w-full text-black text-[1.3rem] font-extrabold">{activity.title}</h3>
+          <h3 className="w-full text-black text-[1.3rem] font-extrabold">
+            {activity.title}
+            <p style={{background: accentColor}} className={` ml-4 font-light inline py-[4px] px-4 text-white font-family-impact tracking-wider text-[0.9rem]`}>{category}</p>
+          
+          </h3>
           <div className="flex gap-1 justify-start items-center">
             <Image
               className="w-[0.6rem]"
@@ -100,12 +106,13 @@ export const ActivityCard = ({ activity, index, className }: ActivityCardProps) 
           <p className="text-[0.9rem]">{approvedCount}/{activity.quota}</p>
         </div>
       </div>
-      <p className="w-full mt-2 font-gill text-[12px] text-black">{trimmedDescription}</p>
+      <p className="w-full mt-2 font-gill text-[12px] text-black break-words">{trimmedDescription}</p>
 
       <ApplyButton
         bgColor={accentColor}
         className="relative mt-auto w-full py-2"
         activityId={activity.id}
+        confirmApply={confirmApply}
       >
         Register
       </ApplyButton>
