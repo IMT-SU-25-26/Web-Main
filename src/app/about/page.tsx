@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "@/styles/about.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -8,261 +8,287 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.config({
-  force3D: true,
-  nullTargetWarn: false,
-  autoKillThreshold: 0.001
-});
-
 export default function About() {
+  const valuesSectionRef = useRef<HTMLDivElement>(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
   useEffect(() => {
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    const wrapper = valuesSectionRef.current;
+    if (!wrapper) {
+      setImagesLoaded(true);
+      return;
+    }
+    const images = wrapper.querySelectorAll("img");
+    if (images.length === 0) {
+      setImagesLoaded(true);
+      return;
+    }
+    let loaded = 0;
+    images.forEach((img) => {
+      if (img.complete) {
+        loaded++;
+        if (loaded === images.length) setImagesLoaded(true);
+      } else {
+        img.addEventListener("load", () => {
+          loaded++;
+          if (loaded === images.length) setImagesLoaded(true);
+        });
+        img.addEventListener("error", () => {
+          loaded++;
+          if (loaded === images.length) setImagesLoaded(true);
+        });
+      }
+    });
   }, []);
 
-  useGSAP(() => {
-    gsap.set(".will-change-transform", { willChange: "transform", force3D: true });
-    gsap.set(".will-change-opacity", { willChange: "opacity" });
+  useGSAP(
+    () => {
+      gsap.set(".will-change-transform", { willChange: "transform", force3D: true });
+      gsap.set(".will-change-opacity", { willChange: "opacity" });
 
-    const mm = gsap.matchMedia();
-    
-    mm.add("(min-width: 640px), all", () => {
-      // Header animation
-      gsap.fromTo(".about-us-text", {
-        opacity: 0,
-        y: -50,
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      });
-
-      const aboutTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".about-us-wrapper",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        }
-      });
-
-      aboutTl
-        .fromTo(".left-about-card", {
+      const mm = gsap.matchMedia();
+      
+      mm.add("(min-width: 640px), all", () => {
+        // Header animation
+        gsap.fromTo(".about-us-text", {
           opacity: 0,
-          x: -100,
-          rotation: -5,
+          y: -50,
         }, {
           opacity: 1,
-          x: 0,
-          rotation: 0,
+          y: 0,
           duration: 1,
-          ease: "power3.out",
-          force3D: true,
-        })
-        .fromTo([".su-imt-team-card-background", ".su-imt-team-card-foreground"], {
+          ease: "power2.out",
+        });
+
+        const aboutTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".about-us-wrapper",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        aboutTl
+          .fromTo(".left-about-card", {
+            opacity: 0,
+            x: -100,
+            rotation: -5,
+          }, {
+            opacity: 1,
+            x: 0,
+            rotation: 0,
+            duration: 1,
+            ease: "power3.out",
+            force3D: true,
+          })
+          .fromTo([".su-imt-team-card-background", ".su-imt-team-card-foreground"], {
+            opacity: 0,
+            scale: 0.8,
+            x: 100,
+          }, {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "back.out(1.7)",
+            force3D: true,
+          }, "<")
+          .fromTo([".dragon-about", ".dragon-breath", ".peniti"], {
+            opacity: 0,
+            scale: 0.5,
+          }, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "back.out(1.4)",
+          }, "<")
+          .fromTo([".circle-blue-stick-about", ".circle-red-stick-about", ".yellow-star-landing-about", ".red-spike-landing-about"], {
+            opacity: 0,
+            y: 50,
+            scale: 0.7,
+          }, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out",
+          }, "<");
+
+        const visionMissionTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".vision-mission-wrapper",
+            start: "top 70%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        visionMissionTl
+          .fromTo(".big-fracture", {
+            opacity: 0,
+            scale: 1,
+          }, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          })
+          .fromTo(".vision-card", {
+            opacity: 0,
+            y: -50,
+            rotation: -8,
+          }, {
+            opacity: 1,
+            y: 0,
+            rotation: 0,
+            duration: 0.8,
+            ease: "back.out(1.7)",
+          }, "-=0.4")
+          .fromTo(".mission-card", {
+            opacity: 0,
+            y: 50,
+            rotation: 8,
+          }, {
+            opacity: 1,
+            y: 0,
+            rotation: 0,
+            duration: 0.8,
+            ease: "back.out(1.7)",
+          }, "-=0.6")
+          .fromTo([".circle-kiri-fracture", ".green-arrow-about", ".pencil-ruler"], {
+            opacity: 0,
+            scale: 0.9,
+          }, {
+            opacity: 1,
+            scale: 1,
+            stagger: 0.15,
+            duration: 0.7,
+            ease: "power2.out",
+          }, "-=0.5");
+
+        gsap.fromTo([".our-values-text", ".step"], {
           opacity: 0,
+          y: 30,
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".our-values-wrapper",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        gsap.fromTo(".our-values-card-container", {
+          opacity: 0,
+          y: 80,
           scale: 0.8,
+        }, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: {
+            amount: 0.4,
+            from: "start",
+            grid: "auto"
+          },
+          ease: "back.out(1.2)",
+          force3D: true,
+          scrollTrigger: {
+            trigger: ".our-values-card-wrapper",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        gsap.to([".crown-about", ".among-us-about"], {
+          rotation: "+=15",
+          yoyo: true,
+          repeat: -1,
+          duration: 3,
+          ease: "sine.inOut"
+        });
+
+        gsap.to(".yellow-star-landing-about", {
+          rotation: 360,
+          repeat: -1,
+          duration: 20, 
+          ease: "linear",
+          transformOrigin: "center center",
+          force3D: true
+        });
+
+        gsap.to(".red-spike-landing-about", {
+          rotation: -360,
+          repeat: -1,
+          duration: 25,
+          ease: "linear",
+          transformOrigin: "center center",
+          force3D: true
+        });
+
+        // Footer animations
+        const footerTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".footer-wrapper",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        footerTl
+          .fromTo([".about-footer-left-background", ".about-footer-right-background"], {
+            opacity: 0,
+            y: 50,
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out",
+          })
+          .fromTo([".about-laptop", ".about-laptop-spark", ".about-heart"], {
+            opacity: 0,
+            scale: 0.7,
+          }, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "back.out(1.4)",
+          }, "-=0.5");
+      });
+      
+      mm.add("(max-width: 639px)", () => {
+        gsap.fromTo(".about-us-paper-cloud-mobile", {
+          opacity: 0,
           x: 100,
         }, {
           opacity: 1,
-          scale: 1,
           x: 0,
           duration: 0.8,
-          stagger: 0.15,
-          ease: "back.out(1.7)",
-          force3D: true,
-        }, "<")
-        .fromTo([".dragon-about", ".dragon-breath", ".peniti"], {
-          opacity: 0,
-          scale: 0.5,
-        }, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: "back.out(1.4)",
-        }, "<")
-        .fromTo([".circle-blue-stick-about", ".circle-red-stick-about", ".yellow-star-landing-about", ".red-spike-landing-about"], {
-          opacity: 0,
-          y: 50,
-          scale: 0.7,
-        }, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.12,
           ease: "power2.out",
-        }, "<");
-
-      const visionMissionTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".vision-mission-wrapper",
-          start: "top 70%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        }
+          scrollTrigger: {
+            trigger: ".about-us-text",
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          }
+        });
       });
 
-      visionMissionTl
-        .fromTo(".big-fracture", {
-          opacity: 0,
-          scale: 1,
-        }, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        })
-        .fromTo(".vision-card", {
-          opacity: 0,
-          y: -50,
-          rotation: -8,
-        }, {
-          opacity: 1,
-          y: 0,
-          rotation: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-        }, "-=0.4")
-        .fromTo(".mission-card", {
-          opacity: 0,
-          y: 50,
-          rotation: 8,
-        }, {
-          opacity: 1,
-          y: 0,
-          rotation: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-        }, "-=0.6")
-        .fromTo([".circle-kiri-fracture", ".green-arrow-about", ".pencil-ruler"], {
-          opacity: 0,
-          scale: 0.9,
-        }, {
-          opacity: 1,
-          scale: 1,
-          stagger: 0.15,
-          duration: 0.7,
-          ease: "power2.out",
-        }, "-=0.5");
-
-      gsap.fromTo([".our-values-text", ".step"], {
-        opacity: 0,
-        y: 30,
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".our-values-wrapper",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        }
-      });
-
-      gsap.fromTo(".our-values-card-container", {
-        opacity: 0,
-        y: 80,
-        scale: 0.8,
-      }, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: {
-          amount: 0.4,
-          from: "start",
-          grid: "auto"
-        },
-        ease: "back.out(1.2)",
-        force3D: true,
-        scrollTrigger: {
-          trigger: ".our-values-card-wrapper",
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        }
-      });
-
-      gsap.to([".crown-about", ".among-us-about"], {
-        rotation: "+=15",
-        yoyo: true,
-        repeat: -1,
-        duration: 3,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".yellow-star-landing-about", {
-        rotation: 360,
-        repeat: -1,
-        duration: 20, 
-        ease: "linear",
-        transformOrigin: "center center",
-        force3D: true
-      });
-
-      gsap.to(".red-spike-landing-about", {
-        rotation: -360,
-        repeat: -1,
-        duration: 25,
-        ease: "linear",
-        transformOrigin: "center center",
-        force3D: true
-      });
-
-      // Footer animations
-      const footerTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".footer-wrapper",
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        }
-      });
-
-      footerTl
-        .fromTo([".about-footer-left-background", ".about-footer-right-background"], {
-          opacity: 0,
-          y: 50,
-        }, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-        })
-        .fromTo([".about-laptop", ".about-laptop-spark", ".about-heart"], {
-          opacity: 0,
-          scale: 0.7,
-        }, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: "back.out(1.4)",
-        }, "-=0.5");
-    });
-    
-    mm.add("(max-width: 639px)", () => {
-      gsap.fromTo(".about-us-paper-cloud-mobile", {
-        opacity: 0,
-        x: 100,
-      }, {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".about-us-text",
-          start: "top 60%",
-          toggleActions: "play none none reverse",
-        }
-      });
-    });
-
-  }, []);
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    },
+    { dependencies: [imagesLoaded] }
+  );
 
   return (
     <div className="overflow-x-hidden">
@@ -344,7 +370,7 @@ export default function About() {
             className="dragon-breath absolute -bottom-[75%] right-[12%] w-[10%] h-auto"
             draggable="false"
           ></Image>
-          <Image
+           <Image
             src={"/about/circle-blue-stick.svg"}
             width={900}
             height={900}
@@ -418,7 +444,7 @@ export default function About() {
             </h1>
             <p className="about-us-card-description-text text-2xl font-family-gill">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
-              aliquam, exercitationem
+              aliquam, exercitationem 
             </p>
           </div>
           <Image
@@ -463,24 +489,24 @@ export default function About() {
           ></Image>
         </div>
         <div className="z-[2] mt-[10%] w-full flex justify-end sm:hidden relative">
-          <Image
-            src={"/about/peniti.webp"}
-            width={900}
-            height={900}
-            alt="about-us-text"
-            className="peniti w-[40%] h-auto absolute z-[5] -top-[2%] -right-[9.5%]"
-            draggable="false"
-          ></Image>
-          <div>
-            <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
-            <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] right-[5%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
-              <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
-              <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
-                SU IMT Team
-              </h1>
+            <Image
+              src={"/about/peniti.webp"}
+              width={900}
+              height={900}
+              alt="about-us-text"
+              className="peniti w-[40%] h-auto absolute z-[5] -top-[2%] -right-[9.5%]"
+              draggable="false"
+            ></Image>
+            <div>
+              <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
+              <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] right-[5%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
+                <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
+                <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
+                  SU IMT Team
+                </h1>
+              </div>
             </div>
           </div>
-        </div>
 
         {/* dekstop */}
         <div className="hidden sm:flex vision-mission-wrapper -mt-[2.5%] min-h-[75rem] min-w-screen relative w-full justify-center items-center gap-24">
@@ -568,7 +594,7 @@ export default function About() {
             draggable="false"
           ></Image>
         </div>
-
+        
         {/* dekstop */}
         <div className="hidden sm:flex our-values-wrapper relative w-full flex-col justify-center items-center gap-8">
           <Image
@@ -616,9 +642,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-6 left-[0.5rem] top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#EB427B]">
-                      S
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     STRIVE
@@ -633,9 +657,7 @@ export default function About() {
               <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[1rem] -top-[1.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#F5C309]">
-                      T
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     TAKE RESPONSIBILITY
@@ -658,9 +680,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[4.5deg] -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#37951D]">
-                      E
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     EXPLORE
@@ -683,9 +703,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[8.5deg] -left-[0.5rem] -top-[1%]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">
-                      P
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     PIONEER
@@ -741,7 +759,7 @@ export default function About() {
           </div>
         </div>
         {/* mobile */}
-        <div className="z-[0] flex sm:hidden our-values-wrapper relative w-full flex-col justify-center items-center gap-4">
+         <div className="z-[0] flex sm:hidden our-values-wrapper relative w-full flex-col justify-center items-center gap-4">
           <Image
             src={"/about/OurValuesText.svg"}
             width={900}
@@ -750,7 +768,7 @@ export default function About() {
             className="our-values-text w-[50%] h-auto"
             draggable="false"
           ></Image>
-          <Image
+           <Image
             src={"/about/bunderan-biru-about-mobile.svg"}
             width={900}
             height={900}
@@ -797,9 +815,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-6 left-[0.5rem] top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#EB427B]">
-                      S
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     STRIVE
@@ -814,9 +830,7 @@ export default function About() {
               <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[1rem] -top-[1.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#F5C309]">
-                      T
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     TAKE RESPONSIBILITY
@@ -839,9 +853,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[4.5deg] -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#37951D]">
-                      E
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     EXPLORE
@@ -864,9 +876,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[8.5deg] -left-[0.5rem] -top-[1%]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">
-                      P
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     PIONEER
@@ -892,9 +902,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#EB427B] p-4 rounded-2xl -rotate-4 left-[0.25rem] top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#EB427B]">
-                      S
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#EB427B]">S</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     STRIVE
@@ -909,9 +917,7 @@ export default function About() {
               <div className="our-values-card-container relative rotate-2 bg-[#ECD682] w-[300px] h-[250px] rounded-2xl flex flex-col justify-center items-center">
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#F5C309] p-4 rounded-2xl -left-[0.5rem] -top-[0.75rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#F5C309]">
-                      T
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#F5C309]">T</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     TAKE RESPONSIBILITY
@@ -934,9 +940,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#37951D] p-4 rounded-2xl -rotate-[1.5deg] left-[0rem] -top-[0.5rem]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#37951D]">
-                      E
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#37951D]">E</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     EXPLORE
@@ -959,9 +963,7 @@ export default function About() {
                 ></Image>
                 <div className="our-values-details-wrapper absolute flex flex-col gap-4 w-full h-full bg-[#0E53B2] p-4 rounded-2xl rotate-[6.5deg] -left-[0.5rem] -top-[1%]">
                   <div className="our-values-logo-container w-[3rem] h-[3rem] bg-white rounded-full flex justify-center items-center">
-                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">
-                      P
-                    </h1>
+                    <h1 className="our-values-logo text-4xl text-[#0E53B2]">P</h1>
                   </div>
                   <h1 className="our-values-text-title text-3xl text-white font-family-impact">
                     PIONEER
