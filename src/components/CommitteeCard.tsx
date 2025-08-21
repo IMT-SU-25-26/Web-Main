@@ -104,7 +104,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   INTERNAL: {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.HOUSE(gender)],
       color: "#0555AB",
     }),
@@ -114,7 +114,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   EXTERNAL: {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.LEAF],
       color: "#0555AB",
     }),
@@ -124,7 +124,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   "PDD DESIGN": {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.PAINT(gender)],
       color: "#0555AB",
     }),
@@ -134,7 +134,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   "PDD DOCUMENTATION": {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.CAMERA],
       color: "#0555AB",
     }),
@@ -144,7 +144,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   "PUBLIC RELATION": {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.STATUE(gender)],
       color: "#F64A78",
     }),
@@ -154,7 +154,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   "SOCIAL ACTIVITY": {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.MEGAPHONE],
       color: "#0555AB",
     }),
@@ -164,7 +164,7 @@ const DIVISION_CONFIG: Record<
     }),
   },
   TECHNOLOGY: {
-    PRESIDENT: (gender) => ({
+    COORDINATOR: (gender) => ({
       decorations: [DECORATIONS.CROWN(gender), DECORATIONS.LAPTOP(gender)],
       color: "#0555AB",
     }),
