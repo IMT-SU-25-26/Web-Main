@@ -27,6 +27,11 @@ enum Role {
   STUDENT
 }
 
+enum Category {
+  ACTIVITY
+  RESEARCH
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -76,29 +81,21 @@ model User {
   updatedAt     DateTime      @updatedAt
 }
 
-
-model CategoryActivity {
-  id        Int       @id @default(autoincrement())
-  name      String    @unique
-  activities Activity[]
-}
-
 model Activity {
-  id            String           @id @default(cuid())
+  id            String        @id @default(cuid())
   title         String
   description   String
   location      String
+  startDate     DateTime
+  creditPoint   Int
   quota         Int
   imageUrl      String?
   imagePublicId String?
-  categoryId    Int              @default(2)
+  category      Category
   applications  Application[]
-  createdAt     DateTime         @default(now())
-  updatedAt     DateTime         @updatedAt
-
-  categoryActivity CategoryActivity @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 }
-
 
 model Achievement {
   id            String   @id @default(cuid())

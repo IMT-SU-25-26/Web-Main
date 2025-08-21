@@ -9,7 +9,6 @@ export interface ActionResult<T> {
 
 export interface FormProps<T> {
   mode: "create" | "edit";
-  categoryActivities: CategoryActivity[];
   data?: T;
 }
 
