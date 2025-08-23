@@ -15,7 +15,7 @@ export default function UploadButton({
   label,
   hasFile,
   folder,
-  allowedFormats
+  allowedFormats,
 }: UploadButtonProps) {
   return (
     <CldUploadWidget
@@ -23,7 +23,7 @@ export default function UploadButton({
       options={{
         folder: folder,
         clientAllowedFormats: allowedFormats,
-        resourceType: "auto"
+        resourceType: "auto",
       }}
       onSuccess={(result) => {
         if (

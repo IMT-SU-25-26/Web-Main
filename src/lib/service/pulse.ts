@@ -136,3 +136,27 @@ export async function getPulseRegistrationsByDivision(
     orderBy: { createdAt: "desc" },
   });
 }
+
+export async function deletePulseApplication(
+  id: string
+): Promise<ActionResult<void>> {
+  try {
+    await prisma.pulse.delete({
+      where: { id },
+    });
+
+    revalidatePath("/dashboard/pulse");
+    revalidatePath("/pulse");
+
+    return {
+      success: true,
+      message: "Pulse application deleted successfully!",
+    };
+  } catch (error) {
+    console.error("Failed to delete pulse application:", error);
+    return {
+      success: false,
+      error: "Failed to delete pulse application. Please try again.",
+    };
+  }
+}

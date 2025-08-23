@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Button from "@/components/pulse/Button";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -17,7 +18,7 @@ const eventsData = [
     title: "Pulse",
     date: "21 August 2025",
     description:
-      "Pulse merupakan program magang yang diselenggarakan oleh Student Union IMT. Program ini menjadi wadah bagi mahasiswa untuk mengembangkan keterampilan, berkontribusi langsung dalam berbagai proyek organisasi, serta belajar mengenai manajemen dan teknologi di lingkungan prodi IMT. Melalui Pulse, peserta magang dapat merasakan pengalaman nyata dalam bekerja sebagai bagian dari tim, sekaligus memperluas relasi dan kemampuan profesional.",
+      "Step into the Pulse of Informatics! ✨\nIMT Pulse merupakan sebuah magang di Student Union Informatika, di sini skill komunikasi, critical thinking, dan kepemimpinan kalian akan diasah selama 1 periode! Selain itu, kalian juga akan mengembangkan komunikasi tim serta keterampilan teknis yang banyak digunakan di kehidupan kalian, sehingga siap menghadapi tantangan dunia kuliah, organisasi, maupun profesional. \nRasakan pengalaman berorganisasi sejak Semester 1! 🚀",
   },
   {
     id: "technocamp",
@@ -26,7 +27,6 @@ const eventsData = [
     description:
       "Technocamp adalah bootcamp intensif yang dirancang untuk mengembangkan skill programming dan teknologi terkini. Peserta akan belajar langsung dari industry expert melalui hands-on workshop, mentoring session, dan project-based learning. Cocok untuk pemula yang ingin terjun ke dunia tech.",
   },
-  // Tambahkan event lain sesuai kebutuhan
 ];
 
 export default function EventDetailPage({
@@ -138,12 +138,11 @@ export default function EventDetailPage({
       }
     );
 
-    // Animasi untuk register button (jika ada)
     gsap.fromTo(
       ".register-button-container",
       {
         opacity: 0,
-        y: 40,
+        y: -50,
         scale: 0.9,
       },
       {
@@ -254,7 +253,7 @@ export default function EventDetailPage({
 
           {/* Description */}
           <div className="max-w-4xl mb-8 md:ml-2 ml-1">
-            <p className="description-paragraph text-gray-700 text-xl md:text-2xl leading-relaxed font-light">
+            <p className="description-paragraph text-gray-700 text-xl md:text-2xl leading-relaxed font-light whitespace-pre-line">
               {eventDescription || "Loading..."}
             </p>
           </div>
@@ -262,13 +261,13 @@ export default function EventDetailPage({
           {/* Register Button - Only for Pulse */}
           {eventId === "pulse" && (
             <div className="register-button-container md:ml-2 ml-1">
-              <button
+              <Button
                 onClick={() => router.push(`/events/${eventId}/register`)}
-                className="register-button group relative inline-flex items-center px-10 py-5 bg-gray-900 text-white font-semibold text-xl rounded-xl hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                className="group relative inline-flex items-center px-10 py-5 text-xl transform hover:scale-105 hover:shadow-xl"
               >
-                <span className="relative z-10">Register Now</span>
+                <span className="relative z-10 mr-4">Register Now</span>
                 <svg
-                  className="ml-4 w-6 h-6 transition-transform duration-300 group-hover:translate-x-2"
+                  className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -280,8 +279,7 @@ export default function EventDetailPage({
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              </Button>
             </div>
           )}
         </div>

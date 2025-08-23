@@ -25,6 +25,7 @@ enum Role {
   TECH
   LECTURER
   STUDENT
+  PULSE
 }
 
 enum Category {
