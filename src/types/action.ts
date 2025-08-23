@@ -15,5 +15,7 @@ export interface ApplyButtonProps {
 }
 
 export interface UploadWidgetProps {
-  onUploadSuccess: (url: string, publicId: string) => void;
+  onUploadSuccess: (url: string, publicId?: string) => void;
+  folder: string;
+  allowedFormats: string[];
 }

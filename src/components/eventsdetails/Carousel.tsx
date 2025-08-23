@@ -6,27 +6,27 @@ import gsap from "gsap";
 import Content from "./Content";
 
 interface CarouselProps {
-  eventsId?: string;
+  eventId?: string;
 } 
 
-export default function Carousel({ eventsId }: CarouselProps) {
+export default function Carousel({ eventId }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<HTMLDivElement>(null);
 
-  // Data slides berdasarkan eventsId
+  // Data slides berdasarkan eventId
   const getSlidesByEventId = (eventId: string) => {
     const slideData: Record<string, Array<{ src: string; alt: string }>> = {
       pulse: [
-        { src: "/pulse/foto1.jpg", alt: "Event Image 1" },
-        { src: "/pulse/foto2.jpg", alt: "Event Image 2" },
-        { src: "/pulse/foto3.jpg", alt: "Event Image 3" },
-        { src: "/pulse/foto4.jpg", alt: "Event Image 4" },
+        { src: "/event/pulse/Carousel-1.jpg", alt: "Carousel Image 1" },
+        { src: "/event/pulse/Carousel-2.jpg", alt: "Carousel Image 2" },
+        { src: "/event/pulse/Carousel-3.jpg", alt: "Carousel Image 3" },
+        { src: "/event/pulse/Carousel-4.jpg", alt: "Carousel Image 4" },
       ],
       technocamp: [
-        { src: "/technocamp/foto1.jpg", alt: "Event Image 1" },
-        { src: "/technocamp/foto2.jpg", alt: "Event Image 2" },
-        { src: "/technocamp/foto3.jpg", alt: "Event Image 3" },
-        { src: "/technocamp/foto4.jpg", alt: "Event Image 4" },
+        { src: "/event/technocamp/Carousel-1.jpg", alt: "Carousel Image 1" },
+        { src: "/event/technocamp/Carousel-2.jpg", alt: "Carousel Image 2" },
+        { src: "/event/technocamp/Carousel-3.jpg", alt: "Carousel Image 3" },
+        { src: "/event/technocamp/Carousel-4.jpg", alt: "Carousel Image 4" },
       ],
     };
 
@@ -41,7 +41,7 @@ export default function Carousel({ eventsId }: CarouselProps) {
     );
   };
 
-  const slides = getSlidesByEventId(eventsId || "");
+  const slides = getSlidesByEventId(eventId || "");
 
   useGSAP(() => {
     const slidesContainer = slidesRef.current;
@@ -75,7 +75,7 @@ export default function Carousel({ eventsId }: CarouselProps) {
       },
       force3D: true,
     });
-  }, [eventsId, slides.length]);
+  }, [eventId, slides.length]);
 
   // Double slides untuk seamless loop
   const extendedSlides = [...slides, ...slides];

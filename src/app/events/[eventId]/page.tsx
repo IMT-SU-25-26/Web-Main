@@ -3,6 +3,7 @@
 import Carousel from "@/components/eventsdetails/Carousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -31,20 +32,21 @@ const eventsData = [
 export default function EventDetailPage({
   params,
 }: {
-  params: Promise<{ eventsId: string }>;
+  params: Promise<{ eventId: string }>;
 }) {
-  const [eventsId, setEventsId] = useState<string>("");
+  const [eventId, seteventId] = useState<string>("");
   const [eventTitle, setEventTitle] = useState<string>("");
   const [eventDate, setEventDate] = useState<string>("");
   const [eventDescription, setEventDescription] = useState<string>("");
+  const router = useRouter();
 
   useEffect(() => {
     // Resolve the params promise
-    params.then(({ eventsId }) => {
-      setEventsId(eventsId);
+    params.then(({ eventId }) => {
+      seteventId(eventId);
 
-      // Cari data event berdasarkan eventsId
-      const eventData = eventsData.find((event) => event.id === eventsId);
+      // Cari data event berdasarkan eventId
+      const eventData = eventsData.find((event) => event.id === eventId);
       if (eventData) {
         setEventTitle(eventData.title);
         setEventDate(eventData.date);
@@ -228,39 +230,42 @@ export default function EventDetailPage({
           width={200}
           height={200}
         />
-        
-        {/* Tampilkan Carousel dengan eventsId */}
+
+        {/* Tampilkan Carousel dengan eventId */}
         <div className="carousel-container w-full relative mt-12 mb-8 rotate-[-1deg]">
-          <Carousel eventsId={eventsId} />
+          <Carousel eventId={eventId} />
         </div>
 
         {/* Event Detail Content */}
         <div className="max-w-6xl mx-auto px-8 py-16 mb-32">
           {/* Date Badge */}
-          <div className="event-date mb-8">
+          <div className="event-date mb-4">
             <span className="inline-block bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium tracking-wider uppercase">
               {eventDate || "Loading..."}
             </span>
           </div>
 
           {/* Title */}
-          <div className="mb-16">
+          <div className="mb-8">
             <h1 className="event-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-gray-900 leading-[0.9] tracking-tight">
               {eventTitle || "Loading..."}
             </h1>
           </div>
 
           {/* Description */}
-          <div className="max-w-4xl mb-20">
+          <div className="max-w-4xl mb-8 md:ml-2 ml-1">
             <p className="description-paragraph text-gray-700 text-xl md:text-2xl leading-relaxed font-light">
               {eventDescription || "Loading..."}
             </p>
           </div>
 
           {/* Register Button - Only for Pulse */}
-          {eventsId === "pulse" && (
-            <div className="register-button-container">
-              <button className="register-button group relative inline-flex items-center px-10 py-5 bg-gray-900 text-white font-semibold text-xl rounded-xl hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+          {eventId === "pulse" && (
+            <div className="register-button-container md:ml-2 ml-1">
+              <button
+                onClick={() => router.push(`/events/${eventId}/register`)}
+                className="register-button group relative inline-flex items-center px-10 py-5 bg-gray-900 text-white font-semibold text-xl rounded-xl hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              >
                 <span className="relative z-10">Register Now</span>
                 <svg
                   className="ml-4 w-6 h-6 transition-transform duration-300 group-hover:translate-x-2"

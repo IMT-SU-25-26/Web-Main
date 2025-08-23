@@ -157,7 +157,7 @@ export default function CompetitionsForm({ mode, data }: CompetitionFormProps) {
             Cover Image
           </label>
           <div className="space-y-3">
-            <UploadWidget onUploadSuccess={handleImageUpload} />
+            <UploadWidget onUploadSuccess={handleImageUpload} folder="competitions" allowedFormats={["png", "jpeg", "jpg"]}/>
             {imageUrl && (
               <div className="flex items-center space-x-3">
                 <Image

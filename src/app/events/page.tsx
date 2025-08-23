@@ -109,8 +109,8 @@ export default function EventsPage() {
         title: "PULSE",
         date: "21 August 2025",
         isreverse: false,
-        eventsId: "pulse",
-        imagesrc: "/pulse/main.jpg",
+        eventId: "pulse",
+        imagesrc: "/event/pulse/Cover.jpg",
       },
       decorativeImages: ["redWheel"], // Pilih gambar yang mau dipakai
     },
@@ -120,8 +120,8 @@ export default function EventsPage() {
         title: "TECHNOCAMP",
         date: "21 OCTOBER 2025",
         isreverse: true,
-        eventsId: "technocamp",
-        imagesrc: "/technocamp/main.jpg",
+        eventId: "technocamp",
+        imagesrc: "/event/technocamp/Cover.jpg",
       },
       decorativeImages: ["lightBulb", "redRibbon"], // Bisa multiple images
     },
@@ -131,7 +131,7 @@ export default function EventsPage() {
         title: "DEANS CUP",
         date: "15 SEPTEMBER 2025",
         isreverse: false,
-        eventsId: "DeansCup",
+        eventId: "DeansCup",
         isComingSoon: true,
       },
       decorativeImages: [], // Tidak ada gambar dekoratif

@@ -8,7 +8,7 @@ export default function EventsCard({
   isreverse,
   imagesrc,
   islast,
-  eventsId,
+  eventId,
   isComingSoon,
 }: EventsCardProps) {
   return (
@@ -98,7 +98,7 @@ export default function EventsCard({
               </div>
             ) : (
               // Regular View More Button (clickable)
-              <Link href={`/events/${eventsId}`}>
+              <Link href={`/events/${eventId}`}>
                 <div className="viewmore-button absolute w-[180px] md:w-[240px] h-[50px] md:h-[60px] bg-[#0E54B2] p-2 md:p-4 px-4 md:px-8 rounded-2xl bottom-[-2.5rem] md:bottom-[-3.5rem] z-[2] left-1/2 -translate-x-1/2 cursor-pointer hover:scale-105 transition-transform">
                   <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
                     <h1 className="viewmore-button-text font-family-impact text-xl md:text-3xl text-center text-white">

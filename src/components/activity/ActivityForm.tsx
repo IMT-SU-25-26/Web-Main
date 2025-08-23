@@ -7,7 +7,11 @@ import { ActivityFormProps } from "@/types/service/activity";
 import { UploadWidget } from "../utils/UploadWidget";
 import Image from "next/image";
 
-export default function ActivityForm({ mode, data, categories }: ActivityFormProps) {
+export default function ActivityForm({
+  mode,
+  data,
+  categories,
+}: ActivityFormProps) {
   /* States */
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -174,7 +178,6 @@ export default function ActivityForm({ mode, data, categories }: ActivityFormPro
           </select>
         </div>
 
-
         {/* Cover Image Input */}
         <div>
           <label
@@ -184,7 +187,11 @@ export default function ActivityForm({ mode, data, categories }: ActivityFormPro
             Cover Image
           </label>
           <div className="space-y-3">
-            <UploadWidget onUploadSuccess={handleImageUpload} />
+            <UploadWidget
+              onUploadSuccess={handleImageUpload}
+              folder="activities"
+              allowedFormats={["png", "jpeg", "jpg"]}
+            />
             {imageUrl && (
               <div className="flex items-center space-x-3">
                 <Image
@@ -258,7 +265,11 @@ export default function ActivityForm({ mode, data, categories }: ActivityFormPro
             type="datetime-local"
             id="startDate"
             name="startDate"
-            defaultValue={data?.startDate ? new Date(data.startDate).toISOString().slice(0, 16) : ""}
+            defaultValue={
+              data?.startDate
+                ? new Date(data.startDate).toISOString().slice(0, 16)
+                : ""
+            }
             required
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />

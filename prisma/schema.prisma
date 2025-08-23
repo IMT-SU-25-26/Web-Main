@@ -130,3 +130,26 @@ model Competition {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
+
+model Pulse {
+  id                       String   @id @default(cuid())
+  name                     String
+  email                    String   @unique
+  nim                      String   @unique
+  major                    String
+  phoneNumber              String
+  lineId                   String
+  reason                   String
+  firstChoice              String
+  secondChoice             String
+  idCard                   String
+  idCardPublicId           String
+  cv                       String
+  cvPublicId               String
+  commitmentLetter         String
+  commitmentLetterPublicId String
+  portfolio                String?
+  portfolioPublicId        String?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}

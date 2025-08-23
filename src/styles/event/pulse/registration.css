@@ -1,0 +1,235 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes swimFree1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(-30px, -15px);
+  }
+  50% {
+    transform: translate(20px, -25px);
+  }
+  75% {
+    transform: translate(-15px, 10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes swimFree2 {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  20% {
+    transform: translate(25px, -10px) rotate(5deg);
+  }
+  40% {
+    transform: translate(-20px, -20px) rotate(-3deg);
+  }
+  60% {
+    transform: translate(30px, 15px) rotate(8deg);
+  }
+  80% {
+    transform: translate(-10px, 5px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes swimFree3 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  30% {
+    transform: translate(-25px, 20px) scale(1.1);
+  }
+  60% {
+    transform: translate(35px, -15px) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes mantaGlide {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-40px) translateY(-15px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(20px) translateY(-30px) rotate(1deg);
+  }
+  75% {
+    transform: translateX(40px) translateY(-10px) rotate(3deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-swim-free-1 {
+  animation: swimFree1 8s ease-in-out infinite;
+}
+
+.animate-swim-free-2 {
+  animation: swimFree2 6s ease-in-out infinite;
+}
+
+.animate-swim-free-3 {
+  animation: swimFree3 7s ease-in-out infinite;
+}
+
+.animate-manta-glide {
+  animation: mantaGlide 10s ease-in-out infinite;
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Bubble Rising Animations */
+@keyframes bubbleRise1 {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleRise2 {
+  0% {
+    transform: translateY(100vh) translateX(0px) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) translateX(20px) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(-15px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleRise3 {
+  0% {
+    transform: translateY(100vh) translateX(0px) scale(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(70vh) translateX(-25px) scale(0.8);
+  }
+  60% {
+    transform: translateY(40vh) translateX(30px) scale(1.1);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(-10px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* Bubble Classes */
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.bubble-small {
+  width: 6px;
+  height: 6px;
+  animation: bubbleRise1 8s infinite linear;
+}
+
+.bubble-medium {
+  width: 12px;
+  height: 12px;
+  animation: bubbleRise2 10s infinite linear;
+}
+
+.bubble-large {
+  width: 18px;
+  height: 18px;
+  animation: bubbleRise3 12s infinite linear;
+}
+
+.bubble-delay-1 {
+  animation-delay: -2s;
+}
+.bubble-delay-2 {
+  animation-delay: -4s;
+}
+.bubble-delay-3 {
+  animation-delay: -6s;
+}
+.bubble-delay-4 {
+  animation-delay: -8s;
+}
+.bubble-delay-5 {
+  animation-delay: -1s;
+}
+.bubble-delay-6 {
+  animation-delay: -3s;
+}
+.bubble-delay-7 {
+  animation-delay: -5s;
+}
+.bubble-delay-8 {
+  animation-delay: -7s;
+}
+
+.bubble-effect {
+  position: relative;
+}
+
+.bubble-effect::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: float 2s ease-in-out infinite;
+}
+
+.underwater-glow {
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3), 0 0 40px rgba(0, 191, 255, 0.2);
+}
