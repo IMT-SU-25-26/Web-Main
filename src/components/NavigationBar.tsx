@@ -341,7 +341,7 @@ export default function NavigationBar() {
                         session.user?.role === "TECH") && (
                         <Link
                           href="/dashboard/pr"
-                          className="text-white text-center py-2 hover:bg-white/20 text-sm"
+                          className="text-black text-center py-2 text-sm"
                           onClick={handleMobileMenuToggle}
                         >
                           Public Relations
