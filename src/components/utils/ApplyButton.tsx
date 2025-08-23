@@ -38,18 +38,19 @@ export default function ApplyButton({
       signIn("google");
       return;
     }
-    
-    confirmApply?.(async () => {
-      // prevent multiple applications
-      if (!applicationStatus) {
+
+    if(!applicationStatus){
+      confirmApply?.(async () => {
+        // prevent multiple applications
         const result = await createApplication(session.user.id, activityId);
         if (result.success) {
           setApplicationStatus("PENDING");
         } else {
           alert(`Error: ${result.error}`);
         }
-      }
-    });
+      });
+    }
+    
   };
 
   let childrenTemp = children;
