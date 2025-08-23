@@ -689,7 +689,7 @@ export default function PulseForm() {
                   <label className="block text-black mb-2 font-family-poppins text-base sm:text-lg">
                     Portfolio{" "}
                     <span className="text-gray-600 text-sm sm:text-base">
-                      (Optional)
+                      (Tech, PDD Dokum & Design)
                     </span>
                   </label>
                   <UploadButton

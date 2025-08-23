@@ -19,22 +19,6 @@ export async function getPulseApplicationById(
   });
 }
 
-export async function getPulseApplicationByEmail(
-  email: string
-): Promise<Pulse | null> {
-  return await prisma.pulse.findUnique({
-    where: { email },
-  });
-}
-
-export async function getPulseApplicationByNim(
-  nim: string
-): Promise<Pulse | null> {
-  return await prisma.pulse.findUnique({
-    where: { nim },
-  });
-}
-
 export async function registerForPulseInternship(
   formData: FormData
 ): Promise<ActionResult<Pulse>> {
@@ -99,8 +83,7 @@ export async function registerForPulseInternship(
       data: validatedData,
     });
 
-    revalidatePath("/dashboard/pr/pulse");
-    revalidatePath("/pulse");
+    revalidatePath("/dashboard/pulse");
 
     return {
       success: true,
@@ -116,47 +99,3 @@ export async function registerForPulseInternship(
   }
 }
 
-export async function getPulseInternshipRegistrationsCount(): Promise<number> {
-  try {
-    const count = await prisma.pulse.count();
-    return count;
-  } catch (error) {
-    console.error("Failed to get pulse internship registrations count:", error);
-    return 0;
-  }
-}
-
-export async function getPulseRegistrationsByDivision(
-  division: string
-): Promise<Pulse[]> {
-  return await prisma.pulse.findMany({
-    where: {
-      OR: [{ firstChoice: division }, { secondChoice: division }],
-    },
-    orderBy: { createdAt: "desc" },
-  });
-}
-
-export async function deletePulseApplication(
-  id: string
-): Promise<ActionResult<void>> {
-  try {
-    await prisma.pulse.delete({
-      where: { id },
-    });
-
-    revalidatePath("/dashboard/pulse");
-    revalidatePath("/pulse");
-
-    return {
-      success: true,
-      message: "Pulse application deleted successfully!",
-    };
-  } catch (error) {
-    console.error("Failed to delete pulse application:", error);
-    return {
-      success: false,
-      error: "Failed to delete pulse application. Please try again.",
-    };
-  }
-}
