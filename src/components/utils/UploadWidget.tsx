@@ -12,8 +12,9 @@ export function UploadWidget({
     <CldUploadWidget
       uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET || "ml_default"}
       options={{
-        folder: folder || "general",
-        clientAllowedFormats: allowedFormats || ["png", "jpeg", "jpg"],
+        folder: folder,
+        clientAllowedFormats: allowedFormats,
+        resourceType: "auto",
       }}
       onSuccess={(result) => {
         if (

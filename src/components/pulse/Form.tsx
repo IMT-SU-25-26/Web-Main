@@ -34,7 +34,8 @@ export default function PulseForm() {
   // File Upload Public ID States
   const [ktmPublicId, setKtmPublicId] = useState<string>("");
   const [cvPublicId, setCvPublicId] = useState<string>("");
-  const [suratKomitmenPublicId, setSuratKomitmenPublicId] = useState<string>("");
+  const [suratKomitmenPublicId, setSuratKomitmenPublicId] =
+    useState<string>("");
   const [portfolioPublicId, setPortfolioPublicId] = useState<string>("");
 
   // Submission States
@@ -63,8 +64,103 @@ export default function PulseForm() {
     setPortfolioPublicId(publicId || "");
   };
 
+  // Validation Functions for Each Section
+  const validateSection1 = () => {
+    const requiredFields = ["namaLengkap", "nim", "emailUC", "penjurusan"];
+    return requiredFields.every(
+      (field) =>
+        formData[field as keyof typeof formData]?.toString().trim() !== ""
+    );
+  };
+
+  const validateSection2 = () => {
+    const requiredFields = ["nomorWhatsApp", "idLine", "alasanMasukPulse"];
+    return requiredFields.every(
+      (field) =>
+        formData[field as keyof typeof formData]?.toString().trim() !== ""
+    );
+  };
+
+  const validateSection3 = () => {
+    return (
+      formData.pilihanDivisi1.trim() !== "" &&
+      formData.pilihanDivisi2.trim() !== ""
+    );
+  };
+
+  const validateSection4 = () => {
+    return ktmUrl !== "" && cvUrl !== "" && suratKomitmenUrl !== "";
+  };
+
+  const validateCurrentSection = () => {
+    switch (currentSection) {
+      case 1:
+        return validateSection1();
+      case 2:
+        return validateSection2();
+      case 3:
+        return validateSection3();
+      case 4:
+        return validateSection4();
+      default:
+        return true;
+    }
+  };
+
+  // Get Missing Fields for Current Section
+  const getMissingFields = () => {
+    switch (currentSection) {
+      case 1:
+        const section1Fields = [];
+        if (!formData.namaLengkap.trim()) section1Fields.push("Nama Lengkap");
+        if (!formData.nim.trim()) section1Fields.push("NIM");
+        if (!formData.emailUC.trim()) section1Fields.push("Email UC");
+        if (!formData.penjurusan.trim()) section1Fields.push("Penjurusan");
+        return section1Fields;
+      case 2:
+        const section2Fields = [];
+        if (!formData.nomorWhatsApp.trim())
+          section2Fields.push("Nomor WhatsApp");
+        if (!formData.idLine.trim()) section2Fields.push("ID Line");
+        if (!formData.alasanMasukPulse.trim())
+          section2Fields.push("Alasan Masuk Pulse");
+        return section2Fields;
+      case 3:
+        const section3Fields = [];
+        if (!formData.pilihanDivisi1.trim())
+          section3Fields.push("Pilihan Divisi 1");
+        if (!formData.pilihanDivisi2.trim())
+          section3Fields.push("Pilihan Divisi 2");
+        return section3Fields;
+      case 4:
+        const section4Fields = [];
+        if (!ktmUrl) section4Fields.push("Kartu Tanda Mahasiswa");
+        if (!cvUrl) section4Fields.push("CV");
+        if (!suratKomitmenUrl) section4Fields.push("Surat Komitmen");
+        return section4Fields;
+      default:
+        return [];
+    }
+  };
+
   const handleNext = () => {
     setSubmitError("");
+
+    if (!validateCurrentSection()) {
+      const missingFields = getMissingFields();
+      if (missingFields.length > 0) {
+        setSubmitError(
+          `Please fill in the following required fields: ${missingFields.join(
+            ", "
+          )}`
+        );
+      } else {
+        setSubmitError(
+          "Please fill in all required fields before proceeding to the next section."
+        );
+      }
+      return;
+    }
 
     if (currentSection < 4) {
       setCurrentSection(currentSection + 1);
@@ -110,10 +206,13 @@ export default function PulseForm() {
       formDataToSubmit.append("cv", cvUrl);
       formDataToSubmit.append("commitmentLetter", suratKomitmenUrl);
       formDataToSubmit.append("portfolio", portfolioUrl);
-      
+
       formDataToSubmit.append("idCardPublicId", ktmPublicId);
       formDataToSubmit.append("cvPublicId", cvPublicId);
-      formDataToSubmit.append("commitmentLetterPublicId", suratKomitmenPublicId);
+      formDataToSubmit.append(
+        "commitmentLetterPublicId",
+        suratKomitmenPublicId
+      );
       formDataToSubmit.append("portfolioPublicId", portfolioPublicId);
 
       const result = await registerForPulseInternship(formDataToSubmit);
@@ -140,8 +239,6 @@ export default function PulseForm() {
         setCvUrl("");
         setSuratKomitmenUrl("");
         setPortfolioUrl("");
-        
-        // Reset public IDs
         setKtmPublicId("");
         setCvPublicId("");
         setSuratKomitmenPublicId("");
@@ -170,28 +267,28 @@ export default function PulseForm() {
 
   if (showSuccessScreen) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <div className="flex flex-col items-center justify-center min-h-screen p-2 sm:p-4">
         <div className="rounded-xl bg-black/20 backdrop-blur-xs border-2 border-blue-900 shadow-xl w-full sm:w-[600px] md:w-[700px] lg:w-[800px] min-h-[600px] flex flex-col items-center justify-center">
-          <h1 className="text-center text-black text-3xl font-bold p-6 pb-2 font-family-fredoka text-shadow-[1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]">
+          <h1 className="text-center text-black text-2xl sm:text-3xl font-bold p-6 pb-2 font-family-fredoka text-shadow-[1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]">
             REGISTRATION SUCCESSFUL!
           </h1>
 
-          <div className="flex flex-col items-center p-6 space-y-6">
-            <p className="text-center text-black text-xl font-family-poppins">
+          <div className="flex flex-col items-center p-4 sm:p-6 space-y-6">
+            <p className="text-center text-black text-lg sm:text-xl font-family-poppins">
               Thank you for registering for the Pulse Program!
             </p>
 
-            <div className="bg-white p-4 rounded-lg shadow-lg">
+            <div className="bg-white p-2 sm:p-4 rounded-lg shadow-lg">
               <Image
-                src="/event/pulse/registration/qr.jpg"
+                src="/event/pulse/registration/QR.jpg"
                 alt="Registration QR Code"
-                width={300}
-                height={300}
+                width={250}
+                height={250}
                 className="rounded-lg"
               />
             </div>
 
-            <p className="text-center text-black text-lg font-family-poppins max-w-md">
+            <p className="text-center text-black text-base sm:text-lg font-family-poppins max-w-md">
               Please scan this QR code to join the WhatsApp Group. Good Luck!
             </p>
 
@@ -204,22 +301,22 @@ export default function PulseForm() {
     );
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen p-2 sm:p-4">
       <div className="rounded-xl bg-black/20 backdrop-blur-xs border-2 border-blue-900 shadow-xl w-full sm:w-[600px] md:w-[700px] lg:w-[800px] min-h-[600px] flex flex-col">
-        <h1 className="text-center text-black text-3xl font-bold p-6 pb-2 font-family-fredoka text-shadow-[1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]">
+        <h1 className="text-center text-black text-2xl sm:text-3xl font-bold p-6 pb-2 font-family-fredoka text-shadow-[1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]">
           REGISTRATION FORM
         </h1>
 
         {/* Success Message */}
         {submitMessage && (
-          <div className="mx-4 mb-4 p-4 bg-green-100 border-2 border-green-400 text-green-700 rounded-md text-center font-family-poppins">
+          <div className="mx-2 sm:mx-4 mb-4 p-4 bg-green-100 border-2 border-green-400 text-green-700 rounded-md text-center font-family-poppins">
             {submitMessage}
           </div>
         )}
 
         {/* Error Message */}
         {submitError && (
-          <div className="mx-4 mb-4 p-4 bg-red-100 border-2 border-red-400 text-red-700 rounded-md text-center font-family-poppins">
+          <div className="mx-2 sm:mx-4 mb-4 p-4 bg-red-100 border-2 border-red-400 text-red-700 rounded-md text-center font-family-poppins">
             {submitError}
           </div>
         )}
@@ -234,9 +331,9 @@ export default function PulseForm() {
             {/* Section 1: Basic Information */}
             {currentSection === 1 && (
               <>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Nama Lengkap
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    Nama Lengkap <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -248,9 +345,9 @@ export default function PulseForm() {
                     required
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    NIM
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    NIM <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -260,9 +357,9 @@ export default function PulseForm() {
                     required
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Email UC
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    Email UC <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -274,9 +371,9 @@ export default function PulseForm() {
                     required
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Penjurusan
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    Penjurusan <span className="text-red-500">*</span>
                   </label>
                   <div className="space-y-2">
                     <label className="flex items-center text-black font-family-poppins text-md">
@@ -315,9 +412,9 @@ export default function PulseForm() {
             {/* Section 2: Contact Information */}
             {currentSection === 2 && (
               <>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Nomor WhatsApp
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    Nomor WhatsApp <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -329,9 +426,9 @@ export default function PulseForm() {
                     required
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    ID Line
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    ID Line <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -343,9 +440,9 @@ export default function PulseForm() {
                     required
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Alasan Masuk Pulse
+                <div className="p-3 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-xl">
+                    Alasan Masuk Pulse <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     value={formData.alasanMasukPulse}
@@ -362,12 +459,12 @@ export default function PulseForm() {
             {/* Section 3: Division Selection */}
             {currentSection === 3 && (
               <div className="flex flex-col items-center justify-center h-full min-h-[400px]">
-                <div className="p-4 w-full max-w-xl">
-                  <label className="block text-black mb-2 font-family-poppins text-2xl">
-                    Pilihan Divisi 1
+                <div className="p-3 sm:p-4 w-full max-w-xl">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-2xl">
+                    Pilihan Divisi 1 <span className="text-red-500">*</span>
                   </label>
-                  <div className="grid grid-cols-2 gap-4">
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi1"
@@ -381,7 +478,7 @@ export default function PulseForm() {
                       />
                       Technology
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi1"
@@ -395,7 +492,7 @@ export default function PulseForm() {
                       />
                       PDD Dokum
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi1"
@@ -409,7 +506,7 @@ export default function PulseForm() {
                       />
                       PDD Design
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi1"
@@ -423,7 +520,7 @@ export default function PulseForm() {
                       />
                       External
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi1"
@@ -437,7 +534,7 @@ export default function PulseForm() {
                       />
                       Social Activity
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi1"
@@ -453,12 +550,12 @@ export default function PulseForm() {
                     </label>
                   </div>
                 </div>
-                <div className="p-4 w-full max-w-xl">
-                  <label className="block text-black mb-2 font-family-poppins text-2xl  ">
-                    Pilihan Divisi 2
+                <div className="p-3 sm:p-4 w-full max-w-xl">
+                  <label className="block text-black mb-2 font-family-poppins text-lg sm:text-2xl">
+                    Pilihan Divisi 2 <span className="text-red-500">*</span>
                   </label>
-                  <div className="grid grid-cols-2 gap-3">
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi2"
@@ -472,7 +569,7 @@ export default function PulseForm() {
                       />
                       Technology
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi2"
@@ -486,7 +583,7 @@ export default function PulseForm() {
                       />
                       PDD Dokum
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi2"
@@ -500,7 +597,7 @@ export default function PulseForm() {
                       />
                       PDD Design
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi2"
@@ -514,7 +611,7 @@ export default function PulseForm() {
                       />
                       External
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi2"
@@ -528,7 +625,7 @@ export default function PulseForm() {
                       />
                       Social Activity
                     </label>
-                    <label className="flex items-center text-black text-xl font-family-poppins">
+                    <label className="flex items-center text-black text-sm sm:text-xl font-family-poppins">
                       <input
                         type="radio"
                         name="pilihanDivisi2"
@@ -550,49 +647,57 @@ export default function PulseForm() {
             {/* Section 4: File Uploads */}
             {currentSection === 4 && (
               <>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Kartu Tanda Mahasiswa
+                <div className="p-2 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-base sm:text-lg">
+                    Kartu Tanda Mahasiswa{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <UploadButton
                     onUpload={handleKtmUpload}
                     label="KTM"
                     hasFile={!!ktmUrl}
                     folder="pulse/ktm"
+                    allowedFormats={["png", "jpeg", "jpg", "pdf"]}
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Curriculum Vitae (CV)
+                <div className="p-2 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-base sm:text-lg">
+                    Curriculum Vitae (CV){" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <UploadButton
                     onUpload={handleCvUpload}
                     label="CV"
                     hasFile={!!cvUrl}
                     folder="pulse/cv"
+                    allowedFormats={["png", "jpeg", "jpg", "pdf"]}
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
-                    Surat Komitmen
+                <div className="p-2 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-base sm:text-lg">
+                    Surat Komitmen <span className="text-red-500">*</span>
                   </label>
                   <UploadButton
                     onUpload={handleSuratKomitmenUpload}
                     label="Surat Komitmen"
                     hasFile={!!suratKomitmenUrl}
                     folder="pulse/surat-komitmen"
+                    allowedFormats={["png", "jpeg", "jpg", "pdf"]}
                   />
                 </div>
-                <div className="p-4">
-                  <label className="block text-black mb-2 font-family-poppins text-xl">
+                <div className="p-2 sm:p-4">
+                  <label className="block text-black mb-2 font-family-poppins text-base sm:text-lg">
                     Portfolio{" "}
-                    <span className="text-gray-600 text-lg">(Optional)</span>
+                    <span className="text-gray-600 text-sm sm:text-base">
+                      (Optional)
+                    </span>
                   </label>
                   <UploadButton
                     onUpload={handlePortfolioUpload}
                     label="Portfolio"
                     hasFile={!!portfolioUrl}
                     folder="pulse/portfolio"
+                    allowedFormats={["png", "jpeg", "jpg", "pdf"]}
                   />
                 </div>
               </>
@@ -600,12 +705,9 @@ export default function PulseForm() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="p-4 flex justify-between mt-auto">
+          <div className="p-2 sm:p-4 flex justify-between mt-auto">
             {currentSection > 1 && (
-              <Button
-                onClick={handleBack}
-                className={isSubmitting ? "opacity-50 cursor-not-allowed" : ""}
-              >
+              <Button onClick={handleBack} disabled={isSubmitting}>
                 Back
               </Button>
             )}
@@ -613,15 +715,12 @@ export default function PulseForm() {
             {currentSection < 4 ? (
               <Button
                 onClick={handleNext}
-                className={isSubmitting ? "opacity-50 cursor-not-allowed" : ""}
+                disabled={isSubmitting || !validateCurrentSection()}
               >
                 Next
               </Button>
             ) : (
-              <Button
-                type="submit"
-                className={isSubmitting ? "opacity-75" : ""}
-              >
+              <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
             )}
