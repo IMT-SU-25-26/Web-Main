@@ -131,7 +131,7 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 hod-container gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
           <Card
             id="hod-1"
-            name="Dave Gideon Tanjung W."
+            name="Dave Gideon T.W."
             role="PRESIDENT"
             division="HOD"
             gender="BOY"
@@ -139,7 +139,7 @@ export default function Committee() {
           />
           <Card
             id="hod-2"
-            name="Marcellino Indra Wijaya"
+            name="Marcellino Indra W."
             role="VICE PRES"
             division="HOD"
             gender="BOY"
@@ -147,7 +147,7 @@ export default function Committee() {
           />
           <Card
             id="hod-3"
-            name="Theressa Natasha Thebez"
+            name="Theressa N.T."
             role="SECRETARY"
             division="HOD"
             gender="GIRL"
@@ -155,7 +155,7 @@ export default function Committee() {
           />
           <Card
             id="hod-4"
-            name="Graciella Chelsea Lu"
+            name="Graciella Chelsea L."
             role="SECRETARY"
             division="HOD"
             gender="GIRL"
@@ -163,7 +163,7 @@ export default function Committee() {
           />
           <Card
             id="hod-5"
-            name="Priscilia King Chandra"
+            name="Priscilia King C."
             role="TREASURER"
             division="HOD"
             gender="GIRL"
@@ -171,7 +171,7 @@ export default function Committee() {
           />
           <Card
             id="hod-6"
-            name="Chrisensia Abigail Gani"
+            name="Chrisensia A.G."
             role="TREASURER"
             division="HOD"
             gender="GIRL"
@@ -209,7 +209,7 @@ export default function Committee() {
         <div className="section-reveal internal-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-6 sm:mt-10 justify-center items-center px-2 sm:px-4">
           <Card
             id="internal-1"
-            name="Rinaldy Tanriady Tan"
+            name="Rinaldy Tanriady T."
             role="COORDINATOR"
             division="INTERNAL"
             gender="BOY"
@@ -217,7 +217,7 @@ export default function Committee() {
           />
           <Card
             id="internal-2"
-            name="Dave Tristian Nurcahyo"
+            name="Dave Tristian N."
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
@@ -225,7 +225,7 @@ export default function Committee() {
           />
           <Card
             id="internal-3"
-            name="Amadeus Ian Gunadi"
+            name="Amadeus Ian G."
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
@@ -241,7 +241,7 @@ export default function Committee() {
           />
           <Card
             id="internal-5"
-            name="Angga Dhamika Jaya"
+            name="Angga Dhamika J."
             role="MEMBER"
             division="INTERNAL"
             gender="BOY"
@@ -280,7 +280,7 @@ export default function Committee() {
           />
           <Card
             id="external-2"
-            name="Muhammad Altaf Hilmi"
+            name="Muhammad Altaf H."
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -288,7 +288,7 @@ export default function Committee() {
           />
           <Card
             id="external-3"
-            name="Kristoforus Bertrand W."
+            name="Kristoforus B.W."
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -296,7 +296,7 @@ export default function Committee() {
           />
           <Card
             id="external-4"
-            name="Nicholas Gerwin Mawardji"
+            name="Nicholas Gerwin M."
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -304,7 +304,7 @@ export default function Committee() {
           />
           <Card
             id="external-5"
-            name="Filemon Jose Hagen"
+            name="Filemon Jose H."
             role="MEMBER"
             division="EXTERNAL"
             gender="BOY"
@@ -347,10 +347,10 @@ export default function Committee() {
             className="redstarasset absolute w-[6rem] sm:w-[12rem] h-auto z-0 lg:translate-x-[44rem] sm:translate-y-[1rem] sm:-translate-x-[-29rem] -translate-x-[-24rem] translate-y-[1rem]"
           />
         </div>
-        <div className="section-reveal pdddesign-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
+        <div className="section-reveal pdddocumentation-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="pdddesign-1"
-            name="Rex Kenny Wirasantoso"
+            name="Rex Kenny W."
             role="COORDINATOR"
             division="PDD DESIGN"
             gender="BOY"
@@ -358,7 +358,7 @@ export default function Committee() {
           />
           <Card
             id="pdddesign-2"
-            name="Chelsea Deanna Husin"
+            name="Chelsea Deanna H."
             role="MEMBER"
             division="PDD DESIGN"
             gender="GIRL"
@@ -366,7 +366,7 @@ export default function Committee() {
           />
           <Card
             id="pdddesign-3"
-            name="Matahari Dea Zakiara"
+            name="Matahari Dea Z."
             role="MEMBER"
             division="PDD DESIGN"
             gender="GIRL"
@@ -374,12 +374,14 @@ export default function Committee() {
           />
           <Card
             id="pdddesign-4"
-            name="Bryan Charlie Lukito S."
+            name="Bryan Charlie L.S."
             role="MEMBER"
             division="PDD DESIGN"
             gender="BOY"
             imagesrc="/pdddesign/bc.jpg"
           />
+        </div>
+        <div className="section-reveal pdddocumentation-container relative grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-5 justify-center items-center px-4">
           <Card
             id="pdddesign-5"
             name="Jason Christoper"
@@ -429,7 +431,7 @@ export default function Committee() {
         <div className="section-reveal pdddocumentation-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="pdddoc-1"
-            name="Matthew Regan Hadiwidjaja"
+            name="Matthew Regan H."
             role="COORDINATOR"
             division="PDD DOCUMENTATION"
             gender="BOY"
@@ -445,7 +447,7 @@ export default function Committee() {
           />
           <Card
             id="pdddoc-3"
-            name="Flabianos Jason Muljono"
+            name="Flabianos Jason M."
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
@@ -453,7 +455,7 @@ export default function Committee() {
           />
           <Card
             id="pdddoc-4"
-            name="Keane Juan Suryanto"
+            name="Keane Juan S."
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
@@ -463,7 +465,7 @@ export default function Committee() {
         <div className="section-reveal pdddocumentation-container relative grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-5 justify-center items-center px-4">
           <Card
             id="pdddoc-5"
-            name="Stevanus Ivan Santoso"
+            name="Stevanus Ivan S."
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
@@ -471,7 +473,7 @@ export default function Committee() {
           />
           <Card
             id="pdddoc-6"
-            name="Clarrence Adrianto H."
+            name="Clarrence A.H."
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
@@ -479,7 +481,7 @@ export default function Committee() {
           />
           <Card
             id="pdddoc-7"
-            name="Kenneth Jonathan Halim"
+            name="Kenneth J.H."
             role="MEMBER"
             division="PDD DOCUMENTATION"
             gender="BOY"
@@ -524,7 +526,7 @@ export default function Committee() {
         <div className="section-reveal publicrelation-container grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="pr-1"
-            name="Felicia Joshlyn Purnomo"
+            name="Felicia Joshlyn P."
             role="COORDINATOR"
             division="PUBLIC RELATION"
             gender="GIRL"
@@ -532,7 +534,7 @@ export default function Committee() {
           />
           <Card
             id="pr-2"
-            name="Shatrya Christiano Chandra"
+            name="Shatrya C.C."
             role="MEMBER"
             division="PUBLIC RELATION"
             gender="BOY"
@@ -540,7 +542,7 @@ export default function Committee() {
           />
           <Card
             id="pr-3"
-            name="Dylan Patrick Willyam"
+            name="Dylan Patrick W."
             role="MEMBER"
             division="PUBLIC RELATION"
             gender="BOY"
@@ -578,7 +580,7 @@ export default function Committee() {
         <div className="section-reveal socialactivity-container grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="sa-1"
-            name="Aaron Asa Soelistiono"
+            name="Aaron Asa S."
             role="COORDINATOR"
             division="SOCIAL ACTIVITY"
             gender="BOY"
@@ -594,7 +596,7 @@ export default function Committee() {
           />
           <Card
             id="sa-3"
-            name="Muhammad Dzaky Nabil A."
+            name="Muh. Dzaky N.A."
             role="MEMBER"
             division="SOCIAL ACTIVITY"
             gender="BOY"
@@ -602,7 +604,7 @@ export default function Committee() {
           />
           <Card
             id="sa-4"
-            name="Jeferey Teddy Santosa"
+            name="Jeferey Teddy S."
             role="MEMBER"
             division="SOCIAL ACTIVITY"
             gender="BOY"
@@ -633,7 +635,7 @@ export default function Committee() {
         <div className="section-reveal grid grid-cols-2 sm:grid-cols-3 technology-container gap-10 sm:gap-5 mt-10 justify-center items-center px-4">
           <Card
             id="tech-1"
-            name="Valentino Manuel Gunawan"
+            name="Valentino Manuel G."
             role="COORDINATOR"
             division="TECHNOLOGY"
             gender="BOY"
@@ -641,7 +643,7 @@ export default function Committee() {
           />
           <Card
             id="tech-2"
-            name="Bryan Fernando Dinata"
+            name="Bryan Fernando D."
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
@@ -665,7 +667,7 @@ export default function Committee() {
           />
           <Card
             id="tech-5"
-            name="Nicholas Leroy Kurniawan"
+            name="Nicholas Leroy K."
             role="MEMBER"
             division="TECHNOLOGY"
             gender="BOY"
