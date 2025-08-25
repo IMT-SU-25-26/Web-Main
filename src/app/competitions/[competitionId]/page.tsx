@@ -24,7 +24,7 @@ export async function generateMetadata(props: {
   };
 }
 
-const ActivityDetails = async (props: {
+const CompetitionDetails = async (props: {
   params: Promise<{ competitionId: string }>;
 }) => {
   const params = await props.params;
@@ -167,6 +167,6 @@ const ActivityDetails = async (props: {
       </div>
     </>
   );
-};
+};  
 
-export default ActivityDetails;
+export default CompetitionDetails;
