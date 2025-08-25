@@ -93,7 +93,7 @@ export default async function TechDashboard() {
                       </div>
                     </td>
                   </tr>
-                ))}{" "}
+                ))}
               </tbody>
             </table>
           </div>
