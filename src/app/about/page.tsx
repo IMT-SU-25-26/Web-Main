@@ -13,7 +13,15 @@ export default function About() {
   const valuesSectionRef = useRef<HTMLDivElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isReady, setIsReady] = useState(false);
-
+  useEffect(() => {
+  if (typeof window !== "undefined") {
+    const hasRefreshed = sessionStorage.getItem("aboutPageRefreshed");
+    if (!hasRefreshed) {
+      sessionStorage.setItem("aboutPageRefreshed", "true");
+      window.location.reload();
+    }
+  }
+}, []);
   useEffect(() => {
     // Wait for DOM to be fully ready
     const timer = setTimeout(() => {
@@ -371,7 +379,7 @@ export default function About() {
     <div className="overflow-x-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div 
-        className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]"
+       className={`hide-initial ${isReady ? 'is-visible' : ''} overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]`}
         ref={valuesSectionRef}
       >
         <Image
