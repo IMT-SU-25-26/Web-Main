@@ -43,13 +43,9 @@ export const ActivitySchema = z.object({
     .min(1, "Location is required")
     .max(100, "Location must be less than 100 characters"),
 
-  startDate: z
-    .date({
-      message: "Start date must be a valid date",
-    })
-    .refine((date) => date > new Date(), {
-      message: "Start date must be in the future",
-    }),
+  startDate: z.date({
+    message: "Start date must be a valid date",
+  }),
 
   creditPoint: z
     .number()

@@ -1,12 +1,5 @@
 @import "tailwindcss";
-.hide-initial {
-  opacity: 0;
-  /* Atur durasi dan gaya transisi di sini */
-  transition: opacity 0.8s ease-in-out; 
-}
-.is-visible {
-  opacity: 1;
-}
+
 @theme {
   --font-family-gill: "Gill Sans MT", sans-serif;
   --font-family-gill-condensed-bold: "Gill Condensed Bold", sans-serif;
@@ -111,4 +104,13 @@ body {
 .thin-scroll::-webkit-scrollbar-thumb {
   background-color: rgba(107, 114, 128, 0.7); /* gray-500 with opacity */
   border-radius: 9999px; /* rounded pill shape */
+}
+
+.hide-initial {
+  opacity: 0;
+  /* Atur durasi dan gaya transisi di sini */
+  transition: opacity 0.8s ease-in-out; 
+}
+.is-visible {
+  opacity: 1;
 }
