@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createActivity, updateActivity } from "@/lib/service/activity";
 import { ActivityFormProps } from "@/types/service/activity";
@@ -21,6 +21,37 @@ export default function ActivityForm({
     data?.imagePublicId || ""
   );
   const router = useRouter();
+
+  // scroll for increase or decrease number input amount
+  useEffect(() => {
+  const inputs = document.querySelectorAll<HTMLInputElement>(".wheelMouse");
+  const handleWheel = (e: WheelEvent) => {
+    e.preventDefault(); // stop page scroll
+    const input = e.currentTarget as HTMLInputElement;
+    const step = 1;
+    const value = Number(input.value) || 0;
+
+    if (e.deltaY < 0) {
+      input.value = String(value + step);
+    } else {
+      input.value = String(value - step);
+      if (parseInt(input.value) < 1) {
+        input.value = "1";
+      }
+    }
+  };
+
+  inputs.forEach((input) =>
+    input.addEventListener("wheel", handleWheel, { passive: false })
+  );
+
+  return () => {
+    inputs.forEach((input) =>
+      input.removeEventListener("wheel", handleWheel)
+    );
+  };
+}, []);
+
 
   function handleImageUpload(url: string, publicId?: string) {
     setImageUrl(url);
@@ -291,7 +322,7 @@ export default function ActivityForm({
             required
             min={1}
             max={10}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full wheelMouse px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Enter credit points (1-10)"
           />
         </div>
@@ -312,7 +343,7 @@ export default function ActivityForm({
             required
             min={1}
             max={1000}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full wheelMouse px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Enter participant quota"
           />
         </div>
