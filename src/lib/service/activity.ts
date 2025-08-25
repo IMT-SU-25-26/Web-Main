@@ -22,11 +22,16 @@ export async function createActivity(
   formData: FormData
 ): Promise<ActionResult<Activity>> {
   try {
+    const startDateString = formData.get("startDate") as string;
+    // datetime-local provides "YYYY-MM-DDTHH:mm" which should be treated as local time
+    // We need to ensure it's parsed correctly for the local timezone
+    const startDate = new Date(startDateString);
+    
     const rawData = {
       title: formData.get("title") as string,
       description: formData.get("description") as string,
       location: formData.get("location") as string,
-      startDate: new Date(formData.get("startDate") as string),
+      startDate: startDate,
       creditPoint: parseInt(formData.get("creditPoint") as string, 10) || 0,
       quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
@@ -74,11 +79,16 @@ export async function updateActivity(
   formData: FormData
 ): Promise<ActionResult<ActivityData>> {
   try {
+    const startDateString = formData.get("startDate") as string;
+    // datetime-local provides "YYYY-MM-DDTHH:mm" which should be treated as local time
+    // We need to ensure it's parsed correctly for the local timezone
+    const startDate = new Date(startDateString);
+    
     const rawData = {
       title: formData.get("title") as string,
       description: formData.get("description") as string,
       location: formData.get("location") as string,
-      startDate: new Date(formData.get("startDate") as string),
+      startDate: startDate,
       creditPoint: parseInt(formData.get("creditPoint") as string, 10) || 0,
       quota: parseInt(formData.get("quota") as string, 10) || 0,
       imageUrl: formData.get("imageUrl") as string,
