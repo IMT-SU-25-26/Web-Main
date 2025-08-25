@@ -437,9 +437,7 @@ export default function About() {
               ABOUT US
             </h1>
             <p className="about-us-card-description-text text-2xl font-family-gill">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
-              aliquam, exercitationem assumenda eligendi possimus a itaque ut
-              dolor optio.
+             Student Union Information and Multimedia Technology is a student-led organization that serves as a platform for students of the Informatics study program to grow professionally, socially, and academically. SU IMT UC organizes various events, workshops, and initiatives to enhance student engagement, develop leadership skills, and support innovation in technology.
             </p>
           </div>
           <Image
@@ -531,8 +529,7 @@ export default function About() {
               ABOUT US
             </h1>
             <p className="about-us-card-description-text text-2xl font-family-gill">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
-              aliquam, exercitationem
+             Student Union Information and Multimedia Technology is a student-led organization that serves as a platform for students of the Informatics study program to grow professionally, socially, and academically. SU IMT UC organizes various events, workshops, and initiatives to enhance student engagement, develop leadership skills, and support innovation in technology.
             </p>
           </div>
           <Image
