@@ -159,6 +159,9 @@ export const ActivityCard = ({
         className="relative mt-auto w-full py-2"
         activityId={activity.id}
         confirmApply={confirmApply}
+        startDate={activity.startDate}
+        quota={activity.quota}
+        approvedCount={approvedCount}
       >
         Register
       </ApplyButton>

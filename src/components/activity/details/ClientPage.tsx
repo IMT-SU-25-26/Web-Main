@@ -190,6 +190,9 @@ const ClientActivityDetails = ({ activity }: ClientActivityDetailsProps) => {
                 bgColor="#ED4E45"
                 activityId={activity.id}
                 confirmApply={confirmApply}
+                startDate={activity.startDate}
+                quota={activity.quota}
+                approvedCount={approvedCount}
                 className="w-fit px-8 sm:px-12 py-3 sm:py-4 text-[24px] sm:text-[32px] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 REGISTER NOW
