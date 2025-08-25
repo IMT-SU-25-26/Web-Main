@@ -374,7 +374,7 @@ export default function Committee() {
           />
           <Card
             id="pdddesign-4"
-            name="Bryan Charlie L.S."
+            name="Bryan Carlie L.S."
             role="MEMBER"
             division="PDD DESIGN"
             gender="BOY"
