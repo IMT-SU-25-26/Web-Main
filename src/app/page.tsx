@@ -7,10 +7,32 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HomeServicesCard from "@/components/HomeServicesCard";
 import "@/styles/home.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const [isReady, setIsReady] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  useEffect(() => {
+      // Wait for DOM to be fully ready
+      const timer = setTimeout(() => {
+        setImagesLoaded(true);
+      }, 100);
+  
+      return () => clearTimeout(timer);
+    }, []);
+  
+    useEffect(() => {
+      // Set ready state after images are loaded and a small delay
+      if (imagesLoaded) {
+        const timer = setTimeout(() => {
+          setIsReady(true);
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }, [imagesLoaded]);
   useGSAP(() => {
     // Hero Section Animations
     const heroElements = [
@@ -522,7 +544,7 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
-      <div className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]">
+      <div className={`hide-initial ${isReady ? 'is-visible' : ''} overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]`}>
         <div className="container-landing relative z-10 w-fit h-full flex items-center justify-center">
           <Image
             className="red-bubble z-[8] top-0"

@@ -1,4 +1,77 @@
 @media (max-width: 3840px) and (max-height: 2160px) {
+  /* About us section */
+  .left-about-card {
+    height: 30rem;
+    gap: 24px;
+    padding: 72px;
+  }
+  .about-us-card-title-text {
+    font-size: 72px;
+  }
+  .about-us-card-description-text {
+    font-size: 30px;
+  }
+
+  .su-imt-team-card-background {
+    width: 750px;
+    height: 525px;
+  }
+  .su-imt-team-card-foreground {
+    width: 750px;
+    height: 525px;
+  }
+  .su-imt-team-card-text {
+    font-size: 36px;
+  }
+
+  /* Vision mission section */
+  .vision-mission-wrapper {
+    margin-top: 10%;
+  }
+  .big-fracture {
+    width: 100%;
+    height: auto;
+  }
+  .mission-card {
+    bottom: -8.5%;
+  }
+  .vision-card {
+    top: 15%;
+  }
+  .pencil-ruler {
+    top: -40%;
+  }
+  .green-arrow-about {
+    bottom: 20%;
+  }
+  .circle-kiri-fracture {
+    bottom: -60%;
+  }
+
+  /* our values section */
+  .our-values-wrapper {
+    margin-top: 15%;
+  }
+  .our-values-card-container {
+    width: 450px;
+    height: 375px;
+  }
+  .our-values-details-wrapper {
+    padding: 1.5rem;
+  }
+  .our-values-logo-container {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .our-values-logo {
+    font-size: 45px;
+  }
+  .our-values-text-title {
+    font-size: 45px;
+  }
+  .our-values-text-description {
+    font-size: 30px;
+  }
 }
 @media (max-width: 2850px) and (max-height: 1800px) {
   /* About us section */
@@ -11,7 +84,7 @@
     font-size: 72px;
   }
   .about-us-card-description-text {
-    font-size: 36px;
+    font-size: 30px;
   }
 
   .su-imt-team-card-background {
@@ -86,7 +159,7 @@
     font-size: 72px;
   }
   .about-us-card-description-text {
-    font-size: 36px;
+    font-size: 29px;
   }
 
   .su-imt-team-card-background {
@@ -161,7 +234,82 @@
     font-size: 72px;
   }
   .about-us-card-description-text {
+    font-size: 29px;
+  }
+
+  .su-imt-team-card-background {
+    width: 750px;
+    height: 525px;
+  }
+  .su-imt-team-card-foreground {
+    width: 750px;
+    height: 525px;
+  }
+  .su-imt-team-card-text {
     font-size: 36px;
+  }
+
+  /* Vision mission section */
+  .vision-mission-wrapper {
+    margin-top: 10%;
+  }
+  .big-fracture {
+    width: 100%;
+    height: auto;
+  }
+  .mission-card {
+    bottom: -2.5%;
+  }
+  .vision-card {
+    top: 20%;
+  }
+  .pencil-ruler {
+    top: -40%;
+  }
+  .green-arrow-about {
+    bottom: 25%;
+  }
+  .circle-kiri-fracture {
+    bottom: -50%;
+  }
+
+  /* our values section */
+  .our-values-wrapper {
+    margin-top: 10%;
+  }
+  .our-values-card-container {
+    width: 450px;
+    height: 375px;
+  }
+  .our-values-details-wrapper {
+    padding: 1.5rem;
+  }
+  .our-values-logo-container {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .our-values-logo {
+    font-size: 45px;
+  }
+  .our-values-text-title {
+    font-size: 45px;
+  }
+  .our-values-text-description {
+    font-size: 30px;
+  }
+}
+@media (max-width: 2048px) and (max-height: 1158px) {
+  /* About us section */
+  .left-about-card {
+    height: 30rem;
+    gap: 24px;
+    padding: 72px;
+  }
+  .about-us-card-title-text {
+    font-size: 72px;
+  }
+  .about-us-card-description-text {
+    font-size: 25px;
   }
 
   .su-imt-team-card-background {
@@ -236,7 +384,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 19px;
   }
 
   .su-imt-team-card-background {
@@ -312,7 +460,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .su-imt-team-card-background {
@@ -388,7 +536,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .su-imt-team-card-background {
@@ -464,7 +612,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .su-imt-team-card-background {
@@ -540,7 +688,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 19px;
   }
 
   .su-imt-team-card-background {
@@ -616,7 +764,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 19px;
   }
 
   .su-imt-team-card-background {
@@ -695,7 +843,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .su-imt-team-card-background {
@@ -774,7 +922,7 @@
     font-size: 48px;
   }
   .about-us-card-description-text {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .su-imt-team-card-background {
@@ -853,7 +1001,7 @@
     font-size: 40px;
   }
   .about-us-card-description-text {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .su-imt-team-card-background {
@@ -934,7 +1082,7 @@
     font-size: 32px;
   }
   .about-us-card-description-text {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .peniti {
@@ -1022,7 +1170,7 @@
     font-size: 32px;
   }
   .about-us-card-description-text {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .peniti {
@@ -1117,7 +1265,7 @@
     font-size: 32px;
   }
   .about-us-card-description-text {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .peniti {
@@ -1213,7 +1361,7 @@
     font-size: 32px;
   }
   .about-us-card-description-text {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .peniti {
@@ -1305,7 +1453,7 @@
     font-size: 32px;
   }
   .about-us-card-description-text {
-    font-size: 16px;
+    font-size: 11px;
   }
 
   .peniti {
@@ -1397,10 +1545,10 @@
     padding: 24px;
   }
   .about-us-card-title-text {
-    font-size: 28px;
+    font-size: 24px;
   }
   .about-us-card-description-text {
-    font-size: 14px;
+    font-size:9px;
   }
   .circle-red-stick-about {
     width: 22.5%;
@@ -1801,10 +1949,10 @@
     width: 60%
   }
   .about-us-card-title-text {
-    font-size: 28px;
+    font-size: 18px;
   }
   .about-us-card-description-text {
-    font-size: 14px;
+    font-size: 9px;
   }
   .circle-red-stick-about {
     width: 22.5%;
@@ -1935,10 +2083,10 @@
     padding: 24px;
   }
   .about-us-card-title-text {
-    font-size: 28px;
+    font-size: 20px;
   }
   .about-us-card-description-text {
-    font-size: 14px;
+    font-size: 9px;
   }
   .circle-red-stick-about {
     width: 22.5%;
@@ -2206,10 +2354,10 @@
     padding: 24px;
   }
   .about-us-card-title-text {
-    font-size: 28px;
+    font-size: 20px;
   }
   .about-us-card-description-text {
-    font-size: 14px;
+    font-size: 9px;
   }
   .circle-red-stick-about {
     width: 22.5%;
@@ -2342,10 +2490,10 @@
     padding: 24px;
   }
   .about-us-card-title-text {
-    font-size: 28px;
+    font-size: 20px;
   }
   .about-us-card-description-text {
-    font-size: 14px;
+    font-size: 8.5px;
   }
   .circle-red-stick-about {
     width: 22.5%;
@@ -2480,10 +2628,10 @@
     padding: 24px;
   }
   .about-us-card-title-text {
-    font-size: 28px;
+    font-size: 20px;
   }
   .about-us-card-description-text {
-    font-size: 14px;
+    font-size: 8px;
   }
   .circle-red-stick-about {
     width: 22.5%;
@@ -2747,4 +2895,143 @@
 }
 
 @media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
+  /* About us section */
+  .about-us-text {
+    margin-top: 10%;
+  }
+  .about-us-wrapper {
+    gap: 7rem;
+  }
+  .left-about-card {
+    height: 10rem;
+    gap: 8px;
+    padding: 24px;
+  }
+  .about-us-card-title-text {
+    font-size: 20px;
+  }
+  .about-us-card-description-text {
+    font-size: 8px;
+  }
+  .circle-red-stick-about {
+    width: 22.5%;
+    right: -10%;
+    top: -16rem;
+  }
+  .red-spike-landing-about{
+    width: 20%;
+    left: -12.5%;
+    top: -10rem;
+  }
+  .yellow-star-landing-about{
+    width: 20%;
+    right: -8%;
+    top: -7.5rem;
+  }
+  .about-us-paper-cloud-mobile{
+
+  }
+  .about-us-dragon-mobile{
+
+  }
+  .about-us-dragon-breath-mobile{
+
+  }
+
+
+  .peniti {
+    top: -14.5%;
+    right: -13.1%;
+  }
+  .su-imt-team-card-background {
+    width: 250px;
+    height: 200px;
+  }
+  .su-imt-team-card-foreground {
+    width: 255px;
+    height: 200px;
+  }
+  .su-imt-team-card-text {
+    font-size: 20px;
+  }
+
+  /* Vision mission section */
+  .vision-mission-wrapper {
+    margin-top: -75.5%;
+  }
+  .big-fracture {
+    width: 100%;
+    height: auto;
+  }
+  .mission-card {
+    bottom: 27.5%;
+  }
+  .vision-card {
+    top: 26.5%;
+  }
+  .pencil-ruler {
+    top: -0.5%;
+    left: 0%;
+  }
+  .green-arrow-about {
+    bottom: 39.5%;
+  }
+
+  /* our values section */
+  .our-values-wrapper {
+    margin-top: -65.5%;
+  }
+  .our-values-card-wrapper {
+    gap: 1rem;
+    padding: 24px;
+    margin-left: -1%;
+    margin-block-start: -0rem;
+    margin-block-end: -0rem;
+  }
+  .our-values-card-container {
+    width: 131px;
+    height: 117px;
+  }
+  .our-values-details-wrapper {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  .our-values-logo-container {
+    width: 2rem;
+    height: 2rem;
+  }
+  .our-values-logo {
+    font-size: 16px;
+  }
+  .our-values-text-title {
+    font-size: 16px;
+  }
+  .our-values-text-description {
+    font-size: 10px;
+  }
+  
+  .pioneer-card, .explore-card{
+    margin-top: -20%;
+  }
+  /* footer */
+  .about-footer-left-background{
+    width: 30%;
+  }
+  .about-footer-right-background{
+    width: 30%;
+  }
+  .about-laptop{
+    width: 40%;
+    bottom: 1.5%;
+    right: -5%;
+  }
+  .about-laptop-spark{
+    width: 25%;
+    bottom: 5%;
+  }
+  .about-heart{
+    width: 17.5%;
+    bottom: 0%;
+    left: -0%;
+  }
 }

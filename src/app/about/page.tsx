@@ -13,7 +13,15 @@ export default function About() {
   const valuesSectionRef = useRef<HTMLDivElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isReady, setIsReady] = useState(false);
-
+  useEffect(() => {
+  if (typeof window !== "undefined") {
+    const hasRefreshed = sessionStorage.getItem("aboutPageRefreshed");
+    if (!hasRefreshed) {
+      sessionStorage.setItem("aboutPageRefreshed", "true");
+      window.location.reload();
+    }
+  }
+}, []);
   useEffect(() => {
     // Wait for DOM to be fully ready
     const timer = setTimeout(() => {
@@ -371,7 +379,7 @@ export default function About() {
     <div className="overflow-x-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div 
-        className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]"
+       className={`hide-initial ${isReady ? 'is-visible' : ''} overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]`}
         ref={valuesSectionRef}
       >
         <Image
@@ -429,9 +437,7 @@ export default function About() {
               ABOUT US
             </h1>
             <p className="about-us-card-description-text text-2xl font-family-gill">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
-              aliquam, exercitationem assumenda eligendi possimus a itaque ut
-              dolor optio.
+             Student Union Information and Multimedia Technology is a student-led organization that serves as a platform for students of the Informatics study program to grow professionally, socially, and academically. SU IMT UC organizes various events, workshops, and initiatives to enhance student engagement, develop leadership skills, and support innovation in technology.
             </p>
           </div>
           <Image
@@ -523,8 +529,7 @@ export default function About() {
               ABOUT US
             </h1>
             <p className="about-us-card-description-text text-2xl font-family-gill">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum
-              aliquam, exercitationem
+             Student Union Information and Multimedia Technology is a student-led organization that serves as a platform for students of the Informatics study program to grow professionally, socially, and academically. SU IMT UC organizes various events, workshops, and initiatives to enhance student engagement, develop leadership skills, and support innovation in technology.
             </p>
           </div>
           <Image
