@@ -17,30 +17,7 @@ export default function About() {
   useEffect(() => {
     // Wait for DOM to be fully ready
     const timer = setTimeout(() => {
-      const wrapper = document.body; // Check all images in the page
-      const images = wrapper.querySelectorAll("img");
-      
-      if (images.length === 0) {
-        setImagesLoaded(true);
-        return;
-      }
-      
-      let loaded = 0;
-      const checkAllLoaded = () => {
-        loaded++;
-        if (loaded === images.length) {
-          setImagesLoaded(true);
-        }
-      };
-
-      images.forEach((img) => {
-        if (img.complete && img.naturalHeight !== 0) {
-          checkAllLoaded();
-        } else {
-          img.addEventListener("load", checkAllLoaded);
-          img.addEventListener("error", checkAllLoaded);
-        }
-      });
+      setImagesLoaded(true);
     }, 100);
 
     return () => clearTimeout(timer);
@@ -51,7 +28,7 @@ export default function About() {
     if (imagesLoaded) {
       const timer = setTimeout(() => {
         setIsReady(true);
-      }, 200);
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [imagesLoaded]);
@@ -62,38 +39,6 @@ export default function About() {
 
       // Force a refresh of ScrollTrigger before starting animations
       ScrollTrigger.refresh();
-
-      // Set initial states to prevent layout shift
-      gsap.set([
-        ".about-us-text",
-        ".left-about-card", 
-        ".su-imt-team-card-background", 
-        ".su-imt-team-card-foreground",
-        ".dragon-about", 
-        ".dragon-breath", 
-        ".peniti",
-        ".circle-blue-stick-about",
-        ".circle-red-stick-about",
-        ".yellow-star-landing-about",
-        ".red-spike-landing-about",
-        ".big-fracture",
-        ".vision-card",
-        ".mission-card",
-        ".circle-kiri-fracture", 
-        ".green-arrow-about", 
-        ".pencil-ruler",
-        ".our-values-text", 
-        ".step",
-        ".our-values-card-container",
-        ".about-footer-left-background", 
-        ".about-footer-right-background",
-        ".about-laptop", 
-        ".about-laptop-spark", 
-        ".about-heart"
-      ], {
-        opacity: 0,
-        clearProps: "transform"
-      });
 
       gsap.set(".will-change-transform", {
         willChange: "transform",
@@ -411,7 +356,7 @@ export default function About() {
 
       setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 300);
+      }, 100);
 
       // Cleanup function
       return () => {
@@ -426,9 +371,7 @@ export default function About() {
     <div className="overflow-x-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
       <div 
-        className={`overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6] transition-opacity duration-500 ${
-          isReady ? 'opacity-100' : 'opacity-0'
-        }`}
+        className="overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]"
         ref={valuesSectionRef}
       >
         <Image

@@ -91,13 +91,9 @@ export const ActivityCard = ({
 
           {/* Location */}
           <div className="flex gap-1 justify-start items-center mt-1">
-            <Image
-              className="w-[0.6rem]"
-              src={"/activities/point-map.svg"}
-              alt="Point map"
-              width={50}
-              height={50}
-            />
+            <svg className="w-[0.6rem] h-[0.6rem] text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+            </svg>
             <p className="text-[0.8rem] text-gray-600">{activity.location}</p>
           </div>
 
@@ -142,13 +138,9 @@ export const ActivityCard = ({
 
         {/* Quota */}
         <div className="flex flex-col items-center justify-center">
-          <Image
-            className="w-[25px]"
-            src={"/activities/logo-people.svg"}
-            alt="People Logo"
-            width={100}
-            height={100}
-          />
+          <svg className="w-[25px] h-[25px] text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+          </svg>
           <p className="text-[0.9rem]">
             {approvedCount}/{activity.quota}
           </p>

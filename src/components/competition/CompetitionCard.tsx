@@ -1,12 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-// import Button from "../Button";
-import { Competition } from "@/types/service/competition";
-import Link from "next/link";
-import ApplyButton from "../utils/ApplyButton";
 import { useState } from "react";
+import { Competition } from "@/types/service/competition";
 
 const colorList = [
   "#ED4E45", // Red
