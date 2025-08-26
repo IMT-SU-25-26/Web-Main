@@ -5,4 +5,5 @@ export interface HomeServiceCard {
   color?: string;
   opacity?: string;
   className?: string;
+  imageUrl?: string;
 }

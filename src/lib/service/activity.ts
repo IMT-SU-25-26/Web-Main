@@ -12,6 +12,13 @@ export async function getActivities(): Promise<Activity[]> {
   });
 }
 
+export async function getLatestActivities(limit: number = 3): Promise<Activity[]> {
+  return await prisma.activity.findMany({
+    orderBy: { createdAt: "desc" },
+    take: limit,
+  });
+}
+
 export async function getActivityById(id: string): Promise<Activity | null> {
   return await prisma.activity.findUnique({
     where: { id },
