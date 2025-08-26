@@ -499,7 +499,7 @@ export default function About() {
             ></Image>
             <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
             <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] -left-[10%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
-              <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
+              <div className="su-imt-team-card-image-container w-full h-[80%] bg-[url('/about/su_imt_team.webp')] bg-cover bg-center bg-no-repeat"></div>
               <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
                 SU IMT Team
               </h1>
@@ -585,7 +585,7 @@ export default function About() {
           <div>
             <div className="su-imt-team-card-background relative rotate-[8deg] bg-[#EAD6B1] w-[500px] h-[350px] shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]"></div>
             <div className="su-imt-team-card-foreground absolute rotate-[8deg] bg-[#FFFF] right-[5%] top-[10%] w-[500px] h-[350px] p-4 flex flex-col gap-6 shadow-[12px_12px_5px_-5px_rgba(0,0,0,0.25)]">
-              <div className="su-imt-team-card-image-container w-full h-[80%] bg-gray-200"></div>
+              <div className="su-imt-team-card-image-container w-full h-[80%] bg-[url('/about/su_imt_team.webp')] bg-cover bg-center bg-no-repeat"></div>
               <h1 className="su-imt-team-card-text text-2xl font-family-gill font-bold">
                 SU IMT Team
               </h1>
@@ -734,8 +734,8 @@ export default function About() {
                   <h1 className="our-values-text-title text-3xl text-white font-family-gill-condensed-bold font-bold">
                     STRIVE
                   </h1>
-                  <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
-                    Lorem ipsum
+                  <p className="our-values-text-description text-xs text-white font-family-gill-condensed-bold font-bold">
+                    Strive for excellence by pushing beyond limits to create positive impact and foster continuous growth.
                   </p>
                 </div>
               </div>
@@ -752,7 +752,7 @@ export default function About() {
                     TAKE RESPONSIBILITY
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
-                    Lorem ipsum
+                    Take responsibility with integrity, shaping character maturity through accountable actions and decisions.
                   </p>
                 </div>
               </div>
@@ -777,7 +777,7 @@ export default function About() {
                     EXPLORE
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
-                    Lorem ipsum
+                    Explore both the world of knowledge and the depths of oneself, nurturing curiosity, self-awareness, and intellectual growth.
                   </p>
                 </div>
               </div>
@@ -802,7 +802,7 @@ export default function About() {
                     PIONEER
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold font-bold">
-                    Lorem ipsum
+                    Pioneer transformative initiatives with courage and vision to lead innovation and change.
                   </p>
                 </div>
               </div>
@@ -1011,7 +1011,7 @@ export default function About() {
                     STRIVE
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
-                    Lorem ipsum
+                    Strive for excellence by pushing beyond limits to create positive impact and foster continuous growth.
                   </p>
                 </div>
               </div>
@@ -1028,7 +1028,7 @@ export default function About() {
                     TAKE RESPONSIBILITY
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
-                    Lorem ipsum
+                    Take responsibility with integrity, shaping character maturity through accountable actions and decisions.
                   </p>
                 </div>
               </div>
@@ -1053,7 +1053,7 @@ export default function About() {
                     EXPLORE
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
-                    Lorem ipsum
+                    Explore both the world of knowledge and the depths of oneself, nurturing curiosity, self-awareness, and intellectual growth.
                   </p>
                 </div>
               </div>
@@ -1078,7 +1078,7 @@ export default function About() {
                     PIONEER
                   </h1>
                   <p className="our-values-text-description text-xl text-white font-family-gill-condensed-bold">
-                    Lorem ipsum
+                    Pioneer transformative initiatives with courage and vision to lead innovation and change.
                   </p>
                 </div>
               </div>
