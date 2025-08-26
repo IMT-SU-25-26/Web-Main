@@ -12,39 +12,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: SSH and Deploy
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USERNAME }}
-        key: ${{ secrets.VPS_DEPLOY_KEY }}
-        port: 22
-        script: |
-          # Load NVM
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_DEPLOY_KEY }}
+          port: 22
+          script: |
+            # Load NVM
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-          # Navigate to your app directory
-          cd ~/su-imt
+            # Navigate to your app directory
+            cd ~/su-imt
 
-          # Pull the latest changes from the main branch
-          echo "🚚 Pulling latest code..."
-          git pull origin main
+            # ⬇️ REPLACE THIS BLOCK ⬇️
+            # echo "🚚 Pulling latest code..."
+            # git pull origin main
 
-          # Install dependencies
-          echo "📦 Installing dependencies..."
-          pnpm install
+            # ⬇️ WITH THIS BLOCK ⬇️
+            echo "🚚 Forcefully resetting to the latest version from GitHub..."
+            git fetch origin
+            git reset --hard origin/main
 
-          # Run database migrations
-          echo "🗄️ Running database migrations..."
-          pnpm prisma:deploy
+            # The rest of the script continues as before
+            echo "📦 Installing dependencies..."
+            pnpm install
 
-          # Build the application
-          echo "🔨 Building new version..."
-          pnpm build
+            echo "🗄️ Running database migrations..."
+            pnpm prisma migrate deploy
 
-          # Reload the app with PM2 for zero-downtime
-          echo "🚀 Reloading application..."
-          pm2 reload next-app
+            echo "🔨 Building new version..."
+            pnpm build
 
-          echo "✅ Deployment finished!"
+            echo "🚀 Reloading application..."
+            pm2 reload next-app
+
+            echo "✅ Deployment finished!"
