@@ -16,23 +16,23 @@ export default function Home() {
   const [isReady, setIsReady] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   useEffect(() => {
-      // Wait for DOM to be fully ready
+    // Wait for DOM to be fully ready
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Set ready state after images are loaded and a small delay
+    if (imagesLoaded) {
       const timer = setTimeout(() => {
-        setImagesLoaded(true);
-      }, 100);
-  
+        setIsReady(true);
+      }, 150);
       return () => clearTimeout(timer);
-    }, []);
-  
-    useEffect(() => {
-      // Set ready state after images are loaded and a small delay
-      if (imagesLoaded) {
-        const timer = setTimeout(() => {
-          setIsReady(true);
-        }, 150);
-        return () => clearTimeout(timer);
-      }
-    }, [imagesLoaded]);
+    }
+  }, [imagesLoaded]);
   useGSAP(() => {
     // Hero Section Animations
     const heroElements = [
@@ -544,7 +544,11 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <div className="h-[6vh] bg-[#F1EEE6]"></div>
-      <div className={`hide-initial ${isReady ? 'is-visible' : ''} overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]`}>
+      <div
+        className={`hide-initial ${
+          isReady ? "is-visible" : ""
+        } overflow-hidden flex flex-col items-center min-h-screen w-screen max-w-screen bg-[url('/backgrounds/background-paper.png')] bg-contain bg-center bg-[#F1EEE6]`}
+      >
         <div className="container-landing relative z-10 w-fit h-full flex items-center justify-center">
           <Image
             className="red-bubble z-[8] top-0"
@@ -820,16 +824,17 @@ export default function Home() {
                       height={500}
                       alt="star-card"
                     />
-                    <div className="image-mobile-container bg-cover bg-center w-full h-[5.5rem] bg-gray-200"></div>
+                    <div className="image-mobile-container w-full h-[5.5rem] bg-[url('/home/comp.jpg')] bg-cover bg-no-repeat bg-center"></div>
                     <h1 className="competition-mobile-title-text font-family-impact text-2xl w-full text-left">
-                      HACKATHON 2025
+                      TECHNODAY 2025
                     </h1>
                     <p className="competition-mobile-description-text w-full text-xs">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Dolores, omnis?
+                      Ready to show off your skills? Technoday kembali hadir di
+                      tahun 2025 dengan tema &quot; Stellar Patterns to Real
+                      World Solutions!&quot;
                     </p>
                     <p className="competition-mobile-member-text text-xs text-end w-full">
-                      Team: 3-4 members
+                      Team: 3 Members
                     </p>
                   </div>
                 </div>
@@ -867,7 +872,7 @@ export default function Home() {
               <div className="join-now-text-container absolute w-[350px] h-[120px] bottom-[-5%] left-[47.5%] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
                 <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
                   <h1 className="join-now-text font-family-impact text-6xl text-center text-white">
-                    Join Now
+                    <Link href="/competitions">Join Now</Link>
                   </h1>
                 </div>
               </div>
@@ -895,16 +900,17 @@ export default function Home() {
                   height={500}
                   alt="round-spike"
                 />
-                <div className="image-container bg-gray-300 w-full h-1/2"></div>
+                <div className="image-container bg-gray-300 w-full h-1/2 bg-[url('/home/comp.jpg')] bg-cover bg-no-repeat bg-center"></div>
                 <h1 className="competition-title-text font-family-impact text-4xl">
-                  HACKATHON 2025
+                  TECHNODAY 2025
                 </h1>
                 <p className="competition-description-text text-xl">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, omnis?
+                  Ready to show off your skills? Technoday kembali hadir di
+                  tahun 2025 dengan tema &quot; Stellar Patterns to Real World
+                  Solutions!&quot;
                 </p>
                 <p className="competition-member-text text-xl text-end">
-                  Team: 3-4 members
+                  Team: 3 Members
                 </p>
               </div>
               <Image
@@ -961,9 +967,11 @@ export default function Home() {
           <div className="relative flex justify-center items-center w-full h-full mt-[5rem] sm:mt-[10rem]">
             <div className="explore-button absolute w-[350px] h-[120px] bg-[#0E54B2] p-4 px-8 rounded-2xl z-[2]">
               <div className="bg-[#ED427C] flex items-center justify-center w-full h-full absolute left-[5%] top-[-10%] rounded-2xl z-[-1]">
-                <h1 className="explore-button-text font-family-impact text-6xl text-center text-white">
-                  EXPLORE
-                </h1>
+                <Link href="/activities">
+                  <h1 className="explore-button-text font-family-impact text-6xl text-center text-white">
+                    EXPLORE
+                  </h1>
+                </Link>
               </div>
             </div>
           </div>
