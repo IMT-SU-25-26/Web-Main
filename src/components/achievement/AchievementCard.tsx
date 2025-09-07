@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AchievementCardProps } from "@/types/service/achievement";
@@ -31,11 +31,59 @@ export const AchievementCard = ({
   const pathname = usePathname();
   const [swinging, setSwinging] = useState(false);
 
-  const trimmedDescription =
-    description.length > 75 ? description.slice(0, 75) + "..." : description;
+  // Refs to measure
+  const cardRef = useRef<HTMLAnchorElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const [maxLines, setMaxLines] = useState<number | null>(null);
+
+  const recalcClamp = () => {
+    if (!cardRef.current || !descRef.current) return;
+
+    const card = cardRef.current;
+    const p = descRef.current;
+
+    // Space from top of <p> to bottom of the card
+    const cardRect = card.getBoundingClientRect();
+    const pRect = p.getBoundingClientRect();
+    const bottomPadding = 16; // small safety padding so text doesn't touch the edge
+    const available = Math.max(0, cardRect.bottom - pRect.top - bottomPadding);
+
+    // Compute line-height; fallback if it's "normal"
+    const cs = window.getComputedStyle(p);
+    let lineHeight = parseFloat(cs.lineHeight);
+    if (Number.isNaN(lineHeight)) {
+      const fontSize = parseFloat(cs.fontSize) || 14;
+      lineHeight = fontSize * 1.3; // approximate "leading-snug"
+    }
+
+    const lines = Math.max(1, Math.floor(available / lineHeight));
+    setMaxLines(lines-1);
+  };
+
+  useEffect(() => {
+    // Initial calc after paint (fonts/layout ready)
+    const id = requestAnimationFrame(recalcClamp);
+
+    // Recalc on resize (more reliable than window resize alone)
+    let ro: ResizeObserver | null = null;
+    if (cardRef.current) {
+      ro = new ResizeObserver(recalcClamp);
+      ro.observe(cardRef.current);
+    }
+
+    // Also listen to window resize (orientation changes, etc.)
+    window.addEventListener("resize", recalcClamp);
+
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", recalcClamp);
+      if (ro) ro.disconnect();
+    };
+  }, []);
 
   return (
     <Link
+      ref={cardRef}
       href={`${pathname.replace(/\/$/, "")}/${id}`}
       onMouseLeave={() => {
         setSwinging(true);
@@ -76,8 +124,16 @@ export const AchievementCard = ({
         >
           {type}
         </span>
-        <p className="font-gill mt-1 text-sm text-black leading-snug">
-          {trimmedDescription}
+        <p
+          ref={descRef}
+          className="font-gill mt-1 text-sm text-black leading-snug overflow-hidden text-ellipsis"
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: maxLines ?? "unset",
+          }}
+        >
+          {description}
         </p>
       </div>
     </Link>
