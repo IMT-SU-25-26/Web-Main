@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import PulseForm from "@/components/pulse/Form";
+// import PulseForm from "@/components/pulse/Form";
 import "@/styles/event/pulse/registration.css";
 
 export default function RegisterPage() {
@@ -18,12 +18,36 @@ export default function RegisterPage() {
         />
       </div>
 
+      {/* Registration Closed Message */}
+      <div className="relative z-20 flex items-center justify-center min-h-screen p-4">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 text-center max-w-md mx-auto">
+          <div className="mb-6">
+            <svg className="w-16 h-16 mx-auto text-red-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Registration Closed</h1>
+            <p className="text-gray-600 text-lg">
+              Thank you for your interest! Registration for this event has been closed.
+            </p>
+          </div>
+          <div className="space-y-3 text-sm text-gray-500">
+            <p>Stay tuned for future events and opportunities.</p>
+            <p>Follow our social media for the latest updates!</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 
+      COMMENTED OUT - ORIGINAL REGISTRATION CONTENT
+      
       {/* Animated Fish Elements */}
+      {/*
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 15 }}
       >
         {/* Fish 1 - Bottom Left */}
+        {/*
         <div className="absolute bottom-24 left-1/4 animate-swim-free-1 fish-debug pointer-events-auto">
           <Image
             src="/event/pulse/registration/Fish-1.png"
@@ -35,6 +59,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Fish 2 - Bottom Right */}
+        {/*
         <div className="absolute bottom-48 right-1/12 animate-swim-free-2 fish-debug pointer-events-auto">
           <Image
             src="/event/pulse/registration/Fish-2.png"
@@ -46,6 +71,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Fish 3 - Top Left */}
+        {/*
         <div
           className="absolute top-40 left-1/8 animate-swim-free-3 hidden md:block"
           style={{ animationDelay: "2s" }}
@@ -60,6 +86,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Manta Ray - Top Right */}
+        {/*
         <div className="absolute top-24 right-1/16 transform -translate-x-1/2 animate-manta-glide">
           <Image
             src="/event/pulse/registration/Manta-Ray.png"
@@ -72,11 +99,13 @@ export default function RegisterPage() {
       </div>
 
       {/* Bubble Effects */}
+      {/*
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 5 }}
       >
         {/* Small Bubbles */}
+        {/*
         <div
           className="bubble bubble-small bubble-delay-1"
           style={{ left: "10%" }}
@@ -103,6 +132,7 @@ export default function RegisterPage() {
         ></div>
 
         {/* Medium Bubbles */}
+        {/*
         <div
           className="bubble bubble-medium bubble-delay-1"
           style={{ left: "15%" }}
@@ -121,6 +151,7 @@ export default function RegisterPage() {
         ></div>
 
         {/* Large Bubbles */}
+        {/*
         <div
           className="bubble bubble-large bubble-delay-2"
           style={{ left: "20%" }}
@@ -139,6 +170,7 @@ export default function RegisterPage() {
         ></div>
 
         {/* Extra Small Bubbles */}
+        {/*
         <div
           className="bubble bubble-small bubble-delay-7"
           style={{ left: "32%" }}
@@ -158,11 +190,13 @@ export default function RegisterPage() {
       </div>
 
       {/* Main Content Container */}
+      {/*
       <div className="relative z-20 flex items-center justify-center min-h-screen p-4">
         <PulseForm />
       </div>
 
       {/* Additional Floating Elements */}
+      {/*
       <div className="absolute top-1/3 right-10 z-5 animate-float bubble-effect">
         <div className="w-3 h-3 bg-white/30 rounded-full"></div>
       </div>
@@ -172,6 +206,7 @@ export default function RegisterPage() {
       <div className="absolute bottom-1/3 right-1/3 z-5 animate-float delay-700 bubble-effect">
         <div className="w-4 h-4 bg-cyan-200/30 rounded-full"></div>
       </div>
+      */}
     </div>
   );
 }
