@@ -3,10 +3,9 @@
 import Carousel from "@/components/eventsdetails/Carousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button from "@/components/pulse/Button";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -38,7 +37,7 @@ export default function EventDetailPage({
   const [eventTitle, setEventTitle] = useState<string>("");
   const [eventDate, setEventDate] = useState<string>("");
   const [eventDescription, setEventDescription] = useState<string>("");
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     // Resolve the params promise

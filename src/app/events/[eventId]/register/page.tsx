@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import PulseForm from "@/components/pulse/Form";
+// import PulseForm from "@/components/pulse/Form";
 import "@/styles/event/pulse/registration.css";
 
 export default function RegisterPage() {
