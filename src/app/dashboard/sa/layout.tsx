@@ -55,7 +55,7 @@ export default function SALayoutDashboard({
         <div
           ref={sideNavRef}
           className={`absolute top-0 ${isSideNavOpen ? "left-0" : "-left-full"} 
-            transition-all duration-300 ease-in-out xl:static xl:block h-auto w-[20vw] min-w-[15rem] bg-white z-10`}
+            transition-all duration-300 ease-in-out xl:static xl:block h-auto w-[20vw] min-w-[15rem] min-h-[93.5vh] bg-white z-10`}
         >
           <Image
             className="mx-auto w-[6.5rem] mt-10"
