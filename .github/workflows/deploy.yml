@@ -28,23 +28,29 @@ jobs:
           cd ~/su-imt
 
           # Pull the latest changes from the main branch
-          echo "🚚 Pulling latest code..."
+          echo ""
+          echo "Pulling latest code..."
           git pull origin main
 
           # Install dependencies
-          echo "📦 Installing dependencies..."
+          echo ""
+          echo "Installing dependencies..."
           pnpm install
 
           # Run database migrations
-          echo "🗄️ Running database migrations..."
+          echo ""
+          echo "Running database migrations..."
           pnpm prisma:deploy
 
           # Build the application
-          echo "🔨 Building new version..."
+          echo ""
+          echo "Building new version..."
           pnpm build
 
           # Reload the app with PM2 for zero-downtime
-          echo "🚀 Reloading application..."
+          echo ""
+          echo "Reloading application..."
           pm2 reload next-app
 
+          echo ""
           echo "✅ Deployment finished!"

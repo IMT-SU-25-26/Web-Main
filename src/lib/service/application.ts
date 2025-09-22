@@ -4,7 +4,12 @@ import prisma from "../prisma";
 import { Status } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { ActionResult } from "@/types/action";
-import { Application, ApplicationSchema } from "@/types/service/application";
+import {
+  Application,
+  ApplicationSchema,
+  ApplicationWithDetails,
+} from "@/types/service/application";
+import { getUserById } from "./user";
 
 export async function getApplications(): Promise<Application[]> {
   return await prisma.application.findMany({
@@ -12,11 +17,80 @@ export async function getApplications(): Promise<Application[]> {
   });
 }
 
+export async function getApplicationsWithDetails(): Promise<
+  ApplicationWithDetails[]
+> {
+  const applications = await prisma.application.findMany({
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          phoneNumber: true,
+          nim: true,
+        },
+      },
+      activity: {
+        select: {
+          id: true,
+          title: true,
+          quota: true,
+        },
+      },
+      competition: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  // Transform the data to match ApplicationWithDetails interface
+  return applications.map((app) => ({
+    id: app.id,
+    status: app.status,
+    createdAt: app.createdAt,
+    updatedAt: app.updatedAt,
+    user: app.user,
+    activity: app.activity,
+    competition: app.competition,
+    title: app.user.name || `User ${app.user.id}`, // Required by SearchableItem
+    name: app.user.name || undefined, // Optional fallback
+  }));
+}
+
 export async function getApplicationsByUserId(
   userId: string
 ): Promise<Application[]> {
   return await prisma.application.findMany({
     where: { userId },
+    orderBy: { createdAt: "desc" },
+  });
+}
+
+export async function getUserActivityApplications(
+  userId: string
+): Promise<Application[]> {
+  return await prisma.application.findMany({
+    where: {
+      userId,
+      activityId: { not: null },
+    },
+    orderBy: { createdAt: "desc" },
+  });
+}
+
+export async function getUserCompetitionApplications(
+  userId: string
+): Promise<Application[]> {
+  return await prisma.application.findMany({
+    where: {
+      userId,
+      competitionId: { not: null },
+    },
     orderBy: { createdAt: "desc" },
   });
 }
@@ -79,11 +153,25 @@ export async function createApplication(
   activityId: string
 ): Promise<ActionResult<Application>> {
   try {
-    // Step 1: check existing applications
+    const user = await getUserById(userId);
     const existingApplications = await getApplicationsByUserId(userId);
     const alreadyApplied = existingApplications.some(
       (app) => app.activityId === activityId
     );
+
+    if (!user) {
+      return {
+        success: false,
+        error: "User not found.",
+      };
+    }
+
+    if (!user.nim || !user.phoneNumber) {
+      return {
+        success: false,
+        error: "Please fill your NIM and Phone Number in your dashboard.",
+      };
+    }
 
     if (alreadyApplied) {
       return {
@@ -92,7 +180,6 @@ export async function createApplication(
       };
     }
 
-    // Step 2: validate data
     const rawData = {
       userId,
       activityId,
@@ -107,13 +194,12 @@ export async function createApplication(
         .join(", ");
       return {
         success: false,
-        error: `Validation failed: ${errors}`,
+        error: `${errors}`,
       };
     }
 
     const validatedData = validationResult.data;
 
-    // Step 3: create application
     const application = await prisma.application.create({
       data: {
         userId: validatedData.userId,

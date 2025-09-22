@@ -21,7 +21,7 @@ async function ActivitiesDashboard() {
         <DashboardSearch
           items={activities}
           deleteItem={deleteActivity}
-          label="Activities"
+          label="Activity"
           urlForEdit="/dashboard/sa/activities"
         />
       </div>

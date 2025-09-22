@@ -1,4 +1,4 @@
-import z from "zod";
+import { z } from "zod";
 import { FormProps } from "../action";
 
 export interface Pulse {

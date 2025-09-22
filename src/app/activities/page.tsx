@@ -1,6 +1,6 @@
+import { Category } from "@prisma/client";
 import { getActivities } from "@/lib/service/activity";
 import ClientPageActivities from "@/components/activity/ClientPage";
-import { Category } from "@prisma/client";
 
 export const metadata = {
   title: "Activities",
@@ -12,10 +12,7 @@ export default async function ActivityPage() {
 
   return (
     <>
-      <ClientPageActivities
-        activities={activities}
-        categories={categories}
-      />
+      <ClientPageActivities activities={activities} categories={categories} />
     </>
   );
 }

@@ -33,6 +33,17 @@ enum Category {
   RESEARCH
 }
 
+enum Level {
+  REGIONAL
+  NATIONAL
+  INTERNATIONAL
+}
+
+enum Type {
+  INDIVIDUAL
+  GROUP
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -57,6 +68,7 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
+  
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
@@ -72,28 +84,14 @@ model User {
   id            String        @id @default(cuid())
   name          String?
   email         String?       @unique
-  emailVerified DateTime?
+  nim           String?       @unique
   image         String?
-  role          Role          @default(STUDENT)
+  phoneNumber   String?
   accounts      Account[]
   sessions      Session[]
   applications  Application[]
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
-}
-
-model Activity {
-  id            String        @id @default(cuid())
-  title         String
-  description   String
-  location      String
-  startDate     DateTime
-  creditPoint   Int
-  quota         Int
-  imageUrl      String?
-  imagePublicId String?
-  category      Category
-  applications  Application[]
+  role          Role          @default(STUDENT)
+  emailVerified DateTime?
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 }
@@ -102,41 +100,68 @@ model Achievement {
   id            String   @id @default(cuid())
   title         String
   description   String
-  teamInfo      String   @default("")
-  featured      Boolean  @default(false)
+  teamInfo      String
   imageUrl      String?
   imagePublicId String?
+  featured      Boolean  @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
 
-model Application {
-  id         String   @id @default(cuid())
-  userId     String
-  activityId String
-  status     Status   @default(PENDING)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  activity Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+model Activity {
+  id            String        @id @default(cuid())
+  title         String
+  description   String
+  location      String
+  generation    String?
+  imageUrl      String?
+  imagePublicId String?
+  creditPoint   Int
+  quota         Int
+  category      Category
+  applications  Application[]
+  startDate     DateTime
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 }
 
 model Competition {
-  id            String   @id @default(cuid())
+  id            String        @id @default(cuid())
   name          String
+  organizer     String
   description   String
+  category      String
+  information   String
   imageUrl      String?
   imagePublicId String?
+  type          Type
+  level         Level
+  Application   Application[]
+  endDate       DateTime
+  startDate     DateTime
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Application {
+  id            String   @id @default(cuid())
+  userId        String
+  activityId    String?
+  competitionId String?
+  status        Status   @default(PENDING)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  activity    Activity?    @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  competition Competition? @relation(fields: [competitionId], references: [id], onDelete: Cascade)
 }
 
 model Pulse {
   id                       String   @id @default(cuid())
-  name                     String
   email                    String   @unique
   nim                      String   @unique
+  name                     String
   major                    String
   phoneNumber              String
   lineId                   String

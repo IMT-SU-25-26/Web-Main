@@ -13,6 +13,7 @@ export async function main() {
         description:
           "Learn the fundamentals of web development with HTML, CSS, and JavaScript. Perfect for beginners who want to start their coding journey.",
         location: "Computer Lab A - Building 2",
+        generation: "2025",
         startDate: new Date("2025-09-15T09:00:00Z"),
         creditPoint: 2,
         quota: 30,
@@ -25,6 +26,7 @@ export async function main() {
         description:
           "Discover the world of Artificial Intelligence and Machine Learning. Guest speakers from industry will share their experiences and insights.",
         location: "Auditorium - Main Building",
+        generation: "2025",
         startDate: new Date("2025-09-20T14:00:00Z"),
         creditPoint: 1,
         quota: 100,
@@ -37,6 +39,7 @@ export async function main() {
         description:
           "24-hour coding competition where teams build innovative solutions to real-world problems. Prizes for top 3 teams!",
         location: "Innovation Hub - Building 3",
+        generation: "2025",
         startDate: new Date("2025-10-05T18:00:00Z"),
         creditPoint: 3,
         quota: 80,
@@ -49,6 +52,7 @@ export async function main() {
         description:
           "Deep dive into cloud technologies including AWS, Azure, and Google Cloud Platform. Learn about scalable architecture and deployment strategies.",
         location: "Conference Room 201",
+        generation: "2025",
         startDate: new Date("2025-09-25T13:00:00Z"),
         creditPoint: 1,
         quota: 50,
@@ -61,6 +65,7 @@ export async function main() {
         description:
           "Intensive 3-day bootcamp covering React Native and Flutter development. Build your first mobile app from scratch.",
         location: "Tech Lab - Building 1",
+        generation: "2025",
         startDate: new Date("2025-10-10T09:00:00Z"),
         creditPoint: 4,
         quota: 25,
@@ -73,6 +78,7 @@ export async function main() {
         description:
           "Learn essential research methods and techniques for conducting academic research in computer science and technology fields.",
         location: "Research Center - Building 4",
+        generation: "2025",
         startDate: new Date("2025-09-30T10:00:00Z"),
         creditPoint: 2,
         quota: 20,
@@ -85,6 +91,7 @@ export async function main() {
         description:
           "Present your research findings and learn from peers in this annual symposium showcasing student research projects.",
         location: "Main Auditorium",
+        generation: "2025",
         startDate: new Date("2025-11-15T09:00:00Z"),
         creditPoint: 3,
         quota: 50,
@@ -173,22 +180,43 @@ export async function main() {
     data: [
       {
         name: "Code Challenge 2025",
+        organizer: "IMT Student Union",
         description:
           "Annual programming competition featuring algorithmic challenges and problem-solving tasks. Open to all skill levels.",
+        category: "Programming",
+        information: "Bring your laptop and coding skills. Prizes for top 3 winners!",
+        type: "INDIVIDUAL",
+        level: "NATIONAL",
+        startDate: new Date("2025-10-15T09:00:00Z"),
+        endDate: new Date("2025-10-15T17:00:00Z"),
         imageUrl: null,
         imagePublicId: null,
       },
       {
         name: "Design Thinking Workshop",
+        organizer: "Design Club IMT",
         description:
           "Creative competition focused on user experience design and innovative problem-solving methodologies.",
+        category: "Design",
+        information: "Team-based competition. Max 4 members per team. Design tools will be provided.",
+        type: "GROUP",
+        level: "REGIONAL",
+        startDate: new Date("2025-11-01T10:00:00Z"),
+        endDate: new Date("2025-11-01T16:00:00Z"),
         imageUrl: null,
         imagePublicId: null,
       },
       {
         name: "Tech Startup Pitch",
+        organizer: "Entrepreneurship Center",
         description:
           "Present your startup idea to industry experts and compete for funding opportunities and mentorship.",
+        category: "Business",
+        information: "5-minute pitch + 3-minute Q&A. Business plan submission required.",
+        type: "INDIVIDUAL",
+        level: "INTERNATIONAL",
+        startDate: new Date("2025-11-20T13:00:00Z"),
+        endDate: new Date("2025-11-20T18:00:00Z"),
         imageUrl: null,
         imagePublicId: null,
       },

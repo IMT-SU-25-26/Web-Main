@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,12 +13,17 @@ type ItemsSearchProps<T extends SearchableItem> = {
   items: T[];
   deleteItem: (id: string) => Promise<ActionResult<void>>;
   label: string;
-  urlForEdit:string;
+  urlForEdit: string;
   additionalElements?: React.ReactNode;
 };
 
-
-export default function ItemsSearch<T extends SearchableItem>({ items, deleteItem, label, urlForEdit, additionalElements }: ItemsSearchProps<T>) {
+export default function ItemsSearch<T extends SearchableItem>({
+  items,
+  deleteItem,
+  label,
+  urlForEdit,
+  additionalElements,
+}: ItemsSearchProps<T>) {
   const [confirmId, setConfirmId] = useState<string | null>(null);
 
   const sideNav = useOptionalSideNav();
@@ -56,7 +62,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
         stagger: 0.1,
       }
     );
-    
+
     // Animate all bottom-starting cards
     gsap.fromTo(
       ".start-bottom",
@@ -70,12 +76,15 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
         stagger: 0.1,
       }
     );
-  }, []); 
+  }, []);
 
   return (
     <>
       <div className="h-full w-[90vw] max-w-5xl flex flex-col items-start justify-start z-1 pt-10 gap-2">
-        <h1 className={`font-family-impact text-5xl start-left cursor-pointer xl:cursor-default`} onClick={sideNav?.handleSideNav} >
+        <h1
+          className={`font-family-impact text-5xl start-left cursor-pointer xl:cursor-default`}
+          onClick={sideNav?.handleSideNav}
+        >
           {label}
           {sideNav != null && (
             <Image
@@ -86,14 +95,13 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
               className="inline-block ml-3 cursor-pointer xl:hidden"
             />
           )}
-
         </h1>
         <SearchBar<T>
           items={items}
           className="start-left"
           additionalElements={
             <>
-              <Link href={urlForEdit+"/create"}>
+              <Link href={urlForEdit + "/create"}>
                 <button className="bg-[#E93400] cursor-pointer font-family-gill aspect-square w-10 text-2xl font-bold text-white rounded-full items-center align-middle">
                   +
                 </button>
@@ -109,8 +117,12 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                 <table className="w-full border-collapse table-fixed min-w-[600px]">
                   <thead className="bg-[#0555AB] text-white">
                     <tr className="border-b-2 border-[#003772]">
-                      <th className="w-2/8 border-r-2 border-[#003772] px-4 py-2">ID</th>
-                      <th className="w-4/8 border-r-2 border-[#003772] px-4 py-2">Title</th>
+                      <th className="w-2/8 border-r-2 border-[#003772] px-4 py-2">
+                        ID
+                      </th>
+                      <th className="w-4/8 border-r-2 border-[#003772] px-4 py-2">
+                        Title
+                      </th>
                       <th className="w-2/8 px-4 py-2">Action Buttons</th>
                     </tr>
                   </thead>
@@ -133,7 +145,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                           >
                             <Image
                               src="/achievements/dashboard/pencil-logo.svg"
-                              alt={"Edit "+label}
+                              alt={"Edit " + label}
                               fill
                               className="object-contain py-[0.5rem]"
                             />
@@ -144,7 +156,7 @@ export default function ItemsSearch<T extends SearchableItem>({ items, deleteIte
                           >
                             <Image
                               src="/achievements/dashboard/trash-logo.svg"
-                              alt={`Delete `+ label}
+                              alt={`Delete ` + label}
                               fill
                               className="object-contain py-[0.5rem]"
                             />

@@ -1,4 +1,4 @@
-import z from "zod";
+import { z } from "zod";
 import { Category } from "@prisma/client";
 import { FormProps } from "../action";
 
@@ -7,6 +7,7 @@ export interface Activity {
   title: string;
   description: string;
   location: string;
+  generation: string | null;
   startDate: Date;
   creditPoint: number;
   quota: number;
@@ -21,6 +22,7 @@ export interface ActivityData {
   title: string;
   description: string;
   location: string;
+  generation: string | null;
   startDate: Date;
   creditPoint: number;
   quota: number;
@@ -42,6 +44,15 @@ export const ActivitySchema = z.object({
     .string()
     .min(1, "Location is required")
     .max(100, "Location must be less than 100 characters"),
+
+  generation: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((val) => val || null)
+    .refine((val) => val === null || /^\d{4}$/.test(val), {
+      message: "Generation must be a 4-digit year or null",
+    }),
 
   startDate: z.date({
     message: "Start date must be a valid date",

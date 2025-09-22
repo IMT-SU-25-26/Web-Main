@@ -80,7 +80,7 @@ export default function AchievementForm({ mode, data }: AchievementFormProps) {
   /* Render the Form */
   return (
     /* Form Container */
-    <div className="w-full max-w-2xl mx-auto px-4">
+    <div className="w-full max-w-2xl mx-auto p-8 border-2 border-black rounded-2xl">
       {/* Success Message */}
       {success && (
         <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
