@@ -174,6 +174,7 @@ export default function ApplicationsSearch({
           className="start-left"
           additionalElements={additionalElements}
           isCentered={false}
+          getSearchValue={(application) => getActivityName(application)}
         >
           {(filteredApplications) => (
             <div className="rounded-2xl overflow-hidden start-left border-4 border-[#003772] bg-[#0555AB] w-full mt-5">
