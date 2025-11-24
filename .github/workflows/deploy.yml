@@ -1,6 +1,5 @@
-name: Deploy to Production VPS
+name: Deploy to VPS
 
-# This action runs on every push to the 'main' branch
 on:
   push:
     branches:
@@ -12,45 +11,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: SSH and Deploy
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USERNAME }}
-        key: ${{ secrets.VPS_DEPLOY_KEY }}
-        port: 22
-        script: |
-          # Load NVM
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_DEPLOY_KEY }}
+          port: ${{ vars.VPS_PORT }}
+          script: |
+            echo "🔧 Loading NVM..."
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-          # Navigate to your app directory
-          cd ~/su-imt
+            echo "💡 Using Node 22..."
+            nvm use 22
 
-          # Pull the latest changes from the main branch
-          echo ""
-          echo "Pulling latest code..."
-          git pull origin main
+            echo "📁 Navigating to project directory..."
+            cd ${{ vars.PROJECT_PATH }}
 
-          # Install dependencies
-          echo ""
-          echo "Installing dependencies..."
-          pnpm install
+            echo "📥 Pulling latest changes..."
+            git pull origin main
 
-          # Run database migrations
-          echo ""
-          echo "Running database migrations..."
-          pnpm prisma:deploy
+            echo "📦 Installing dependencies..."
+            pnpm install
 
-          # Build the application
-          echo ""
-          echo "Building new version..."
-          pnpm build
+            echo "🗄️ Running database migrations..."
+            pnpm prisma migrate deploy
 
-          # Reload the app with PM2 for zero-downtime
-          echo ""
-          echo "Reloading application..."
-          pm2 reload next-app
+            echo "🔨 Building new version..."
+            pnpm build
 
-          echo ""
-          echo "✅ Deployment finished!"
+            echo "🔄 Reloading application..."
+            pm2 reload ${{ vars.PM2_APP_NAME }}
+
+            echo "✅ Deployment finished."
