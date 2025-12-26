@@ -1,6 +1,6 @@
 {
-  "name": "su-imt",
-  "version": "0.1.0",
+  "name": "web-main",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -20,7 +20,7 @@
     "@prisma/extension-accelerate": "^2.0.2",
     "dotenv": "^17.2.1",
     "gsap": "^3.13.0",
-    "next": "15.4.8",
+    "next": "15.4.10",
     "next-auth": "^4.24.11",
     "next-cloudinary": "^6.16.0",
     "react": "^19.1.1",
